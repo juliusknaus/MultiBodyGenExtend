@@ -15,6 +15,10 @@ class TrajBatchDisc:
         self.next_states = list(next(self.batch))
         self.rewards = np.stack(next(self.batch))
         self.exps = np.stack(next(self.batch))
+        try:
+            self.agent_ids = np.stack(next(self.batch)).astype(np.int64)
+        except StopIteration:
+            self.agent_ids = np.zeros_like(self.rewards, dtype=np.int64)
 
 
 def init_fc_weights(fc):

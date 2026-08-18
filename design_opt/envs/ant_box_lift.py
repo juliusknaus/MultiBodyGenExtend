@@ -250,7 +250,7 @@ class AntLiftEnv(MujocoEnv, utils.EzPickle):
             if self.clip_qvel:
                 qvel = np.clip(qvel, -10, 10)
             if i == 0:
-                obs_i = [self.data.qpos[2:7], qvel[:6], np.zeros(2)]  # ask sayantan why he thinks it is like that
+                obs_i = [self.data.qpos[2:7], qvel[:6], np.zeros(2)]  # ask sayantan why he thinks it is like that -> he dont know it either bro
             else:
                 qs, qe = get_single_body_qposaddr(self.model, body.name)
                 if qe - qs >= 1:

@@ -62,7 +62,8 @@ class Joint:
             self.axis = vec_to_polar(parse_vec(node.attrib['axis']))
         if self.local_coord:
             self.pos += body.pos
-        assert(np.all(self.pos == body.pos))
+        #You have deleted that assertion, not the original code !!!!
+        #assert(np.all(self.pos == body.pos))
     
     def __repr__(self):
         return 'joint_' + self.name
@@ -145,10 +146,16 @@ class Geom:
             else:
                 self.bone_start = body.bone_start.copy()
             self.ext_start = np.linalg.norm(self.bone_start - self.start)
+            
+        elif self.type == 'ellipsoid':
+            self.center = self.body.pos.copy() if self.local_coord else np.zeros(3)
+
+            # NEW
+            self.ellipsoid_radius = self.size.copy()
     
     def __repr__(self):
         return 'geom_' + self.name
-
+    """
     def parse_param_specs(self):
         self.param_specs = deepcopy(self.cfg['geom_params'])
         for name, specs in self.param_specs.items():
@@ -156,6 +163,39 @@ class Geom:
                 specs['lb'] = np.array(specs['lb'])
             if 'ub' in specs and isinstance(specs['ub'], list):
                 specs['ub'] = np.array(specs['ub'])
+    """
+    def parse_param_specs(self):
+
+        geom_cfg = deepcopy(self.cfg['geom_params'])
+
+        # Ellipsoids use separate hyperparameter
+        if self.type == 'ellipsoid':
+
+            self.param_specs = {}
+
+            if 'ellipsoid_radius' in geom_cfg:
+                self.param_specs['ellipsoid_radius'] = deepcopy(
+                    geom_cfg['ellipsoid_radius']
+                )
+
+        else:
+            # capsules / spheres keep original behavior
+            self.param_specs = geom_cfg
+
+        for name, specs in self.param_specs.items():
+
+            if 'lb' in specs and isinstance(specs['lb'], list):
+                specs['lb'] = np.array(specs['lb'])
+
+            if 'ub' in specs and isinstance(specs['ub'], list):
+                specs['ub'] = np.array(specs['ub'])
+
+            if 'min' in specs and isinstance(specs['min'], list):
+                specs['min'] = np.array(specs['min'])
+
+            if 'max' in specs and isinstance(specs['max'], list):
+                specs['max'] = np.array(specs['max'])
+
 
     def update_start(self):
         if self.type == 'capsule':

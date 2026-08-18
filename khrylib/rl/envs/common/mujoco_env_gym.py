@@ -8,7 +8,8 @@ from os import path
 import gym
 
 try:
-    import mujoco_py
+    import mujoco
+    from mujoco import MjModel, MjData
 except ImportError as e:
     raise error.DependencyNotInstalled("{}. (HINT: you need to install mujoco_py, and also perform the setup instructions here: https://github.com/openai/mujoco-py/.)".format(e))
 
@@ -16,13 +17,21 @@ DEFAULT_SIZE = 500
 
 from khrylib.rl.envs.common.mjviewer import MjViewer
 
+ASSET_ROOT = "/home/juliusk/BodyGen/BodyGenExtend/BodyGenExtend/assets/mujoco_envs"
+
+def fix_mesh_paths(xml_str):
+    xml_str = xml_str.replace(
+        'meshes/',
+        os.path.join(ASSET_ROOT, 'meshes') + '/'
+    )
+    return xml_str
 
 
 def convert_observation_to_space(observation):
     if isinstance(observation, list):
         return None
 
-    if isinstance(observation, dict):
+    if isinstance(observation, dict):   
         space = spaces.Dict(OrderedDict([
             (key, convert_observation_to_space(value))
             for key, value in observation.items()
@@ -42,19 +51,19 @@ class MujocoEnv(gym.Env):
     """
 
     def __init__(self, fullpath, frame_skip, mujoco_xml=None):
-
         if mujoco_xml is not None:
-            self.model = mujoco_py.load_model_from_xml(mujoco_xml)
+            self.model = mujoco.MjModel.from_xml_string(mujoco_xml)
         else:
             if not path.exists(fullpath):
                 # try the default assets path
                 fullpath = path.join(Path(__file__).parent.parent.parent.parent, 'assets/mujoco_models', path.basename(fullpath))
                 if not path.exists(fullpath):
                     raise IOError("File %s does not exist" % fullpath)
-            self.model = mujoco_py.load_model_from_path(fullpath)
+            self.model = mujoco.MjModel.from_xml_path(fullpath)
         self.frame_skip = frame_skip
-        self.sim = mujoco_py.MjSim(self.model)
-        self.data = self.sim.data
+        self.data = mujoco.MjData(self.model)
+        #self.sim = mujoco_py.MjSim(self.model)
+        #self.data = self.sim.data
         self.viewer = None
         self._viewers = {}
 
@@ -63,9 +72,12 @@ class MujocoEnv(gym.Env):
             'video.frames_per_second': int(np.round(1.0 / self.dt))
         }
 
-        self.init_qpos = self.sim.data.qpos.ravel().copy()
-        self.init_qvel = self.sim.data.qvel.ravel().copy()
+        #self.init_qpos = self.sim.data.qpos.ravel().copy()
+        #self.init_qvel = self.sim.data.qvel.ravel().copy()
+        self.init_qpos = self.data.qpos.ravel().copy()
+        self.init_qvel = self.data.qvel.ravel().copy()
         self.is_inited = False
+        
 
         self._set_action_space()
 

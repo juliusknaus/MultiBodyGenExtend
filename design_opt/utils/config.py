@@ -60,6 +60,8 @@ class Config:
         self.max_epoch_num = int(FLAG.get('max_epoch_num', 1000))
         self.seed = FLAG.get('seed', 1)
         self.save_model_interval = FLAG.get('save_model_interval', 100)
+        self.transfer_init_dir = FLAG.get('transfer_init_dir', cfg.get('transfer_init_dir', None))
+        self.transfer_init_checkpoint = FLAG.get('transfer_init_checkpoint', cfg.get('transfer_init_checkpoint', 'best'))
         self.norm_advantage = FLAG.get('norm_advantage', False)
         self.max_grad_norm = FLAG.get('max_grad_norm', 40)
         self.uni_obs_norm = FLAG.get('uni_obs_norm', False)

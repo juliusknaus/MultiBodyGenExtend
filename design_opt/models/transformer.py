@@ -74,6 +74,7 @@ class TransformerSimple(nn.Module):
         self.in_fc = nn.Linear(in_dim, hidden_dim)
         
         if pos_emb_type == "index":
+            
             self.index_embedding = nn.Embedding(256, hidden_dim)
         elif pos_emb_type == "travel":
             self.travel_embedding = nn.Embedding(256, hidden_dim)

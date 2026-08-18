@@ -7,9 +7,16 @@ cfg: null
 render: false
 tmp: false
 num_threads: 20
+#num_threads: 1
 gpu_index: 0
 epoch: '0'
+#epoch: 'best'
 show_noise: false
+
+# Optional transfer initialization for multi-agent runs.
+# Point to a run directory (or models directory) that contains a single-agent checkpoint.
+transfer_init_dir: null
+transfer_init_checkpoint: best
 
 n: 1
 
@@ -30,8 +37,17 @@ value_weightdecay: 0.0
 
 reward_shift: 0.0
 clip_epsilon: 0.2
+#for actual testing
 min_batch_size: 50000
 max_epoch_num: 1000
+
+#for training now
+#min_batch_size: 10000
+#max_epoch_num: 200
+
+#advanced training
+#min_batch_size: 20000
+#max_epoch_num: 500
 mini_batch_size: 2048
 num_optim_epoch: 10
 norm_return : true

@@ -28,7 +28,20 @@ def main_loop(FLAGS):
     np.random.seed(cfg.seed)
     torch.manual_seed(cfg.seed)
 
-    start_epoch = int(FLAGS.epoch) if FLAGS.epoch.isnumeric() else FLAGS.epoch
+    epoch_value = FLAGS.epoch
+    if isinstance(epoch_value, int):
+        start_epoch = epoch_value
+    elif isinstance(epoch_value, str) and epoch_value.isnumeric():
+        start_epoch = int(epoch_value)
+    else:
+        if FLAGS.render:
+            # Rendering can load named checkpoints like "best".
+            start_epoch = epoch_value
+        else:
+            raise ValueError(
+                f"Invalid epoch={epoch_value!r}. For training, pass a numeric epoch "
+                "(example: epoch=600)."
+            )
 
     """create agent"""
     agent = BodyGenAgent(cfg=cfg, dtype=dtype, device=device, seed=cfg.seed, num_threads=FLAGS.num_threads, training=True, checkpoint=start_epoch)    
