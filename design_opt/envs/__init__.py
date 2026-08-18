@@ -28,5 +28,12 @@ env_dict = {
     'swimmer_box': SwimmerPushEnv,
     'ant_box_flip': AntFlipEnv,
     'ant_box_lift': AntLiftEnv,
-    'ant_': AntEnv_
+    'ant_': AntEnv_, 
+    'dex_gripper': DexGripperEnv_,
+    'dex_gripper_stacking': DexGripperStackingEnv,
+    'dex_gripper_holding': DexGripperHoldingEnv,
+    'dex_gripper_multi_grasping': DexGripperMultiGraspingEnv,
+    'dex_gripper_multi_stacking': DexGripperMultiStackingEnv,
+    'dex_gripper_adversarial_push': DexGripperAdversarialPushEnv,
+    'dex_gripper_multi_push': DexGripperMultiPushEnv
 }

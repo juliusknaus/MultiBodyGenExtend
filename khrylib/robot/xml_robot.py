@@ -210,7 +210,11 @@ class Geom:
             start = self.start - self.body.pos if self.local_coord else self.start
             end = self.end - self.body.pos if self.local_coord else self.end
             self.node.attrib['fromto'] = ' '.join([f'{x:.6f}'.rstrip('0').rstrip('.') for x in np.concatenate([start, end])])
-
+        elif self.type == 'ellipsoid':
+            # Optional: add center if needed
+            center = self.center - self.body.pos if self.local_coord else self.center
+            self.node.attrib['center'] = ' '.join([f'{x:.6f}'.rstrip('0').rstrip('.') for x in center])
+    """
     def get_params(self, param_list, get_name=False, pad_zeros=False):
         if 'size' in self.param_specs:
             if get_name:
@@ -222,6 +226,15 @@ class Geom:
                         self.param_specs['size']['ub'] += self.size
                         self.param_specs['size']['lb'] = max(self.param_specs['size']['lb'], self.param_specs['size'].get('min', -np.inf))
                         self.param_specs['size']['ub'] = min(self.param_specs['size']['ub'], self.param_specs['size'].get('max', np.inf))
+                    size = normalize_range(self.size, self.param_specs['size']['lb'], self.param_specs['size']['ub'])
+                    param_list.append(size.flatten())
+
+                elif self.type == 'ellipsoid':
+                    if not self.param_inited and self.param_specs['size'].get('rel', False):
+                        self.param_specs['size']['lb'] += self.size
+                        self.param_specs['size']['ub'] += self.size
+                        self.param_specs['size']['lb'] = np.maximum(self.param_specs['size']['lb'], self.param_specs['size'].get('min', -np.inf))
+                        self.param_specs['size']['ub'] = np.minimum(self.param_specs['size']['ub'], self.param_specs['size'].get('max', np.inf))
                     size = normalize_range(self.size, self.param_specs['size']['lb'], self.param_specs['size']['ub'])
                     param_list.append(size.flatten())
                 elif pad_zeros:
@@ -243,12 +256,137 @@ class Geom:
 
         if not get_name:
             self.param_inited = True
+    """
+    def get_params(self, param_list, get_name=False, pad_zeros=False):
 
+        # -------------------------------------------------
+        # CAPSULE SIZE
+        # -------------------------------------------------
+        if 'size' in self.param_specs:
+            if get_name:
+                if self.type == 'capsule':
+                    param_list.append('size')
+            else:
+                if self.type == 'capsule':
+
+                    if not self.param_inited and self.param_specs['size'].get('rel', False):
+                        self.param_specs['size']['lb'] += self.size
+                        self.param_specs['size']['ub'] += self.size
+
+                        self.param_specs['size']['lb'] = max(
+                            self.param_specs['size']['lb'],
+                            self.param_specs['size'].get('min', -np.inf)
+                        )
+
+                        self.param_specs['size']['ub'] = min(
+                            self.param_specs['size']['ub'],
+                            self.param_specs['size'].get('max', np.inf)
+                        )
+
+                    size = normalize_range(
+                        self.size,
+                        self.param_specs['size']['lb'],
+                        self.param_specs['size']['ub']
+                    )
+
+                    param_list.append(size.flatten())
+
+                elif pad_zeros:
+                    param_list.append(np.zeros(1))
+
+        # -------------------------------------------------
+        # ELLIPSOID RADIUS
+        # -------------------------------------------------
+        if 'ellipsoid_radius' in self.param_specs:
+
+            if get_name:
+
+                if self.type == 'ellipsoid':
+                    param_list += [
+                        'ellipsoid_radius_x',
+                        'ellipsoid_radius_y',
+                        'ellipsoid_radius_z'
+                    ]
+
+            else:
+
+                if self.type == 'ellipsoid':
+
+                    if not self.param_inited and self.param_specs['ellipsoid_radius'].get('rel', False):
+
+                        self.param_specs['ellipsoid_radius']['lb'] += self.ellipsoid_radius
+                        self.param_specs['ellipsoid_radius']['ub'] += self.ellipsoid_radius
+
+                        self.param_specs['ellipsoid_radius']['lb'] = np.maximum(
+                            self.param_specs['ellipsoid_radius']['lb'],
+                            self.param_specs['ellipsoid_radius'].get('min', -np.inf)
+                        )
+
+                        self.param_specs['ellipsoid_radius']['ub'] = np.minimum(
+                            self.param_specs['ellipsoid_radius']['ub'],
+                            self.param_specs['ellipsoid_radius'].get('max', np.inf)
+                        )
+
+                    radius = normalize_range(
+                        self.ellipsoid_radius,
+                        self.param_specs['ellipsoid_radius']['lb'],
+                        self.param_specs['ellipsoid_radius']['ub']
+                    )
+
+                    param_list.append(radius.flatten())
+
+                elif pad_zeros:
+                    param_list.append(np.zeros(3))
+
+        # -------------------------------------------------
+        # CAPSULE EXT_START
+        # -------------------------------------------------
+        if 'ext_start' in self.param_specs:
+
+            if get_name:
+                param_list.append('ext_start')
+
+            else:
+
+                if self.type == 'capsule':
+
+                    if not self.param_inited and self.param_specs['ext_start'].get('rel', False):
+
+                        self.param_specs['ext_start']['lb'] += self.ext_start
+                        self.param_specs['ext_start']['ub'] += self.ext_start
+
+                        self.param_specs['ext_start']['lb'] = max(
+                            self.param_specs['ext_start']['lb'],
+                            self.param_specs['ext_start'].get('min', -np.inf)
+                        )
+
+                        self.param_specs['ext_start']['ub'] = min(
+                            self.param_specs['ext_start']['ub'],
+                            self.param_specs['ext_start'].get('max', np.inf)
+                        )
+
+                    ext_start = normalize_range(
+                        self.ext_start,
+                        self.param_specs['ext_start']['lb'],
+                        self.param_specs['ext_start']['ub']
+                    )
+
+                    param_list.append(ext_start.flatten())
+
+                elif pad_zeros:
+                    param_list.append(np.zeros(1))
+
+        if not get_name:
+            self.param_inited = True
+    """
     def set_params(self, params, pad_zeros=False):
         if 'size' in self.param_specs:
             if self.type == 'capsule':
                 self.size = denormalize_range(params[[0]], self.param_specs['size']['lb'], self.param_specs['size']['ub'])
                 params = params[1:]
+            elif self.type == 'ellipsoid':
+                self.size = denormalize_range(params[:3], self.param_specs['size']['lb'], self.param_specs['size']['ub'])
+                params = params[3:]
             elif pad_zeros:
                 params = params[1:]
         if 'ext_start' in self.param_specs:
@@ -258,7 +396,69 @@ class Geom:
             elif pad_zeros:
                 params = params[1:]
         return params
+    """
 
+    def set_params(self, params, pad_zeros=False):
+
+        # -------------------------------------------------
+        # CAPSULE SIZE
+        # -------------------------------------------------
+        if 'size' in self.param_specs:
+
+            if self.type == 'capsule':
+
+                self.size = denormalize_range(
+                    params[[0]],
+                    self.param_specs['size']['lb'],
+                    self.param_specs['size']['ub']
+                )
+
+                params = params[1:]
+
+            elif pad_zeros:
+                params = params[1:]
+
+        # -------------------------------------------------
+        # ELLIPSOID RADIUS
+        # -------------------------------------------------
+        if 'ellipsoid_radius' in self.param_specs:
+
+            if self.type == 'ellipsoid':
+
+                self.ellipsoid_radius = denormalize_range(
+                    params[:3],
+                    self.param_specs['ellipsoid_radius']['lb'],
+                    self.param_specs['ellipsoid_radius']['ub']
+                )
+
+                # IMPORTANT:
+                # MuJoCo ellipsoid size IS the radius vector
+                self.size = self.ellipsoid_radius.copy()
+
+                params = params[3:]
+
+            elif pad_zeros:
+                params = params[3:]
+
+        # -------------------------------------------------
+        # CAPSULE EXT_START
+        # -------------------------------------------------
+        if 'ext_start' in self.param_specs:
+
+            if self.type == 'capsule':
+
+                self.ext_start = denormalize_range(
+                    params[[0]],
+                    self.param_specs['ext_start']['lb'],
+                    self.param_specs['ext_start']['ub']
+                )
+
+                params = params[1:]
+
+            elif pad_zeros:
+                params = params[1:]
+
+        return params
 
 class Actuator:
 
@@ -337,7 +537,7 @@ class Body:
         else:
             self.bone_start = self.pos.copy()
         self.joints = [Joint(x, self) for x in node.findall('joint[@type="hinge"]')] + [Joint(x, self) for x in node.findall('joint[@type="free"]')]
-        self.geoms = [Geom(x, self) for x in node.findall('geom[@type="capsule"]')] + [Geom(x, self) for x in node.findall('geom[@type="sphere"]')]
+        self.geoms = [Geom(x, self) for x in node.findall('geom[@type="capsule"]')] + [Geom(x, self) for x in node.findall('geom[@type="sphere"]')] + [Geom(x, self) for x in node.findall('geom[@type="ellipsoid"]')]
         self.parse_param_specs()
         self.param_inited = False
         # parameters
@@ -622,8 +822,8 @@ class Robot:
         return etree.tostring(self.tree, pretty_print=True)
 
     def demap_params(self, params):
-        if not np.all((params <= 1.0) & (params >= -1.0)):
-            print(f'param out of bounds: {params}')
+        #if not np.all((params <= 1.0) & (params >= -1.0)):
+        #    print(f'param out of bounds: {params}')
         params = np.clip(params, -1.0, 1.0)
         if self.param_mapping == 'sin':
             params = np.arcsin(params) / (0.5 * np.pi)

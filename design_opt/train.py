@@ -50,7 +50,7 @@ def main_loop(FLAGS):
         agent.pre_epoch_update(start_epoch)
         agent.sample(1e8, mean_action=not FLAGS.show_noise, render=True)
     else:
-        for epoch in range(start_epoch, cfg.max_epoch_num):          
+        for epoch in range(start_epoch, cfg.max_epoch_num):    
             agent.optimize(epoch)
             agent.save_checkpoint(epoch)
 

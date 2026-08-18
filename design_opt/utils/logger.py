@@ -90,4 +90,17 @@ class LoggerRLV1(LoggerRL):
         logger = super().merge(logger_list, **kwargs)
         logger.avg_exec_reward = logger.stats_loggers['exec_reward'].avg()
         logger.avg_exec_episode_reward = logger.stats_loggers['exec_episode_reward'].avg()
+        logger.avg_adv_min_exec_episode_reward = logger.stats_loggers['adv_min_exec_episode_reward'].avg()
+        logger.avg_agent_exec_episode_rewards = logger.stats_loggers['agent_exec_episode_reward'].avg()
+        for name in cls.REWARD_COMPONENT_NAMES:
+            setattr(
+                logger,
+                f'avg_exec_{name}_reward',
+                logger.stats_loggers[f'exec_{name}_reward'].avg(),
+            )
+            setattr(
+                logger,
+                f'avg_exec_episode_{name}_reward',
+                logger.stats_loggers[f'exec_episode_{name}_reward'].avg(),
+            )
         return logger

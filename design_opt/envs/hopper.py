@@ -4,7 +4,7 @@ from khrylib.rl.envs.common.mujoco_env_gym import MujocoEnv
 from khrylib.robot.xml_robot import Robot
 from khrylib.utils import get_single_body_qposaddr, get_graph_fc_edges
 from copy import deepcopy
-import mujoco_py
+import mujoco
 import time
 import os
 

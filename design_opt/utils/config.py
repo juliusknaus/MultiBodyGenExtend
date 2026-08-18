@@ -81,6 +81,7 @@ class Config:
 
         # env
         self.env_name = cfg.get('env_name', 'hopper')
+        self.benchmark = bool(FLAG.get('benchmark', cfg.get('benchmark', False)))
         self.done_condition = cfg.get('done_condition', dict())
         self.env_specs = cfg.get('env_specs', dict())
         self.reward_specs = cfg.get('reward_specs', dict())

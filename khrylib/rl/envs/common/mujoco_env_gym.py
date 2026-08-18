@@ -104,23 +104,57 @@ class MujocoEnv(gym.Env):
     def seed(self, seed=None):
         self.np_random, seed = seeding.np_random(seed)
         return [seed]
-
+    """
     def reload_sim_model(self, xml_str):
-        del self.sim
+        #del self.sim
         del self.model
         del self.data
         del self.viewer
         del self._viewers
-        self.model = mujoco_py.load_model_from_xml(xml_str)
-        self.sim = mujoco_py.MjSim(self.model)
-        self.data = self.sim.data
-        self.init_qpos = self.sim.data.qpos.copy()
-        self.init_qvel = self.sim.data.qvel.copy()
+        #self.model = mujoco_py.load_model_from_xml(xml_str)
+        #self.sim = mujoco_py.MjSim(self.model)
+        #self.data = self.sim.data
+        self.model = mujoco.MjModel.from_xml_string(xml_str)
+        self.data = mujoco.MjData(self.model)
+        self.init_qpos = self.data.qpos.copy()
+        self.init_qvel = self.data.qvel.copy()
         self.viewer = None
         self._viewers = {}
+    """
+    def reload_sim_model(self, xml_str):
 
-    # methods to override:
-    # ----------------------------
+        # 🔥 NEW: clean renderer FIRST
+        if hasattr(self, "_renderer"):
+            try:
+                self._renderer.close()
+            except:
+                pass
+            del self._renderer
+
+        # Clean up old objects
+        del self.data
+        del self.model
+
+        try:
+            #self.model = mujoco.MjModel.from_xml_string(xml_str)
+            xml_str_fixed = fix_mesh_paths(xml_str)
+            self.model = mujoco.MjModel.from_xml_string(xml_str_fixed)
+            self.data = mujoco.MjData(self.model)
+
+        except Exception as e:
+            print("\n🚨 XML PARSING FAILED 🚨")
+            print(e)
+            print("\n--- Problematic XML ---\n")
+            print(xml_str)
+            raise
+
+        # Reinitialize state
+        self.init_qpos = self.data.qpos.copy()
+        self.init_qvel = self.data.qvel.copy()
+
+        # Reset viewer (this is fine, keep it)
+        self.viewer = None
+        self._viewers = {}
 
     def reset_model(self):
         """
@@ -140,27 +174,32 @@ class MujocoEnv(gym.Env):
     # -----------------------------
 
     def reset(self):
-        self.sim.reset()
+        mujoco.mj_resetData(self.model, self.data)
         ob = self.reset_model()
         return ob
 
     def set_state(self, qpos, qvel):
         assert qpos.shape == (self.model.nq,) and qvel.shape == (self.model.nv,)
+        """
         old_state = self.sim.get_state()
         new_state = mujoco_py.MjSimState(old_state.time, qpos, qvel,
                                          old_state.act, old_state.udd_state)
         self.sim.set_state(new_state)
         self.sim.forward()
+        """
+        self.data.qpos[:] = qpos
+        self.data.qvel[:] = qvel
+        mujoco.mj_forward(self.model, self.data)
 
     @property
     def dt(self):
         return self.model.opt.timestep * self.frame_skip
 
     def do_simulation(self, ctrl, n_frames):
-        self.sim.data.ctrl[:] = ctrl
+        self.data.ctrl[:] = ctrl
         for _ in range(n_frames):
-            self.sim.step()
-
+            mujoco.mj_step(self.model, self.data)
+    """
     def render(self,
                mode='human',
                width=DEFAULT_SIZE,
@@ -176,26 +215,65 @@ class MujocoEnv(gym.Env):
             if no_camera_specified:
                 camera_name = 'track'
 
-            if camera_id is None and camera_name in self.model._camera_name2id:
-                camera_id = self.model.camera_name2id(camera_name)
+            if camera_id is None and camera_name in self.model.camera_name2id:
+                camera_id = self.model.camera_name2id[camera_name]
 
-            self._get_viewer(mode).render(width, height, camera_id=camera_id)
+            # Create renderer on demand
+            if not hasattr(self, "_renderer"):
+                self._renderer = mujoco.Renderer(self.model, height=height, width=width)
 
-        if mode == 'rgb_array':
-            # window size used for old mujoco-py:
-            data = self._get_viewer(mode).read_pixels(width, height, depth=False)
-            # original image is upside-down, so flip it
-            return data[::-1, :, :]
-        elif mode == 'depth_array':
-            self._get_viewer(mode).render(width, height)
-            # window size used for old mujoco-py:
-            # Extract depth part of the read_pixels() tuple
-            data = self._get_viewer(mode).read_pixels(width, height, depth=True)[1]
-            # original image is upside-down, so flip it
-            return data[::-1, :]
+            self._renderer.update_scene(self.data, camera=camera_id)
+
+            if mode == 'rgb_array':
+                return self._renderer.render()
+            elif mode == 'depth_array':
+                return self._renderer.render_depth()
         elif mode == 'human':
             self._get_viewer(mode).render()
+    """
+    def render(
+        self,
+        mode="human",
+        width=DEFAULT_SIZE,
+        height=DEFAULT_SIZE,
+        camera_id=None,
+        camera_name=None,
+    ):  
+        import mujoco
+        
+        if mode == "human":
+            # Launch passive viewer once
+            if self.viewer is None:
+                import mujoco.viewer
+                self.viewer = mujoco.viewer.launch_passive(self.model, self.data)
+            return
 
+        elif mode in ["rgb_array", "depth_array"]:
+            
+            # Create renderer on demand
+            if not hasattr(self, "_renderer"):
+                self._renderer = mujoco.Renderer(self.model, height=height, width=width)
+
+            if camera_name is not None:
+                camera_id = mujoco.mj_name2id(
+                    self.model,
+                    mujoco.mjtObj.mjOBJ_CAMERA,
+                    camera_name
+                )
+
+            # Ensure valid default
+            if camera_id is None:
+                camera_id = -1
+            
+            # Update scene with determined camera
+            self._renderer.update_scene(self.data, camera=camera_id)
+
+            if mode == "rgb_array":
+                return self._renderer.render()
+
+            elif mode == "depth_array":
+                return self._renderer.render(depth=True)
+    
     def close(self):
         if self.viewer is not None:
             # self.viewer.finish()
@@ -206,34 +284,76 @@ class MujocoEnv(gym.Env):
         self.viewer = self._viewers.get(mode)
         if self.viewer is None:
             if mode == 'human':
-                self.viewer = MjViewer(self.sim)
+                self.viewer = mujoco.viewer.launch_passive(self.model, self.data)
             elif mode == 'rgb_array' or mode == 'depth_array':
-                self.viewer = mujoco_py.MjRenderContextOffscreen(self.sim, -1)
+                #self.viewer = mujoco_py.MjRenderContextOffscreen(self.sim, -1)
+                self.viewer = mujoco.viewer.launch_passive(self.model, self.data)
+
+            self._viewers[mode] = self.viewer
+        self.viewer_setup()
+        
+    """
+    def _get_viewer(self, mode):
+        self.viewer = self._viewers.get(mode)
+        if self.viewer is None:
+            if mode == 'human':
+                self.viewer = mujoco.viewer.launch_passive(self.model, self.data)
+            elif mode == 'rgb_array' or mode == 'depth_array':
+                #self.viewer = mujoco_py.MjRenderContextOffscreen(self.sim, -1)
+                self.viewer = mujoco.viewer.launch_passive(self.model, self.data)
 
             self._viewers[mode] = self.viewer
         self.viewer_setup()
         return self.viewer
+    """
 
     def set_custom_key_callback(self, key_func):
         self._get_viewer('human').custom_key_callback = key_func
+    """
+    def get_body_com(self, body_name):
+        #return self.data.get_body_xpos(body_name)
+    """
 
     def get_body_com(self, body_name):
-        return self.data.get_body_xpos(body_name)
+        body_id = mujoco.mj_name2id(
+            self.model,
+            mujoco.mjtObj.mjOBJ_BODY,
+            body_name
+        )
+        return self.data.xpos[body_id].copy()
 
     def state_vector(self):
         return np.concatenate([
-            self.sim.data.qpos.flat,
-            self.sim.data.qvel.flat
+            self.data.qpos.flat,
+            self.data.qvel.flat
         ])
-
+    """
     def vec_body2world(self, body_name, vec):
         body_xmat = self.data.get_body_xmat(body_name)
         vec_world = (body_xmat @ vec[:, None]).ravel()
         return vec_world
-
+    """
+    def vec_body2world(self, body_name, vec):
+        body_id = mujoco.mj_name2id(
+            self.model,
+            mujoco.mjtObj.mjOBJ_BODY,
+            body_name
+        )
+        body_xmat = self.data.xmat[body_id].reshape(3, 3)
+        return (body_xmat @ vec.reshape(3, 1)).ravel()
+    """
     def pos_body2world(self, body_name, pos):
         body_xpos = self.data.get_body_xpos(body_name)
         body_xmat = self.data.get_body_xmat(body_name)
         pos_world = (body_xmat @ pos[:, None]).ravel() + body_xpos
         return pos_world
-
+    """
+    def pos_body2world(self, body_name, pos):
+        body_id = mujoco.mj_name2id(
+            self.model,
+            mujoco.mjtObj.mjOBJ_BODY,
+            body_name
+        )
+        body_xpos = self.data.xpos[body_id]
+        body_xmat = self.data.xmat[body_id].reshape(3, 3)
+        return (body_xmat @ pos.reshape(3, 1)).ravel() + body_xpos

@@ -1412,12 +1412,23 @@ class BodyGenAgent(AgentPPO):
         if (cfg.save_model_interval > 0 and (epoch+1) % cfg.save_model_interval == 0) or \
            (additional_saves is not None and (epoch+1) % additional_saves[0] == 0 and epoch+1 <= additional_saves[1]):
             self.tb_logger.flush()
-            save('%s/epoch_%04d.p' % (cfg.model_dir, epoch + 1))
-        if self.save_best_flag:
+            save_checkpoint_to_targets('epoch_%04d.p' % (epoch + 1))
+        if is_multi_case:
+            improved_agent_ids = [aid for aid, improved in enumerate(self.save_best_agent_flags) if improved]
+            for aid in improved_agent_ids:
+                self.tb_logger.flush()
+                self.logger.info(f'save best checkpoint for agent {aid} with rewards {self.best_agent_rewards[aid]:.2f}!')
+                save_checkpoint_to_targets(f'best_agent_{aid}.p', lambda cp_path, aid=aid: save_agent(cp_path, aid))
+            if improved_agent_ids:
+                self.save_best_flag = True
+                self.tb_logger.flush()
+                self.logger.info(f'save best checkpoint with rewards {self.best_rewards:.2f}!')
+                save_checkpoint_to_targets('best.p')
+        elif self.save_best_flag:
             self.tb_logger.flush()
             self.logger.info(f'save best checkpoint with rewards {self.best_rewards:.2f}!')
-            save('%s/best.p' % cfg.model_dir)
-
+            save_checkpoint_to_targets('best.p')
+    """
     def log_optimize_policy(self, epoch, info):
         cfg = self.cfg
         log, log_eval = info['log'], info['log_eval']
@@ -1441,6 +1452,10 @@ class BodyGenAgent(AgentPPO):
         tb_logger.add_scalar('exec_R_avg', log_eval.avg_exec_reward, epoch)
         tb_logger.add_scalar('exec_R_eps_avg', log_eval.avg_exec_episode_reward, epoch)
         tb_logger.add_scalar('reward_shift', self.cfg.reward_shift, epoch)
+        #tb_logger.add_scalar('value_fnc', log.value_fnc, epoch)
+        #tb_logger.add_scalar('loss', log.loss, epoch)
+        #tb_logger.add_scalar('gradient norms', log.gradient_norms, epoch)
+        #tb_logger.add_scalar('advantage_fnc', log.advantage_fnc, epoch)
         
         if self.cfg.enable_wandb:                                               # TODO in case I need different logs
             wandb.log({
@@ -1453,7 +1468,146 @@ class BodyGenAgent(AgentPPO):
                 'exec_R_eps_avg': log_eval.avg_exec_episode_reward,
                 'reward_shift': self.cfg.reward_shift 
             }, step = epoch * self.cfg.min_batch_size)
+    """
 
+    def log_optimize_policy(self, epoch, info):
+        cfg = self.cfg
+        log, log_eval = info['log'], info['log_eval']
+        logger, tb_logger = self.logger, self.tb_logger
+        is_adversarial_case = self._is_adversarial_case()
+
+        if is_adversarial_case:
+            checkpoint_metric = getattr(log_eval, 'avg_adv_min_exec_episode_reward', log_eval.avg_exec_episode_reward)
+            checkpoint_metric_name = 'adv_min_exec_R_eps'
+            log_str = (
+                f'{epoch}\tT_sample {info["T_sample"]:.2f}\tT_update {info["T_update"]:.2f}\t'
+                f'T_eval {info["T_eval"]:.2f}\tETA {get_eta_str(epoch, cfg.max_epoch_num, info["T_total"])}\t'
+                f'train_R {log.avg_reward:.2f}\ttrain_R_eps {log.avg_episode_reward:.2f}\t'
+                f'exec_R {log_eval.avg_exec_reward:.2f}\texec_R_eps {log_eval.avg_exec_episode_reward:.2f}\t'
+                f'{checkpoint_metric_name} {checkpoint_metric:.2f}\t{cfg.id}'
+            )
+        else:
+            checkpoint_metric = log_eval.avg_exec_episode_reward
+            checkpoint_metric_name = 'exec_R_eps'
+            log_str = (
+                f'{epoch}\tT_sample {info["T_sample"]:.2f}\tT_update {info["T_update"]:.2f}\t'
+                f'T_eval {info["T_eval"]:.2f}\tETA {get_eta_str(epoch, cfg.max_epoch_num, info["T_total"])}\t'
+                f'train_R {log.avg_reward:.2f}\ttrain_R_eps {log.avg_episode_reward:.2f}\t'
+                f'exec_R {log_eval.avg_exec_reward:.2f}\texec_R_eps {log_eval.avg_exec_episode_reward:.2f}\t{cfg.id}'
+            )
+
+        logger.info(log_str)
+
+        if self._is_multi_agent_case():
+            prev_best_rewards = self.best_rewards
+            per_agent_rewards = getattr(log_eval, 'avg_agent_exec_episode_rewards', None)
+            if per_agent_rewards is None or len(per_agent_rewards) < self.num_agents:
+                per_agent_rewards = [float(log_eval.avg_exec_episode_reward)] * self.num_agents
+            for aid in range(self.num_agents):
+                current_reward = float(per_agent_rewards[aid]) if aid < len(per_agent_rewards) else float(log_eval.avg_exec_episode_reward)
+                if current_reward > self.best_agent_rewards[aid]:
+                    self.best_agent_rewards[aid] = current_reward
+                    self.save_best_agent_flags[aid] = True
+                else:
+                    self.save_best_agent_flags[aid] = False
+            if checkpoint_metric > prev_best_rewards:
+                self.best_rewards = checkpoint_metric
+            self.save_best_flag = any(self.save_best_agent_flags) or checkpoint_metric > prev_best_rewards
+        elif checkpoint_metric > self.best_rewards:
+            self.best_rewards = checkpoint_metric
+            self.save_best_flag = True
+        else:
+            self.save_best_flag = False
+
+        tb_logger.add_scalar('train_R_avg', log.avg_reward, epoch)
+        tb_logger.add_scalar('policy_learning_rate', self.optimizer_policy.param_groups[0]["lr"], epoch)
+        tb_logger.add_scalar('value_learning_rate', self.optimizer_value.param_groups[0]["lr"], epoch)
+        tb_logger.add_scalar('train_R_eps_avg', log.avg_episode_reward, epoch)
+        tb_logger.add_scalar('eval_R_eps_avg', log_eval.avg_episode_reward, epoch)
+        tb_logger.add_scalar('exec_R_avg', log_eval.avg_exec_reward, epoch)
+        tb_logger.add_scalar('exec_R_eps_avg', log_eval.avg_exec_episode_reward, epoch)
+        if is_adversarial_case:
+            tb_logger.add_scalar('adv_min_exec_R_eps_avg', checkpoint_metric, epoch)
+        tb_logger.add_scalar('reward_shift', self.cfg.reward_shift, epoch)
+
+        # --- new values from self.info ---
+        values_fn = info.get('values_fn', None)
+        grad_norm = info.get('grad_norm', None)
+        advantage_fn = info.get('advantage_fn', None)
+        loss = info.get('loss', None)
+
+        if values_fn is not None:
+            tb_logger.add_scalar('values_fn_mean', values_fn.mean().item(), epoch)
+            tb_logger.add_scalar('values_fn_std', values_fn.std().item(), epoch)
+            tb_logger.add_histogram('values_fn_hist', values_fn, epoch)
+
+        if advantage_fn is not None:
+            tb_logger.add_scalar('advantage_fn_mean', advantage_fn.mean().item(), epoch)
+            tb_logger.add_scalar('advantage_fn_std', advantage_fn.std().item(), epoch)
+            tb_logger.add_histogram('advantage_fn_hist', advantage_fn, epoch)
+
+        if grad_norm is not None:
+            tb_logger.add_scalar('grad_norm', grad_norm, epoch)
+
+        if loss is not None:
+            tb_logger.add_scalar('loss', loss, epoch)
+
+        for name in self.logger_cls.REWARD_COMPONENT_NAMES:
+            train_step_value = getattr(log, f'avg_exec_{name}_reward', 0.0)
+            train_episode_value = getattr(log, f'avg_exec_episode_{name}_reward', 0.0)
+            eval_step_value = getattr(log_eval, f'avg_exec_{name}_reward', 0.0)
+            eval_episode_value = getattr(log_eval, f'avg_exec_episode_{name}_reward', 0.0)
+
+            tb_logger.add_scalar(f'train_exec_{name}_reward_avg', train_step_value, epoch)
+            tb_logger.add_scalar(f'train_exec_{name}_reward_eps_avg', train_episode_value, epoch)
+            tb_logger.add_scalar(f'eval_exec_{name}_reward_avg', eval_step_value, epoch)
+            tb_logger.add_scalar(f'eval_exec_{name}_reward_eps_avg', eval_episode_value, epoch)
+
+        if self.cfg.enable_wandb:
+            wandb_log = {
+                'train_R_avg': log.avg_reward,
+                'policy_learning_rate': self.optimizer_policy.param_groups[0]["lr"],
+                'value_learning_rate': self.optimizer_value.param_groups[0]["lr"],
+                'train_R_eps_avg': log.avg_episode_reward,
+                'eval_R_eps_avg': log_eval.avg_episode_reward,
+                'exec_R_avg': log_eval.avg_exec_reward,
+                'exec_R_eps_avg': log_eval.avg_exec_episode_reward,
+                'reward_shift': self.cfg.reward_shift,
+            }
+            if is_adversarial_case:
+                wandb_log['adv_min_exec_R_eps_avg'] = checkpoint_metric
+
+            for name in self.logger_cls.REWARD_COMPONENT_NAMES:
+                train_step_value = getattr(log, f'avg_exec_{name}_reward', 0.0)
+                train_episode_value = getattr(log, f'avg_exec_episode_{name}_reward', 0.0)
+                eval_step_value = getattr(log_eval, f'avg_exec_{name}_reward', 0.0)
+                eval_episode_value = getattr(log_eval, f'avg_exec_episode_{name}_reward', 0.0)
+                wandb_log[f'train_exec_{name}_reward_avg'] = train_step_value
+                wandb_log[f'train_exec_{name}_reward_eps_avg'] = train_episode_value
+                wandb_log[f'eval_exec_{name}_reward_avg'] = eval_step_value
+                wandb_log[f'eval_exec_{name}_reward_eps_avg'] = eval_episode_value
+
+            if values_fn is not None:
+                wandb_log['values_fn_mean'] = values_fn.mean().item()
+                wandb_log['values_fn_std'] = values_fn.std().item()
+                wandb_log['values_fn_hist'] = wandb.Histogram(values_fn.detach().cpu().numpy())
+
+            if advantage_fn is not None:
+                wandb_log['advantage_fn_mean'] = advantage_fn.mean().item()
+                wandb_log['advantage_fn_std'] = advantage_fn.std().item()
+                wandb_log['advantage_fn_hist'] = wandb.Histogram(advantage_fn.detach().cpu().numpy())
+
+            if grad_norm is not None:
+                wandb_log['grad_norm'] = grad_norm
+
+            if loss is not None:
+                wandb_log['loss'] = loss
+
+            wandb.log(wandb_log, step=epoch * self.cfg.min_batch_size)
+
+
+
+            
     def visualize_agent(self, num_episode=1, mean_action=True, save_video=False, pause_design=False, max_num_frames=1000):
         fr = 0
         env = self.env
@@ -1478,6 +1632,8 @@ class BodyGenAgent(AgentPPO):
                 with torch.no_grad():
                     action = self.policy_net.select_action(state_var, mean_action).numpy().astype(np.float64)
                 next_state, env_reward, termination, truncation, info = env.step(action)
+
+                
                 done = (termination or truncation)
                 
                 if t < self.cfg.skel_transform_nsteps + 1:
@@ -1505,7 +1661,7 @@ class BodyGenAgent(AgentPPO):
             save_video_ffmpeg(f'{frame_dir}/%04d.png', f'out/videos/{self.cfg.id}.mp4', fps=30)
             shutil.rmtree(frame_dir)
 
-    def eval_data(self, out_csv_path, mean_action=True, duration_sec=30):
+    def eval_data(self, out_csv_path, mean_action=True, duration_sec=30, out_plot_dir=None):
 
         env = self.env
 
@@ -1535,7 +1691,7 @@ class BodyGenAgent(AgentPPO):
 
         joint_info = []
         for i in range(model.njnt):
-            name = model.joint_id2name(i)
+            name = model.joint(i).name
             jtype = int(model.jnt_type[i])
             qpos_start = int(model.jnt_qposadr[i])
             qvel_start = int(model.jnt_dofadr[i])
@@ -1567,6 +1723,8 @@ class BodyGenAgent(AgentPPO):
         # timestep und Schrittezahlen jetzt aus *aktuellem* Model
         timestep = model.opt.timestep
         max_steps = int(duration_sec / timestep)
+
+        eval_rows = []
 
         with open(out_csv_path, "w", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
@@ -1602,16 +1760,32 @@ class BodyGenAgent(AgentPPO):
                 ])
                 f.flush()
 
+                eval_rows.append({
+                    'step': int(step),
+                    'reward': float(reward),
+                    'done': bool(done),
+                    'sim_time': float(sim_time),
+                    'obs': list(state),
+                    'action': action.tolist(),
+                    'qpos': qpos.tolist(),
+                    'qvel': qvel.tolist(),
+                })
+
                 if done:
                     break
                 state = next_state
 
+        if out_plot_dir is not None:
+            self._plot_eval_rows(eval_rows, out_plot_dir)
 
 
-    def visualize_agent_video(self, video_dir, num_episode=1, mean_action=True, max_num_frames=500):        
+
+    def visualize_agent_video(self, video_dir, num_episode=1, mean_action=True, max_num_frames=500):       
                 
         width = 1600
         height = 900
+        width = 640
+        height = 480
         fr = 0
         env = self.env
         if hasattr(self.env, 'np_random'):
@@ -1620,6 +1794,16 @@ class BodyGenAgent(AgentPPO):
         fps=30
         #skip_frames = int(0.01 / timestep)
         skip_frames = 1
+
+        env_name = str(getattr(self.cfg, 'env_name', '')).lower()
+        is_multi_case = self._is_multi_agent_case()
+        benchmark_mode = self._is_benchmark_mode()
+        print("Benchmark: ", benchmark_mode)
+        viz_agent_id = 0
+        multi_has_track_camera = True
+        multi_track_cam_id = None
+        multi_track_cam_base_pos = None
+        multi_track_cam_base_quat = None
         
         if self.cfg.uni_obs_norm:
             self.obs_norm.eval()
@@ -1627,35 +1811,211 @@ class BodyGenAgent(AgentPPO):
 
         frame_dir = f'{video_dir}/frames'
         os.makedirs(frame_dir, exist_ok=True)
+        plot_dir = f'{video_dir}/plots'
+        os.makedirs(plot_dir, exist_ok=True)
+        reward_series = {}
+        episode_reward_series = {}
 
-        for _ in range(num_episode):
-            state = env.reset()
+        if is_multi_case:
+            try:
+                multi_track_cam_id = env.model.camera('track').id
+                multi_has_track_camera = True
+                multi_track_cam_base_pos = env.model.cam_pos[multi_track_cam_id].copy()
+                multi_track_cam_base_quat = env.model.cam_quat[multi_track_cam_id].copy()
+            except KeyError:
+                multi_has_track_camera = False
+
+        plot_step_idx = 0
+        for ep in range(num_episode):
+            episode_reward = 0.0
+            if is_multi_case:
+                env.reset()
+                states = [env.get_agent_obs(agent_id) for agent_id in range(self.num_agents)]
+                per_agent_episode_rewards = [0.0] * self.num_agents
+            else:
+                state = env.reset()
+
+            if is_multi_case:
+                if multi_has_track_camera and multi_track_cam_id is not None and multi_track_cam_base_pos is not None:
+                    env.model.cam_mode[multi_track_cam_id] = 0  # fixed camera, never follows any gripper
+                    # Keep camera pose exactly as authored in XML.
+                    env.model.cam_pos[multi_track_cam_id] = multi_track_cam_base_pos
+                    if multi_track_cam_base_quat is not None:
+                        env.model.cam_quat[multi_track_cam_id] = multi_track_cam_base_quat
+            else:
+                cam_id = env.model.camera('track').id
+                env.model.cam_mode[cam_id] = 0  # Set to fixed mode to allow manual positioning
+                env.model.cam_pos[cam_id] = [0, 10, 5]
+                env.model.cam_quat[cam_id] = [0.556, 0.831, 0, 0]  # Flipped right side up
 
             for t in range(max_num_frames*skip_frames):
-                state_var = tensorfy([state])
+                if is_multi_case:
+                    next_states = list(states)
+                    env_reward = 0.0
+                    termination = False
+                    truncation = False
+                    info = {}
 
-                if self.cfg.uni_obs_norm:
-                    state_var = self.normalize_observation(state_var)
+                    agent_actions = []
+                    for agent_id in range(self.num_agents):
+                        current_state = states[agent_id]
+                        stage_id = self._state_stage_id(current_state)
+                        use_random_transform = benchmark_mode and stage_id in (0, 1)
 
-                with torch.no_grad():
-                    action = self.policy_net.select_action(state_var, mean_action).numpy().astype(np.float64)
+                        if use_random_transform:
+                            action = self._sample_benchmark_transform_action(current_state)
+                        else:
+                            state_var = tensorfy([current_state])
 
-                next_state, env_reward, termination, truncation, info = env.step(action)
+                            if self.cfg.uni_obs_norm:
+                                state_var = self.normalize_observation(state_var)
+
+                            with torch.no_grad():
+                                action = self.policy_nets[agent_id].select_action(state_var, mean_action).numpy().astype(np.float64)
+                        agent_actions.append(action)
+
+                    try:
+                        joint_action = np.stack(agent_actions, axis=0)
+                    except ValueError:
+                        joint_action = list(agent_actions)
+                    next_states_batch, env_reward, termination, truncation, info = env.multi_step(
+                        joint_action,
+                        agent_id=None
+                    )
+
+                    if isinstance(next_states_batch, list):
+                        for i in range(min(len(next_states_batch), self.num_agents)):
+                            if next_states_batch[i] is not None:
+                                next_states[i] = next_states_batch[i]
+
+                    state = next_states[viz_agent_id]
+                else:
+                    stage_id = self._state_stage_id(state)
+                    use_random_transform = benchmark_mode and stage_id in (0, 1)
+
+                    if use_random_transform:
+                        action = self._sample_benchmark_transform_action(state)
+                    else:
+                        state_var = tensorfy([state])
+
+                        if self.cfg.uni_obs_norm:
+                            state_var = self.normalize_observation(state_var)
+
+                        with torch.no_grad():
+                            action = self.policy_net.select_action(state_var, mean_action).numpy().astype(np.float64)
+                    print("Step:", t, "Action:", action.shape)
+                    next_state, env_reward, termination, truncation, info = env.step(action)
+
                 done = (termination or truncation)
+                self._append_step_values(
+                    reward_series,
+                    self._collect_reward_values_from_info(info),
+                    step_idx=plot_step_idx
+                )
+                self._append_step_values(episode_reward_series, {
+                    'env_reward': env_reward,
+                    'episode_reward': episode_reward + env_reward,
+                    'done': float(done),
+                    'termination': float(termination),
+                    'truncation': float(truncation),
+                }, step_idx=plot_step_idx)
+                plot_step_idx += 1
+                #The debugging
+                model = env.model
+                data = env.data
 
+                # Stacking env
+                if mujoco.mj_name2id(
+                        model,
+                        mujoco.mjtObj.mjOBJ_BODY,
+                        "box_1"
+                    ) != -1:
+
+                    box1_body_id = model.body("box_1").id
+                    box2_body_id = model.body("box_2").id
+
+                    print("\n--- MUJOCO DEBUG ---")
+                    print("box1 xpos:", data.xpos[box1_body_id])
+                    print("box2 xpos:", data.xpos[box2_body_id])
+                    if is_multi_case:
+                        print("gripper1 xpos:", data.xpos[model.body("0_1").id])
+                        print("gripper2 xpos:", data.xpos[model.body("0_2").id])
+                    else: 
+                        print("gripper xpos:", data.xpos[model.body("0").id])
+                    print("contacts:", data.ncon)
+
+                # Original env
+                else:
+
+                    box_body_id = model.body("box").id
+
+                    print("\n--- MUJOCO DEBUG ---")
+                    print("box xpos:", data.xpos[box_body_id])
+                    if is_multi_case:
+                        print("gripper1 xpos:", data.xpos[model.body("0_1").id])
+                        print("gripper2 xpos:", data.xpos[model.body("0_2").id])
+                    else: 
+                        print("gripper xpos:", data.xpos[model.body("0").id])
+                        print("gripper orientation: ", data.xquat[model.body("0").id])
+                        print("box orientation: ", data.xquat[box_body_id])
+                    print("contacts:", data.ncon)
+                #box_geom_id = model.geom("box").id
+                """
+                print("\n--- MUJOCO DEBUG ---")
+                #print("box qpos:", data.qpos[env.box_qpos_addr:env.box_qpos_addr+7])
+
+                print("box xpos (BODY):", data.xpos[box_body_id])
+                #print("box geom xpos:", data.geom_xpos[box_geom_id])
+
+                print("gripper xpos:", data.xpos[model.body("0").id])
+
+                print("contacts:", data.ncon)
+                """
+                print("Timestep: ", t)
+                episode_reward += env_reward
+                if is_multi_case:
+                    agent_rewards = info.get('agent_rewards', None) if isinstance(info, dict) else None
+                    if isinstance(agent_rewards, (list, tuple, np.ndarray)) and len(agent_rewards) == self.num_agents:
+                        for idx, value in enumerate(agent_rewards):
+                            per_agent_episode_rewards[idx] += float(value)
+                    else:
+                        shared_reward = float(env_reward) / float(max(1, self.num_agents))
+                        for idx in range(self.num_agents):
+                            per_agent_episode_rewards[idx] += shared_reward
+                    summed_agent_reward = float(np.sum(per_agent_episode_rewards))
+                    print(
+                        f'Episode {ep}\tTotal reward {episode_reward:.2f}\t'
+                        f'Agent rewards {per_agent_episode_rewards}\t'
+                        f'Sum agents {summed_agent_reward:.2f}\t'
+                        f'Env total {env_reward:.2f}'
+                    )
+                else:
+                    print(f'Episode {ep}\texec_R_eps {episode_reward:.2f}')
+                print(f'truncation: {truncation}, termination: {termination}')
                 if t % skip_frames == 0 and t > 0:
                     # print(f'Time: {(t/30):3.2f}s | Reward: {env_reward} | Goal Rotation: {env.box_rot} | Roation Distance: {env.}')
-                    frame = env.render(mode='rgb_array', width=width, height=height)
+                    #frame = env.render(mode='rgb_array', width=width, height=height)
+                    if is_multi_case and not multi_has_track_camera:
+                        frame = env.render(mode='rgb_array', width=width, height=height)
+                    else:
+                        frame = env.render(mode='rgb_array', width=width, height=height, camera_name='track')
+                    
                     imageio.imwrite(f'{frame_dir}/{fr:04d}.png', frame)
                     fr += 1
+                
+                    
                 if fr >= max_num_frames:
+                    
                     break
-
+                
                 if done:
-                    print(f'truncation: {truncation}, termination: {termination}')
                     break
+                
 
-                state = next_state
+                if is_multi_case:
+                    states = next_states
+                else:
+                    state = next_state
 
             if fr >= max_num_frames:
                 break
@@ -1664,6 +2024,35 @@ class BodyGenAgent(AgentPPO):
         output_file = f'{video_dir}/video.mp4'
         save_video_ffmpeg(f'{frame_dir}/%04d.png', output_file, fps=fps)
         shutil.rmtree(frame_dir)
+
+        if reward_series or episode_reward_series:
+            max_len = max(
+                max((len(v) for v in reward_series.values()), default=0),
+                max((len(v) for v in episode_reward_series.values()), default=0)
+            )
+            steps = np.arange(max_len)
+            self._plot_time_series(
+                x_values=steps,
+                series_dict=reward_series,
+                out_path=os.path.join(plot_dir, 'info_reward_components.png'),
+                title='Reward Signals From info'
+            )
+            self._plot_time_series(
+                x_values=steps,
+                series_dict=episode_reward_series,
+                out_path=os.path.join(plot_dir, 'episode_rewards.png'),
+                title='Episode Reward Signals'
+            )
+
+        eval_dir = f'{video_dir}/eval_data'
+        os.makedirs(eval_dir, exist_ok=True)
+        eval_csv_path = os.path.join(eval_dir, 'eval_data.csv')
+        self.eval_data(
+            out_csv_path=eval_csv_path,
+            mean_action=mean_action,
+            duration_sec=max(1.0, float(max_num_frames) / float(fps)),
+            out_plot_dir=os.path.join(eval_dir, 'plots')
+        )
         
     def visualize_agent_frames(self, out_dir, num_episode=1, mean_action=True, max_frames=500):
         width = 1600
