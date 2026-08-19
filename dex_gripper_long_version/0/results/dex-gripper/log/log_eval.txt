@@ -1,0 +1,3 @@
+[2026-05-30 11:27:49,297] loading model from checkpoint: dex_gripper_long_version/0/results/dex-gripper/models/best.p
+[2026-05-30 11:29:54,486] loading model from checkpoint: dex_gripper_long_version/0/results/dex-gripper/models/best.p
+[2026-08-18 15:14:28,293] loading model from checkpoint: dex_gripper_long_version/0/results/dex-gripper/models/best.p
