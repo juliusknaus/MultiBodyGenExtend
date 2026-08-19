@@ -1,0 +1,43 @@
+<mujoco model="walker">
+  <compiler angle="radian" autolimits="true"/>
+  <option integrator="RK4"/>
+  <visual>
+    <quality shadowsize="16384"/>
+    <headlight ambient="0.4 0.4 0.4" diffuse="0.8 0.8 0.8" specular="0.1 0.1 0.1"/>
+    <map znear="0.001"/>
+  </visual>
+  <default class="main">
+    <joint limited="true" armature="1" damping="1"/>
+    <geom conaffinity="0" condim="1" solimp="0.8 0.8 0.01 0.5 2" margin="0.001" rgba="0.7 0.5 0.3 1"/>
+    <general ctrllimited="true" ctrlrange="-0.4 0.4"/>
+  </default>
+  <asset>
+    <texture type="skybox" name="skybox" builtin="gradient" mark="random" rgb1="0.2 0.3 0.4" rgb2="0 0 0" markrgb="1 1 1" width="800" height="4800"/>
+    <texture type="2d" name="grid" builtin="checker" mark="edge" rgb1="0.1 0.2 0.3" rgb2="0.2 0.3 0.4" markrgb="0.2 0.3 0.4" width="300" height="300"/>
+    <material name="grid" texture="grid" texuniform="true" reflectance="0.2"/>
+    <material name="self" rgba="0.7 0.5 0.3 1"/>
+  </asset>
+  <worldbody>
+    <geom name="floor" size="200 200 0.125" type="plane" conaffinity="1" condim="3" material="grid" rgba="1 1 1 1"/>
+    <light pos="0 30 130" dir="0 -0.22486 -0.974391" directional="true" cutoff="100" exponent="1" diffuse="1 1 1" specular="0.1 0.1 0.1"/>
+    <body name="0" pos="0 0 1.25" gravcomp="0">
+      <joint name="rootx" pos="0 0 -1.25" axis="1 0 0" limited="false" type="slide" armature="0" damping="0"/>
+      <joint name="rootz" pos="0 0 -1.25" axis="0 0 1" limited="false" type="slide" ref="1.25" armature="0" damping="0"/>
+      <joint name="0_joint" pos="0 0 0" axis="0 1 0" limited="false" armature="0" damping="0"/>
+      <geom size="0.05 0.2" type="capsule" friction="0.9 0.005 0.0001"/>
+      <camera name="track" pos="0 -10 3.75" quat="0.831126 0.556084 0 0" mode="trackcom"/>
+      <body name="1" pos="0 0 -0.2" gravcomp="0">
+        <joint name="1_joint" pos="0 0 0" axis="0 -1 0" range="-3.14159 3.14159"/>
+        <geom size="0.05 0.225" pos="0 0 -0.225" type="capsule" friction="2 0.005 0.0001"/>
+      </body>
+      <body name="2" pos="0 0 -0.2" gravcomp="0">
+        <joint name="2_joint" pos="0 0 0" axis="0 -1 0" range="-3.14159 3.14159"/>
+        <geom size="0.05 0.225" pos="0 0 -0.225" type="capsule" friction="2 0.005 0.0001"/>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <general name="1_joint" joint="1_joint" ctrlrange="-1 1" gear="200 0 0 0 0 0" actdim="0"/>
+    <general name="2_joint" joint="2_joint" ctrlrange="-1 1" gear="200 0 0 0 0 0" actdim="0"/>
+  </actuator>
+</mujoco>
