@@ -1,5 +1,5 @@
 env_name: dex_gripper_multi_push
-benchmark: false
+benchmark: true
 agent_specs:
   batch_design: true
 # training parameters
@@ -61,8 +61,8 @@ task_specs:
   box_pos: [0.0, 0.0, 0.5]
   root_init_z: 1.5
   box_cont_cost: False
-  reward_type: 'zheight'
   random_boxes_pos: true
+  reward_type: 'zheight'
 
   weights: 
     #contact: 1.0

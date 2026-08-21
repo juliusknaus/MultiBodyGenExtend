@@ -62,10 +62,11 @@ task_specs:
   root_init_z: 1.5
   box_cont_cost: False
   reward_type: 'zheight'
+  randorm_boxes_pos: true
 
   weights: 
     #contact: 1.0
-    distance: 1.0
+    distance: 0.1
     #distance: 0.5
     grasp: 1.0
     #grasp: 2.0
@@ -78,11 +79,5 @@ task_specs:
     lift: 5.0
     orientation: 1.0
     #lift: 1.0
-
-
-
-
-
-
 
 

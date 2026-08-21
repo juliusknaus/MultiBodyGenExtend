@@ -1,4 +1,5 @@
 env_name: dex_gripper_multi_stacking
+benchmark: false
 agent_specs:
   batch_design: true
 num_agents: 2

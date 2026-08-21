@@ -1,5 +1,5 @@
-env_name: dex_gripper_multi_push
-benchmark: false
+env_name: dex_gripper_adversarial_push
+benchmark: true
 agent_specs:
   batch_design: true
 # training parameters
@@ -54,15 +54,15 @@ robot:
 
 task_specs:
   #if task is moving
-  mov_goal: False
+  #mov_goal: False
   #box_pos: [5.0, 0.0, 0.5]
   #if task is lifting
   #box_pos: [2.0, 0.0, 0.7]
-  box_pos: [0.0, 0.0, 0.5]
+  box_pos: [0.0, 0.0, 0.7]
   root_init_z: 1.5
   box_cont_cost: False
-  reward_type: 'zheight'
   random_boxes_pos: true
+  reward_type: 'zheight'
 
   weights: 
     #contact: 1.0
@@ -79,8 +79,5 @@ task_specs:
     lift: 5.0
     orientation: 1.0
     #lift: 1.0
-
-
-
 
 

@@ -1,5 +1,5 @@
 env_name: dex_gripper_holding
-benchmark: false  # run in control-only benchmark mode
+benchmark: true  # run in control-only benchmark mode
 agent_specs:
   batch_design: true
 # training parameters
@@ -72,7 +72,6 @@ task_specs:
   #obj_name: 'prism'
   #obj_name: 'cup'
   box_pos: [0.0, 0.0, 1.0]
-  random_boxes_pos: true
   box_random_margin: 0.02
   # Optional explicit spawn bounds [x_min, x_max, y_min, y_max].
   # If omitted, bounds are inferred from wall geoms.
@@ -82,7 +81,7 @@ task_specs:
   
   # Andrychowitz et al. 2019: Orientation-based reward
   # If true, sample a new random goal quaternion at reset and after each success.
-  random_goal_orientation: False
+  random_goal_orientation: true
   # Fallback static goal quaternion [w, x, y, z] when random_goal_orientation=False.
   goal_orientation: [0.70710678, 0.0, 0.0, 0.70710678]
   # Goal reached threshold in radians (paper-style value: 0.4).

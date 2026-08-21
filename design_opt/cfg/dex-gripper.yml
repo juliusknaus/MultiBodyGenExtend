@@ -1,5 +1,5 @@
 env_name: dex_gripper
-benchmark: false  
+benchmark: false  # run in control-only benchmark mode
 agent_specs:
   batch_design: true
 # training parameters
@@ -89,6 +89,13 @@ task_specs:
     force_magnitude: 0.1
     lift: 5.0
     #lift: 1.0
+
+
+
+
+
+
+
 
 
 
