@@ -1,0 +1,4 @@
+- cfg=dex-gripper-stacking
+- gpu_index=0
+- num_threads=20
+- seed=42

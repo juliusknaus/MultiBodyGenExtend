@@ -1,0 +1,6 @@
+- cfg=dex-gripper
+- enable_wandb=false
+- max_epoch_num=3
+- min_batch_size=3000
+- num_threads=20
+- gpu_index=0

@@ -1,0 +1,16 @@
+[2026-08-21 12:45:19,646] 0	T_sample 54.18	T_update 189.76	T_eval 26.79	ETA 3 days, 3:07:44	train_R -0.35	train_R_eps -72.18	exec_R 0.62	exec_R_eps 196.31	dex-gripper-stacking
+[2026-08-21 12:46:04,847] save best checkpoint with rewards 196.31!
+[2026-08-21 12:52:17,715] 1	T_sample 66.44	T_update 279.00	T_eval 25.59	ETA 4 days, 6:51:32	train_R -0.23	train_R_eps -57.23	exec_R 0.72	exec_R_eps 251.10	dex-gripper-stacking
+[2026-08-21 12:52:26,049] save best checkpoint with rewards 251.10!
+[2026-08-21 12:58:36,120] 2	T_sample 60.99	T_update 282.03	T_eval 24.85	ETA 4 days, 5:52:59	train_R 0.26	train_R_eps 80.70	exec_R 0.97	exec_R_eps 520.81	dex-gripper-stacking
+[2026-08-21 12:58:45,723] save best checkpoint with rewards 520.81!
+[2026-08-21 13:04:06,183] 3	T_sample 61.75	T_update 233.24	T_eval 23.37	ETA 3 days, 16:04:39	train_R 0.44	train_R_eps 128.03	exec_R 1.46	exec_R_eps 1294.46	dex-gripper-stacking
+[2026-08-21 13:04:15,326] save best checkpoint with rewards 1294.46!
+[2026-08-21 13:08:59,372] 4	T_sample 57.45	T_update 201.89	T_eval 22.93	ETA 3 days, 6:00:53	train_R 0.31	train_R_eps 137.49	exec_R 1.64	exec_R_eps 1570.87	dex-gripper-stacking
+[2026-08-21 13:09:07,507] save best checkpoint with rewards 1570.87!
+[2026-08-21 13:14:38,839] 5	T_sample 55.22	T_update 251.34	T_eval 22.33	ETA 3 days, 18:48:33	train_R 0.31	train_R_eps 209.16	exec_R 1.98	exec_R_eps 1978.71	dex-gripper-stacking
+[2026-08-21 13:14:47,363] save best checkpoint with rewards 1978.71!
+[2026-08-21 13:21:02,781] 6	T_sample 57.73	T_update 293.55	T_eval 21.65	ETA 4 days, 6:51:53	train_R 0.47	train_R_eps 397.14	exec_R 2.36	exec_R_eps 2360.11	dex-gripper-stacking
+[2026-08-21 13:21:12,206] save best checkpoint with rewards 2360.11!
+[2026-08-21 13:27:13,453] 7	T_sample 54.80	T_update 281.44	T_eval 22.98	ETA 4 days, 2:59:08	train_R 0.68	train_R_eps 643.97	exec_R 2.00	exec_R_eps 1999.83	dex-gripper-stacking
+[2026-08-21 13:33:50,861] 8	T_sample 57.85	T_update 308.85	T_eval 22.80	ETA 4 days, 11:13:17	train_R 0.92	train_R_eps 914.01	exec_R 1.86	exec_R_eps 1778.76	dex-gripper-stacking

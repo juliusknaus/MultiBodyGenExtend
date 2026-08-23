@@ -1,0 +1,18 @@
+[2026-08-20 15:21:11,736] 0	T_sample 59.99	T_update 218.05	T_eval 20.55	ETA 3 days, 10:51:24	train_R 0.92	train_R_eps 364.45	exec_R 0.91	exec_R_eps 190.40	dex-gripper
+[2026-08-20 15:21:47,780] save best checkpoint with rewards 190.40!
+[2026-08-20 15:28:03,289] 1	T_sample 76.34	T_update 271.56	T_eval 26.08	ETA 4 days, 7:40:33	train_R 1.21	train_R_eps 188.61	exec_R 1.01	exec_R_eps 1011.35	dex-gripper
+[2026-08-20 15:28:10,977] save best checkpoint with rewards 1011.35!
+[2026-08-20 15:34:29,144] 2	T_sample 64.73	T_update 284.43	T_eval 26.76	ETA 4 days, 8:06:27	train_R 1.08	train_R_eps 401.47	exec_R 1.80	exec_R_eps 1804.38	dex-gripper
+[2026-08-20 15:34:37,101] save best checkpoint with rewards 1804.38!
+[2026-08-20 15:39:40,628] 3	T_sample 65.18	T_update 207.97	T_eval 27.94	ETA 3 days, 11:18:01	train_R 1.13	train_R_eps 887.89	exec_R 2.16	exec_R_eps 2163.49	dex-gripper
+[2026-08-20 15:39:46,613] save best checkpoint with rewards 2163.49!
+[2026-08-20 15:45:06,846] 4	T_sample 66.61	T_update 223.80	T_eval 27.61	ETA 3 days, 15:54:00	train_R 1.19	train_R_eps 1173.49	exec_R 2.21	exec_R_eps 2206.80	dex-gripper
+[2026-08-20 15:45:14,694] save best checkpoint with rewards 2206.80!
+[2026-08-20 15:51:57,932] 5	T_sample 64.70	T_update 308.43	T_eval 28.04	ETA 4 days, 14:46:07	train_R 1.22	train_R_eps 1227.12	exec_R 2.18	exec_R_eps 2184.30	dex-gripper
+[2026-08-20 15:58:20,244] 6	T_sample 66.00	T_update 280.97	T_eval 28.19	ETA 4 days, 7:28:54	train_R 1.27	train_R_eps 1273.57	exec_R 2.15	exec_R_eps 2153.31	dex-gripper
+[2026-08-20 16:03:48,239] 7	T_sample 66.80	T_update 226.90	T_eval 28.18	ETA 3 days, 16:41:48	train_R 1.33	train_R_eps 1338.93	exec_R 2.21	exec_R_eps 2209.42	dex-gripper
+[2026-08-20 16:03:55,757] save best checkpoint with rewards 2209.42!
+[2026-08-20 16:10:50,192] 8	T_sample 65.69	T_update 319.28	T_eval 27.38	ETA 4 days, 17:30:36	train_R 1.38	train_R_eps 1384.14	exec_R 2.16	exec_R_eps 2160.26	dex-gripper
+[2026-08-20 16:17:04,713] 9	T_sample 66.63	T_update 274.74	T_eval 26.58	ETA 4 days, 5:11:08	train_R 1.47	train_R_eps 1476.52	exec_R 2.20	exec_R_eps 2195.97	dex-gripper
+[2026-08-20 16:22:35,623] 10	T_sample 68.96	T_update 226.17	T_eval 28.17	ETA 3 days, 16:49:12	train_R 1.60	train_R_eps 1604.88	exec_R 2.17	exec_R_eps 2169.57	dex-gripper
+[2026-08-20 16:28:17,417] 11	T_sample 69.16	T_update 236.02	T_eval 27.74	ETA 3 days, 19:22:05	train_R 1.69	train_R_eps 1702.77	exec_R 2.16	exec_R_eps 2158.57	dex-gripper

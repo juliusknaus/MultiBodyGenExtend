@@ -1,0 +1,7 @@
+[2026-08-20 14:10:13,388] 0	T_sample 18.63	T_update 59.22	T_eval 28.72	ETA 0:03:33	train_R 0.94	train_R_eps 308.66	exec_R 0.39	exec_R_eps 179.89	dex-gripper
+[2026-08-20 14:10:19,951] save best checkpoint with rewards 179.89!
+[2026-08-20 14:11:19,954] 1	T_sample 11.36	T_update 22.07	T_eval 25.28	ETA 0:00:59	train_R 1.25	train_R_eps 173.61	exec_R 1.18	exec_R_eps 1179.64	dex-gripper
+[2026-08-20 14:11:27,342] save best checkpoint with rewards 1179.64!
+[2026-08-20 14:12:40,899] 2	T_sample 14.64	T_update 31.73	T_eval 25.90	ETA 0:00:00	train_R 1.04	train_R_eps 217.93	exec_R 1.36	exec_R_eps 1360.32	dex-gripper
+[2026-08-20 14:12:48,121] save best checkpoint with rewards 1360.32!
+[2026-08-20 14:12:49,481] training done!

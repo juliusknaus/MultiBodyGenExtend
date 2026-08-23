@@ -1,0 +1,3 @@
+- cfg=dex-gripper-holding
+- gpu_index=0
+- num_threads=20

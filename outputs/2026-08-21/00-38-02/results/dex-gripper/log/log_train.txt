@@ -1,0 +1,2 @@
+[2026-08-21 00:46:13,218] 0	T_sample 75.87	T_update 225.44	T_eval 29.44	ETA 3 days, 19:46:56	train_R 0.92	train_R_eps 364.45	exec_R 0.91	exec_R_eps 190.40	dex-gripper
+[2026-08-21 00:46:49,268] save best checkpoint with rewards 190.40!
