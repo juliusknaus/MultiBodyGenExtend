@@ -82,7 +82,7 @@ task_specs:
   box_spawn_max_tries: 200
   # Optional explicit spawn bounds [x_min, x_max, y_min, y_max].
   # If omitted, bounds are inferred from wall geoms.
-  # box_spawn_range: [-7.0, 7.0, -4.0, 4.0]
+  box_spawn_range: [-7.0, 7.0, -4.0, 4.0]
   box_cont_cost: False
   reward_type: 'zheight'
   weights: 
