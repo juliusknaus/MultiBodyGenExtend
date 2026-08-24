@@ -53,14 +53,11 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
         self.box_random_margin = float(self.task_specs.get('box_random_margin', 0.02))
         self.box_spawn_range = self.task_specs.get('box_spawn_range', None)
         self.rob_box_dist = np.array([0.0, 0.0, 0.0])
-        self.num_agents = getattr(cfg, "num_agents", 2)
-        self.agent_stages = ['skeleton_transform'] * self.num_agents
-        self.agent_stage_steps = [0] * self.num_agents
-        self.agent_control_nsteps = [0] * self.num_agents
-        self.goal_lines = self._resolve_goal_lines()
         if self.task_specs.get('mov_goal', False):
-            self.goal_pos = self._resolve_goal_positions()
-            self.box_goal_dist = self.box_pos - self.goal_pos[0]
+            self.goal_pos = np.array(self.task_specs.get('goal_pos'))
+            self.box_goal_dist = self.box_pos - self.goal_pos
+        self.num_agents = getattr(cfg, "num_agents", 2)
+        self.goal_lines = self._resolve_goal_lines()
         self.goal_line_dist = np.zeros((self.num_agents, 3), dtype=float)
         self._update_goal_line_distances()
         self._has_goal_lines = True
@@ -68,9 +65,6 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
             f"0_{i+1}" for i in range(self.num_agents)
         ]
         self.active_agent_id = 0
-        self.stage = self.agent_stages[0]
-        self.cur_t = self.agent_stage_steps[0]
-        self.control_nsteps = self.agent_control_nsteps[0]
         self.design_cur_params = self._tile_design_params(self.design_ref_params)
         MujocoEnv.__init__(self, self.model_xml_file, 4)
         utils.EzPickle.__init__(self)
@@ -128,32 +122,6 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
 
     def split_agent_action(self, action):
         return action.reshape(self.num_agents, -1)
-
-    def _sync_debug_stage_state(self, agent_id):
-        self.active_agent_id = agent_id
-        self.stage = self.agent_stages[agent_id]
-        if self.stage == 'execution':
-            self.cur_t = self.agent_control_nsteps[agent_id]
-        else:
-            self.cur_t = self.agent_stage_steps[agent_id]
-        self.control_nsteps = self.agent_control_nsteps[agent_id]
-
-    def _all_agents_in_execution(self):
-        return all(stage == 'execution' for stage in self.agent_stages)
-
-    def _movement_reward_gates(self, rob_pos_bef, rob_pos_aft, box_pos_bef, box_pos_aft, contact_count, force_mag):
-        movement_displacement_threshold = float(self.cfg.reward_specs.get('movement_displacement_threshold', 1e-4))
-        box_displacement_threshold = float(self.cfg.reward_specs.get('box_displacement_threshold', movement_displacement_threshold))
-        contact_force_threshold = float(self.cfg.reward_specs.get('contact_force_threshold', 0.0))
-
-        root_displacement = float(np.linalg.norm(rob_pos_aft - rob_pos_bef))
-        box_displacement = float(np.linalg.norm(box_pos_aft - box_pos_bef))
-
-        agent_moved = root_displacement > movement_displacement_threshold
-        box_moved = box_displacement > box_displacement_threshold
-        has_box_contact = (contact_count > 0) and (force_mag >= contact_force_threshold)
-
-        return agent_moved, box_moved, has_box_contact
 
     def _combine_agent_controls(self, agent_actions):
         if not agent_actions:
@@ -1280,14 +1248,10 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
             flat_actions = a.reshape(-1)
 
         if len(root_ids) == 0:
-            # Fixed-row contract (same convention as single-agent env):
-            # local row 0 is reserved for root and body rows start at index 1.
-            if flat_actions.size <= len(ordered_other_ids):
-                print(
-                    f"Warning: agent {agent_id} action rows appear to omit reserved root row "
-                    f"(got {flat_actions.size}, expected >= {len(ordered_other_ids) + 1})."
-                )
-            body_actions = flat_actions[1:]
+            if flat_actions.size == len(ordered_other_ids):
+                body_actions = flat_actions
+            else:
+                body_actions = flat_actions[1:]
             root_actions = np.zeros((0,), dtype=flat_actions.dtype)
         else:
             root_actions = flat_actions[:len(root_ids)]
@@ -1339,16 +1303,15 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
                 f"Expected {self.num_agents} agent actions, got {len(agent_actions)}"
             )
 
-        if self._all_agents_in_execution():
+        if self.stage == 'execution':
             base_qpos = self.data.qpos.copy()
             base_qvel = self.data.qvel.copy()
-            self.stage = 'execution'
-            base_control_nsteps = list(self.agent_control_nsteps)
+            base_cur_t = self.cur_t
+            base_control_nsteps = self.control_nsteps
 
             per_agent_controls = []
             for idx in range(self.num_agents):
-                agent_bodies_i, _ = self._get_agent_bodies(idx)
-                action_i = self._align_action_rows(np.asarray(agent_actions[idx]), len(agent_bodies_i))
+                action_i = self._align_action_rows(np.asarray(agent_actions[idx]), len(self.robot.bodies))
                 control_i = action_i[:, :self.control_action_dim]
                 per_agent_controls.append(self.action_to_control(control_i, idx))
 
@@ -1386,10 +1349,8 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
 
             self.set_state(aft_qpos.copy(), aft_qvel.copy())
             mujoco.mj_forward(self.model, self.data)
-            for idx in range(self.num_agents):
-                self.agent_control_nsteps[idx] = base_control_nsteps[idx] + 1
-            self.control_nsteps = max(self.agent_control_nsteps) if len(self.agent_control_nsteps) > 0 else 0
-            self.cur_t = self.control_nsteps
+            self.cur_t = base_cur_t + 1
+            self.control_nsteps = base_control_nsteps + 1
 
             box_pos_aft = self.get_body_com("box")[0:3].copy()
             box_state_aft = self.data.qpos[self.box_qpos_adr:self.box_qpos_adr + 7].copy()
@@ -1425,19 +1386,6 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
                 grasp_score_aft = self.gripper_box_overlap(box_pos, box_size, tri)
                 compactness_score_aft = self.gripper_compactness_score(points, tri, box_pos, box_size)
 
-                contact_count = self.compute_box_gripper_contacts(
-                    self.model,
-                    self.data,
-                    limb_geom_ids,
-                    box_geom_id
-                )
-                force_mag = self.compute_total_contact_force_magnitude(
-                    self.model,
-                    self.data,
-                    limb_geom_ids,
-                    box_geom_id
-                )
-
                 force_mag = self.compute_total_contact_force_magnitude(
                     self.model,
                     self.data,
@@ -1447,16 +1395,7 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
                 binary_reward = 1.0 if force_mag >= 5.0 else 0.0
                 lift_reward = (box_state_aft[2] - self.box_init_height)
 
-                agent_moved, box_moved, has_box_contact = self._movement_reward_gates(
-                    rob_pos_bef,
-                    rob_pos_aft,
-                    box_pos_bef,
-                    box_pos_aft,
-                    contact_count,
-                    force_mag,
-                )
-
-                distance_component = 0.1 * ((pre_rob_box_dists[idx] - rob_box_dist_aft) / self.dt) if agent_moved else 0.0
+                distance_component = 0.1 * ((pre_rob_box_dists[idx] - rob_box_dist_aft) / self.dt)
                 grasp_component = 1.0 * grasp_score_aft
                 compactness_component = 1.0 * compactness_score_aft
                 binary_component = 1.0 * binary_reward
@@ -1474,11 +1413,11 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
 
                 reward_weights = self.task_specs.get('weights', {})
                 reward = (
-                    float(reward_weights.get('distance', 1.0)) * distance_component
-                    #+ float(reward_weights.get('grasp', 1.0)) * grasp_component
-                    #+ float(reward_weights.get('compactness', 1.0)) * compactness_component
-                    #+ float(reward_weights.get('binary', 1.0)) * binary_component
-                    #+ float(reward_weights.get('lift', 5.0)) * lift_component
+                    float(reward_weights.get('distance', 0.1)) * distance_component
+                    + float(reward_weights.get('grasp', 1.0)) * grasp_component
+                    + float(reward_weights.get('compactness', 1.0)) * compactness_component
+                    + float(reward_weights.get('binary', 1.0)) * binary_component
+                    + float(reward_weights.get('lift', 5.0)) * lift_component
                 )
 
                 box_progress = abs(float(box_pos_aft[0]) - float(box_pos_bef[0]))
@@ -1500,8 +1439,6 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
                     goal_line_dist_aft = self._goal_line_distance(idx, box_x_aft)
                     goal_line_dist_coeff = float(self.cfg.reward_specs.get('goal_line_dist_coeff', 1.0))
                     goal_line_distance_component = goal_line_dist_coeff * ((goal_line_dist_bef - goal_line_dist_aft) / self.dt)
-                    if not (has_box_contact and box_moved):
-                        goal_line_distance_component = 0.0
                     reward += goal_line_distance_component
 
                     own_crossed_before = self._goal_line_crossed(idx, box_x_bef)
@@ -1541,7 +1478,7 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
                     and (height < max_height)
                     and (abs(ang) < np.deg2rad(max_ang))
                 )
-                trunc_i = not (self.agent_control_nsteps[idx] < max_nsteps)
+                trunc_i = not (self.control_nsteps < max_nsteps)
 
                 ob = self._get_obs(idx)
                 info_i = {
@@ -1578,7 +1515,10 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
         agent_rewards = [0.0] * self.num_agents
         agent_infos = [None] * self.num_agents
         processed_agent_ids = []
+        base_cur_t = self.cur_t
+
         for idx in range(self.num_agents):
+            self.cur_t = base_cur_t
             ob, reward, termination, truncation, info = self.step(
                 agent_actions[idx],
                 agent_id=idx
@@ -1591,6 +1531,9 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
 
             if termination or truncation:
                 break
+
+        self.cur_t = base_cur_t + 1
+
         merged_info = dict(info) if isinstance(info, dict) else {}
         merged_info['agent_rewards'] = [agent_rewards[i] for i in processed_agent_ids]
         merged_info['agent_infos'] = [agent_infos[i] for i in processed_agent_ids]
@@ -1598,17 +1541,12 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
         return obs, rewards, termination, truncation, merged_info
     
     def step(self, a, agent_id=0):
-        self._sync_debug_stage_state(agent_id)
+        self.active_agent_id = agent_id
         if not self.is_inited:
             return self._get_obs(agent_id), 0, False, False, {'use_transform_action': False, 'stage': 'execution'}
-        stage = self.agent_stages[agent_id]
-        if stage == 'execution':
-            self.agent_control_nsteps[agent_id] += 1
-        else:
-            self.agent_stage_steps[agent_id] += 1
-        self._sync_debug_stage_state(agent_id)
+        self.cur_t += 1
         # skeleton transform stage
-        if stage == 'skeleton_transform':
+        if self.stage == 'skeleton_transform':
             skel_a = self._normalize_agent_skeleton_action(a[:, -1], agent_id=agent_id)
             root_ids, other_ids = self._split_agent_actuator_ids(agent_id)
             agent_bodies, _ = self._get_agent_bodies(agent_id)
@@ -1618,15 +1556,15 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
             if not succ:
                 return self._get_obs(agent_id), 0.0, True, False, {'use_transform_action': True, 'stage': 'skeleton_transform'}
 
-            if self.agent_stage_steps[agent_id] >= self.cfg.skel_transform_nsteps:
-                self.transit_attribute_transform(agent_id=agent_id)
+            if self.cur_t == self.cfg.skel_transform_nsteps:
+                self.transit_attribute_transform()
 
             ob = self._get_obs(agent_id)
             reward = 0.0
             termination = truncation = False
             return ob, reward, termination, truncation, {'use_transform_action': True, 'stage': 'skeleton_transform'}
         # attribute transform stage
-        elif stage == 'attribute_transform':
+        elif self.stage == 'attribute_transform':
             agent_bodies, agent_indices = self._get_agent_bodies(agent_id)
             design_a = self._align_action_rows(
                 a[:, self.control_action_dim:-1],
@@ -1645,7 +1583,7 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
             if not succ:
                 return self._get_obs(agent_id), 0.0, True, False, {'use_transform_action': True, 'stage': 'attribute_transform'}
 
-            if self.agent_stage_steps[agent_id] >= self.cfg.skel_transform_nsteps + 1:
+            if self.cur_t == self.cfg.skel_transform_nsteps + 1:
                 succ = self.transit_execution(agent_id)
                 if not succ:
                     return self._get_obs(agent_id), 0.0, True, False, {'use_transform_action': True, 'stage': 'attribute_transform'}
@@ -1656,7 +1594,7 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
             return ob, reward, termination, truncation, {'use_transform_action': True, 'stage': 'attribute_transform'}
         # execution stage
         else:
-            self.control_nsteps = self.agent_control_nsteps[agent_id]
+            self.control_nsteps += 1
             agent_bodies, _ = self._get_agent_bodies(agent_id)
             a = self._align_action_rows(a, len(agent_bodies))
             control_a = a[:, :self.control_action_dim]
@@ -1671,36 +1609,10 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
             box_pos_bef = self.get_body_com("box")[0:3].copy()
             box_state_bef = self.data.qpos[self.box_qpos_adr : self.box_qpos_adr + 7].copy()
             rob_box_dist_bef = np.linalg.norm(rob_pos_bef - box_pos_bef)
-
-            limb_geom_ids = self.get_limb_geom_ids(self.model, root_body_name=agent_body_name)
-            # box info
-            box_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "box")
-            box_pos = self.data.xpos[box_id]
-
-            # IMPORTANT: geom size (half-extents)
-            box_geom_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_GEOM, "box")
-            box_size = self.model.geom_size[box_geom_id]
-           
-            
-
-            points = self.gripper_point_cloud(self.model, self.data, limb_geom_ids)
-
-
-            _, tri = self.compute_gripper_hull(points)
-
-            # compute overlap
-            grasp_score_bef = self.gripper_box_overlap(box_pos, box_size, tri)
-
-            compactness_score_bef = self.gripper_compactness_score(
-                points,
-                tri,
-                box_pos,
-                box_size
-            )
             
 
             if self.task_specs.get('mov_goal', False):
-                box_goal_dist_bef = np.linalg.norm(box_pos_bef - self._goal_position(agent_id))
+                box_goal_dist_bef = np.linalg.norm(box_pos_bef - self.goal_pos)
 
             
 
@@ -1718,7 +1630,7 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
             self.rob_box_dist = rob_pos_aft - box_pos_aft
             
             if self.task_specs.get('mov_goal', False):
-                self.box_goal_dist = box_pos_aft - self._goal_position(agent_id)
+                self.box_goal_dist = box_pos_aft - self.goal_pos
                 box_goal_dist_aft = np.linalg.norm(self.box_goal_dist)
                 reward = (box_goal_dist_bef - box_goal_dist_aft) /self.dt
             else:
@@ -1752,46 +1664,16 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
             rob_pos_aft = self.get_body_com(agent_body_name)[0:3].copy()
             box_pos_aft = self.get_body_com("box")[0:3].copy()
 
-            box_pos = self.data.xpos[self.box_body_id].copy()
-
-            
-            
-
             # lift
             #lift_reward = max(0, box_pos_aft[2] - 0.05) if grasp else 0.0
-            height = box_pos_aft[2]
             #lift_reward = max(0, height - 0.05)
         
 
             limb_geom_ids = self.get_limb_geom_ids(self.model, root_body_name=agent_body_name)
-            # box info
-            box_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "box")
+            box_id = self.box_body_id
             box_pos = self.data.xpos[box_id]
-
-            # IMPORTANT: geom size (half-extents)
-            box_geom_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_GEOM, "box")
+            box_geom_id = self.box_geom_id
             box_size = self.model.geom_size[box_geom_id]
-            gripper_root_body_id = mujoco.mj_name2id(
-                self.model,
-                mujoco.mjtObj.mjOBJ_BODY,
-                agent_body_name
-            )
-
-            # Lowest point of box
-            box_bottom_z = self.compute_box_lowest_point(
-                self.model,
-                self.data,
-                box_geom_id
-            )
-
-            # Distance above floor
-            clearance = box_bottom_z - self.box_init_height
-
-            # Only reward true lift
-            if clearance > 0.0:
-                lift_reward = clearance / self.dt
-            else:
-                lift_reward = 0.0
             
             lift_reward = (box_state_aft[2] - self.box_init_height) #/ self.dt
         
@@ -1818,34 +1700,6 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
                 limb_geom_ids,
                 box_geom_id
             )
-            force_mag = self.compute_total_contact_force_magnitude(
-                self.model,
-                self.data,
-                limb_geom_ids,
-                box_geom_id
-            )
-
-
-            gripper_id = mujoco.mj_name2id(
-                self.model,
-                mujoco.mjtObj.mjOBJ_BODY,
-                agent_body_name
-            )
-            
-
-            gripper_vel = self.data.cvel[gripper_id][:3]
-            box_vel = self.data.cvel[box_id][:3]
-
-            relative_vel = box_vel - gripper_vel
-
-            slip_reward = - np.linalg.norm(relative_vel)
-
-            contact_count = self.compute_box_gripper_contacts(
-                self.model,
-                self.data,
-                limb_geom_ids,
-                box_geom_id
-            )
 
             force_mag = self.compute_total_contact_force_magnitude(
                 self.model,
@@ -1853,36 +1707,6 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
                 limb_geom_ids,
                 box_geom_id
             )
-
-            fc_score = self.compute_force_closure_reward(
-                self.model,
-                self.data,
-                limb_geom_ids,
-                box_geom_id
-            )    
-
-            holding_reward = self.compute_holding_reward(
-                self.model,
-                self.data,
-                box_geom_id,
-                initial_box_height=0.5,
-                root_body_name=agent_body_name
-            )
-            if contact_count > 0:
-                stability_reward = self.compute_stability_reward(
-                    self.data,
-                    self.box_body_id,
-                    gripper_root_body_id
-                )
-            else:
-                stability_reward = 0.0
-            
-
-            floor_contact_penalty = 0.0
-            for i in range(self.data.ncon):
-                c = self.data.contact[i]
-                if c.geom1 == 0 or c.geom2 == 0:
-                    floor_contact_penalty += 1.0
 
             if force_mag >= 5.0:
                 binary_reward = 1.0
@@ -1891,16 +1715,7 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
 
             
 
-            agent_moved, box_moved, has_box_contact = self._movement_reward_gates(
-                rob_pos_bef,
-                rob_pos_aft,
-                box_pos_bef,
-                box_pos_aft,
-                contact_count,
-                force_mag,
-            )
-
-            distance_component = 0.1 * ((rob_box_dist_bef - rob_box_dist_aft) / self.dt) if agent_moved else 0.0
+            distance_component = 0.1 * ((rob_box_dist_bef - rob_box_dist_aft) / self.dt)
             grasp_component = 1.0 * grasp_score_aft
             compactness_component = 1.0 * compactness_score_aft
             binary_component = 1.0 * binary_reward
@@ -1950,8 +1765,6 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
                 goal_line_dist_aft = self._goal_line_distance(agent_id, box_x_aft)
                 goal_line_dist_coeff = float(self.cfg.reward_specs.get('goal_line_dist_coeff', 1.0))
                 goal_line_distance_component = goal_line_dist_coeff * ((goal_line_dist_bef - goal_line_dist_aft) / self.dt)
-                if not (has_box_contact and box_moved):
-                    goal_line_distance_component = 0.0
                 reward += goal_line_distance_component
 
                 own_crossed_before = self._goal_line_crossed(agent_id, box_x_bef)
@@ -2018,7 +1831,7 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
             max_ang = 90
             max_nsteps = done_condition.get('max_nsteps', 1000)
             termination = not (np.isfinite(s).all() and (height > min_height) and (height < max_height) and (abs(ang) < np.deg2rad(max_ang)))
-            truncation = not (self.agent_control_nsteps[agent_id] < max_nsteps)
+            truncation = not (self.control_nsteps < max_nsteps)
             # if truncation:
             #     print(f'steps: {self.control_nsteps}')
             if termination:
@@ -2046,27 +1859,23 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
             }
     
     
-    def transit_attribute_transform(self, agent_id=0):
-        self.agent_stages[agent_id] = 'attribute_transform'
-        self._sync_debug_stage_state(agent_id)
+    def transit_attribute_transform(self):
+        self.stage = 'attribute_transform'
 
     def transit_execution(self, agent_id=0):
-        self.agent_stages[agent_id] = 'execution'
-        self.agent_control_nsteps[agent_id] = 0
-        self._sync_debug_stage_state(agent_id)
-        if self._all_agents_in_execution():
-            try:
-                self.reset_state(True, agent_id=agent_id)
-            except:
-                print(self.cur_xml_str)
-                return False
+        self.stage = 'execution'
+        self.control_nsteps = 0
+        try:
+            self.reset_state(True, agent_id=agent_id)
+        except:
+            print(self.cur_xml_str)
+            return False
         self.model.geom_rgba[self.box_id][3] = 1.0
         return True
         
 
-    def if_use_transform_action(self, agent_id=0):
-        stage = self.agent_stages[agent_id]
-        return ['skeleton_transform', 'attribute_transform', 'execution'].index(stage)
+    def if_use_transform_action(self):
+        return ['skeleton_transform', 'attribute_transform', 'execution'].index(self.stage)
     
 
     def get_sim_obs(self, agent_id=0):
@@ -2302,7 +2111,7 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
                     edges = np.zeros((2, 0), dtype=np.int64)
             else:
                 edges = full_edges
-        use_transform_action = np.array([self.if_use_transform_action(agent_id=agent_id)])
+        use_transform_action = np.array([self.if_use_transform_action()])
         num_nodes = np.array([sim_obs.shape[0]])
         all_obs = [obs, edges, use_transform_action, num_nodes]
         if self.use_body_ind:
@@ -2625,11 +2434,8 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
 
         if self.task_specs.get('mov_goal', False):
             if self.task_specs.get('random_goal'):
-                goal_range = np.array(self.task_specs.get('goal_range'))
-                for agent_id in range(self.num_agents):
-                    self.goal_pos[agent_id, :2] = rand_coord(self.np_random, goal_range)
-                    self.goal_pos[agent_id, 0] = self.goal_lines[agent_id]
-            self.box_goal_dist = self.box_pos - self.goal_pos[0]
+                self.goal_pos[:2] = rand_coord(self.np_random, np.array(self.task_specs.get('goal_range')))
+            self.box_goal_dist = self.box_pos - self.goal_pos
 
         self._update_goal_line_distances()
 
@@ -2658,9 +2464,6 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
         
         self.reset_robot()
         
-        self.agent_stages = ['skeleton_transform'] * self.num_agents
-        self.agent_stage_steps = [0] * self.num_agents
-        self.agent_control_nsteps = [0] * self.num_agents
         self.control_nsteps = 0
         self.stage = 'skeleton_transform'
         self.cur_t = 0
@@ -2710,29 +2513,6 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
             raise ValueError("task_specs['goal_lines'] must contain exactly two line positions")
 
         return goal_lines
-
-    def _resolve_goal_positions(self):
-        goal_pos = np.asarray(self.task_specs.get('goal_pos'), dtype=float)
-        if goal_pos.ndim == 1:
-            goal_pos = np.repeat(goal_pos[None, :], self.num_agents, axis=0)
-            goal_pos = goal_pos.copy()
-            goal_pos[:self.goal_lines.shape[0], 0] = self.goal_lines[:self.goal_lines.shape[0]]
-            return goal_pos
-
-        if goal_pos.ndim != 2 or goal_pos.shape[1] != 3:
-            raise ValueError("task_specs['goal_pos'] must be a 3-vector or an array of per-agent 3-vectors")
-
-        if goal_pos.shape[0] == 1:
-            goal_pos = np.repeat(goal_pos, self.num_agents, axis=0)
-        elif goal_pos.shape[0] != self.num_agents:
-            raise ValueError(
-                f"task_specs['goal_pos'] must provide either 1 goal or one per agent; got {goal_pos.shape[0]} for {self.num_agents} agents"
-            )
-
-        return goal_pos
-
-    def _goal_position(self, agent_id):
-        return self.goal_pos[agent_id]
 
     def _goal_line_position(self, agent_id):
         return float(self.goal_lines[agent_id])

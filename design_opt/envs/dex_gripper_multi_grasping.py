@@ -1441,33 +1441,7 @@ class DexGripperMultiGraspingEnv(MujocoEnv, utils.EzPickle):
             box_pos_bef = self.get_body_com("box")[0:3].copy()
             box_state_bef = self.data.qpos[self.box_qpos_adr : self.box_qpos_adr + 7].copy()
             rob_box_dist_bef = np.linalg.norm(rob_pos_bef - box_pos_bef)
-
-            limb_geom_ids = self.get_limb_geom_ids(self.model, root_body_name=agent_body_name)
-            # box info
-            box_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "box")
-            box_pos = self.data.xpos[box_id]
-
-            # IMPORTANT: geom size (half-extents)
-            box_geom_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_GEOM, "box")
-            box_size = self.model.geom_size[box_geom_id]
-           
-            
-
-            points = self.gripper_point_cloud(self.model, self.data, limb_geom_ids)
-
-
-            _, tri = self.compute_gripper_hull(points)
-
-            # compute overlap
-            grasp_score_bef = self.gripper_box_overlap(box_pos, box_size, tri)
-
-            compactness_score_bef = self.gripper_compactness_score(
-                points,
-                tri,
-                box_pos,
-                box_size
-            )
-            
+                    
 
             if self.task_specs.get('mov_goal', False):
                 box_goal_dist_bef = np.linalg.norm(box_pos_bef - self.goal_pos)
@@ -1489,34 +1463,11 @@ class DexGripperMultiGraspingEnv(MujocoEnv, utils.EzPickle):
             rob_box_dist_aft = np.linalg.norm(rob_pos_aft - box_state_aft[0:3])
             self.rob_box_dist = rob_pos_aft - box_state_aft[0:3]
 
-            box_pos = self.data.xpos[self.box_body_id].copy()
-
-            
-            
-
             limb_geom_ids = self.get_limb_geom_ids(self.model, root_body_name=agent_body_name)
-            # box info
-            box_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "box")
+            box_id = self.box_body_id
+            box_geom_id = self.box_geom_id
             box_pos = self.data.xpos[box_id]
-
-            # IMPORTANT: geom size (half-extents)
-            box_geom_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_GEOM, "box")
             box_size = self.model.geom_size[box_geom_id]
-            gripper_root_body_id = mujoco.mj_name2id(
-                self.model,
-                mujoco.mjtObj.mjOBJ_BODY,
-                agent_body_name
-            )
-
-            # Lowest point of box
-            box_bottom_z = self.compute_box_lowest_point(
-                self.model,
-                self.data,
-                box_geom_id
-            )
-
-            # Distance above floor
-            clearance = box_bottom_z - self.box_init_height
 
             lift_reward_raw = (box_state_aft[2] - self.box_init_height) / self.dt
         
@@ -1536,21 +1487,6 @@ class DexGripperMultiGraspingEnv(MujocoEnv, utils.EzPickle):
                 box_pos,
                 box_size
             )
-
-
-            gripper_id = mujoco.mj_name2id(
-                self.model,
-                mujoco.mjtObj.mjOBJ_BODY,
-                agent_body_name
-            )
-            
-
-            gripper_vel = self.data.cvel[gripper_id][:3]
-            box_vel = self.data.cvel[box_id][:3]
-
-            relative_vel = box_vel - gripper_vel
-
-            slip_reward = - np.linalg.norm(relative_vel)
 
             contact_count = self.compute_box_gripper_contacts(
                 self.model,
@@ -1572,36 +1508,6 @@ class DexGripperMultiGraspingEnv(MujocoEnv, utils.EzPickle):
                 contact_count,
                 force_mag,
             )
-
-            fc_score = self.compute_force_closure_reward(
-                self.model,
-                self.data,
-                limb_geom_ids,
-                box_geom_id
-            )    
-
-            holding_reward = self.compute_holding_reward(
-                self.model,
-                self.data,
-                box_geom_id,
-                initial_box_height=0.5,
-                root_body_name=agent_body_name
-            )
-            if contact_count > 0:
-                stability_reward = self.compute_stability_reward(
-                    self.data,
-                    self.box_body_id,
-                    gripper_root_body_id
-                )
-            else:
-                stability_reward = 0.0
-            
-
-            floor_contact_penalty = 0.0
-            for i in range(self.data.ncon):
-                c = self.data.contact[i]
-                if c.geom1 == 0 or c.geom2 == 0:
-                    floor_contact_penalty += 1.0
 
             if force_mag >= 5.0:
                 binary_reward = 1.0

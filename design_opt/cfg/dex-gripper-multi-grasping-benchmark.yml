@@ -66,7 +66,7 @@ task_specs:
   #box_pos: [2.0, 0.0, 0.7]
   box_pos: [0.0, 0.0, 0.7]
   box_cont_cost: False
-  random_boxes_pos: true
+  random_box_pos: true
   reward_type: 'zheight'
 
   weights: 

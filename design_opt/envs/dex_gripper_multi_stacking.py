@@ -1461,23 +1461,6 @@ class DexGripperMultiStackingEnv(MujocoEnv, utils.EzPickle):
             target_dist_bef = np.linalg.norm(
                 self.data.xpos[self.box1_body_id] - self.target_pos
             )
-           
-            
-
-            points = self.gripper_point_cloud(self.model, self.data, limb_geom_ids)
-
-
-            _, tri = self.compute_gripper_hull(points)
-
-            # compute overlap
-            grasp_score_bef = self.gripper_box_overlap(box_pos, box_size, tri)
-
-            compactness_score_bef = self.gripper_compactness_score(
-                points,
-                tri,
-                box_pos,
-                box_size
-            )
             
 
             if self.task_specs.get('mov_goal', False):
@@ -1505,9 +1488,6 @@ class DexGripperMultiStackingEnv(MujocoEnv, utils.EzPickle):
                 self.data.xpos[self.box1_body_id] - self.target_pos
             )
 
-            
-            
-
             limb_geom_ids = self.get_limb_geom_ids(self.model, root_body_name=agent_body_name)
             # box info
             box_id = self.box1_body_id
@@ -1516,21 +1496,6 @@ class DexGripperMultiStackingEnv(MujocoEnv, utils.EzPickle):
             # IMPORTANT: geom size (half-extents)
             box_geom_id = self.obj_geom_id
             box_size = self.model.geom_size[box_geom_id]
-            gripper_root_body_id = mujoco.mj_name2id(
-                self.model,
-                mujoco.mjtObj.mjOBJ_BODY,
-                agent_body_name
-            )
-
-            # Lowest point of box
-            box_bottom_z = self.compute_box_lowest_point(
-                self.model,
-                self.data,
-                box_geom_id
-            )
-
-            # Distance above floor
-            clearance = box_bottom_z - self.box_init_height
 
             lift_reward_raw = (box_state_aft[2] - self.box_init_height) / self.dt
         
@@ -1550,21 +1515,6 @@ class DexGripperMultiStackingEnv(MujocoEnv, utils.EzPickle):
                 box_pos,
                 box_size
             )
-
-
-            gripper_id = mujoco.mj_name2id(
-                self.model,
-                mujoco.mjtObj.mjOBJ_BODY,
-                agent_body_name
-            )
-            
-
-            gripper_vel = self.data.cvel[gripper_id][:3]
-            box_vel = self.data.cvel[box_id][:3]
-
-            relative_vel = box_vel - gripper_vel
-
-            slip_reward = - np.linalg.norm(relative_vel)
 
             contact_count = self.compute_box_gripper_contacts(
                 self.model,
@@ -1586,36 +1536,6 @@ class DexGripperMultiStackingEnv(MujocoEnv, utils.EzPickle):
                 contact_count,
                 force_mag,
             )
-
-            fc_score = self.compute_force_closure_reward(
-                self.model,
-                self.data,
-                limb_geom_ids,
-                box_geom_id
-            )    
-
-            holding_reward = self.compute_holding_reward(
-                self.model,
-                self.data,
-                box_geom_id,
-                initial_box_height=0.5,
-                root_body_name=agent_body_name
-            )
-            if contact_count > 0:
-                stability_reward = self.compute_stability_reward(
-                    self.data,
-                    self.box_body_id,
-                    gripper_root_body_id
-                )
-            else:
-                stability_reward = 0.0
-            
-
-            floor_contact_penalty = 0.0
-            for i in range(self.data.ncon):
-                c = self.data.contact[i]
-                if c.geom1 == 0 or c.geom2 == 0:
-                    floor_contact_penalty += 1.0
 
             if force_mag >= 5.0:
                 binary_reward = 1.0
