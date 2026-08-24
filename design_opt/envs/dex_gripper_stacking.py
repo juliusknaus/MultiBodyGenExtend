@@ -1918,7 +1918,7 @@ class DexGripperStackingEnv(MujocoEnv, utils.EzPickle):
 
     def _sample_two_box_spawn_positions(self):
         default_box1 = np.array(self.task_specs.get("box_1_pos", [0.0, 0.0, 0.5]), dtype=np.float64)
-        default_box2 = np.array(self.task_specs.get("box_2_pos", [1.5, 0.0, 0.5]), dtype=np.float64)
+        default_box2 = np.array(self.task_specs.get("box_2_pos", [1.25, 0.0, 0.425]), dtype=np.float64)
 
         # Prevent floor penetration on spawn. MuJoCo box geom size stores half-extents,
         # so center z must be at least half-height (+ small clearance).
@@ -1978,10 +1978,11 @@ class DexGripperStackingEnv(MujocoEnv, utils.EzPickle):
         box1_pos, box2_pos = self._sample_two_box_spawn_positions()
         self.box_pos = box1_pos.copy()
 
-        # Slightly lift box_2 at spawn to avoid initial floor-contact impulses
-        # in runs configured with tight/legacy z values.
-        box2_spawn_z_offset = float(self.task_specs.get('box_2_spawn_z_offset', 0.08))
-        box2_pos[2] = float(box2_pos[2]) + box2_spawn_z_offset
+        # Keep box_2 on the floor with a small clearance instead of adding
+        # an extra ad-hoc offset on every reset.
+        floor_clearance = float(self.task_specs.get('box_floor_clearance', 0.01))
+        min_box2_z = float(self.model.geom_size[self.box2_geom_id][2]) + floor_clearance
+        box2_pos[2] = max(float(box2_pos[2]), min_box2_z)
 
         if self.env_specs.get('init_height', True):
             qpos[0] = self.box_pos[0]   # x

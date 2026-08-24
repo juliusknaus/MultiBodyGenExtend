@@ -73,16 +73,15 @@ task_specs:
   #obj_name: 'cup'
   box_pos: [0.5, 0.0, 0.7]
   box_1_pos: [0.0, 0.0, 0.46]
-  box_2_pos: [1.5, 0.0, 0.31]
+  box_2_pos: [1.25, 0.0, 0.735]
   box_floor_clearance: 0.01
-  box_2_spawn_z_offset: 0.15
   random_boxes_pos: true
   box_random_margin: 0.02
   box_pair_clearance: 0.02
   box_spawn_max_tries: 200
   # Optional explicit spawn bounds [x_min, x_max, y_min, y_max].
-  # If omitted, bounds are inferred from wall geoms.
-  box_spawn_range: [-7.0, 7.0, -4.0, 4.0]
+  # Keep this set when running without walls so sampling stays in the former wall region.
+  box_spawn_range: [-5.0, 5.0, -3.0, 3.0]
   box_cont_cost: False
   reward_type: 'zheight'
   weights: 
@@ -99,8 +98,3 @@ task_specs:
     force_magnitude: 0.1
     #lift: 5.0
     lift: 1.0
-
-
-
-
-
