@@ -12,19 +12,6 @@ import os
 from scipy.spatial import ConvexHull, Delaunay
 
 
-def rand_coord(np_random, coord_range):
-    coord_range = np.array(coord_range, dtype=np.float64)
-    if coord_range.shape == (2, 2):
-        low = coord_range[:, 0]
-        high = coord_range[:, 1]
-    elif coord_range.shape == (4,):
-        low = np.array([coord_range[0], coord_range[2]], dtype=np.float64)
-        high = np.array([coord_range[1], coord_range[3]], dtype=np.float64)
-    else:
-        raise ValueError(f"Unsupported coord_range shape: {coord_range.shape}")
-    return np_random.uniform(low=low, high=high)
-
-
 class DexGripperStackingEnv(MujocoEnv, utils.EzPickle):
     def __init__(self, cfg, agent):
         self.cur_t = 0
@@ -60,11 +47,6 @@ class DexGripperStackingEnv(MujocoEnv, utils.EzPickle):
         self.attr_specs = set(cfg.obs_specs.get('attr', []))
         # task attr
         self.box_pos = np.array(self.task_specs.get('box_pos'))
-        self.random_boxes_pos = bool(self.task_specs.get('random_boxes_pos', False))
-        self.box_random_margin = float(self.task_specs.get('box_random_margin', 0.02))
-        self.box_spawn_range = self.task_specs.get('box_spawn_range', None)
-        self.box_pair_clearance = float(self.task_specs.get('box_pair_clearance', 0.02))
-        self.box_spawn_max_tries = int(self.task_specs.get('box_spawn_max_tries', 200))
         self.rob_box_dist = np.array([0.0, 0.0, 0.0])
         if self.task_specs.get('mov_goal', False):
             self.goal_pos = np.array(self.task_specs.get('goal_pos'))
@@ -334,6 +316,37 @@ class DexGripperStackingEnv(MujocoEnv, utils.EzPickle):
             r_stack = 2.0
 
         return r_reach, r_lift, r_stack
+
+    def compute_box1_over_box2_reward(self, box1_geom_id, box2_geom_id):
+        c1 = self.data.geom_xpos[box1_geom_id]
+        c2 = self.data.geom_xpos[box2_geom_id]
+
+        h1 = self.model.geom_size[box1_geom_id]  # half extents
+        h2 = self.model.geom_size[box2_geom_id]  # half extents
+
+        # box bounds
+        x1_min, x1_max = c1[0] - h1[0], c1[0] + h1[0]
+        y1_min, y1_max = c1[1] - h1[1], c1[1] + h1[1]
+        z1_min, z1_max = c1[2] - h1[2], c1[2] + h1[2]
+
+        x2_min, x2_max = c2[0] - h2[0], c2[0] + h2[0]
+        y2_min, y2_max = c2[1] - h2[1], c2[1] + h2[1]
+        z2_top = c2[2] + h2[2]
+
+        # overlap in x-y
+        overlap_x = max(0.0, min(x1_max, x2_max) - max(x1_min, x2_min))
+        overlap_y = max(0.0, min(y1_max, y2_max) - max(y1_min, y2_min))
+        overlap_area = overlap_x * overlap_y
+
+        # volume of box1 that lies above the top of box2
+        height_above_box2 = max(0.0, z1_max - max(z1_min, z2_top))
+        volume_above = overlap_area * height_above_box2
+
+        # normalize by volume of box1
+        box1_volume = 8.0 * h1[0] * h1[1] * h1[2] + 1e-8
+        return volume_above / box1_volume
+
+
     def is_gripper_contact(self, contact, limb_geom_ids):
         return (
             (contact.geom1 in limb_geom_ids and contact.geom2 == self.obj_geom_id)
@@ -1262,8 +1275,8 @@ class DexGripperStackingEnv(MujocoEnv, utils.EzPickle):
             box_state_bef = self.data.qpos[self.box1_qpos_adr : self.box1_qpos_adr + 7].copy()
             rob_box_dist_bef = np.linalg.norm(rob_pos_bef - box_pos_bef)
 
-            #limb_geom_ids = self.get_limb_geom_ids(self.model)
-            #limb_geom_ids = limb_geom_ids[1:]  # exclude root geom if present
+            limb_geom_ids = self.get_limb_geom_ids(self.model)
+            limb_geom_ids = limb_geom_ids[1:]  # exclude root geom if present
             # box info
             box_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "box_1")
             box_pos = self.data.xpos[box_id]
@@ -1276,20 +1289,20 @@ class DexGripperStackingEnv(MujocoEnv, utils.EzPickle):
             )
             
 
-            #points = self.gripper_point_cloud(self.model, self.data, limb_geom_ids)
+            points = self.gripper_point_cloud(self.model, self.data, limb_geom_ids)
 
 
-            #_, tri = self.compute_gripper_hull(points)
+            _, tri = self.compute_gripper_hull(points)
 
             # compute overlap
-            #grasp_score_bef = self.gripper_box_overlap(box_pos, box_size, tri)
+            grasp_score_bef = self.gripper_box_overlap(box_pos, box_size, tri)
 
-            #compactness_score_bef = self.gripper_compactness_score(
-            #    points,
-            #    tri,
-            #    box_pos,
-            #    box_size
-            #)
+            compactness_score_bef = self.gripper_compactness_score(
+                points,
+                tri,
+                box_pos,
+                box_size
+            )
             
 
             if self.task_specs.get('mov_goal', False):
@@ -1341,7 +1354,7 @@ class DexGripperStackingEnv(MujocoEnv, utils.EzPickle):
                 print("And a last one.")
 
             
-            #reward += (rob_box_dist_bef - rob_box_dist_aft) / self.dt
+            reward += (rob_box_dist_bef - rob_box_dist_aft) / self.dt
             
             rob_pos_aft = self.get_body_com("0")[0:3].copy()
             box_pos_aft = self.get_body_com("box_1")[0:3].copy()
@@ -1369,11 +1382,11 @@ class DexGripperStackingEnv(MujocoEnv, utils.EzPickle):
             # IMPORTANT: geom size (half-extents)
             box_geom_id = self.obj_geom_id
             box_size = self.model.geom_size[box_geom_id]
-            #gripper_root_body_id = mujoco.mj_name2id(
-            #    self.model,
-            #    mujoco.mjtObj.mjOBJ_BODY,
-            #    "0"
-            #)
+            gripper_root_body_id = mujoco.mj_name2id(
+                self.model,
+                mujoco.mjtObj.mjOBJ_BODY,
+                "0"
+            )
 
             # Lowest point of box
             """
@@ -1383,17 +1396,17 @@ class DexGripperStackingEnv(MujocoEnv, utils.EzPickle):
                 box_geom_id
             )
             """
-            #box_bottom_z = self.compute_object_lowest_point(self.obj_geom_id)
+            box_bottom_z = self.compute_object_lowest_point(self.obj_geom_id)
             # Distance above floor
-            #clearance = box_bottom_z - self.box_init_height
+            clearance = box_bottom_z - self.box_init_height
 
-            #clearance = np.min(clearance)
+            clearance = np.min(clearance)
 
             # Only reward true lift
-            #if clearance > 0.0:
-            #    lift_reward = clearance / self.dt
-            #else:
-            #    lift_reward = 0.0
+            if clearance > 0.0:
+                lift_reward = clearance / self.dt
+            else:
+                lift_reward = 0.0
             
             lift_reward = (box_state_aft[2] - self.box_init_height) / self.dt
         
@@ -1415,27 +1428,27 @@ class DexGripperStackingEnv(MujocoEnv, utils.EzPickle):
             )
 
 
-            #gripper_id = mujoco.mj_name2id(
-            #    self.model,
-            #    mujoco.mjtObj.mjOBJ_BODY,
-            #    "0"
-            #)
+            gripper_id = mujoco.mj_name2id(
+                self.model,
+                mujoco.mjtObj.mjOBJ_BODY,
+                "0"
+            )
 
 
 
-            #gripper_vel = self.data.cvel[gripper_id][:3]
-            #box_vel = self.data.cvel[box_id][:3]
+            gripper_vel = self.data.cvel[gripper_id][:3]
+            box_vel = self.data.cvel[box_id][:3]
 
-            #relative_vel = box_vel - gripper_vel
+            relative_vel = box_vel - gripper_vel
 
-            #slip_reward = - np.linalg.norm(relative_vel)
+            slip_reward = - np.linalg.norm(relative_vel)
 
-            #contact_count = self.compute_box_gripper_contacts(
-            #    self.model,
-            #    self.data,
-            #    limb_geom_ids,
-            #    self.obj_geom_id
-            #)
+            contact_count = self.compute_box_gripper_contacts(
+                self.model,
+                self.data,
+                limb_geom_ids,
+                self.obj_geom_id
+            )
 
             force_mag = self.compute_total_contact_force_magnitude(
                 self.model,
@@ -1446,34 +1459,34 @@ class DexGripperStackingEnv(MujocoEnv, utils.EzPickle):
 
 
 
-            #fc_score = self.compute_force_closure_reward(
-            #    self.model,
-            #    self.data,
-            #    limb_geom_ids,
-            #    box_geom_id
-            #)    
+            fc_score = self.compute_force_closure_reward(
+                self.model,
+                self.data,
+                limb_geom_ids,
+                box_geom_id
+            )    
 
-            #holding_reward = self.compute_holding_reward(
-            #    self.model,
-            #    self.data,
-            #    box_geom_id,
-            #    initial_box_height=0.5
-            #)
-            #if contact_count > 0:
-            #    stability_reward = self.compute_stability_reward(
-            #        self.data,
-            #        self.box_body_id,
-            #        gripper_root_body_id
-            #    )
-            #else:
-            #    stability_reward = 0.0
+            holding_reward = self.compute_holding_reward(
+                self.model,
+                self.data,
+                box_geom_id,
+                initial_box_height=0.5
+            )
+            if contact_count > 0:
+                stability_reward = self.compute_stability_reward(
+                    self.data,
+                    self.box_body_id,
+                    gripper_root_body_id
+                )
+            else:
+                stability_reward = 0.0
             
 
-            #floor_contact_penalty = 0.0
-            #for i in range(self.data.ncon):
-            #    c = self.data.contact[i]
-            #    if c.geom1 == 0 or c.geom2 == 0:
-            #        floor_contact_penalty += 1.0
+            floor_contact_penalty = 0.0
+            for i in range(self.data.ncon):
+                c = self.data.contact[i]
+                if c.geom1 == 0 or c.geom2 == 0:
+                    floor_contact_penalty += 1.0
 
             if force_mag >= 5.0:
                 binary_reward = 1.0
@@ -1492,37 +1505,39 @@ class DexGripperStackingEnv(MujocoEnv, utils.EzPickle):
                 ) / self.dt
             else: 
                 target_dist = 0.0
-            #r_reach, r_lift, r_stack = self.staged_rewards()
+            r_reach, r_lift, r_stack = self.staged_rewards()
 
+            overhang_reward = self.compute_box1_over_box2_reward(
+                self.box1_geom_id,
+                self.box2_geom_id
+            )
 
-            distance_component = self.weights['distance'] * ((rob_box_dist_bef - rob_box_dist_aft) / self.dt)
-            grasp_component = self.weights['grasp'] * grasp_score_aft
-            compactness_component = self.weights['compactness'] * compactness_score_aft
-            binary_component = self.weights['binary'] * binary_reward
-            lift_component = self.weights['lift'] * lift_reward
-            reward_components = {
-                'distance': float(distance_component),
-                'grasp': float(grasp_component),
-                'compactness': float(compactness_component),
-                'lift': float(lift_component),
-                'orientation': 0.0,
-                'binary': float(binary_component),
-            }
+            has_overhang = overhang_reward > 0.3
+
+            if has_overhang and contact_count == 0:
+                overhang_reward = overhang_reward
+            else:
+                overhang_reward = 0.0
+                
 
             reward = (
-                distance_component +
-                grasp_component +
-                compactness_component +
-                binary_component +
-                lift_component  +
+                self.weights['distance'] * ((rob_box_dist_bef - rob_box_dist_aft) / self.dt) +
+                #2.0 * multi_contact_reward +
+                #1.0 * grasp_shape_reward +
+                self.weights['grasp'] * grasp_score_aft +              
+                self.weights['compactness'] * compactness_score_aft +
+                #1.0 * fc_score +
+                self.weights['binary'] * binary_reward +
+                self.weights['lift'] * lift_reward  +
                 1.0 * target_dist 
+                #3.0 * overhang_reward
             )
 
             #reward = max(r_reach, r_lift, r_stack)
             #print("Grasp Score before: ", grasp_score_bef, " Grasp Score after: ", grasp_score_aft, " Grasp Delta: ", grasp_delta, " Floor Contact Penalty: ", floor_contact_penalty)
             #print("Grasp compactness before: ", compactness_score_bef, "Grasp compactness after: ", compactness_score_aft, " Grasp Closure: ", grasp_closure)
             #print("Contact reward: ", contact_count, " Rob-Box Dist Reward: ", (rob_box_dist_bef - rob_box_dist_aft) / self.dt, " Force Closure Reward: ", fc_score, " Force Magnitude Reward: ", force_mag, " Lift Reward: ", lift_reward)
-            #print("Target distance reward: ", target_dist, "Target dist before: ", target_dist_bef, "Target dist after: ", target_dist_aft, " Box height: ", box1_height)
+            #print("Target distance reward: ", target_dist, "Target dist before: ", target_dist_bef, "Target dist after: ", target_dist_aft, " Box height: ", box1_height, "overlap reward: ", overhang_reward, "has overhang: ", has_overhang)
             #print("Total reward: ", reward)
            
            
@@ -1566,11 +1581,7 @@ class DexGripperStackingEnv(MujocoEnv, utils.EzPickle):
 
         
             
-            return ob, reward, termination, truncation, {
-                'use_transform_action': False,
-                'stage': 'execution',
-                'reward_components': reward_components,
-            }
+            return ob, reward, termination, truncation, {'use_transform_action': False, 'stage': 'execution'}
     
     def transit_attribute_transform(self):
         self.stage = 'attribute_transform'
@@ -1882,113 +1893,19 @@ class DexGripperStackingEnv(MujocoEnv, utils.EzPickle):
             all_obs.append(lapPE)
         return all_obs
 
-    def _estimate_box_xy_half_extent(self, geom_id):
-        geom_type = self.model.geom_type[geom_id]
-        geom_size = self.model.geom_size[geom_id]
-
-        if geom_type == mujoco.mjtGeom.mjGEOM_BOX:
-            return float(max(geom_size[0], geom_size[1]))
-        if geom_type == mujoco.mjtGeom.mjGEOM_SPHERE:
-            return float(geom_size[0])
-        if geom_type in (mujoco.mjtGeom.mjGEOM_CYLINDER, mujoco.mjtGeom.mjGEOM_CAPSULE, mujoco.mjtGeom.mjGEOM_ELLIPSOID):
-            return float(geom_size[0])
-
-        return 0.0
-
-    def _get_wall_spawn_bounds(self):
-        if self.box_spawn_range is not None:
-            bounds = np.array(self.box_spawn_range, dtype=np.float64).flatten()
-            if bounds.shape[0] == 4:
-                return bounds[0], bounds[1], bounds[2], bounds[3]
-
-        wall_names = ["wall_left", "wall_right", "wall_back", "wall_front"]
-        wall_ids = {
-            name: mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_GEOM, name)
-            for name in wall_names
-        }
-
-        if any(gid < 0 for gid in wall_ids.values()):
-            return None
-
-        left_inner = self.model.geom_pos[wall_ids["wall_left"]][0] + self.model.geom_size[wall_ids["wall_left"]][0]
-        right_inner = self.model.geom_pos[wall_ids["wall_right"]][0] - self.model.geom_size[wall_ids["wall_right"]][0]
-        back_inner = self.model.geom_pos[wall_ids["wall_back"]][1] + self.model.geom_size[wall_ids["wall_back"]][1]
-        front_inner = self.model.geom_pos[wall_ids["wall_front"]][1] - self.model.geom_size[wall_ids["wall_front"]][1]
-        return left_inner, right_inner, back_inner, front_inner
-
-    def _sample_two_box_spawn_positions(self):
-        default_box1 = np.array(self.task_specs.get("box_1_pos", [0.0, 0.0, 0.5]), dtype=np.float64)
-        default_box2 = np.array(self.task_specs.get("box_2_pos", [1.25, 0.0, 0.425]), dtype=np.float64)
-
-        # Prevent floor penetration on spawn. MuJoCo box geom size stores half-extents,
-        # so center z must be at least half-height (+ small clearance).
-        floor_clearance = float(self.task_specs.get("box_floor_clearance", 0.01))
-        min_box1_z = float(self.model.geom_size[self.box1_geom_id][2]) + floor_clearance
-        min_box2_z = float(self.model.geom_size[self.box2_geom_id][2]) + floor_clearance
-        default_box1[2] = max(float(default_box1[2]), min_box1_z)
-        default_box2[2] = max(float(default_box2[2]), min_box2_z)
-
-        if not self.random_boxes_pos:
-            return default_box1, default_box2
-
-        bounds = self._get_wall_spawn_bounds()
-        if bounds is None:
-            return default_box1, default_box2
-
-        x_min, x_max, y_min, y_max = bounds
-
-        box1_rad = self._estimate_box_xy_half_extent(self.box1_geom_id)
-        box2_rad = self._estimate_box_xy_half_extent(self.box2_geom_id)
-        shared_margin = max(0.0, self.box_random_margin)
-
-        margin1 = shared_margin + box1_rad
-        margin2 = shared_margin + box2_rad
-
-        low1 = np.array([x_min + margin1, y_min + margin1], dtype=np.float64)
-        high1 = np.array([x_max - margin1, y_max - margin1], dtype=np.float64)
-        low2 = np.array([x_min + margin2, y_min + margin2], dtype=np.float64)
-        high2 = np.array([x_max - margin2, y_max - margin2], dtype=np.float64)
-
-        if np.any(low1 >= high1) or np.any(low2 >= high2):
-            return default_box1, default_box2
-
-        min_center_dist = box1_rad + box2_rad + max(0.0, self.box_pair_clearance)
-        max_tries = max(1, self.box_spawn_max_tries)
-
-        for _ in range(max_tries):
-            p1 = self.np_random.uniform(low=low1, high=high1)
-            p2 = self.np_random.uniform(low=low2, high=high2)
-            if np.linalg.norm(p1 - p2) >= min_center_dist:
-                box1 = default_box1.copy()
-                box2 = default_box2.copy()
-                box1[:2] = p1
-                box2[:2] = p2
-                return box1, box2
-
-        return default_box1, default_box2
-
     def reset_state(self, add_noise):
         if add_noise:
             qpos = self.init_qpos + self.np_random.uniform(low=-.1, high=.1, size=self.model.nq)
             qvel = self.init_qvel + self.np_random.uniform(low=-.1, high=.1, size=self.model.nv)
         else:
-            qpos = self.init_qpos.copy()
-            qvel = self.init_qvel.copy()
-
-        box1_pos, box2_pos = self._sample_two_box_spawn_positions()
-        self.box_pos = box1_pos.copy()
-
-        # Keep box_2 on the floor with a small clearance instead of adding
-        # an extra ad-hoc offset on every reset.
-        floor_clearance = float(self.task_specs.get('box_floor_clearance', 0.01))
-        min_box2_z = float(self.model.geom_size[self.box2_geom_id][2]) + floor_clearance
-        box2_pos[2] = max(float(box2_pos[2]), min_box2_z)
-
+            qpos = self.init_qpos
+            qvel = self.init_qvel
         if self.env_specs.get('init_height', True):
             qpos[0] = self.box_pos[0]   # x
             qpos[1] = self.box_pos[1]   # y
             qpos[2] = self.box_pos[2] + 2.0 #before it was 0.4 in total and the other two werent there
-
+        
+        self.box_pos = np.array(self.task_specs.get('box_pos'))
         #qpos[-7:-4] = self.box_pos
         joint_id = mujoco.mj_name2id(
             self.model,
@@ -2002,14 +1919,15 @@ class DexGripperStackingEnv(MujocoEnv, utils.EzPickle):
         #self.rob_box_dist = self.box_pos
         
         # Box 1 position
-        qpos[self.box1_qpos_adr:self.box1_qpos_adr+3] = box1_pos
+        qpos[self.box1_qpos_adr:self.box1_qpos_adr+3] = np.array(self.task_specs.get("box_1_pos", [0.0, 0.0, 0.5]))
         qpos[self.box1_qpos_adr+3:self.box1_qpos_adr+7] = np.array([1, 0, 0, 0])
 
         # Box 2 position
-        qpos[self.box2_qpos_adr:self.box2_qpos_adr+3] = box2_pos
+        qpos[self.box2_qpos_adr:self.box2_qpos_adr+3] = np.array(self.task_specs.get("box_2_pos", [1.5, 0.0, 0.5]))
         qpos[self.box2_qpos_adr+3:self.box2_qpos_adr+7] = np.array([1, 0, 0, 0])
         
         if self.task_specs.get('mov_goal', False):
+            self.box_pos = np.array(self.task_specs.get('box_pos'))
             if self.task_specs.get('random_goal'):
                 self.goal_pos[:2] = rand_coord(self.np_random, np.array(self.task_specs.get('goal_range')))
             
