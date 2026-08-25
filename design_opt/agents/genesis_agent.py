@@ -1,6 +1,7 @@
 import math
 import pickle
 import time
+import sys
 import imageio
 #from mujoco_py import GlfwContext
 from khrylib.utils import *
@@ -125,6 +126,7 @@ class BodyGenAgent(AgentPPO):
         stage_id = self._state_stage_id(state)
         num_nodes = self._state_num_nodes(state)
         action = np.zeros((num_nodes, self.action_dim + 1), dtype=np.float64)
+        print(f"[benchmark] stage={stage_id} transform action is all zeros: shape={action.shape}")
         return action
 
     def setup_task(self):
@@ -252,6 +254,7 @@ class BodyGenAgent(AgentPPO):
         is_adversarial_case = 'adversarial' in env_name
         use_multi_agent_case = (is_multi_case or is_adversarial_case) and self.num_agents > 1
         benchmark_mode = self._is_benchmark_mode()
+
         if not use_multi_agent_case:
         ## make seed for the worker
             if pid > 0:
@@ -477,9 +480,10 @@ class BodyGenAgent(AgentPPO):
                     if info:
                         info = dict(info)
                         info['reward_components'] = reward_component_totals
-                        if is_adversarial_case and processed_agent_ids:
-                            # Keep per-agent rewards for adversarial logging/selection.
-                            info['agent_rewards'] = [float(agent_rewards[i]) for i in processed_agent_ids]
+                        if use_multi_agent_case and processed_agent_ids:
+                            # Keep a full per-agent reward vector so logger-side
+                            # per-agent episode accounting works for all multi cases.
+                            info['agent_rewards'] = [float(agent_rewards[i]) for i in range(self.num_agents)]
 
                     logger.step(self.env, env_reward, c_reward, c_info, info)
 
@@ -650,6 +654,10 @@ class BodyGenAgent(AgentPPO):
 
         to_train(*self.update_modules)
 
+        if self._is_multi_agent_case():
+            raw_agent_ids = batch.agent_ids if hasattr(batch, 'agent_ids') else np.zeros(len(batch.states), dtype=np.int64)
+            print(self._build_optimizer_debug_summary(batch.states, batch.next_states, raw_agent_ids))
+
         states       = tensorfy(batch.states,       self.device)
         next_states  = tensorfy(batch.next_states,  self.device)
         actions      = tensorfy(batch.actions,      self.device)
@@ -709,6 +717,70 @@ class BodyGenAgent(AgentPPO):
         if isinstance(value, (int, float, np.integer, np.floating)):
             return float(value)
         return float('nan')
+
+    def _extract_root_motion_from_state(self, state):
+        try:
+            obs = np.asarray(state[0], dtype=np.float64)
+        except Exception:
+            return float('nan')
+
+        if obs.ndim != 2 or obs.shape[0] == 0:
+            return float('nan')
+
+        root_row = obs[0]
+        sim_start = int(self.attr_fixed_dim)
+        qvel_start = sim_start + 5
+        qvel_end = qvel_start + 3
+        if root_row.shape[0] < qvel_end:
+            return float('nan')
+
+        root_lin_vel = root_row[qvel_start:qvel_end]
+        if root_lin_vel.shape[0] != 3 or not np.all(np.isfinite(root_lin_vel)):
+            return float('nan')
+
+        return float(np.linalg.norm(root_lin_vel))
+
+    def _build_optimizer_debug_summary(self, states, next_states, agent_ids):
+        agent_ids_np = np.asarray(agent_ids, dtype=np.int64).reshape(-1)
+        summary_parts = []
+
+        for aid in range(self.num_agents):
+            indices = np.where(agent_ids_np == aid)[0]
+            limb_counts = []
+            motion_values = []
+
+            for idx in indices:
+                state = states[idx]
+                next_state = next_states[idx] if idx < len(next_states) else None
+
+                try:
+                    limb_counts.append(max(0, int(self._state_num_nodes(state)) - 1))
+                except Exception:
+                    pass
+
+                motion_now = self._extract_root_motion_from_state(state)
+                if np.isfinite(motion_now):
+                    motion_values.append(motion_now)
+
+                if next_state is not None:
+                    motion_next = self._extract_root_motion_from_state(next_state)
+                    if np.isfinite(motion_next):
+                        motion_values.append(motion_next)
+
+            avg_limbs = float(np.mean(limb_counts)) if limb_counts else float('nan')
+            avg_motion = float(np.mean(motion_values)) if motion_values else float('nan')
+
+            if len(indices) > 0:
+                net_status = f"optimizing policy_nets[{aid}] and value_nets[{aid}]"
+            else:
+                net_status = f"skipping policy_nets[{aid}] and value_nets[{aid}] (no samples)"
+
+            summary_parts.append(
+                f"agent {aid}: samples={len(indices)}, avg_limbs={avg_limbs:.2f}, "
+                f"avg_motion={avg_motion:.4f}, {net_status}"
+            )
+
+        return "[optimizer debug] " + " | ".join(summary_parts)
 
     def _append_step_values(self, series_dict, step_values, step_idx=None):
         if step_idx is None:
@@ -1106,6 +1178,43 @@ class BodyGenAgent(AgentPPO):
         return 'policy_dict' in cp and 'value_dict' in cp
 
     @staticmethod
+    def _is_numpy_core_compat_error(exc):
+        if not isinstance(exc, ModuleNotFoundError):
+            return False
+        missing_name = getattr(exc, 'name', '') or ''
+        message = str(exc)
+        return missing_name.startswith('numpy._core') or 'numpy._core' in message
+
+    def _load_pickle_with_numpy_compat(self, cp_path):
+        try:
+            with open(cp_path, 'rb') as f:
+                return pickle.load(f)
+        except ModuleNotFoundError as exc:
+            if not self._is_numpy_core_compat_error(exc):
+                raise
+
+            self.logger.warning(
+                f'numpy compatibility fallback while loading checkpoint: {cp_path} ({exc})'
+            )
+            prev_core = sys.modules.get('numpy._core')
+            prev_multiarray = sys.modules.get('numpy._core.multiarray')
+            sys.modules['numpy._core'] = np.core
+            sys.modules['numpy._core.multiarray'] = np.core.multiarray
+            try:
+                with open(cp_path, 'rb') as f:
+                    return pickle.load(f)
+            finally:
+                if prev_core is None:
+                    sys.modules.pop('numpy._core', None)
+                else:
+                    sys.modules['numpy._core'] = prev_core
+
+                if prev_multiarray is None:
+                    sys.modules.pop('numpy._core.multiarray', None)
+                else:
+                    sys.modules['numpy._core.multiarray'] = prev_multiarray
+
+    @staticmethod
     def _normalize_checkpoint_tag(checkpoint):
         if isinstance(checkpoint, int):
             return f'epoch_{checkpoint:04d}.p'
@@ -1118,6 +1227,48 @@ class BodyGenAgent(AgentPPO):
         if not os.path.isfile(cp_path):
             raise FileNotFoundError(f'Checkpoint not found: {cp_path}')
         return cp_path
+
+    def _resolve_agent_best_checkpoint_path(self, model_dir, agent_id):
+        cp_name = f'best_agent_{int(agent_id)}.p'
+        cp_path = os.path.join(model_dir, cp_name)
+        if not os.path.isfile(cp_path):
+            raise FileNotFoundError(f'Checkpoint not found: {cp_path}')
+        return cp_path
+
+    def _should_load_individual_best_agent_checkpoints(self, checkpoint):
+        if not self._is_multi_agent_case() or self.training:
+            return False
+        if isinstance(checkpoint, int):
+            return False
+        checkpoint_tag = str(checkpoint).strip()
+        return checkpoint_tag in ('best', 'best.p')
+
+    def _load_individual_best_agent_checkpoints(self, model_dir):
+        loaded_agent_ids = []
+
+        for aid in range(self.num_agents):
+            try:
+                cp_path = self._resolve_agent_best_checkpoint_path(model_dir, aid)
+            except FileNotFoundError:
+                continue
+
+            self.logger.info(f'loading per-agent best checkpoint for agent {aid}: {cp_path}')
+            agent_cp = self._load_pickle_with_numpy_compat(cp_path)
+            if not self._checkpoint_is_single(agent_cp):
+                self.logger.warning(
+                    f'skipping per-agent best checkpoint for agent {aid}: unexpected format'
+                )
+                continue
+
+            self.policy_nets[aid].load_state_dict(
+                self._remap_state_dict_legacy_keys(agent_cp['policy_dict'])
+            )
+            self.value_nets[aid].load_state_dict(
+                self._remap_state_dict_legacy_keys(agent_cp['value_dict'])
+            )
+            loaded_agent_ids.append(aid)
+
+        return loaded_agent_ids
 
     def _resolve_transfer_checkpoint_path(self, source_dir, checkpoint_tag):
         if source_dir is None:
@@ -1217,7 +1368,7 @@ class BodyGenAgent(AgentPPO):
             return
 
         self.logger.info(f'loading transfer-init checkpoint: {cp_path}')
-        model_cp = pickle.load(open(cp_path, 'rb'))
+        model_cp = self._load_pickle_with_numpy_compat(cp_path)
 
         if self._checkpoint_is_multi(model_cp):
             self.logger.info('transfer init skipped: source checkpoint is multi-agent, expected single-agent')
@@ -1244,7 +1395,7 @@ class BodyGenAgent(AgentPPO):
         cp_path = self._resolve_checkpoint_path_from_model_dir(cfg.model_dir, checkpoint)
         print("The Path: ", cp_path)
         self.logger.info('loading model from checkpoint: %s' % cp_path)
-        model_cp = pickle.load(open(cp_path, "rb"))
+        model_cp = self._load_pickle_with_numpy_compat(cp_path)
 
         def _checkpoint_control_action_dim(cp):
             if self._is_multi_agent_case() and 'policy_dicts' in cp and len(cp['policy_dicts']) > 0:
@@ -1295,6 +1446,18 @@ class BodyGenAgent(AgentPPO):
             else:
                 self.best_agent_rewards = [-float('inf')] * self.num_agents
             self.save_best_agent_flags = [False] * self.num_agents
+
+            if self._should_load_individual_best_agent_checkpoints(checkpoint):
+                loaded_agent_ids = self._load_individual_best_agent_checkpoints(cfg.model_dir)
+                if loaded_agent_ids:
+                    self.logger.info(
+                        'using per-agent best checkpoints for evaluation/video: '
+                        + ', '.join([f'agent {aid}' for aid in loaded_agent_ids])
+                    )
+                else:
+                    self.logger.info(
+                        'no per-agent best checkpoints found; using aggregate multi-agent checkpoint weights'
+                    )
         if self.obs_norm is not None and model_cp.get('obs_norm') is not None:
             self.obs_norm.load_state_dict(model_cp['obs_norm'])
 
@@ -1528,6 +1691,15 @@ class BodyGenAgent(AgentPPO):
         tb_logger.add_scalar('exec_R_eps_avg', log_eval.avg_exec_episode_reward, epoch)
         if is_adversarial_case:
             tb_logger.add_scalar('adv_min_exec_R_eps_avg', checkpoint_metric, epoch)
+        if self._is_multi_agent_case():
+            train_agent_rewards = getattr(log, 'avg_agent_exec_episode_rewards', None)
+            eval_agent_rewards = getattr(log_eval, 'avg_agent_exec_episode_rewards', None)
+            if train_agent_rewards is not None:
+                for aid, value in enumerate(np.asarray(train_agent_rewards).tolist()):
+                    tb_logger.add_scalar(f'train_agent_{aid}_exec_R_eps_avg', float(value), epoch)
+            if eval_agent_rewards is not None:
+                for aid, value in enumerate(np.asarray(eval_agent_rewards).tolist()):
+                    tb_logger.add_scalar(f'eval_agent_{aid}_exec_R_eps_avg', float(value), epoch)
         tb_logger.add_scalar('reward_shift', self.cfg.reward_shift, epoch)
 
         # --- new values from self.info ---
@@ -1576,6 +1748,15 @@ class BodyGenAgent(AgentPPO):
             }
             if is_adversarial_case:
                 wandb_log['adv_min_exec_R_eps_avg'] = checkpoint_metric
+            if self._is_multi_agent_case():
+                train_agent_rewards = getattr(log, 'avg_agent_exec_episode_rewards', None)
+                eval_agent_rewards = getattr(log_eval, 'avg_agent_exec_episode_rewards', None)
+                if train_agent_rewards is not None:
+                    for aid, value in enumerate(np.asarray(train_agent_rewards).tolist()):
+                        wandb_log[f'train_agent_{aid}_exec_R_eps_avg'] = float(value)
+                if eval_agent_rewards is not None:
+                    for aid, value in enumerate(np.asarray(eval_agent_rewards).tolist()):
+                        wandb_log[f'eval_agent_{aid}_exec_R_eps_avg'] = float(value)
 
             for name in self.logger_cls.REWARD_COMPONENT_NAMES:
                 train_step_value = getattr(log, f'avg_exec_{name}_reward', 0.0)
