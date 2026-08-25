@@ -126,7 +126,6 @@ class BodyGenAgent(AgentPPO):
         stage_id = self._state_stage_id(state)
         num_nodes = self._state_num_nodes(state)
         action = np.zeros((num_nodes, self.action_dim + 1), dtype=np.float64)
-        print(f"[benchmark] stage={stage_id} transform action is all zeros: shape={action.shape}")
         return action
 
     def setup_task(self):
