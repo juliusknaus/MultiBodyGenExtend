@@ -1,0 +1,24 @@
+[2026-08-25 12:42:43,391] 0	T_sample 86.92	T_update 619.40	T_eval 27.17	ETA 8 days, 11:32:40	train_R 0.26	train_R_eps 260.38	exec_R 0.24	exec_R_eps 242.72	adv_min_exec_R_eps 240.27	dex-gripper-adversarial-push
+[2026-08-25 12:43:01,533] save best checkpoint for agent 0 with rewards 240.27!
+[2026-08-25 12:43:02,173] save best checkpoint for agent 1 with rewards 244.95!
+[2026-08-25 12:43:02,786] save best checkpoint with rewards 240.27!
+[2026-08-25 12:53:04,561] 1	T_sample 98.81	T_update 472.15	T_eval 28.74	ETA 6 days, 22:15:04	train_R 0.26	train_R_eps 260.36	exec_R 0.24	exec_R_eps 242.20	adv_min_exec_R_eps 239.56	dex-gripper-adversarial-push
+[2026-08-25 13:04:11,402] 2	T_sample 91.98	T_update 544.16	T_eval 27.01	ETA 7 days, 15:39:21	train_R 0.26	train_R_eps 260.10	exec_R 0.24	exec_R_eps 242.88	adv_min_exec_R_eps 239.96	dex-gripper-adversarial-push
+[2026-08-25 13:04:14,778] save best checkpoint for agent 1 with rewards 245.57!
+[2026-08-25 13:04:15,695] save best checkpoint with rewards 240.27!
+[2026-08-25 13:13:39,280] 3	T_sample 95.99	T_update 438.61	T_eval 27.13	ETA 6 days, 11:24:36	train_R 0.26	train_R_eps 260.32	exec_R 0.24	exec_R_eps 242.42	adv_min_exec_R_eps 239.92	dex-gripper-adversarial-push
+[2026-08-25 13:22:58,511] 4	T_sample 92.49	T_update 434.59	T_eval 28.35	ETA 6 days, 9:30:48	train_R 0.26	train_R_eps 260.32	exec_R 0.24	exec_R_eps 242.59	adv_min_exec_R_eps 240.18	dex-gripper-adversarial-push
+[2026-08-25 13:33:54,212] 5	T_sample 105.77	T_update 517.05	T_eval 27.80	ETA 7 days, 11:38:39	train_R 0.26	train_R_eps 259.93	exec_R 0.24	exec_R_eps 242.52	adv_min_exec_R_eps 239.87	dex-gripper-adversarial-push
+[2026-08-25 13:46:16,218] 6	T_sample 93.75	T_update 615.29	T_eval 28.89	ETA 8 days, 11:32:37	train_R 0.26	train_R_eps 260.05	exec_R 0.24	exec_R_eps 242.25	adv_min_exec_R_eps 239.49	dex-gripper-adversarial-push
+[2026-08-25 13:56:30,200] 7	T_sample 95.08	T_update 485.47	T_eval 30.75	ETA 7 days, 0:26:39	train_R 0.26	train_R_eps 260.17	exec_R 0.24	exec_R_eps 242.36	adv_min_exec_R_eps 239.73	dex-gripper-adversarial-push
+[2026-08-25 14:08:48,658] 8	T_sample 102.44	T_update 601.76	T_eval 29.61	ETA 8 days, 10:00:12	train_R 0.26	train_R_eps 260.22	exec_R 0.24	exec_R_eps 242.35	adv_min_exec_R_eps 239.73	dex-gripper-adversarial-push
+[2026-08-25 14:20:32,421] 9	T_sample 95.19	T_update 572.31	T_eval 30.90	ETA 8 days, 0:03:36	train_R 0.26	train_R_eps 260.26	exec_R 0.24	exec_R_eps 242.39	adv_min_exec_R_eps 239.74	dex-gripper-adversarial-push
+[2026-08-25 14:32:50,081] 10	T_sample 106.05	T_update 598.31	T_eval 29.18	ETA 8 days, 9:31:14	train_R 0.26	train_R_eps 260.14	exec_R 0.24	exec_R_eps 242.53	adv_min_exec_R_eps 239.72	dex-gripper-adversarial-push
+[2026-08-25 14:42:43,057] 11	T_sample 94.61	T_update 467.09	T_eval 27.14	ETA 6 days, 17:36:16	train_R 0.26	train_R_eps 260.05	exec_R 0.24	exec_R_eps 242.57	adv_min_exec_R_eps 239.67	dex-gripper-adversarial-push
+[2026-08-25 14:55:01,530] 12	T_sample 92.00	T_update 615.99	T_eval 26.90	ETA 8 days, 9:28:54	train_R 0.26	train_R_eps 260.05	exec_R 0.24	exec_R_eps 242.76	adv_min_exec_R_eps 239.72	dex-gripper-adversarial-push
+[2026-08-25 14:55:04,888] save best checkpoint for agent 1 with rewards 245.58!
+[2026-08-25 14:55:05,529] save best checkpoint with rewards 240.27!
+[2026-08-25 15:05:20,517] 13	T_sample 91.56	T_update 494.32	T_eval 26.71	ETA 6 days, 23:46:47	train_R 0.26	train_R_eps 260.27	exec_R 0.24	exec_R_eps 242.61	adv_min_exec_R_eps 239.59	dex-gripper-adversarial-push
+[2026-08-25 15:14:41,962] 14	T_sample 89.49	T_update 441.54	T_eval 25.99	ETA 6 days, 8:24:26	train_R 0.26	train_R_eps 260.05	exec_R 0.24	exec_R_eps 242.37	adv_min_exec_R_eps 239.42	dex-gripper-adversarial-push
+[2026-08-25 15:24:40,574] 15	T_sample 89.00	T_update 478.25	T_eval 27.80	ETA 6 days, 18:38:45	train_R 0.26	train_R_eps 260.36	exec_R 0.24	exec_R_eps 242.52	adv_min_exec_R_eps 239.82	dex-gripper-adversarial-push
+[2026-08-25 15:37:07,360] 16	T_sample 95.32	T_update 619.38	T_eval 27.58	ETA 8 days, 10:40:52	train_R 0.26	train_R_eps 260.34	exec_R 0.24	exec_R_eps 242.73	adv_min_exec_R_eps 239.99	dex-gripper-adversarial-push
