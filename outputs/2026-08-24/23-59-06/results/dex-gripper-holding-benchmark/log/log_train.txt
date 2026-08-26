@@ -562,3 +562,198 @@
 [2026-08-26 11:59:10,788] 553	T_sample 37.02	T_update 163.89	T_eval 13.32	ETA 1 day, 2:32:26	train_R 0.01	train_R_eps 5.65	exec_R 0.01	exec_R_eps 5.98	dex-gripper-holding-benchmark
 [2026-08-26 12:02:52,954] 554	T_sample 37.56	T_update 163.62	T_eval 13.51	ETA 1 day, 2:32:21	train_R 0.00	train_R_eps 1.30	exec_R 0.00	exec_R_eps 1.96	dex-gripper-holding-benchmark
 [2026-08-26 12:06:37,282] 555	T_sample 37.14	T_update 166.20	T_eval 13.51	ETA 1 day, 2:44:42	train_R 0.00	train_R_eps 1.98	exec_R 0.00	exec_R_eps 3.00	dex-gripper-holding-benchmark
+[2026-08-26 12:10:19,074] 556	T_sample 36.96	T_update 163.59	T_eval 13.60	ETA 1 day, 2:21:09	train_R -0.06	train_R_eps -57.88	exec_R 0.01	exec_R_eps 6.00	dex-gripper-holding-benchmark
+[2026-08-26 12:14:04,304] 557	T_sample 37.06	T_update 166.34	T_eval 14.45	ETA 1 day, 2:44:53	train_R -0.23	train_R_eps -229.14	exec_R 0.00	exec_R_eps 4.99	dex-gripper-holding-benchmark
+[2026-08-26 12:19:04,008] 558	T_sample 37.57	T_update 241.63	T_eval 13.29	ETA 1 day, 11:49:47	train_R 0.00	train_R_eps 2.65	exec_R -0.00	exec_R_eps -0.04	dex-gripper-holding-benchmark
+[2026-08-26 12:22:46,392] 559	T_sample 36.83	T_update 163.61	T_eval 13.68	ETA 1 day, 2:10:14	train_R 0.00	train_R_eps 3.00	exec_R 0.00	exec_R_eps 4.96	dex-gripper-holding-benchmark
+[2026-08-26 12:27:48,798] 560	T_sample 38.00	T_update 244.42	T_eval 13.07	ETA 1 day, 12:01:55	train_R 0.00	train_R_eps 2.32	exec_R 0.01	exec_R_eps 7.01	dex-gripper-holding-benchmark
+[2026-08-26 12:31:46,031] 561	T_sample 37.11	T_update 178.75	T_eval 13.99	ETA 1 day, 3:57:59	train_R 0.00	train_R_eps 2.67	exec_R 0.00	exec_R_eps 1.98	dex-gripper-holding-benchmark
+[2026-08-26 12:36:46,563] 562	T_sample 38.05	T_update 241.34	T_eval 13.40	ETA 1 day, 11:32:29	train_R -0.07	train_R_eps -72.06	exec_R -0.00	exec_R_eps -0.01	dex-gripper-holding-benchmark
+[2026-08-26 12:40:30,434] 563	T_sample 36.96	T_update 165.46	T_eval 14.02	ETA 1 day, 2:12:46	train_R 0.00	train_R_eps 4.33	exec_R -0.23	exec_R_eps -227.65	dex-gripper-holding-benchmark
+[2026-08-26 12:44:45,728] 564	T_sample 37.61	T_update 196.40	T_eval 13.79	ETA 1 day, 5:56:31	train_R 0.00	train_R_eps 2.65	exec_R 0.00	exec_R_eps 4.00	dex-gripper-holding-benchmark
+[2026-08-26 12:49:41,144] 565	T_sample 36.81	T_update 237.17	T_eval 13.97	ETA 1 day, 10:42:49	train_R 0.00	train_R_eps 3.98	exec_R 0.00	exec_R_eps 1.98	dex-gripper-holding-benchmark
+[2026-08-26 12:53:41,245] 566	T_sample 36.92	T_update 182.42	T_eval 13.40	ETA 1 day, 3:59:33	train_R 0.00	train_R_eps 2.32	exec_R 0.00	exec_R_eps 3.98	dex-gripper-holding-benchmark
+[2026-08-26 12:58:35,967] 567	T_sample 37.44	T_update 235.88	T_eval 14.20	ETA 1 day, 10:30:10	train_R -0.14	train_R_eps -143.55	exec_R 0.00	exec_R_eps 5.00	dex-gripper-holding-benchmark
+[2026-08-26 13:02:12,311] 568	T_sample 36.37	T_update 160.49	T_eval 13.09	ETA 1 day, 1:08:04	train_R 0.00	train_R_eps 3.64	exec_R 0.00	exec_R_eps 1.99	dex-gripper-holding-benchmark
+[2026-08-26 13:05:52,978] 569	T_sample 36.47	T_update 163.73	T_eval 13.54	ETA 1 day, 1:31:46	train_R -0.07	train_R_eps -73.15	exec_R 0.01	exec_R_eps 8.96	dex-gripper-holding-benchmark
+[2026-08-26 13:09:33,415] 570	T_sample 37.62	T_update 162.47	T_eval 13.74	ETA 1 day, 1:28:55	train_R -0.08	train_R_eps -79.18	exec_R -0.00	exec_R_eps -3.11	dex-gripper-holding-benchmark
+[2026-08-26 13:13:14,931] 571	T_sample 36.31	T_update 165.71	T_eval 13.20	ETA 1 day, 1:35:13	train_R 0.00	train_R_eps 1.64	exec_R 0.00	exec_R_eps 2.01	dex-gripper-holding-benchmark
+[2026-08-26 13:16:57,024] 572	T_sample 37.07	T_update 164.87	T_eval 13.43	ETA 1 day, 1:32:43	train_R 0.00	train_R_eps 0.32	exec_R 0.01	exec_R_eps 5.97	dex-gripper-holding-benchmark
+[2026-08-26 13:21:59,582] 573	T_sample 36.78	T_update 245.76	T_eval 13.46	ETA 1 day, 11:01:36	train_R 0.00	train_R_eps 3.33	exec_R 0.00	exec_R_eps 0.99	dex-gripper-holding-benchmark
+[2026-08-26 13:26:59,721] 574	T_sample 37.45	T_update 242.84	T_eval 12.92	ETA 1 day, 10:36:49	train_R 0.00	train_R_eps 1.99	exec_R 0.00	exec_R_eps 2.03	dex-gripper-holding-benchmark
+[2026-08-26 13:30:38,522] 575	T_sample 36.55	T_update 162.89	T_eval 13.01	ETA 1 day, 1:01:18	train_R -0.07	train_R_eps -68.44	exec_R 0.00	exec_R_eps 2.99	dex-gripper-holding-benchmark
+[2026-08-26 13:34:18,837] 576	T_sample 37.77	T_update 162.59	T_eval 12.96	ETA 1 day, 1:03:56	train_R 0.00	train_R_eps 3.65	exec_R -0.00	exec_R_eps -0.00	dex-gripper-holding-benchmark
+[2026-08-26 13:38:00,888] 577	T_sample 37.59	T_update 164.17	T_eval 13.50	ETA 1 day, 1:14:05	train_R -0.07	train_R_eps -73.54	exec_R 0.00	exec_R_eps 0.00	dex-gripper-holding-benchmark
+[2026-08-26 13:42:22,912] 578	T_sample 36.94	T_update 204.79	T_eval 13.60	ETA 1 day, 5:51:33	train_R 0.00	train_R_eps 4.67	exec_R -0.00	exec_R_eps -0.04	dex-gripper-holding-benchmark
+[2026-08-26 13:47:04,017] 579	T_sample 36.36	T_update 224.65	T_eval 13.36	ETA 1 day, 8:00:34	train_R 0.00	train_R_eps 3.00	exec_R 0.00	exec_R_eps 0.99	dex-gripper-holding-benchmark
+[2026-08-26 13:50:41,628] 580	T_sample 36.34	T_update 161.44	T_eval 13.16	ETA 1 day, 0:33:07	train_R 0.00	train_R_eps 2.01	exec_R 0.00	exec_R_eps 1.97	dex-gripper-holding-benchmark
+[2026-08-26 13:55:04,944] 581	T_sample 36.49	T_update 208.04	T_eval 13.03	ETA 1 day, 5:54:20	train_R 0.00	train_R_eps 3.00	exec_R 0.00	exec_R_eps 1.98	dex-gripper-holding-benchmark
+[2026-08-26 13:58:46,739] 582	T_sample 36.86	T_update 164.91	T_eval 13.36	ETA 1 day, 0:55:11	train_R 0.00	train_R_eps 1.66	exec_R 0.00	exec_R_eps 1.99	dex-gripper-holding-benchmark
+[2026-08-26 14:03:38,043] 583	T_sample 37.67	T_update 234.58	T_eval 13.00	ETA 1 day, 8:57:43	train_R 0.00	train_R_eps 3.99	exec_R 0.00	exec_R_eps 1.99	dex-gripper-holding-benchmark
+[2026-08-26 14:08:28,817] 584	T_sample 36.88	T_update 234.73	T_eval 13.39	ETA 1 day, 8:51:16	train_R 0.00	train_R_eps 2.99	exec_R 0.00	exec_R_eps 3.99	dex-gripper-holding-benchmark
+[2026-08-26 14:12:48,994] 585	T_sample 36.48	T_update 204.76	T_eval 13.19	ETA 1 day, 5:15:35	train_R 0.00	train_R_eps 4.99	exec_R 0.01	exec_R_eps 6.99	dex-gripper-holding-benchmark
+[2026-08-26 14:17:46,069] 586	T_sample 36.72	T_update 241.99	T_eval 13.14	ETA 1 day, 9:28:53	train_R 0.00	train_R_eps 0.98	exec_R 0.00	exec_R_eps 0.99	dex-gripper-holding-benchmark
+[2026-08-26 14:22:44,767] 587	T_sample 37.21	T_update 242.85	T_eval 12.95	ETA 1 day, 9:31:58	train_R 0.00	train_R_eps 2.32	exec_R 0.00	exec_R_eps 0.99	dex-gripper-holding-benchmark
+[2026-08-26 14:26:46,781] 588	T_sample 36.56	T_update 185.87	T_eval 13.29	ETA 1 day, 2:54:43	train_R 0.00	train_R_eps 4.32	exec_R 0.00	exec_R_eps 3.99	dex-gripper-holding-benchmark
+[2026-08-26 14:30:29,725] 589	T_sample 37.70	T_update 166.50	T_eval 13.05	ETA 1 day, 0:44:30	train_R 0.00	train_R_eps 3.33	exec_R 0.01	exec_R_eps 5.99	dex-gripper-holding-benchmark
+[2026-08-26 14:34:23,566] 590	T_sample 36.21	T_update 179.43	T_eval 13.04	ETA 1 day, 1:58:50	train_R 0.00	train_R_eps 4.64	exec_R 0.00	exec_R_eps 2.98	dex-gripper-holding-benchmark
+[2026-08-26 14:38:00,688] 591	T_sample 36.60	T_update 162.73	T_eval 12.97	ETA 1 day, 0:03:37	train_R 0.00	train_R_eps 4.98	exec_R 0.00	exec_R_eps 3.98	dex-gripper-holding-benchmark
+[2026-08-26 14:41:41,475] 592	T_sample 36.58	T_update 165.06	T_eval 13.17	ETA 1 day, 0:17:12	train_R 0.00	train_R_eps 3.32	exec_R 0.01	exec_R_eps 10.00	dex-gripper-holding-benchmark
+[2026-08-26 14:46:37,547] 593	T_sample 36.68	T_update 240.98	T_eval 13.24	ETA 1 day, 8:48:25	train_R 0.00	train_R_eps 3.66	exec_R 0.00	exec_R_eps 3.00	dex-gripper-holding-benchmark
+[2026-08-26 14:50:15,812] 594	T_sample 37.68	T_update 162.46	T_eval 13.08	ETA 23:59:12	train_R 0.00	train_R_eps 2.99	exec_R 0.01	exec_R_eps 8.97	dex-gripper-holding-benchmark
+[2026-08-26 14:53:53,421] 595	T_sample 36.14	T_update 163.68	T_eval 13.03	ETA 23:53:09	train_R 0.00	train_R_eps 2.33	exec_R 0.00	exec_R_eps 4.00	dex-gripper-holding-benchmark
+[2026-08-26 14:57:49,012] 596	T_sample 37.35	T_update 180.81	T_eval 13.02	ETA 1 day, 1:52:40	train_R 0.00	train_R_eps 3.00	exec_R 0.00	exec_R_eps 3.99	dex-gripper-holding-benchmark
+[2026-08-26 15:01:24,431] 597	T_sample 36.04	T_update 162.31	T_eval 13.07	ETA 23:36:32	train_R 0.00	train_R_eps 3.00	exec_R 0.01	exec_R_eps 9.00	dex-gripper-holding-benchmark
+[2026-08-26 15:05:03,196] 598	T_sample 36.76	T_update 164.57	T_eval 12.88	ETA 23:51:36	train_R 0.00	train_R_eps 4.35	exec_R 0.00	exec_R_eps 0.98	dex-gripper-holding-benchmark
+[2026-08-26 15:08:41,494] 599	T_sample 37.29	T_update 164.32	T_eval 13.02	ETA 23:50:53	train_R 0.00	train_R_eps 3.99	exec_R 0.00	exec_R_eps 1.99	dex-gripper-holding-benchmark
+[2026-08-26 15:12:19,078] 600	T_sample 36.76	T_update 162.26	T_eval 13.35	ETA 23:32:15	train_R 0.00	train_R_eps 2.65	exec_R 0.00	exec_R_eps 3.00	dex-gripper-holding-benchmark
+[2026-08-26 15:15:54,501] 601	T_sample 35.85	T_update 162.82	T_eval 12.79	ETA 23:22:42	train_R 0.01	train_R_eps 5.33	exec_R 0.00	exec_R_eps 1.99	dex-gripper-holding-benchmark
+[2026-08-26 15:19:31,094] 602	T_sample 36.77	T_update 162.19	T_eval 13.27	ETA 23:24:13	train_R 0.00	train_R_eps 4.33	exec_R 0.00	exec_R_eps 3.96	dex-gripper-holding-benchmark
+[2026-08-26 15:23:10,623] 603	T_sample 36.62	T_update 164.80	T_eval 13.10	ETA 23:35:47	train_R 0.00	train_R_eps 2.99	exec_R -0.00	exec_R_eps -0.02	dex-gripper-holding-benchmark
+[2026-08-26 15:26:48,139] 604	T_sample 37.23	T_update 162.68	T_eval 13.07	ETA 23:22:10	train_R 0.00	train_R_eps 1.66	exec_R 0.00	exec_R_eps 2.99	dex-gripper-holding-benchmark
+[2026-08-26 15:30:26,233] 605	T_sample 37.02	T_update 162.35	T_eval 13.17	ETA 23:15:40	train_R 0.00	train_R_eps 3.32	exec_R 0.00	exec_R_eps 3.01	dex-gripper-holding-benchmark
+[2026-08-26 15:34:03,724] 606	T_sample 37.27	T_update 162.79	T_eval 13.37	ETA 23:17:55	train_R 0.00	train_R_eps 4.67	exec_R 0.01	exec_R_eps 10.97	dex-gripper-holding-benchmark
+[2026-08-26 15:37:40,344] 607	T_sample 36.54	T_update 163.84	T_eval 12.95	ETA 23:13:42	train_R 0.01	train_R_eps 5.65	exec_R -0.01	exec_R_eps -6.07	dex-gripper-holding-benchmark
+[2026-08-26 15:41:21,440] 608	T_sample 36.52	T_update 167.66	T_eval 12.86	ETA 23:34:21	train_R -0.08	train_R_eps -75.59	exec_R 0.00	exec_R_eps 3.00	dex-gripper-holding-benchmark
+[2026-08-26 15:45:00,054] 609	T_sample 36.69	T_update 164.07	T_eval 13.02	ETA 23:09:37	train_R 0.00	train_R_eps 3.31	exec_R 0.00	exec_R_eps 2.00	dex-gripper-holding-benchmark
+[2026-08-26 15:48:39,667] 610	T_sample 36.76	T_update 165.44	T_eval 12.86	ETA 23:14:16	train_R 0.00	train_R_eps 4.02	exec_R 0.00	exec_R_eps 4.00	dex-gripper-holding-benchmark
+[2026-08-26 15:52:19,044] 611	T_sample 36.91	T_update 165.62	T_eval 13.27	ETA 23:15:34	train_R 0.00	train_R_eps 3.32	exec_R 0.00	exec_R_eps 1.98	dex-gripper-holding-benchmark
+[2026-08-26 15:55:57,488] 612	T_sample 36.44	T_update 165.73	T_eval 13.45	ETA 23:10:45	train_R 0.00	train_R_eps 1.36	exec_R 0.00	exec_R_eps 4.97	dex-gripper-holding-benchmark
+[2026-08-26 15:59:34,841] 613	T_sample 36.19	T_update 164.71	T_eval 12.77	ETA 22:54:34	train_R 0.00	train_R_eps 2.33	exec_R 0.00	exec_R_eps 3.99	dex-gripper-holding-benchmark
+[2026-08-26 16:03:15,393] 614	T_sample 36.49	T_update 166.19	T_eval 12.98	ETA 23:03:49	train_R 0.00	train_R_eps 0.97	exec_R 0.00	exec_R_eps 3.97	dex-gripper-holding-benchmark
+[2026-08-26 16:06:54,571] 615	T_sample 36.42	T_update 166.68	T_eval 13.01	ETA 23:03:08	train_R 0.00	train_R_eps 4.01	exec_R 0.00	exec_R_eps 1.00	dex-gripper-holding-benchmark
+[2026-08-26 16:10:32,772] 616	T_sample 36.11	T_update 165.08	T_eval 12.89	ETA 22:46:32	train_R 0.00	train_R_eps 3.34	exec_R 0.01	exec_R_eps 5.98	dex-gripper-holding-benchmark
+[2026-08-26 16:14:10,972] 617	T_sample 36.18	T_update 164.95	T_eval 12.95	ETA 22:42:58	train_R 0.00	train_R_eps 2.01	exec_R 0.00	exec_R_eps 3.98	dex-gripper-holding-benchmark
+[2026-08-26 16:17:48,752] 618	T_sample 36.10	T_update 165.55	T_eval 12.82	ETA 22:41:55	train_R 0.00	train_R_eps 1.67	exec_R 0.00	exec_R_eps 4.00	dex-gripper-holding-benchmark
+[2026-08-26 16:21:26,057] 619	T_sample 36.06	T_update 164.85	T_eval 13.50	ETA 22:37:52	train_R 0.00	train_R_eps 2.33	exec_R 0.00	exec_R_eps 4.99	dex-gripper-holding-benchmark
+[2026-08-26 16:25:01,747] 620	T_sample 36.32	T_update 164.64	T_eval 12.84	ETA 22:30:29	train_R 0.00	train_R_eps 3.00	exec_R 0.00	exec_R_eps 3.99	dex-gripper-holding-benchmark
+[2026-08-26 16:28:39,304] 621	T_sample 36.20	T_update 164.78	T_eval 12.96	ETA 22:27:53	train_R 0.00	train_R_eps 4.02	exec_R 0.00	exec_R_eps 1.01	dex-gripper-holding-benchmark
+[2026-08-26 16:32:17,344] 622	T_sample 36.83	T_update 164.78	T_eval 12.63	ETA 22:26:05	train_R 0.00	train_R_eps 3.35	exec_R 0.00	exec_R_eps 3.01	dex-gripper-holding-benchmark
+[2026-08-26 16:35:53,632] 623	T_sample 36.94	T_update 164.22	T_eval 12.90	ETA 22:21:28	train_R 0.00	train_R_eps 4.32	exec_R 0.00	exec_R_eps 1.00	dex-gripper-holding-benchmark
+[2026-08-26 16:39:32,979] 624	T_sample 36.82	T_update 166.18	T_eval 12.87	ETA 22:29:11	train_R -0.07	train_R_eps -72.32	exec_R 0.01	exec_R_eps 5.01	dex-gripper-holding-benchmark
+[2026-08-26 16:43:11,205] 625	T_sample 36.72	T_update 164.73	T_eval 13.11	ETA 22:17:24	train_R -0.01	train_R_eps -14.44	exec_R 0.00	exec_R_eps 3.01	dex-gripper-holding-benchmark
+[2026-08-26 16:46:49,660] 626	T_sample 36.28	T_update 165.41	T_eval 13.58	ETA 22:18:16	train_R 0.01	train_R_eps 7.33	exec_R 0.00	exec_R_eps 1.02	dex-gripper-holding-benchmark
+[2026-08-26 16:50:26,965] 627	T_sample 36.73	T_update 164.33	T_eval 13.21	ETA 22:08:30	train_R 0.00	train_R_eps 3.33	exec_R 0.00	exec_R_eps 4.02	dex-gripper-holding-benchmark
+[2026-08-26 16:54:05,708] 628	T_sample 36.71	T_update 165.76	T_eval 12.71	ETA 22:10:34	train_R 0.00	train_R_eps 3.31	exec_R 0.00	exec_R_eps 2.96	dex-gripper-holding-benchmark
+[2026-08-26 16:57:43,716] 629	T_sample 36.23	T_update 165.24	T_eval 12.88	ETA 22:01:51	train_R -0.02	train_R_eps -16.26	exec_R 0.00	exec_R_eps 2.00	dex-gripper-holding-benchmark
+[2026-08-26 17:01:20,884] 630	T_sample 36.07	T_update 165.42	T_eval 12.94	ETA 21:58:44	train_R -0.05	train_R_eps -50.87	exec_R 0.00	exec_R_eps 2.00	dex-gripper-holding-benchmark
+[2026-08-26 17:04:58,105] 631	T_sample 36.65	T_update 164.40	T_eval 12.92	ETA 21:52:22	train_R -0.02	train_R_eps -19.37	exec_R 0.00	exec_R_eps 4.00	dex-gripper-holding-benchmark
+[2026-08-26 17:08:36,793] 632	T_sample 36.30	T_update 165.34	T_eval 13.34	ETA 21:55:01	train_R 0.00	train_R_eps 1.65	exec_R 0.00	exec_R_eps 0.99	dex-gripper-holding-benchmark
+[2026-08-26 17:12:15,424] 633	T_sample 36.69	T_update 165.69	T_eval 13.12	ETA 21:54:30	train_R 0.00	train_R_eps 3.67	exec_R 0.00	exec_R_eps 4.01	dex-gripper-holding-benchmark
+[2026-08-26 17:15:53,704] 634	T_sample 36.76	T_update 164.48	T_eval 13.42	ETA 21:45:51	train_R 0.00	train_R_eps 3.35	exec_R 0.00	exec_R_eps 3.99	dex-gripper-holding-benchmark
+[2026-08-26 17:19:32,507] 635	T_sample 36.20	T_update 166.11	T_eval 13.13	ETA 21:46:59	train_R -0.01	train_R_eps -14.02	exec_R 0.00	exec_R_eps 2.99	dex-gripper-holding-benchmark
+[2026-08-26 17:23:10,867] 636	T_sample 37.13	T_update 165.35	T_eval 12.90	ETA 21:43:02	train_R 0.00	train_R_eps 3.02	exec_R 0.00	exec_R_eps 1.98	dex-gripper-holding-benchmark
+[2026-08-26 17:26:48,551] 637	T_sample 36.42	T_update 163.69	T_eval 13.08	ETA 21:26:15	train_R 0.00	train_R_eps 3.00	exec_R 0.00	exec_R_eps 0.00	dex-gripper-holding-benchmark
+[2026-08-26 17:30:27,818] 638	T_sample 36.78	T_update 165.28	T_eval 13.36	ETA 21:36:09	train_R 0.00	train_R_eps 2.64	exec_R 0.00	exec_R_eps 2.00	dex-gripper-holding-benchmark
+[2026-08-26 17:34:05,957] 639	T_sample 36.77	T_update 164.49	T_eval 13.82	ETA 21:30:31	train_R 0.00	train_R_eps 4.31	exec_R 0.00	exec_R_eps 1.00	dex-gripper-holding-benchmark
+[2026-08-26 17:37:45,668] 640	T_sample 36.56	T_update 165.76	T_eval 12.99	ETA 21:28:14	train_R -0.06	train_R_eps -56.60	exec_R 0.00	exec_R_eps 2.99	dex-gripper-holding-benchmark
+[2026-08-26 17:41:24,576] 641	T_sample 36.75	T_update 164.83	T_eval 12.92	ETA 21:19:49	train_R 0.00	train_R_eps 2.34	exec_R 0.00	exec_R_eps 2.02	dex-gripper-holding-benchmark
+[2026-08-26 17:45:04,156] 642	T_sample 36.70	T_update 165.14	T_eval 13.36	ETA 21:20:26	train_R 0.00	train_R_eps 2.39	exec_R 0.00	exec_R_eps 3.97	dex-gripper-holding-benchmark
+[2026-08-26 17:48:44,260] 643	T_sample 36.55	T_update 166.07	T_eval 13.02	ETA 21:19:29	train_R 0.00	train_R_eps 2.35	exec_R 0.00	exec_R_eps 0.99	dex-gripper-holding-benchmark
+[2026-08-26 17:52:22,379] 644	T_sample 36.42	T_update 163.72	T_eval 12.88	ETA 21:00:23	train_R 0.00	train_R_eps 1.99	exec_R 0.00	exec_R_eps 2.99	dex-gripper-holding-benchmark
+[2026-08-26 17:56:00,174] 645	T_sample 36.85	T_update 164.46	T_eval 12.88	ETA 21:03:41	train_R 0.00	train_R_eps 3.36	exec_R 0.00	exec_R_eps 2.02	dex-gripper-holding-benchmark
+[2026-08-26 17:59:37,774] 646	T_sample 37.00	T_update 163.24	T_eval 12.98	ETA 20:54:26	train_R 0.00	train_R_eps 1.98	exec_R 0.00	exec_R_eps 1.96	dex-gripper-holding-benchmark
+[2026-08-26 18:03:56,258] 647	T_sample 36.66	T_update 204.62	T_eval 12.90	ETA 1 day, 0:51:14	train_R 0.00	train_R_eps 3.33	exec_R 0.00	exec_R_eps 1.01	dex-gripper-holding-benchmark
+[2026-08-26 18:08:18,906] 648	T_sample 37.73	T_update 206.04	T_eval 13.83	ETA 1 day, 1:06:57	train_R 0.00	train_R_eps 2.99	exec_R 0.00	exec_R_eps 3.99	dex-gripper-holding-benchmark
+[2026-08-26 18:11:57,115] 649	T_sample 37.88	T_update 162.95	T_eval 13.09	ETA 20:47:52	train_R -0.07	train_R_eps -72.79	exec_R 0.00	exec_R_eps 1.98	dex-gripper-holding-benchmark
+[2026-08-26 18:16:15,487] 650	T_sample 36.71	T_update 204.90	T_eval 12.80	ETA 1 day, 0:39:53	train_R -0.07	train_R_eps -74.31	exec_R 0.01	exec_R_eps 5.99	dex-gripper-holding-benchmark
+[2026-08-26 18:19:52,280] 651	T_sample 36.82	T_update 163.02	T_eval 12.82	ETA 20:33:24	train_R -0.07	train_R_eps -73.28	exec_R 0.00	exec_R_eps 0.03	dex-gripper-holding-benchmark
+[2026-08-26 18:24:42,195] 652	T_sample 38.03	T_update 234.87	T_eval 13.20	ETA 1 day, 3:34:38	train_R 0.00	train_R_eps 3.68	exec_R 0.00	exec_R_eps 0.03	dex-gripper-holding-benchmark
+[2026-08-26 18:29:35,452] 653	T_sample 36.55	T_update 240.64	T_eval 12.77	ETA 1 day, 3:52:04	train_R 0.00	train_R_eps 1.70	exec_R 0.01	exec_R_eps 6.01	dex-gripper-holding-benchmark
+[2026-08-26 18:34:14,101] 654	T_sample 36.40	T_update 225.14	T_eval 13.36	ETA 1 day, 2:20:40	train_R 0.00	train_R_eps 2.34	exec_R 0.01	exec_R_eps 6.01	dex-gripper-holding-benchmark
+[2026-08-26 18:37:48,923] 655	T_sample 36.02	T_update 162.20	T_eval 12.92	ETA 20:10:34	train_R 0.00	train_R_eps 3.34	exec_R 0.01	exec_R_eps 8.99	dex-gripper-holding-benchmark
+[2026-08-26 18:41:26,580] 656	T_sample 36.61	T_update 163.73	T_eval 13.16	ETA 20:20:30	train_R 0.00	train_R_eps 1.00	exec_R 0.00	exec_R_eps 2.98	dex-gripper-holding-benchmark
+[2026-08-26 18:45:04,465] 657	T_sample 36.61	T_update 163.59	T_eval 13.04	ETA 20:15:31	train_R -0.07	train_R_eps -73.68	exec_R 0.00	exec_R_eps 0.03	dex-gripper-holding-benchmark
+[2026-08-26 18:48:52,792] 658	T_sample 36.36	T_update 175.53	T_eval 12.88	ETA 21:17:26	train_R 0.00	train_R_eps 4.67	exec_R 0.00	exec_R_eps 2.98	dex-gripper-holding-benchmark
+[2026-08-26 18:52:29,876] 659	T_sample 36.52	T_update 162.98	T_eval 12.91	ETA 20:03:40	train_R -0.09	train_R_eps -93.54	exec_R 0.01	exec_R_eps 6.01	dex-gripper-holding-benchmark
+[2026-08-26 18:56:05,891] 660	T_sample 36.54	T_update 163.35	T_eval 12.98	ETA 20:02:41	train_R 0.00	train_R_eps 2.67	exec_R 0.01	exec_R_eps 5.99	dex-gripper-holding-benchmark
+[2026-08-26 19:01:01,053] 661	T_sample 36.63	T_update 240.10	T_eval 13.60	ETA 1 day, 3:15:30	train_R 0.00	train_R_eps 4.01	exec_R 0.00	exec_R_eps 0.97	dex-gripper-holding-benchmark
+[2026-08-26 19:04:38,076] 662	T_sample 36.75	T_update 163.17	T_eval 12.83	ETA 19:54:55	train_R 0.00	train_R_eps 4.00	exec_R 0.00	exec_R_eps 0.99	dex-gripper-holding-benchmark
+[2026-08-26 19:08:15,843] 663	T_sample 36.76	T_update 163.60	T_eval 13.14	ETA 19:55:36	train_R 0.00	train_R_eps 2.99	exec_R 0.00	exec_R_eps 4.99	dex-gripper-holding-benchmark
+[2026-08-26 19:11:54,185] 664	T_sample 36.22	T_update 165.01	T_eval 12.87	ETA 19:55:26	train_R 0.00	train_R_eps 2.32	exec_R 0.01	exec_R_eps 7.97	dex-gripper-holding-benchmark
+[2026-08-26 19:15:33,858] 665	T_sample 36.85	T_update 165.36	T_eval 13.03	ETA 19:58:07	train_R 0.00	train_R_eps 3.99	exec_R 0.00	exec_R_eps 1.01	dex-gripper-holding-benchmark
+[2026-08-26 19:20:28,174] 666	T_sample 37.08	T_update 240.47	T_eval 13.16	ETA 1 day, 2:53:25	train_R -0.03	train_R_eps -27.77	exec_R 0.00	exec_R_eps 3.02	dex-gripper-holding-benchmark
+[2026-08-26 19:24:04,862] 667	T_sample 37.69	T_update 161.99	T_eval 13.00	ETA 19:36:47	train_R 0.00	train_R_eps 3.01	exec_R 0.00	exec_R_eps 2.98	dex-gripper-holding-benchmark
+[2026-08-26 19:27:42,972] 668	T_sample 37.07	T_update 164.44	T_eval 13.10	ETA 19:43:57	train_R 0.00	train_R_eps 3.66	exec_R 0.00	exec_R_eps 3.97	dex-gripper-holding-benchmark
+[2026-08-26 19:32:04,049] 669	T_sample 36.55	T_update 209.51	T_eval 12.79	ETA 23:43:39	train_R 0.00	train_R_eps 3.02	exec_R 0.00	exec_R_eps 0.01	dex-gripper-holding-benchmark
+[2026-08-26 19:35:45,530] 670	T_sample 36.87	T_update 167.32	T_eval 13.09	ETA 19:51:25	train_R 0.00	train_R_eps 1.69	exec_R 0.00	exec_R_eps 3.99	dex-gripper-holding-benchmark
+[2026-08-26 19:39:25,284] 671	T_sample 36.76	T_update 164.94	T_eval 13.36	ETA 19:35:40	train_R -0.07	train_R_eps -74.20	exec_R 0.00	exec_R_eps 2.99	dex-gripper-holding-benchmark
+[2026-08-26 19:43:04,822] 672	T_sample 36.10	T_update 166.90	T_eval 13.00	ETA 19:37:11	train_R -0.07	train_R_eps -72.32	exec_R 0.00	exec_R_eps 1.95	dex-gripper-holding-benchmark
+[2026-08-26 19:46:43,740] 673	T_sample 36.23	T_update 165.31	T_eval 12.91	ETA 19:25:11	train_R 0.00	train_R_eps 2.00	exec_R 0.00	exec_R_eps 1.00	dex-gripper-holding-benchmark
+[2026-08-26 19:50:22,659] 674	T_sample 36.11	T_update 166.28	T_eval 12.90	ETA 19:26:09	train_R 0.00	train_R_eps 3.65	exec_R 0.00	exec_R_eps 2.99	dex-gripper-holding-benchmark
+[2026-08-26 19:54:00,988] 675	T_sample 36.82	T_update 164.95	T_eval 12.96	ETA 19:19:34	train_R 0.00	train_R_eps 2.36	exec_R 0.01	exec_R_eps 6.98	dex-gripper-holding-benchmark
+[2026-08-26 19:57:41,583] 676	T_sample 37.31	T_update 165.83	T_eval 13.27	ETA 19:25:01	train_R 0.00	train_R_eps 3.68	exec_R 0.01	exec_R_eps 8.96	dex-gripper-holding-benchmark
+[2026-08-26 20:01:22,317] 677	T_sample 37.13	T_update 165.82	T_eval 13.17	ETA 19:19:52	train_R -0.07	train_R_eps -72.44	exec_R 0.00	exec_R_eps 5.00	dex-gripper-holding-benchmark
+[2026-08-26 20:05:00,221] 678	T_sample 36.77	T_update 164.13	T_eval 13.36	ETA 19:06:15	train_R 0.00	train_R_eps 1.65	exec_R 0.00	exec_R_eps 3.98	dex-gripper-holding-benchmark
+[2026-08-26 20:08:41,980] 679	T_sample 36.95	T_update 167.20	T_eval 12.89	ETA 19:17:34	train_R -0.02	train_R_eps -16.78	exec_R 0.00	exec_R_eps 3.98	dex-gripper-holding-benchmark
+[2026-08-26 20:12:20,708] 680	T_sample 36.77	T_update 165.05	T_eval 13.38	ETA 19:04:07	train_R 0.00	train_R_eps 2.00	exec_R 0.00	exec_R_eps 3.99	dex-gripper-holding-benchmark
+[2026-08-26 20:15:59,415] 681	T_sample 36.15	T_update 165.42	T_eval 13.05	ETA 18:57:28	train_R 0.00	train_R_eps 3.32	exec_R 0.01	exec_R_eps 5.97	dex-gripper-holding-benchmark
+[2026-08-26 20:19:39,034] 682	T_sample 36.52	T_update 165.82	T_eval 13.11	ETA 18:58:17	train_R 0.00	train_R_eps 3.32	exec_R 0.00	exec_R_eps 1.98	dex-gripper-holding-benchmark
+[2026-08-26 20:23:16,848] 683	T_sample 36.29	T_update 164.54	T_eval 13.21	ETA 18:47:17	train_R 0.00	train_R_eps 4.66	exec_R 0.00	exec_R_eps 1.99	dex-gripper-holding-benchmark
+[2026-08-26 20:26:55,714] 684	T_sample 36.77	T_update 165.79	T_eval 12.98	ETA 18:51:37	train_R 0.00	train_R_eps 3.67	exec_R -0.00	exec_R_eps -0.02	dex-gripper-holding-benchmark
+[2026-08-26 20:30:35,643] 685	T_sample 36.83	T_update 165.34	T_eval 13.38	ETA 18:48:03	train_R 0.00	train_R_eps 2.32	exec_R 0.00	exec_R_eps 4.99	dex-gripper-holding-benchmark
+[2026-08-26 20:34:15,415] 686	T_sample 36.57	T_update 164.84	T_eval 13.11	ETA 18:39:05	train_R 0.00	train_R_eps 3.66	exec_R 0.00	exec_R_eps 0.99	dex-gripper-holding-benchmark
+[2026-08-26 20:37:53,909] 687	T_sample 36.75	T_update 164.60	T_eval 12.99	ETA 18:34:33	train_R 0.00	train_R_eps 2.64	exec_R 0.00	exec_R_eps 2.00	dex-gripper-holding-benchmark
+[2026-08-26 20:41:32,933] 688	T_sample 36.51	T_update 164.54	T_eval 13.11	ETA 18:30:03	train_R 0.00	train_R_eps 2.33	exec_R 0.00	exec_R_eps 0.99	dex-gripper-holding-benchmark
+[2026-08-26 20:45:10,370] 689	T_sample 36.55	T_update 163.88	T_eval 12.87	ETA 18:22:04	train_R 0.00	train_R_eps 2.99	exec_R 0.01	exec_R_eps 8.97	dex-gripper-holding-benchmark
+[2026-08-26 20:48:48,503] 690	T_sample 36.42	T_update 163.54	T_eval 13.40	ETA 18:18:51	train_R 0.00	train_R_eps 3.33	exec_R 0.00	exec_R_eps 3.00	dex-gripper-holding-benchmark
+[2026-08-26 20:53:02,154] 691	T_sample 36.90	T_update 200.37	T_eval 12.84	ETA 21:23:54	train_R 0.01	train_R_eps 5.32	exec_R 0.00	exec_R_eps 0.99	dex-gripper-holding-benchmark
+[2026-08-26 20:56:41,464] 692	T_sample 37.86	T_update 162.34	T_eval 13.19	ETA 18:11:50	train_R 0.00	train_R_eps 2.34	exec_R 0.00	exec_R_eps 4.02	dex-gripper-holding-benchmark
+[2026-08-26 21:00:16,985] 693	T_sample 36.08	T_update 163.46	T_eval 12.91	ETA 18:03:28	train_R 0.01	train_R_eps 6.64	exec_R 0.00	exec_R_eps 1.02	dex-gripper-holding-benchmark
+[2026-08-26 21:03:56,140] 694	T_sample 36.05	T_update 164.09	T_eval 14.74	ETA 18:12:18	train_R 0.00	train_R_eps 3.67	exec_R 0.00	exec_R_eps 4.00	dex-gripper-holding-benchmark
+[2026-08-26 21:07:35,369] 695	T_sample 37.05	T_update 162.77	T_eval 14.25	ETA 18:04:40	train_R 0.00	train_R_eps 3.34	exec_R 0.01	exec_R_eps 6.99	dex-gripper-holding-benchmark
+[2026-08-26 21:11:12,390] 696	T_sample 38.36	T_update 161.19	T_eval 12.95	ETA 17:53:08	train_R 0.00	train_R_eps 2.01	exec_R 0.00	exec_R_eps 1.99	dex-gripper-holding-benchmark
+[2026-08-26 21:14:48,676] 697	T_sample 36.62	T_update 163.19	T_eval 13.06	ETA 17:51:29	train_R 0.00	train_R_eps 2.65	exec_R -0.00	exec_R_eps -0.03	dex-gripper-holding-benchmark
+[2026-08-26 21:19:14,773] 698	T_sample 37.55	T_update 210.55	T_eval 12.90	ETA 21:49:19	train_R 0.00	train_R_eps 2.33	exec_R 0.00	exec_R_eps 2.01	dex-gripper-holding-benchmark
+[2026-08-26 21:24:12,835] 699	T_sample 37.84	T_update 241.57	T_eval 12.89	ETA 1 day, 0:21:27	train_R -0.02	train_R_eps -21.58	exec_R 0.00	exec_R_eps 1.01	dex-gripper-holding-benchmark
+[2026-08-26 21:27:54,346] 700	T_sample 36.92	T_update 163.38	T_eval 13.36	ETA 17:44:46	train_R 0.00	train_R_eps 1.98	exec_R 0.01	exec_R_eps 11.96	dex-gripper-holding-benchmark
+[2026-08-26 21:31:28,321] 701	T_sample 35.86	T_update 161.81	T_eval 12.95	ETA 17:26:04	train_R 0.00	train_R_eps 0.67	exec_R -0.22	exec_R_eps -215.64	dex-gripper-holding-benchmark
+[2026-08-26 21:36:17,520] 702	T_sample 38.34	T_update 234.25	T_eval 13.36	ETA 23:35:30	train_R 0.00	train_R_eps 0.67	exec_R 0.00	exec_R_eps 2.01	dex-gripper-holding-benchmark
+[2026-08-26 21:40:17,292] 703	T_sample 36.95	T_update 185.49	T_eval 12.63	ETA 19:19:40	train_R 0.01	train_R_eps 5.32	exec_R 0.00	exec_R_eps 0.99	dex-gripper-holding-benchmark
+[2026-08-26 21:43:59,042] 704	T_sample 37.53	T_update 166.09	T_eval 13.05	ETA 17:45:20	train_R 0.00	train_R_eps 1.99	exec_R 0.00	exec_R_eps 4.99	dex-gripper-holding-benchmark
+[2026-08-26 21:47:34,555] 705	T_sample 36.22	T_update 162.03	T_eval 13.16	ETA 17:15:52	train_R 0.00	train_R_eps 1.66	exec_R 0.00	exec_R_eps 2.00	dex-gripper-holding-benchmark
+[2026-08-26 21:52:07,610] 706	T_sample 37.67	T_update 218.24	T_eval 13.11	ETA 21:53:40	train_R 0.00	train_R_eps 2.99	exec_R 0.00	exec_R_eps 0.99	dex-gripper-holding-benchmark
+[2026-08-26 21:55:43,471] 707	T_sample 36.58	T_update 162.52	T_eval 12.58	ETA 17:10:11	train_R 0.00	train_R_eps 3.66	exec_R 0.01	exec_R_eps 8.98	dex-gripper-holding-benchmark
+[2026-08-26 21:59:21,932] 708	T_sample 36.86	T_update 163.52	T_eval 12.94	ETA 17:14:38	train_R -0.14	train_R_eps -143.66	exec_R 0.00	exec_R_eps 1.98	dex-gripper-holding-benchmark
+[2026-08-26 22:02:59,246] 709	T_sample 36.37	T_update 163.35	T_eval 13.11	ETA 17:08:42	train_R 0.00	train_R_eps 1.99	exec_R 0.00	exec_R_eps 1.00	dex-gripper-holding-benchmark
+[2026-08-26 22:07:57,269] 710	T_sample 37.43	T_update 242.81	T_eval 13.48	ETA 23:34:46	train_R 0.00	train_R_eps 1.98	exec_R 0.00	exec_R_eps 2.99	dex-gripper-holding-benchmark
+[2026-08-26 22:12:51,153] 711	T_sample 37.20	T_update 239.23	T_eval 13.00	ETA 23:09:14	train_R 0.00	train_R_eps 2.33	exec_R 0.00	exec_R_eps 2.98	dex-gripper-holding-benchmark
+[2026-08-26 22:16:25,975] 712	T_sample 36.92	T_update 161.60	T_eval 13.79	ETA 16:55:32	train_R 0.00	train_R_eps 4.99	exec_R -0.00	exec_R_eps -0.01	dex-gripper-holding-benchmark
+[2026-08-26 22:20:02,883] 713	T_sample 36.57	T_update 162.37	T_eval 12.90	ETA 16:49:46	train_R 0.00	train_R_eps 2.00	exec_R -0.00	exec_R_eps -0.01	dex-gripper-holding-benchmark
+[2026-08-26 22:23:36,365] 714	T_sample 36.49	T_update 161.11	T_eval 12.61	ETA 16:38:30	train_R 0.00	train_R_eps 3.97	exec_R -0.00	exec_R_eps -0.01	dex-gripper-holding-benchmark
+[2026-08-26 22:27:14,649] 715	T_sample 36.42	T_update 164.89	T_eval 12.73	ETA 16:53:07	train_R -0.07	train_R_eps -74.04	exec_R 0.00	exec_R_eps 4.99	dex-gripper-holding-benchmark
+[2026-08-26 22:31:42,151] 716	T_sample 36.61	T_update 212.90	T_eval 13.42	ETA 20:40:10	train_R 0.00	train_R_eps 1.67	exec_R 0.00	exec_R_eps 2.97	dex-gripper-holding-benchmark
+[2026-08-26 22:36:02,463] 717	T_sample 36.14	T_update 206.93	T_eval 13.10	ETA 20:04:00	train_R 0.00	train_R_eps 2.00	exec_R 0.00	exec_R_eps 1.99	dex-gripper-holding-benchmark
+[2026-08-26 22:40:59,819] 718	T_sample 36.44	T_update 243.84	T_eval 12.99	ETA 22:53:28	train_R -0.01	train_R_eps -12.60	exec_R 0.00	exec_R_eps 4.98	dex-gripper-holding-benchmark
+[2026-08-26 22:44:37,774] 719	T_sample 37.69	T_update 162.84	T_eval 12.79	ETA 16:35:29	train_R 0.00	train_R_eps 2.33	exec_R 0.00	exec_R_eps 2.00	dex-gripper-holding-benchmark
+[2026-08-26 22:49:10,735] 720	T_sample 37.99	T_update 217.10	T_eval 12.78	ETA 20:45:32	train_R 0.01	train_R_eps 5.30	exec_R 0.00	exec_R_eps 1.99	dex-gripper-holding-benchmark
+[2026-08-26 22:52:46,315] 721	T_sample 36.50	T_update 162.51	T_eval 12.84	ETA 16:21:34	train_R -0.00	train_R_eps -2.85	exec_R -0.02	exec_R_eps -19.54	dex-gripper-holding-benchmark
+[2026-08-26 22:56:48,847] 722	T_sample 36.41	T_update 189.48	T_eval 13.00	ETA 18:22:54	train_R 0.00	train_R_eps 1.99	exec_R 0.00	exec_R_eps 3.00	dex-gripper-holding-benchmark
+[2026-08-26 23:01:45,287] 723	T_sample 37.98	T_update 240.00	T_eval 12.96	ETA 22:18:20	train_R 0.00	train_R_eps 2.98	exec_R 0.00	exec_R_eps 1.99	dex-gripper-holding-benchmark
+[2026-08-26 23:05:56,081] 724	T_sample 36.96	T_update 196.75	T_eval 13.18	ETA 18:51:34	train_R 0.00	train_R_eps 3.66	exec_R 0.00	exec_R_eps 0.98	dex-gripper-holding-benchmark
+[2026-08-26 23:09:31,072] 725	T_sample 36.06	T_update 162.09	T_eval 13.05	ETA 16:04:27	train_R 0.00	train_R_eps 2.33	exec_R 0.00	exec_R_eps 2.98	dex-gripper-holding-benchmark
+[2026-08-26 23:13:09,387] 726	T_sample 37.70	T_update 162.45	T_eval 12.97	ETA 16:09:44	train_R 0.00	train_R_eps 3.97	exec_R 0.00	exec_R_eps 3.00	dex-gripper-holding-benchmark
+[2026-08-26 23:17:28,974] 727	T_sample 36.67	T_update 204.78	T_eval 13.24	ETA 19:14:36	train_R -0.07	train_R_eps -73.12	exec_R 0.00	exec_R_eps 0.97	dex-gripper-holding-benchmark
+[2026-08-26 23:21:04,771] 728	T_sample 36.38	T_update 162.74	T_eval 12.89	ETA 15:57:36	train_R -0.08	train_R_eps -76.61	exec_R 0.00	exec_R_eps 3.98	dex-gripper-holding-benchmark
+[2026-08-26 23:24:41,968] 729	T_sample 37.39	T_update 163.07	T_eval 12.75	ETA 15:59:27	train_R 0.00	train_R_eps 3.33	exec_R 0.00	exec_R_eps 2.00	dex-gripper-holding-benchmark
+[2026-08-26 23:28:19,104] 730	T_sample 36.60	T_update 162.94	T_eval 13.36	ETA 15:54:32	train_R 0.00	train_R_eps 0.32	exec_R 0.00	exec_R_eps 5.00	dex-gripper-holding-benchmark
+[2026-08-26 23:31:56,759] 731	T_sample 36.69	T_update 162.97	T_eval 12.85	ETA 15:49:14	train_R 0.00	train_R_eps 2.32	exec_R 0.00	exec_R_eps 4.00	dex-gripper-holding-benchmark
+[2026-08-26 23:35:33,474] 732	T_sample 36.60	T_update 161.96	T_eval 12.71	ETA 15:40:07	train_R 0.00	train_R_eps 1.98	exec_R 0.00	exec_R_eps 2.99	dex-gripper-holding-benchmark
+[2026-08-26 23:39:28,101] 733	T_sample 36.59	T_update 181.28	T_eval 12.81	ETA 17:02:40	train_R 0.00	train_R_eps 2.66	exec_R -0.00	exec_R_eps -0.02	dex-gripper-holding-benchmark
+[2026-08-26 23:44:12,937] 734	T_sample 36.76	T_update 230.52	T_eval 13.34	ETA 20:39:25	train_R 0.00	train_R_eps 3.30	exec_R 0.00	exec_R_eps 1.01	dex-gripper-holding-benchmark
+[2026-08-26 23:47:50,488] 735	T_sample 36.58	T_update 163.65	T_eval 12.89	ETA 15:37:44	train_R 0.00	train_R_eps 4.67	exec_R -0.00	exec_R_eps -0.02	dex-gripper-holding-benchmark
+[2026-08-26 23:51:29,789] 736	T_sample 37.48	T_update 162.61	T_eval 13.25	ETA 15:35:07	train_R 0.00	train_R_eps 1.68	exec_R 0.00	exec_R_eps 4.97	dex-gripper-holding-benchmark
+[2026-08-26 23:56:21,959] 737	T_sample 36.16	T_update 237.75	T_eval 12.67	ETA 20:51:24	train_R 0.00	train_R_eps 2.66	exec_R 0.00	exec_R_eps 1.98	dex-gripper-holding-benchmark
+[2026-08-27 00:00:42,646] 738	T_sample 36.65	T_update 205.14	T_eval 12.87	ETA 18:27:45	train_R 0.00	train_R_eps 4.32	exec_R 0.00	exec_R_eps 0.99	dex-gripper-holding-benchmark
+[2026-08-27 00:04:19,130] 739	T_sample 37.41	T_update 159.90	T_eval 13.49	ETA 15:13:27	train_R 0.00	train_R_eps 2.64	exec_R 0.00	exec_R_eps 2.00	dex-gripper-holding-benchmark
+[2026-08-27 00:09:05,483] 740	T_sample 36.42	T_update 231.59	T_eval 13.19	ETA 20:13:50	train_R 0.00	train_R_eps 1.97	exec_R 0.01	exec_R_eps 6.99	dex-gripper-holding-benchmark
+[2026-08-27 00:12:38,648] 741	T_sample 36.41	T_update 159.63	T_eval 12.80	ETA 14:57:59	train_R 0.01	train_R_eps 5.99	exec_R 0.01	exec_R_eps 6.98	dex-gripper-holding-benchmark
+[2026-08-27 00:17:14,361] 742	T_sample 36.80	T_update 221.50	T_eval 12.88	ETA 19:21:33	train_R 0.00	train_R_eps 3.33	exec_R 0.01	exec_R_eps 7.00	dex-gripper-holding-benchmark
+[2026-08-27 00:22:04,516] 743	T_sample 37.61	T_update 234.53	T_eval 12.80	ETA 20:15:44	train_R 0.01	train_R_eps 5.66	exec_R 0.00	exec_R_eps 4.00	dex-gripper-holding-benchmark
+[2026-08-27 00:25:57,817] 744	T_sample 36.26	T_update 178.65	T_eval 13.09	ETA 16:08:59	train_R 0.00	train_R_eps 2.66	exec_R 0.00	exec_R_eps 2.99	dex-gripper-holding-benchmark
+[2026-08-27 00:29:35,747] 745	T_sample 36.47	T_update 162.73	T_eval 13.89	ETA 15:02:06	train_R 0.01	train_R_eps 5.67	exec_R 0.00	exec_R_eps 0.02	dex-gripper-holding-benchmark
+[2026-08-27 00:33:13,485] 746	T_sample 36.66	T_update 162.18	T_eval 13.42	ETA 14:55:00	train_R 0.00	train_R_eps 3.34	exec_R 0.00	exec_R_eps 3.00	dex-gripper-holding-benchmark
+[2026-08-27 00:36:52,084] 747	T_sample 36.69	T_update 162.81	T_eval 13.30	ETA 14:53:44	train_R 0.00	train_R_eps 3.00	exec_R 0.01	exec_R_eps 6.01	dex-gripper-holding-benchmark
+[2026-08-27 00:40:37,364] 748	T_sample 36.93	T_update 169.63	T_eval 13.19	ETA 15:19:19	train_R 0.00	train_R_eps 0.67	exec_R 0.00	exec_R_eps 2.98	dex-gripper-holding-benchmark
+[2026-08-27 00:44:13,975] 749	T_sample 37.01	T_update 162.50	T_eval 13.14	ETA 14:46:03	train_R 0.00	train_R_eps 4.31	exec_R 0.00	exec_R_eps 0.99	dex-gripper-holding-benchmark
+[2026-08-27 00:47:51,691] 750	T_sample 37.65	T_update 161.95	T_eval 12.81	ETA 14:41:31	train_R 0.00	train_R_eps 2.66	exec_R 0.00	exec_R_eps 0.99	dex-gripper-holding-benchmark
