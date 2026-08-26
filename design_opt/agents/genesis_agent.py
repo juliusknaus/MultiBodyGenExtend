@@ -653,9 +653,9 @@ class BodyGenAgent(AgentPPO):
 
         to_train(*self.update_modules)
 
-        if self._is_multi_agent_case():
-            raw_agent_ids = batch.agent_ids if hasattr(batch, 'agent_ids') else np.zeros(len(batch.states), dtype=np.int64)
-            print(self._build_optimizer_debug_summary(batch.states, batch.next_states, raw_agent_ids))
+        #if self._is_multi_agent_case():
+        #    raw_agent_ids = batch.agent_ids if hasattr(batch, 'agent_ids') else np.zeros(len(batch.states), dtype=np.int64)
+        #    print(self._build_optimizer_debug_summary(batch.states, batch.next_states, raw_agent_ids))
 
         states       = tensorfy(batch.states,       self.device)
         next_states  = tensorfy(batch.next_states,  self.device)
