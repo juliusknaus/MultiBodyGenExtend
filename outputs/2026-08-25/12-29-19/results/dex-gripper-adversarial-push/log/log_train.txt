@@ -278,3 +278,81 @@
 [2026-08-27 00:27:24,260] 213	T_sample 95.98	T_update 438.89	T_eval 31.89	ETA 5 days, 3:44:37	train_R 0.83	train_R_eps 832.96	exec_R 1.18	exec_R_eps 1181.92	adv_min_exec_R_eps 1140.15	dex-gripper-adversarial-push
 [2026-08-27 00:36:53,137] 214	T_sample 94.38	T_update 436.84	T_eval 32.32	ETA 5 days, 2:53:01	train_R 0.81	train_R_eps 816.70	exec_R 0.82	exec_R_eps 816.17	adv_min_exec_R_eps 759.40	dex-gripper-adversarial-push
 [2026-08-27 00:46:27,570] 215	T_sample 94.33	T_update 442.01	T_eval 31.98	ETA 5 days, 3:46:08	train_R 0.71	train_R_eps 717.17	exec_R 1.28	exec_R_eps 1283.91	adv_min_exec_R_eps 1227.22	dex-gripper-adversarial-push
+[2026-08-27 00:56:14,420] 216	T_sample 105.71	T_update 438.74	T_eval 35.45	ETA 5 days, 6:07:47	train_R 0.82	train_R_eps 824.22	exec_R 0.95	exec_R_eps 947.65	adv_min_exec_R_eps 890.29	dex-gripper-adversarial-push
+[2026-08-27 01:06:02,129] 217	T_sample 101.55	T_update 447.37	T_eval 32.36	ETA 5 days, 6:16:05	train_R 0.85	train_R_eps 851.25	exec_R 0.97	exec_R_eps 969.00	adv_min_exec_R_eps 920.16	dex-gripper-adversarial-push
+[2026-08-27 01:15:40,832] 218	T_sample 96.66	T_update 444.28	T_eval 31.32	ETA 5 days, 4:08:52	train_R 0.77	train_R_eps 771.79	exec_R 0.85	exec_R_eps 853.00	adv_min_exec_R_eps 801.49	dex-gripper-adversarial-push
+[2026-08-27 01:25:21,583] 219	T_sample 94.11	T_update 448.14	T_eval 32.34	ETA 5 days, 4:29:35	train_R 0.79	train_R_eps 793.60	exec_R 1.14	exec_R_eps 1144.78	adv_min_exec_R_eps 1091.14	dex-gripper-adversarial-push
+[2026-08-27 01:35:20,006] 220	T_sample 94.17	T_update 466.47	T_eval 31.63	ETA 5 days, 8:09:31	train_R 0.91	train_R_eps 912.94	exec_R 1.77	exec_R_eps 1773.92	adv_min_exec_R_eps 1729.71	dex-gripper-adversarial-push
+[2026-08-27 01:35:25,377] save best checkpoint for agent 0 with rewards 1800.68!
+[2026-08-27 01:35:26,302] save best checkpoint for agent 1 with rewards 1745.42!
+[2026-08-27 01:35:26,893] save best checkpoint with rewards 1729.71!
+[2026-08-27 01:44:44,809] 221	T_sample 103.45	T_update 415.80	T_eval 36.56	ETA 5 days, 0:06:58	train_R 0.76	train_R_eps 759.73	exec_R 1.11	exec_R_eps 1113.60	adv_min_exec_R_eps 1056.99	dex-gripper-adversarial-push
+[2026-08-27 01:54:01,905] 222	T_sample 97.42	T_update 421.69	T_eval 32.65	ETA 4 days, 23:05:21	train_R 0.83	train_R_eps 832.61	exec_R 1.19	exec_R_eps 1191.45	adv_min_exec_R_eps 1136.97	dex-gripper-adversarial-push
+[2026-08-27 02:03:36,410] 223	T_sample 95.39	T_update 440.53	T_eval 32.78	ETA 5 days, 2:35:12	train_R 0.78	train_R_eps 787.39	exec_R 0.91	exec_R_eps 911.55	adv_min_exec_R_eps 857.69	dex-gripper-adversarial-push
+[2026-08-27 02:15:06,809] 224	T_sample 93.90	T_update 557.98	T_eval 33.47	ETA 6 days, 3:32:33	train_R 0.73	train_R_eps 731.69	exec_R 1.15	exec_R_eps 1151.26	adv_min_exec_R_eps 1085.88	dex-gripper-adversarial-push
+[2026-08-27 02:25:02,305] 225	T_sample 105.97	T_update 444.13	T_eval 38.68	ETA 5 days, 6:35:14	train_R 0.87	train_R_eps 872.42	exec_R 0.79	exec_R_eps 791.74	adv_min_exec_R_eps 735.16	dex-gripper-adversarial-push
+[2026-08-27 02:34:35,619] 226	T_sample 99.91	T_update 432.59	T_eval 34.52	ETA 5 days, 1:45:13	train_R 0.81	train_R_eps 811.60	exec_R 0.88	exec_R_eps 876.05	adv_min_exec_R_eps 829.44	dex-gripper-adversarial-push
+[2026-08-27 02:43:52,931] 227	T_sample 96.25	T_update 422.24	T_eval 33.92	ETA 4 days, 22:27:43	train_R 0.86	train_R_eps 864.06	exec_R 1.17	exec_R_eps 1168.00	adv_min_exec_R_eps 1112.70	dex-gripper-adversarial-push
+[2026-08-27 02:53:26,279] 228	T_sample 94.93	T_update 439.95	T_eval 32.84	ETA 5 days, 1:35:05	train_R 0.97	train_R_eps 973.30	exec_R 1.32	exec_R_eps 1316.67	adv_min_exec_R_eps 1266.49	dex-gripper-adversarial-push
+[2026-08-27 03:03:02,755] 229	T_sample 96.50	T_update 442.92	T_eval 31.64	ETA 5 days, 2:08:37	train_R 0.81	train_R_eps 818.85	exec_R 1.04	exec_R_eps 1035.05	adv_min_exec_R_eps 992.00	dex-gripper-adversarial-push
+[2026-08-27 03:15:28,881] 230	T_sample 113.32	T_update 593.60	T_eval 34.72	ETA 6 days, 14:25:17	train_R 0.83	train_R_eps 833.27	exec_R 1.31	exec_R_eps 1308.00	adv_min_exec_R_eps 1248.65	dex-gripper-adversarial-push
+[2026-08-27 03:27:09,541] 231	T_sample 102.61	T_update 557.18	T_eval 36.11	ETA 6 days, 4:27:32	train_R 0.98	train_R_eps 988.52	exec_R 1.19	exec_R_eps 1186.28	adv_min_exec_R_eps 1127.70	dex-gripper-adversarial-push
+[2026-08-27 03:38:21,206] 232	T_sample 104.07	T_update 532.15	T_eval 32.43	ETA 5 days, 22:27:34	train_R 0.91	train_R_eps 914.86	exec_R 1.38	exec_R_eps 1383.97	adv_min_exec_R_eps 1326.19	dex-gripper-adversarial-push
+[2026-08-27 03:47:52,866] 233	T_sample 96.66	T_update 436.62	T_eval 34.80	ETA 5 days, 0:52:28	train_R 0.76	train_R_eps 768.44	exec_R 1.03	exec_R_eps 1025.12	adv_min_exec_R_eps 969.88	dex-gripper-adversarial-push
+[2026-08-27 04:00:21,012] 234	T_sample 100.07	T_update 606.40	T_eval 35.56	ETA 6 days, 13:40:52	train_R 0.89	train_R_eps 891.42	exec_R 1.08	exec_R_eps 1080.88	adv_min_exec_R_eps 1020.14	dex-gripper-adversarial-push
+[2026-08-27 04:09:40,499] 235	T_sample 99.67	T_update 422.54	T_eval 32.25	ETA 4 days, 21:40:07	train_R 0.78	train_R_eps 781.14	exec_R 1.10	exec_R_eps 1098.61	adv_min_exec_R_eps 1042.21	dex-gripper-adversarial-push
+[2026-08-27 04:19:18,208] 236	T_sample 101.35	T_update 438.90	T_eval 32.53	ETA 5 days, 1:23:49	train_R 1.02	train_R_eps 1023.38	exec_R 1.36	exec_R_eps 1363.03	adv_min_exec_R_eps 1309.19	dex-gripper-adversarial-push
+[2026-08-27 04:28:50,406] 237	T_sample 97.20	T_update 436.07	T_eval 32.94	ETA 4 days, 23:50:54	train_R 0.97	train_R_eps 979.65	exec_R 1.43	exec_R_eps 1429.93	adv_min_exec_R_eps 1383.21	dex-gripper-adversarial-push
+[2026-08-27 04:38:35,809] 238	T_sample 103.58	T_update 443.92	T_eval 32.34	ETA 5 days, 2:34:14	train_R 1.00	train_R_eps 1009.74	exec_R 1.05	exec_R_eps 1052.15	adv_min_exec_R_eps 992.54	dex-gripper-adversarial-push
+[2026-08-27 04:48:02,667] 239	T_sample 106.50	T_update 419.31	T_eval 35.36	ETA 4 days, 22:28:10	train_R 0.99	train_R_eps 991.18	exec_R 0.96	exec_R_eps 956.37	adv_min_exec_R_eps 913.54	dex-gripper-adversarial-push
+[2026-08-27 04:58:22,215] 240	T_sample 99.23	T_update 483.00	T_eval 32.36	ETA 5 days, 9:34:30	train_R 0.88	train_R_eps 888.82	exec_R 0.89	exec_R_eps 885.57	adv_min_exec_R_eps 831.21	dex-gripper-adversarial-push
+[2026-08-27 05:07:58,540] 241	T_sample 97.09	T_update 443.15	T_eval 31.89	ETA 5 days, 0:27:51	train_R 1.13	train_R_eps 1139.12	exec_R 1.32	exec_R_eps 1321.44	adv_min_exec_R_eps 1256.09	dex-gripper-adversarial-push
+[2026-08-27 05:17:33,703] 242	T_sample 96.58	T_update 442.93	T_eval 32.17	ETA 5 days, 0:12:47	train_R 0.79	train_R_eps 790.12	exec_R 1.15	exec_R_eps 1145.83	adv_min_exec_R_eps 1092.89	dex-gripper-adversarial-push
+[2026-08-27 05:28:25,056] 243	T_sample 101.71	T_update 507.75	T_eval 37.71	ETA 5 days, 15:54:14	train_R 0.98	train_R_eps 984.89	exec_R 1.56	exec_R_eps 1561.19	adv_min_exec_R_eps 1512.94	dex-gripper-adversarial-push
+[2026-08-27 05:38:13,537] 244	T_sample 101.67	T_update 449.87	T_eval 33.14	ETA 5 days, 2:37:13	train_R 0.89	train_R_eps 894.38	exec_R 0.89	exec_R_eps 885.55	adv_min_exec_R_eps 836.81	dex-gripper-adversarial-push
+[2026-08-27 05:48:51,075] 245	T_sample 101.72	T_update 496.11	T_eval 35.68	ETA 5 days, 12:41:09	train_R 0.98	train_R_eps 984.71	exec_R 2.28	exec_R_eps 2280.05	adv_min_exec_R_eps 2194.59	dex-gripper-adversarial-push
+[2026-08-27 05:48:54,287] save best checkpoint for agent 0 with rewards 2259.32!
+[2026-08-27 05:48:54,791] save best checkpoint for agent 1 with rewards 2298.74!
+[2026-08-27 05:48:55,456] save best checkpoint with rewards 2194.59!
+[2026-08-27 05:58:36,924] 246	T_sample 102.05	T_update 441.59	T_eval 36.11	ETA 5 days, 1:15:56	train_R 0.89	train_R_eps 893.76	exec_R 1.75	exec_R_eps 1752.63	adv_min_exec_R_eps 1691.81	dex-gripper-adversarial-push
+[2026-08-27 06:08:08,045] 247	T_sample 110.52	T_update 417.52	T_eval 40.16	ETA 4 days, 22:41:30	train_R 1.08	train_R_eps 1083.90	exec_R 1.29	exec_R_eps 1292.79	adv_min_exec_R_eps 1226.63	dex-gripper-adversarial-push
+[2026-08-27 06:17:35,110] 248	T_sample 106.10	T_update 421.70	T_eval 35.77	ETA 4 days, 21:34:02	train_R 0.77	train_R_eps 773.90	exec_R 1.65	exec_R_eps 1654.09	adv_min_exec_R_eps 1572.44	dex-gripper-adversarial-push
+[2026-08-27 06:27:14,301] 249	T_sample 98.49	T_update 441.38	T_eval 36.18	ETA 5 days, 0:00:34	train_R 0.95	train_R_eps 949.94	exec_R 1.35	exec_R_eps 1349.44	adv_min_exec_R_eps 1287.65	dex-gripper-adversarial-push
+[2026-08-27 06:38:19,593] 250	T_sample 106.97	T_update 520.74	T_eval 35.30	ETA 5 days, 17:56:39	train_R 0.94	train_R_eps 947.19	exec_R 1.61	exec_R_eps 1614.74	adv_min_exec_R_eps 1557.73	dex-gripper-adversarial-push
+[2026-08-27 06:48:16,687] 251	T_sample 105.56	T_update 450.55	T_eval 38.59	ETA 5 days, 3:34:00	train_R 0.93	train_R_eps 930.35	exec_R 1.23	exec_R_eps 1228.22	adv_min_exec_R_eps 1165.91	dex-gripper-adversarial-push
+[2026-08-27 06:59:40,882] 252	T_sample 111.54	T_update 538.29	T_eval 32.15	ETA 5 days, 21:30:36	train_R 0.98	train_R_eps 986.94	exec_R 1.84	exec_R_eps 1842.09	adv_min_exec_R_eps 1787.06	dex-gripper-adversarial-push
+[2026-08-27 07:09:16,984] 253	T_sample 98.89	T_update 443.15	T_eval 32.27	ETA 4 days, 23:00:37	train_R 0.98	train_R_eps 989.46	exec_R 2.03	exec_R_eps 2027.68	adv_min_exec_R_eps 1974.61	dex-gripper-adversarial-push
+[2026-08-27 07:18:31,850] 254	T_sample 94.80	T_update 425.05	T_eval 33.32	ETA 4 days, 18:28:34	train_R 0.87	train_R_eps 873.58	exec_R 2.26	exec_R_eps 2255.80	adv_min_exec_R_eps 2171.41	dex-gripper-adversarial-push
+[2026-08-27 07:28:03,681] 255	T_sample 107.51	T_update 419.88	T_eval 41.99	ETA 4 days, 21:40:19	train_R 0.94	train_R_eps 945.29	exec_R 1.64	exec_R_eps 1643.10	adv_min_exec_R_eps 1593.88	dex-gripper-adversarial-push
+[2026-08-27 07:39:02,730] 256	T_sample 118.29	T_update 505.29	T_eval 33.62	ETA 5 days, 15:38:22	train_R 0.84	train_R_eps 841.69	exec_R 2.00	exec_R_eps 2002.78	adv_min_exec_R_eps 1912.23	dex-gripper-adversarial-push
+[2026-08-27 07:50:59,103] 257	T_sample 96.62	T_update 584.30	T_eval 33.67	ETA 6 days, 3:17:08	train_R 0.93	train_R_eps 931.35	exec_R 1.39	exec_R_eps 1387.18	adv_min_exec_R_eps 1327.99	dex-gripper-adversarial-push
+[2026-08-27 08:02:36,922] 258	T_sample 101.87	T_update 560.62	T_eval 32.96	ETA 5 days, 23:08:45	train_R 0.71	train_R_eps 712.28	exec_R 1.89	exec_R_eps 1887.75	adv_min_exec_R_eps 1842.54	dex-gripper-adversarial-push
+[2026-08-27 08:13:45,079] 259	T_sample 97.33	T_update 534.25	T_eval 34.45	ETA 5 days, 16:54:23	train_R 1.03	train_R_eps 1031.19	exec_R 0.99	exec_R_eps 987.10	adv_min_exec_R_eps 935.50	dex-gripper-adversarial-push
+[2026-08-27 08:23:21,675] 260	T_sample 97.86	T_update 443.92	T_eval 33.30	ETA 4 days, 22:03:03	train_R 0.83	train_R_eps 833.22	exec_R 1.39	exec_R_eps 1389.88	adv_min_exec_R_eps 1337.89	dex-gripper-adversarial-push
+[2026-08-27 08:32:47,445] 261	T_sample 98.30	T_update 430.05	T_eval 34.21	ETA 4 days, 19:19:28	train_R 1.03	train_R_eps 1030.39	exec_R 1.41	exec_R_eps 1414.27	adv_min_exec_R_eps 1364.67	dex-gripper-adversarial-push
+[2026-08-27 08:42:04,074] 262	T_sample 106.71	T_update 409.01	T_eval 39.05	ETA 4 days, 17:34:24	train_R 0.88	train_R_eps 886.88	exec_R 1.32	exec_R_eps 1322.39	adv_min_exec_R_eps 1273.62	dex-gripper-adversarial-push
+[2026-08-27 08:52:01,115] 263	T_sample 96.97	T_update 464.70	T_eval 32.79	ETA 5 days, 1:31:56	train_R 0.86	train_R_eps 865.86	exec_R 1.94	exec_R_eps 1935.08	adv_min_exec_R_eps 1873.31	dex-gripper-adversarial-push
+[2026-08-27 09:03:55,703] 264	T_sample 96.87	T_update 580.38	T_eval 34.29	ETA 6 days, 1:16:26	train_R 0.84	train_R_eps 845.49	exec_R 1.92	exec_R_eps 1919.04	adv_min_exec_R_eps 1857.72	dex-gripper-adversarial-push
+[2026-08-27 09:13:11,416] 265	T_sample 104.01	T_update 413.94	T_eval 35.84	ETA 4 days, 16:54:42	train_R 0.83	train_R_eps 836.52	exec_R 1.53	exec_R_eps 1530.53	adv_min_exec_R_eps 1492.67	dex-gripper-adversarial-push
+[2026-08-27 09:22:35,895] 266	T_sample 108.48	T_update 413.83	T_eval 40.31	ETA 4 days, 18:33:21	train_R 0.91	train_R_eps 911.18	exec_R 1.39	exec_R_eps 1386.32	adv_min_exec_R_eps 1340.61	dex-gripper-adversarial-push
+[2026-08-27 09:34:37,472] 267	T_sample 102.75	T_update 581.09	T_eval 35.79	ETA 6 days, 2:19:21	train_R 0.80	train_R_eps 808.57	exec_R 1.36	exec_R_eps 1364.19	adv_min_exec_R_eps 1308.97	dex-gripper-adversarial-push
+[2026-08-27 09:46:40,983] 268	T_sample 102.42	T_update 579.72	T_eval 39.27	ETA 6 days, 2:29:10	train_R 0.91	train_R_eps 910.60	exec_R 1.26	exec_R_eps 1262.62	adv_min_exec_R_eps 1209.75	dex-gripper-adversarial-push
+[2026-08-27 09:57:55,620] 269	T_sample 104.87	T_update 531.07	T_eval 36.10	ETA 5 days, 16:16:30	train_R 0.97	train_R_eps 975.83	exec_R 1.53	exec_R_eps 1531.69	adv_min_exec_R_eps 1485.73	dex-gripper-adversarial-push
+[2026-08-27 10:07:23,431] 270	T_sample 96.74	T_update 432.00	T_eval 36.98	ETA 4 days, 18:33:26	train_R 0.96	train_R_eps 969.15	exec_R 1.93	exec_R_eps 1929.84	adv_min_exec_R_eps 1858.00	dex-gripper-adversarial-push
+[2026-08-27 10:16:57,803] 271	T_sample 102.26	T_update 430.14	T_eval 39.53	ETA 4 days, 19:39:27	train_R 0.91	train_R_eps 915.59	exec_R 1.54	exec_R_eps 1538.43	adv_min_exec_R_eps 1498.32	dex-gripper-adversarial-push
+[2026-08-27 10:26:08,453] 272	T_sample 97.46	T_update 414.55	T_eval 35.73	ETA 4 days, 14:36:43	train_R 0.88	train_R_eps 886.98	exec_R 1.79	exec_R_eps 1787.75	adv_min_exec_R_eps 1726.23	dex-gripper-adversarial-push
+[2026-08-27 10:35:22,642] 273	T_sample 102.34	T_update 413.21	T_eval 36.11	ETA 4 days, 15:15:06	train_R 0.91	train_R_eps 910.40	exec_R 2.24	exec_R_eps 2236.44	adv_min_exec_R_eps 2169.39	dex-gripper-adversarial-push
+[2026-08-27 10:44:28,760] 274	T_sample 112.08	T_update 395.34	T_eval 36.64	ETA 4 days, 13:33:59	train_R 1.09	train_R_eps 1097.97	exec_R 2.66	exec_R_eps 2656.50	adv_min_exec_R_eps 2613.85	dex-gripper-adversarial-push
+[2026-08-27 10:44:30,626] save best checkpoint for agent 0 with rewards 2694.87!
+[2026-08-27 10:44:31,233] save best checkpoint for agent 1 with rewards 2615.54!
+[2026-08-27 10:44:31,871] save best checkpoint with rewards 2613.85!
+[2026-08-27 10:54:21,352] 275	T_sample 119.01	T_update 430.02	T_eval 38.31	ETA 4 days, 22:07:19	train_R 1.05	train_R_eps 1055.32	exec_R 1.57	exec_R_eps 1565.55	adv_min_exec_R_eps 1512.83	dex-gripper-adversarial-push
+[2026-08-27 11:05:34,912] 276	T_sample 102.49	T_update 530.40	T_eval 37.90	ETA 5 days, 14:42:54	train_R 1.03	train_R_eps 1035.66	exec_R 1.57	exec_R_eps 1566.74	adv_min_exec_R_eps 1506.77	dex-gripper-adversarial-push
+[2026-08-27 11:16:19,026] 277	T_sample 102.96	T_update 501.23	T_eval 37.65	ETA 5 days, 8:43:33	train_R 0.96	train_R_eps 967.78	exec_R 1.43	exec_R_eps 1433.79	adv_min_exec_R_eps 1392.68	dex-gripper-adversarial-push
+[2026-08-27 11:25:38,522] 278	T_sample 117.55	T_update 401.93	T_eval 37.73	ETA 4 days, 15:35:50	train_R 1.03	train_R_eps 1034.54	exec_R 1.69	exec_R_eps 1694.92	adv_min_exec_R_eps 1635.99	dex-gripper-adversarial-push
+[2026-08-27 11:35:08,448] 279	T_sample 113.26	T_update 414.39	T_eval 38.74	ETA 4 days, 17:16:37	train_R 1.05	train_R_eps 1056.74	exec_R 1.50	exec_R_eps 1497.24	adv_min_exec_R_eps 1441.96	dex-gripper-adversarial-push
+[2026-08-27 11:44:31,413] 280	T_sample 98.96	T_update 426.26	T_eval 34.64	ETA 4 days, 15:49:03	train_R 0.99	train_R_eps 997.04	exec_R 1.37	exec_R_eps 1372.33	adv_min_exec_R_eps 1325.23	dex-gripper-adversarial-push
+[2026-08-27 11:54:32,677] 281	T_sample 98.28	T_update 463.22	T_eval 36.59	ETA 4 days, 23:17:02	train_R 0.85	train_R_eps 857.89	exec_R 1.42	exec_R_eps 1424.95	adv_min_exec_R_eps 1364.31	dex-gripper-adversarial-push
+[2026-08-27 12:03:45,467] 282	T_sample 101.73	T_update 412.58	T_eval 36.98	ETA 4 days, 13:47:48	train_R 1.17	train_R_eps 1171.95	exec_R 1.74	exec_R_eps 1736.61	adv_min_exec_R_eps 1677.61	dex-gripper-adversarial-push
+[2026-08-27 12:14:45,912] 283	T_sample 100.18	T_update 521.21	T_eval 35.54	ETA 5 days, 10:39:23	train_R 0.94	train_R_eps 948.88	exec_R 1.19	exec_R_eps 1194.80	adv_min_exec_R_eps 1132.32	dex-gripper-adversarial-push
+[2026-08-27 12:24:07,064] 284	T_sample 111.88	T_update 406.30	T_eval 38.32	ETA 4 days, 14:31:35	train_R 1.00	train_R_eps 1002.10	exec_R 1.44	exec_R_eps 1438.59	adv_min_exec_R_eps 1383.94	dex-gripper-adversarial-push
