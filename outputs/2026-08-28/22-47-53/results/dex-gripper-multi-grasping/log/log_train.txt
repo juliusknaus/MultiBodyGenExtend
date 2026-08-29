@@ -1,0 +1,130 @@
+[2026-08-28 22:57:21,568] 0	T_sample 123.69	T_update 392.88	T_eval 38.08	ETA 6 days, 9:54:52	train_R -0.03	train_R_eps -5.04	exec_R 2.32	exec_R_eps 2324.67	dex-gripper-multi-grasping
+[2026-08-28 22:57:24,191] save best checkpoint for agent 0 with rewards 485.34!
+[2026-08-28 22:57:24,455] save best checkpoint for agent 1 with rewards 1839.33!
+[2026-08-28 22:57:24,649] save best checkpoint with rewards 2324.67!
+[2026-08-28 23:08:53,765] 1	T_sample 121.04	T_update 528.37	T_eval 37.93	ETA 7 days, 22:32:44	train_R -0.07	train_R_eps -24.39	exec_R 3.50	exec_R_eps 3502.52	dex-gripper-multi-grasping
+[2026-08-28 23:08:54,164] save best checkpoint for agent 0 with rewards 1751.90!
+[2026-08-28 23:08:54,494] save best checkpoint with rewards 3502.52!
+[2026-08-28 23:18:21,743] 2	T_sample 119.69	T_update 402.33	T_eval 43.58	ETA 6 days, 12:38:17	train_R 0.01	train_R_eps 9.33	exec_R 2.96	exec_R_eps 2962.51	dex-gripper-multi-grasping
+[2026-08-28 23:27:55,082] 3	T_sample 113.10	T_update 414.76	T_eval 43.88	ETA 6 days, 14:10:49	train_R 0.14	train_R_eps 123.73	exec_R 3.77	exec_R_eps 3773.81	dex-gripper-multi-grasping
+[2026-08-28 23:27:55,412] save best checkpoint for agent 0 with rewards 1900.84!
+[2026-08-28 23:27:55,713] save best checkpoint for agent 1 with rewards 1872.97!
+[2026-08-28 23:27:55,922] save best checkpoint with rewards 3773.81!
+[2026-08-28 23:37:41,787] 4	T_sample 115.10	T_update 422.73	T_eval 46.21	ETA 6 days, 17:25:17	train_R 0.28	train_R_eps 277.18	exec_R 4.03	exec_R_eps 4029.82	dex-gripper-multi-grasping
+[2026-08-28 23:37:42,027] save best checkpoint for agent 0 with rewards 1989.83!
+[2026-08-28 23:37:42,320] save best checkpoint for agent 1 with rewards 2039.99!
+[2026-08-28 23:37:42,540] save best checkpoint with rewards 4029.82!
+[2026-08-28 23:47:22,345] 5	T_sample 121.22	T_update 412.62	T_eval 44.33	ETA 6 days, 15:38:25	train_R 0.50	train_R_eps 498.42	exec_R 4.25	exec_R_eps 4250.67	dex-gripper-multi-grasping
+[2026-08-28 23:47:22,642] save best checkpoint for agent 0 with rewards 2217.17!
+[2026-08-28 23:47:22,992] save best checkpoint with rewards 4250.67!
+[2026-08-28 23:57:21,101] 6	T_sample 119.42	T_update 431.48	T_eval 45.45	ETA 6 days, 20:29:38	train_R 0.75	train_R_eps 751.88	exec_R 3.90	exec_R_eps 3897.44	dex-gripper-multi-grasping
+[2026-08-29 00:07:01,044] 7	T_sample 117.17	T_update 415.79	T_eval 45.28	ETA 6 days, 15:20:20	train_R 1.04	train_R_eps 1044.37	exec_R 4.60	exec_R_eps 4595.18	dex-gripper-multi-grasping
+[2026-08-29 00:07:01,377] save best checkpoint for agent 0 with rewards 2450.47!
+[2026-08-29 00:07:01,746] save best checkpoint for agent 1 with rewards 2144.71!
+[2026-08-29 00:07:01,975] save best checkpoint with rewards 4595.18!
+[2026-08-29 00:16:42,689] 8	T_sample 118.65	T_update 415.83	T_eval 44.43	ETA 6 days, 15:21:33	train_R 1.33	train_R_eps 1334.64	exec_R 4.26	exec_R_eps 4259.78	dex-gripper-multi-grasping
+[2026-08-29 00:26:24,606] 9	T_sample 118.81	T_update 416.26	T_eval 44.35	ETA 6 days, 15:20:23	train_R 1.51	train_R_eps 1514.95	exec_R 4.39	exec_R_eps 4391.77	dex-gripper-multi-grasping
+[2026-08-29 00:36:02,990] 10	T_sample 116.18	T_update 416.34	T_eval 44.21	ETA 6 days, 14:26:26	train_R 1.61	train_R_eps 1623.62	exec_R 4.35	exec_R_eps 4349.26	dex-gripper-multi-grasping
+[2026-08-29 00:45:43,731] 11	T_sample 114.63	T_update 419.28	T_eval 45.18	ETA 6 days, 14:55:32	train_R 1.66	train_R_eps 1667.95	exec_R 4.43	exec_R_eps 4428.12	dex-gripper-multi-grasping
+[2026-08-29 00:45:44,053] save best checkpoint for agent 0 with rewards 2549.34!
+[2026-08-29 00:45:44,399] save best checkpoint with rewards 4595.18!
+[2026-08-29 00:55:25,748] 12	T_sample 119.25	T_update 416.67	T_eval 43.61	ETA 6 days, 14:53:28	train_R 1.92	train_R_eps 1930.22	exec_R 4.69	exec_R_eps 4685.19	dex-gripper-multi-grasping
+[2026-08-29 00:55:26,086] save best checkpoint for agent 1 with rewards 2183.37!
+[2026-08-29 00:55:26,417] save best checkpoint with rewards 4685.19!
+[2026-08-29 01:05:05,508] 13	T_sample 116.87	T_update 416.50	T_eval 43.72	ETA 6 days, 14:03:33	train_R 1.93	train_R_eps 1938.59	exec_R 4.20	exec_R_eps 4204.75	dex-gripper-multi-grasping
+[2026-08-29 01:14:50,381] 14	T_sample 120.36	T_update 417.07	T_eval 45.78	ETA 6 days, 15:34:22	train_R 1.92	train_R_eps 1932.72	exec_R 3.71	exec_R_eps 3706.94	dex-gripper-multi-grasping
+[2026-08-29 01:24:25,409] 15	T_sample 116.65	T_update 411.68	T_eval 45.23	ETA 6 days, 12:46:35	train_R 1.96	train_R_eps 1969.36	exec_R 4.18	exec_R_eps 4181.10	dex-gripper-multi-grasping
+[2026-08-29 01:33:54,234] 16	T_sample 113.73	T_update 412.36	T_eval 40.80	ETA 6 days, 10:47:42	train_R 1.98	train_R_eps 1994.07	exec_R 3.57	exec_R_eps 3566.08	dex-gripper-multi-grasping
+[2026-08-29 01:43:28,894] 17	T_sample 114.60	T_update 419.08	T_eval 39.48	ETA 6 days, 12:20:43	train_R 2.03	train_R_eps 2044.49	exec_R 3.14	exec_R_eps 3144.13	dex-gripper-multi-grasping
+[2026-08-29 01:52:57,303] 18	T_sample 113.38	T_update 414.08	T_eval 39.43	ETA 6 days, 10:28:39	train_R 2.09	train_R_eps 2103.71	exec_R 2.98	exec_R_eps 2975.14	dex-gripper-multi-grasping
+[2026-08-29 02:02:26,125] 19	T_sample 114.17	T_update 418.46	T_eval 34.70	ETA 6 days, 10:26:14	train_R 2.08	train_R_eps 2088.12	exec_R 2.85	exec_R_eps 2853.42	dex-gripper-multi-grasping
+[2026-08-29 02:11:52,591] 20	T_sample 114.15	T_update 416.56	T_eval 34.13	ETA 6 days, 9:36:15	train_R 2.19	train_R_eps 2206.47	exec_R 2.79	exec_R_eps 2790.55	dex-gripper-multi-grasping
+[2026-08-29 02:21:15,433] 21	T_sample 110.97	T_update 416.91	T_eval 33.51	ETA 6 days, 8:30:41	train_R 2.36	train_R_eps 2374.31	exec_R 2.69	exec_R_eps 2690.28	dex-gripper-multi-grasping
+[2026-08-29 02:30:37,483] 22	T_sample 109.63	T_update 410.65	T_eval 40.38	ETA 6 days, 8:09:28	train_R 2.23	train_R_eps 2243.88	exec_R 2.83	exec_R_eps 2827.88	dex-gripper-multi-grasping
+[2026-08-29 02:39:59,685] 23	T_sample 110.83	T_update 411.04	T_eval 38.75	ETA 6 days, 7:59:24	train_R 2.19	train_R_eps 2204.11	exec_R 2.56	exec_R_eps 2555.34	dex-gripper-multi-grasping
+[2026-08-29 02:49:34,699] 24	T_sample 119.55	T_update 415.31	T_eval 38.53	ETA 6 days, 11:17:39	train_R 2.26	train_R_eps 2277.27	exec_R 2.64	exec_R_eps 2636.72	dex-gripper-multi-grasping
+[2026-08-29 02:49:35,012] save best checkpoint for agent 0 with rewards 2588.52!
+[2026-08-29 02:49:35,365] save best checkpoint with rewards 4685.19!
+[2026-08-29 02:59:01,415] 25	T_sample 112.74	T_update 411.50	T_eval 40.00	ETA 6 days, 8:39:32	train_R 2.16	train_R_eps 2172.30	exec_R 2.73	exec_R_eps 2734.20	dex-gripper-multi-grasping
+[2026-08-29 03:08:26,902] 26	T_sample 112.30	T_update 411.71	T_eval 40.00	ETA 6 days, 8:26:15	train_R 2.32	train_R_eps 2307.57	exec_R 2.53	exec_R_eps 2525.81	dex-gripper-multi-grasping
+[2026-08-29 03:17:49,167] 27	T_sample 112.09	T_update 412.74	T_eval 35.48	ETA 6 days, 7:17:10	train_R 2.22	train_R_eps 2234.09	exec_R 2.32	exec_R_eps 2315.39	dex-gripper-multi-grasping
+[2026-08-29 03:27:15,991] 28	T_sample 115.51	T_update 414.15	T_eval 35.89	ETA 6 days, 8:32:22	train_R 2.14	train_R_eps 2148.81	exec_R 2.36	exec_R_eps 2355.06	dex-gripper-multi-grasping
+[2026-08-29 03:36:50,057] 29	T_sample 114.65	T_update 416.96	T_eval 40.81	ETA 6 days, 10:14:09	train_R 2.15	train_R_eps 2162.19	exec_R 2.43	exec_R_eps 2428.71	dex-gripper-multi-grasping
+[2026-08-29 03:46:48,746] 30	T_sample 123.57	T_update 433.39	T_eval 40.22	ETA 6 days, 16:44:26	train_R 2.26	train_R_eps 2270.60	exec_R 2.16	exec_R_eps 2164.43	dex-gripper-multi-grasping
+[2026-08-29 03:56:47,099] 31	T_sample 123.55	T_update 431.82	T_eval 41.46	ETA 6 days, 16:28:57	train_R 2.32	train_R_eps 2331.57	exec_R 2.64	exec_R_eps 2641.97	dex-gripper-multi-grasping
+[2026-08-29 04:06:23,928] 32	T_sample 123.89	T_update 416.98	T_eval 34.37	ETA 6 days, 10:31:01	train_R 2.34	train_R_eps 2357.23	exec_R 2.20	exec_R_eps 2202.41	dex-gripper-multi-grasping
+[2026-08-29 04:15:41,270] 33	T_sample 112.68	T_update 407.95	T_eval 35.24	ETA 6 days, 5:09:24	train_R 2.42	train_R_eps 2432.21	exec_R 3.08	exec_R_eps 3083.15	dex-gripper-multi-grasping
+[2026-08-29 04:15:41,497] save best checkpoint for agent 0 with rewards 2704.95!
+[2026-08-29 04:15:41,803] save best checkpoint with rewards 4685.19!
+[2026-08-29 04:24:59,717] 34	T_sample 111.83	T_update 410.09	T_eval 34.38	ETA 6 days, 5:07:10	train_R 2.58	train_R_eps 2590.50	exec_R 2.96	exec_R_eps 2962.88	dex-gripper-multi-grasping
+[2026-08-29 04:34:16,892] 35	T_sample 109.41	T_update 410.60	T_eval 35.57	ETA 6 days, 4:46:16	train_R 2.70	train_R_eps 2712.12	exec_R 3.17	exec_R_eps 3167.06	dex-gripper-multi-grasping
+[2026-08-29 04:43:32,518] 36	T_sample 110.17	T_update 409.51	T_eval 34.57	ETA 6 days, 4:15:42	train_R 2.76	train_R_eps 2773.11	exec_R 3.47	exec_R_eps 3473.30	dex-gripper-multi-grasping
+[2026-08-29 04:52:58,881] 37	T_sample 110.61	T_update 414.17	T_eval 40.14	ETA 6 days, 6:57:37	train_R 2.83	train_R_eps 2844.70	exec_R 3.59	exec_R_eps 3593.96	dex-gripper-multi-grasping
+[2026-08-29 05:02:25,510] 38	T_sample 117.83	T_update 407.66	T_eval 39.58	ETA 6 days, 6:50:41	train_R 2.81	train_R_eps 2824.66	exec_R 3.64	exec_R_eps 3644.02	dex-gripper-multi-grasping
+[2026-08-29 05:02:25,727] save best checkpoint for agent 0 with rewards 2764.04!
+[2026-08-29 05:02:26,026] save best checkpoint with rewards 4685.19!
+[2026-08-29 05:11:54,533] 39	T_sample 113.78	T_update 412.89	T_eval 39.98	ETA 6 days, 7:06:26	train_R 2.75	train_R_eps 2762.61	exec_R 4.02	exec_R_eps 4018.69	dex-gripper-multi-grasping
+[2026-08-29 05:21:22,930] 40	T_sample 118.11	T_update 411.14	T_eval 37.53	ETA 6 days, 6:59:02	train_R 2.88	train_R_eps 2892.98	exec_R 4.23	exec_R_eps 4228.72	dex-gripper-multi-grasping
+[2026-08-29 05:30:47,533] 41	T_sample 114.09	T_update 412.62	T_eval 36.14	ETA 6 days, 5:46:54	train_R 2.88	train_R_eps 2896.76	exec_R 4.36	exec_R_eps 4357.05	dex-gripper-multi-grasping
+[2026-08-29 05:40:02,537] 42	T_sample 108.55	T_update 410.58	T_eval 34.49	ETA 6 days, 3:10:07	train_R 2.94	train_R_eps 2956.01	exec_R 3.77	exec_R_eps 3767.66	dex-gripper-multi-grasping
+[2026-08-29 05:49:19,540] 43	T_sample 108.58	T_update 410.44	T_eval 36.54	ETA 6 days, 3:31:58	train_R 2.86	train_R_eps 2878.56	exec_R 3.91	exec_R_eps 3910.61	dex-gripper-multi-grasping
+[2026-08-29 05:49:19,754] save best checkpoint for agent 0 with rewards 2922.45!
+[2026-08-29 05:49:20,053] save best checkpoint with rewards 4685.19!
+[2026-08-29 05:58:33,055] 44	T_sample 109.94	T_update 406.15	T_eval 35.27	ETA 6 days, 2:15:52	train_R 2.90	train_R_eps 2915.52	exec_R 3.49	exec_R_eps 3488.43	dex-gripper-multi-grasping
+[2026-08-29 06:07:51,221] 45	T_sample 107.68	T_update 413.23	T_eval 35.76	ETA 6 days, 3:31:02	train_R 2.67	train_R_eps 2682.75	exec_R 3.34	exec_R_eps 3337.65	dex-gripper-multi-grasping
+[2026-08-29 06:17:16,490] 46	T_sample 115.01	T_update 413.27	T_eval 35.57	ETA 6 days, 5:15:38	train_R 2.88	train_R_eps 2898.84	exec_R 3.76	exec_R_eps 3762.08	dex-gripper-multi-grasping
+[2026-08-29 06:26:42,388] 47	T_sample 112.14	T_update 415.35	T_eval 36.94	ETA 6 days, 5:15:40	train_R 3.03	train_R_eps 3052.19	exec_R 3.88	exec_R_eps 3875.39	dex-gripper-multi-grasping
+[2026-08-29 06:36:07,040] 48	T_sample 113.35	T_update 412.58	T_eval 37.16	ETA 6 days, 4:45:02	train_R 2.89	train_R_eps 2908.88	exec_R 3.89	exec_R_eps 3889.82	dex-gripper-multi-grasping
+[2026-08-29 06:45:34,953] 49	T_sample 115.87	T_update 413.78	T_eval 36.91	ETA 6 days, 5:30:27	train_R 2.90	train_R_eps 2919.33	exec_R 4.14	exec_R_eps 4142.66	dex-gripper-multi-grasping
+[2026-08-29 06:54:57,840] 50	T_sample 114.27	T_update 410.55	T_eval 36.65	ETA 6 days, 4:00:31	train_R 3.09	train_R_eps 3110.25	exec_R 4.45	exec_R_eps 4445.44	dex-gripper-multi-grasping
+[2026-08-29 06:54:58,034] save best checkpoint for agent 0 with rewards 2925.14!
+[2026-08-29 06:54:58,328] save best checkpoint with rewards 4685.19!
+[2026-08-29 07:04:16,719] 51	T_sample 110.18	T_update 407.96	T_eval 38.47	ETA 6 days, 2:34:19	train_R 3.05	train_R_eps 3072.52	exec_R 4.29	exec_R_eps 4290.34	dex-gripper-multi-grasping
+[2026-08-29 07:13:49,243] 52	T_sample 115.62	T_update 415.05	T_eval 40.11	ETA 6 days, 6:08:54	train_R 2.78	train_R_eps 2800.41	exec_R 4.22	exec_R_eps 4216.00	dex-gripper-multi-grasping
+[2026-08-29 07:13:49,443] save best checkpoint for agent 0 with rewards 2942.03!
+[2026-08-29 07:13:49,746] save best checkpoint with rewards 4685.19!
+[2026-08-29 07:23:26,086] 53	T_sample 119.69	T_update 415.03	T_eval 39.86	ETA 6 days, 6:59:20	train_R 2.89	train_R_eps 2903.63	exec_R 4.19	exec_R_eps 4189.20	dex-gripper-multi-grasping
+[2026-08-29 07:32:49,585] 54	T_sample 112.56	T_update 409.55	T_eval 39.83	ETA 6 days, 3:30:39	train_R 2.99	train_R_eps 3006.09	exec_R 4.23	exec_R_eps 4231.53	dex-gripper-multi-grasping
+[2026-08-29 07:32:49,782] save best checkpoint for agent 0 with rewards 2952.67!
+[2026-08-29 07:32:50,079] save best checkpoint with rewards 4685.19!
+[2026-08-29 07:42:22,885] 55	T_sample 115.55	T_update 416.44	T_eval 39.00	ETA 6 days, 5:43:31	train_R 2.95	train_R_eps 2963.95	exec_R 4.22	exec_R_eps 4215.04	dex-gripper-multi-grasping
+[2026-08-29 07:52:00,153] 56	T_sample 118.08	T_update 417.90	T_eval 39.82	ETA 6 days, 6:49:44	train_R 3.11	train_R_eps 3131.11	exec_R 3.98	exec_R_eps 3976.84	dex-gripper-multi-grasping
+[2026-08-29 08:01:36,126] 57	T_sample 118.16	T_update 416.16	T_eval 40.20	ETA 6 days, 6:20:03	train_R 3.01	train_R_eps 3029.84	exec_R 4.28	exec_R_eps 4284.47	dex-gripper-multi-grasping
+[2026-08-29 08:01:36,331] save best checkpoint for agent 0 with rewards 3089.27!
+[2026-08-29 08:01:36,613] save best checkpoint with rewards 4685.19!
+[2026-08-29 08:11:06,016] 58	T_sample 115.51	T_update 411.61	T_eval 40.28	ETA 6 days, 4:18:40	train_R 3.03	train_R_eps 3048.72	exec_R 4.46	exec_R_eps 4464.53	dex-gripper-multi-grasping
+[2026-08-29 08:20:33,254] 59	T_sample 114.29	T_update 410.99	T_eval 40.43	ETA 6 days, 3:42:47	train_R 2.91	train_R_eps 2922.54	exec_R 4.31	exec_R_eps 4306.65	dex-gripper-multi-grasping
+[2026-08-29 08:30:03,129] 60	T_sample 114.91	T_update 413.68	T_eval 39.85	ETA 6 days, 4:16:12	train_R 2.98	train_R_eps 2997.20	exec_R 4.37	exec_R_eps 4365.68	dex-gripper-multi-grasping
+[2026-08-29 08:39:33,773] 61	T_sample 115.52	T_update 412.96	T_eval 40.62	ETA 6 days, 4:16:54	train_R 3.22	train_R_eps 3235.79	exec_R 4.42	exec_R_eps 4422.06	dex-gripper-multi-grasping
+[2026-08-29 08:49:04,037] 62	T_sample 114.77	T_update 414.54	T_eval 39.51	ETA 6 days, 4:02:58	train_R 3.07	train_R_eps 3090.55	exec_R 4.39	exec_R_eps 4388.93	dex-gripper-multi-grasping
+[2026-08-29 08:58:31,483] 63	T_sample 113.99	T_update 412.48	T_eval 39.55	ETA 6 days, 3:09:51	train_R 3.29	train_R_eps 3313.50	exec_R 4.40	exec_R_eps 4401.75	dex-gripper-multi-grasping
+[2026-08-29 09:08:06,440] 64	T_sample 116.67	T_update 416.71	T_eval 39.84	ETA 6 days, 4:52:42	train_R 3.33	train_R_eps 3354.45	exec_R 4.29	exec_R_eps 4286.50	dex-gripper-multi-grasping
+[2026-08-29 09:17:38,398] 65	T_sample 116.96	T_update 413.17	T_eval 40.38	ETA 6 days, 4:01:01	train_R 3.24	train_R_eps 3261.78	exec_R 4.30	exec_R_eps 4299.67	dex-gripper-multi-grasping
+[2026-08-29 09:27:10,573] 66	T_sample 117.95	T_update 412.40	T_eval 40.33	ETA 6 days, 3:53:59	train_R 3.13	train_R_eps 3152.92	exec_R 4.16	exec_R_eps 4159.05	dex-gripper-multi-grasping
+[2026-08-29 09:36:43,772] 67	T_sample 115.70	T_update 415.45	T_eval 40.43	ETA 6 days, 3:58:34	train_R 3.32	train_R_eps 3336.05	exec_R 4.33	exec_R_eps 4328.15	dex-gripper-multi-grasping
+[2026-08-29 09:46:24,528] 68	T_sample 120.95	T_update 417.74	T_eval 40.59	ETA 6 days, 5:48:27	train_R 3.34	train_R_eps 3358.32	exec_R 4.58	exec_R_eps 4584.16	dex-gripper-multi-grasping
+[2026-08-29 09:56:04,415] 69	T_sample 119.85	T_update 415.45	T_eval 43.03	ETA 6 days, 5:24:10	train_R 3.23	train_R_eps 3251.04	exec_R 4.87	exec_R_eps 4867.92	dex-gripper-multi-grasping
+[2026-08-29 10:05:47,415] 70	T_sample 120.11	T_update 416.54	T_eval 44.88	ETA 6 days, 6:04:00	train_R 3.33	train_R_eps 3350.29	exec_R 4.82	exec_R_eps 4823.26	dex-gripper-multi-grasping
+[2026-08-29 10:15:30,493] 71	T_sample 120.20	T_update 417.06	T_eval 44.33	ETA 6 days, 5:55:17	train_R 3.43	train_R_eps 3453.87	exec_R 4.48	exec_R_eps 4483.15	dex-gripper-multi-grasping
+[2026-08-29 10:25:12,134] 72	T_sample 116.90	T_update 418.04	T_eval 44.60	ETA 6 days, 5:13:57	train_R 3.40	train_R_eps 3419.76	exec_R 4.81	exec_R_eps 4810.68	dex-gripper-multi-grasping
+[2026-08-29 10:34:54,658] 73	T_sample 120.41	T_update 418.40	T_eval 42.14	ETA 6 days, 5:26:03	train_R 3.44	train_R_eps 3461.73	exec_R 5.01	exec_R_eps 5011.86	dex-gripper-multi-grasping
+[2026-08-29 10:44:31,170] 74	T_sample 117.42	T_update 414.09	T_eval 43.16	ETA 6 days, 3:39:30	train_R 3.24	train_R_eps 3263.73	exec_R 4.84	exec_R_eps 4839.33	dex-gripper-multi-grasping
+[2026-08-29 10:54:07,185] 75	T_sample 117.44	T_update 418.28	T_eval 38.66	ETA 6 days, 3:25:28	train_R 3.36	train_R_eps 3378.41	exec_R 4.63	exec_R_eps 4633.13	dex-gripper-multi-grasping
+[2026-08-29 11:03:50,030] 76	T_sample 122.80	T_update 414.14	T_eval 44.32	ETA 6 days, 5:01:43	train_R 3.25	train_R_eps 3265.53	exec_R 4.43	exec_R_eps 4432.51	dex-gripper-multi-grasping
+[2026-08-29 11:13:31,714] 77	T_sample 120.19	T_update 415.63	T_eval 44.42	ETA 6 days, 4:36:27	train_R 3.37	train_R_eps 3389.83	exec_R 4.70	exec_R_eps 4703.07	dex-gripper-multi-grasping
+[2026-08-29 11:23:20,310] 78	T_sample 123.75	T_update 419.39	T_eval 43.78	ETA 6 days, 6:09:26	train_R 3.55	train_R_eps 3571.27	exec_R 4.78	exec_R_eps 4775.81	dex-gripper-multi-grasping
+[2026-08-29 11:32:52,343] 79	T_sample 115.79	T_update 411.94	T_eval 42.69	ETA 6 days, 1:46:33	train_R 3.43	train_R_eps 3451.15	exec_R 4.97	exec_R_eps 4972.75	dex-gripper-multi-grasping
+[2026-08-29 11:42:26,758] 80	T_sample 117.08	T_update 413.65	T_eval 42.15	ETA 6 days, 2:14:34	train_R 3.41	train_R_eps 3433.03	exec_R 4.91	exec_R_eps 4907.19	dex-gripper-multi-grasping
+[2026-08-29 11:52:06,930] 81	T_sample 120.16	T_update 415.93	T_eval 42.28	ETA 6 days, 3:29:12	train_R 3.51	train_R_eps 3526.94	exec_R 4.90	exec_R_eps 4901.01	dex-gripper-multi-grasping
+[2026-08-29 12:01:51,554] 82	T_sample 117.83	T_update 425.34	T_eval 39.77	ETA 6 days, 4:29:17	train_R 3.40	train_R_eps 3416.78	exec_R 4.58	exec_R_eps 4582.83	dex-gripper-multi-grasping
+[2026-08-29 12:11:31,594] 83	T_sample 123.74	T_update 413.64	T_eval 41.07	ETA 6 days, 3:10:59	train_R 3.53	train_R_eps 3555.85	exec_R 4.45	exec_R_eps 4445.89	dex-gripper-multi-grasping
+[2026-08-29 12:21:32,408] 84	T_sample 131.26	T_update 420.46	T_eval 47.48	ETA 6 days, 8:17:42	train_R 3.50	train_R_eps 3522.62	exec_R 4.59	exec_R_eps 4588.45	dex-gripper-multi-grasping
+[2026-08-29 12:31:19,956] 85	T_sample 122.89	T_update 420.62	T_eval 42.63	ETA 6 days, 4:48:52	train_R 3.52	train_R_eps 3537.27	exec_R 4.65	exec_R_eps 4650.75	dex-gripper-multi-grasping
+[2026-08-29 12:41:07,678] 86	T_sample 127.45	T_update 416.14	T_eval 41.46	ETA 6 days, 4:22:27	train_R 3.60	train_R_eps 3622.25	exec_R 4.20	exec_R_eps 4204.70	dex-gripper-multi-grasping
+[2026-08-29 12:51:01,381] 87	T_sample 127.61	T_update 418.38	T_eval 46.07	ETA 6 days, 5:59:20	train_R 3.63	train_R_eps 3654.19	exec_R 4.29	exec_R_eps 4290.08	dex-gripper-multi-grasping
+[2026-08-29 13:00:44,289] 88	T_sample 124.08	T_update 411.29	T_eval 46.11	ETA 6 days, 3:08:47	train_R 3.54	train_R_eps 3564.34	exec_R 4.46	exec_R_eps 4455.97	dex-gripper-multi-grasping
+[2026-08-29 13:14:41,704] 89	T_sample 128.10	T_update 659.88	T_eval 47.97	ETA 8 days, 19:18:26	train_R 3.70	train_R_eps 3727.07	exec_R 4.51	exec_R_eps 4508.61	dex-gripper-multi-grasping
+[2026-08-29 13:28:13,029] 90	T_sample 124.57	T_update 639.63	T_eval 45.67	ETA 8 days, 12:29:35	train_R 3.45	train_R_eps 3472.84	exec_R 4.45	exec_R_eps 4451.89	dex-gripper-multi-grasping
+[2026-08-29 13:39:04,281] 91	T_sample 117.89	T_update 487.41	T_eval 44.44	ETA 6 days, 19:52:40	train_R 3.72	train_R_eps 3742.95	exec_R 4.50	exec_R_eps 4504.17	dex-gripper-multi-grasping
+[2026-08-29 13:48:40,376] 92	T_sample 120.91	T_update 410.55	T_eval 43.01	ETA 6 days, 0:44:08	train_R 3.54	train_R_eps 3561.65	exec_R 4.54	exec_R_eps 4544.76	dex-gripper-multi-grasping
+[2026-08-29 14:00:49,052] 93	T_sample 118.63	T_update 564.64	T_eval 43.88	ETA 7 days, 14:59:59	train_R 3.54	train_R_eps 3557.34	exec_R 4.90	exec_R_eps 4902.95	dex-gripper-multi-grasping

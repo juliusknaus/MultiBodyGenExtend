@@ -1,0 +1,109 @@
+_wandb:
+    value:
+        cli_version: 0.24.2
+        e:
+            w0kswn2xjdhk7q0i5pm1awwiql7cpl7x:
+                args:
+                    - cfg=dex-gripper-holding-benchmark
+                    - gpu_index=0
+                    - num_threads=20
+                    - seed=42
+                cpu_count: 20
+                cpu_count_logical: 40
+                cudaVersion: "12.8"
+                disk:
+                    /:
+                        total: "67108864"
+                        used: "4096"
+                email: juliusknaus@gmail.com
+                executable: /work/.venv310/bin/python
+                gpu: Tesla P100-PCIE-16GB
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Pascal
+                      cudaCores: 3584
+                      memoryTotal: "17179869184"
+                      name: Tesla P100-PCIE-16GB
+                      uuid: GPU-3def62ad-27ef-e7bf-0f31-aa4ee24399f7
+                host: gpu009
+                memory:
+                    total: "540927700992"
+                os: Linux-6.12.74+deb13+1-amd64-x86_64-with-glibc2.41
+                program: -m design_opt.train
+                python: CPython 3.10.21
+                root: /work/outputs/2026-08-24/23-59-06
+                slurm:
+                    cluster_name: hpc
+                    conf: /etc/slurm/slurm.conf
+                    cpu_bind: quiet,mask_cpu:0x07C1F07C1F
+                    cpu_bind_list: "0x07C1F07C1F"
+                    cpu_bind_type: 'mask_cpu:'
+                    cpu_bind_verbose: quiet
+                    cpus_on_node: "20"
+                    cpus_per_task: "20"
+                    distribution: cyclic
+                    gpus_on_node: "1"
+                    gtids: "0"
+                    job_account: lis
+                    job_cpus_per_node: "20"
+                    job_end_time: "1787997337"
+                    job_gid: "1330404154"
+                    job_group: julius19.03
+                    job_id: "1887478"
+                    job_name: singularity
+                    job_nodelist: gpu009
+                    job_num_nodes: "1"
+                    job_partition: gpu
+                    job_qos: normal
+                    job_start_time: "1787608537"
+                    job_uid: "1330404154"
+                    job_user: julius19.03
+                    jobid: "1887478"
+                    launch_node_ipaddr: 10.10.0.2
+                    localid: "0"
+                    mem_per_node: "16384"
+                    nnodes: "1"
+                    nodeid: "0"
+                    nodelist: gpu009
+                    nprocs: "1"
+                    ntasks: "1"
+                    oom_kill_step: "0"
+                    prio_process: "0"
+                    procid: "0"
+                    srun_comm_host: 10.10.0.2
+                    srun_comm_port: "35601"
+                    step_gpus: "0"
+                    step_id: "0"
+                    step_launcher_port: "35601"
+                    step_nodelist: gpu009
+                    step_num_nodes: "1"
+                    step_num_tasks: "1"
+                    step_tasks_per_node: "1"
+                    stepid: "0"
+                    submit_dir: /beegfs/home/users/j/julius19.03/master_thesis/MultiBodyGenExtend
+                    submit_host: frontend02
+                    task_pid: "1419571"
+                    tasks_per_node: "1"
+                    topology_addr: gpu009
+                    topology_addr_pattern: node
+                    tres_per_task: cpu=20
+                    umask: "0002"
+                startedAt: "2026-08-24T21:59:11.990787Z"
+                writerId: w0kswn2xjdhk7q0i5pm1awwiql7cpl7x
+        m: []
+        python_version: 3.10.21
+        t:
+            "1":
+                - 1
+                - 50
+            "2":
+                - 1
+                - 50
+            "3":
+                - 2
+                - 13
+                - 61
+            "4": 3.10.21
+            "5": 0.24.2
+            "12": 0.24.2
+            "13": linux-x86_64
