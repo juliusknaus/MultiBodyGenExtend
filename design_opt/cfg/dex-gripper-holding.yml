@@ -1,5 +1,5 @@
 env_name: dex_gripper_holding
-benchmark: false  # run in control-only benchmark mode
+benchmark: false
 agent_specs:
   batch_design: true
 # training parameters
@@ -71,26 +71,21 @@ task_specs:
   #obj_name: 'capsule'
   #obj_name: 'prism'
   #obj_name: 'cup'
-  box_pos: [0.0, 0.0, 1.0]
-  random_boxes_pos: true
-  box_random_margin: 0.02
-  # Optional explicit spawn bounds [x_min, x_max, y_min, y_max].
-  # If omitted, bounds are inferred from wall geoms.
-  # box_spawn_range: [-7.0, 7.0, -4.0, 4.0]
+  box_pos: [0.0, 0.0, 0.8]
   box_cont_cost: False
   reward_type: 'zheight'
   
   # Andrychowitz et al. 2019: Orientation-based reward
   # If true, sample a new random goal quaternion at reset and after each success.
-  random_goal_orientation: False
+  random_goal_orientation: True
   # Fallback static goal quaternion [w, x, y, z] when random_goal_orientation=False.
-  goal_orientation: [0.70710678, 0.0, 0.0, 0.70710678]
+  goal_orientation: [1.0, 0.0, 0.0, 0.0]
   # Goal reached threshold in radians (paper-style value: 0.4).
   orientation_success_threshold: 0.4
   # Reward bonus when goal reached.
-  orientation_success_bonus: 20.0
+  orientation_success_bonus: 10.0
   # Penalty when object is dropped.
-  drop_penalty: 5.0
+  drop_penalty: 20.0
   # Near-floor margin for drop detection.
   drop_height_margin: 0.005
   
@@ -110,4 +105,5 @@ task_specs:
     lift: 5.0
     orientation: 1.0
     #lift: 1.0
+
 
