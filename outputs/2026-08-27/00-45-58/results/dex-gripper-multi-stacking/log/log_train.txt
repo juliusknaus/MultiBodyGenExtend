@@ -429,3 +429,13 @@
 [2026-08-29 13:37:49,857] 357	T_sample 121.14	T_update 403.68	T_eval 40.56	ETA 4 days, 4:49:32	train_R 14.70	train_R_eps 14788.17	exec_R 17.29	exec_R_eps 17287.58	dex-gripper-multi-stacking
 [2026-08-29 13:47:15,889] 358	T_sample 132.31	T_update 392.07	T_eval 40.11	ETA 4 days, 4:30:40	train_R 15.83	train_R_eps 15926.26	exec_R 17.39	exec_R_eps 17392.97	dex-gripper-multi-stacking
 [2026-08-29 13:56:51,540] 359	T_sample 126.09	T_update 408.34	T_eval 39.72	ETA 4 days, 6:04:19	train_R 16.23	train_R_eps 16328.49	exec_R 16.34	exec_R_eps 16342.18	dex-gripper-multi-stacking
+[2026-08-29 14:07:02,889] 360	T_sample 120.80	T_update 444.42	T_eval 44.42	ETA 4 days, 12:12:42	train_R 16.14	train_R_eps 16233.55	exec_R 15.81	exec_R_eps 15810.24	dex-gripper-multi-stacking
+[2026-08-29 14:16:39,900] 361	T_sample 125.03	T_update 411.03	T_eval 39.48	ETA 4 days, 5:59:54	train_R 16.03	train_R_eps 16123.58	exec_R 17.69	exec_R_eps 17685.05	dex-gripper-multi-stacking
+[2026-08-29 14:27:03,435] 362	T_sample 132.32	T_update 449.05	T_eval 40.64	ETA 4 days, 14:03:39	train_R 15.40	train_R_eps 15495.05	exec_R 18.50	exec_R_eps 18499.88	dex-gripper-multi-stacking
+[2026-08-29 14:38:01,278] 363	T_sample 134.16	T_update 482.85	T_eval 39.29	ETA 4 days, 19:56:47	train_R 16.57	train_R_eps 16673.98	exec_R 16.96	exec_R_eps 16961.28	dex-gripper-multi-stacking
+[2026-08-29 14:47:58,300] 364	T_sample 128.45	T_update 425.01	T_eval 42.00	ETA 4 days, 9:02:01	train_R 16.28	train_R_eps 16377.52	exec_R 16.59	exec_R_eps 16591.41	dex-gripper-multi-stacking
+[2026-08-29 14:59:37,756] 365	T_sample 119.95	T_update 538.47	T_eval 39.48	ETA 5 days, 2:54:28	train_R 17.06	train_R_eps 17160.11	exec_R 18.84	exec_R_eps 18843.84	dex-gripper-multi-stacking
+[2026-08-29 15:08:54,614] 366	T_sample 125.75	T_update 389.04	T_eval 40.47	ETA 4 days, 1:37:55	train_R 16.56	train_R_eps 16654.35	exec_R 16.92	exec_R_eps 16922.21	dex-gripper-multi-stacking
+[2026-08-29 15:20:04,321] 367	T_sample 124.43	T_update 505.03	T_eval 38.79	ETA 4 days, 21:18:57	train_R 17.30	train_R_eps 17402.04	exec_R 18.13	exec_R_eps 18126.39	dex-gripper-multi-stacking
+[2026-08-29 15:29:49,538] 368	T_sample 117.48	T_update 422.44	T_eval 43.73	ETA 4 days, 6:18:01	train_R 16.59	train_R_eps 16686.78	exec_R 15.34	exec_R_eps 15340.57	dex-gripper-multi-stacking
+[2026-08-29 15:39:16,422] 369	T_sample 121.67	T_update 400.43	T_eval 43.25	ETA 4 days, 2:56:09	train_R 15.98	train_R_eps 16079.56	exec_R 19.59	exec_R_eps 19593.53	dex-gripper-multi-stacking

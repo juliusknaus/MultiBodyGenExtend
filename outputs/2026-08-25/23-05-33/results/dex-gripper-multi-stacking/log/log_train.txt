@@ -654,3 +654,16 @@
 [2026-08-29 13:38:17,778] 519	T_sample 105.94	T_update 412.93	T_eval 37.31	ETA 3 days, 2:09:25	train_R 54.24	train_R_eps 54569.51	exec_R 47.69	exec_R_eps 47689.11	dex-gripper-multi-stacking
 [2026-08-29 13:47:30,091] 520	T_sample 105.72	T_update 410.49	T_eval 34.85	ETA 3 days, 1:19:20	train_R 49.15	train_R_eps 49442.96	exec_R 43.77	exec_R_eps 43772.92	dex-gripper-multi-stacking
 [2026-08-29 13:56:35,985] 521	T_sample 102.11	T_update 406.88	T_eval 35.54	ETA 3 days, 0:18:09	train_R 54.71	train_R_eps 54654.99	exec_R 43.36	exec_R_eps 43363.24	dex-gripper-multi-stacking
+[2026-08-29 14:06:05,285] 522	T_sample 107.67	T_update 413.30	T_eval 46.75	ETA 3 days, 3:13:24	train_R 54.17	train_R_eps 54277.67	exec_R 45.99	exec_R_eps 44312.69	dex-gripper-multi-stacking
+[2026-08-29 14:15:26,050] 523	T_sample 117.42	T_update 402.21	T_eval 39.70	ETA 3 days, 1:57:18	train_R 51.85	train_R_eps 52165.35	exec_R 45.41	exec_R_eps 44634.35	dex-gripper-multi-stacking
+[2026-08-29 14:24:55,492] 524	T_sample 114.06	T_update 417.46	T_eval 36.65	ETA 3 days, 2:58:02	train_R 50.44	train_R_eps 50032.67	exec_R 41.85	exec_R_eps 41845.11	dex-gripper-multi-stacking
+[2026-08-29 14:34:15,169] 525	T_sample 105.59	T_update 416.73	T_eval 36.10	ETA 3 days, 1:31:31	train_R 52.14	train_R_eps 51827.24	exec_R 57.62	exec_R_eps 57623.51	dex-gripper-multi-stacking
+[2026-08-29 14:43:43,932] 526	T_sample 106.50	T_update 418.85	T_eval 42.06	ETA 3 days, 2:33:06	train_R 53.45	train_R_eps 53771.25	exec_R 57.70	exec_R_eps 56232.38	dex-gripper-multi-stacking
+[2026-08-29 14:53:08,938] 527	T_sample 107.90	T_update 419.82	T_eval 35.96	ETA 3 days, 1:54:15	train_R 58.31	train_R_eps 58263.57	exec_R 53.50	exec_R_eps 53496.82	dex-gripper-multi-stacking
+[2026-08-29 15:02:39,307] 528	T_sample 113.70	T_update 414.86	T_eval 40.20	ETA 3 days, 2:24:44	train_R 54.40	train_R_eps 53896.75	exec_R 57.30	exec_R_eps 57304.78	dex-gripper-multi-stacking
+[2026-08-29 15:12:08,992] 529	T_sample 106.65	T_update 424.50	T_eval 37.19	ETA 3 days, 2:12:01	train_R 55.97	train_R_eps 56310.03	exec_R 56.77	exec_R_eps 56773.09	dex-gripper-multi-stacking
+[2026-08-29 15:21:28,594] 530	T_sample 107.26	T_update 415.48	T_eval 35.49	ETA 3 days, 0:43:35	train_R 57.98	train_R_eps 58331.69	exec_R 60.27	exec_R_eps 60273.77	dex-gripper-multi-stacking
+[2026-08-29 15:21:28,817] save best checkpoint for agent 0 with rewards 60000.74!
+[2026-08-29 15:21:29,092] save best checkpoint with rewards 60273.77!
+[2026-08-29 15:31:02,829] 531	T_sample 105.15	T_update 422.91	T_eval 44.14	ETA 3 days, 2:23:12	train_R 56.21	train_R_eps 55758.64	exec_R 46.73	exec_R_eps 45379.45	dex-gripper-multi-stacking
+[2026-08-29 15:40:50,835] 532	T_sample 123.06	T_update 424.50	T_eval 39.15	ETA 3 days, 4:06:35	train_R 56.45	train_R_eps 56354.33	exec_R 58.09	exec_R_eps 58086.26	dex-gripper-multi-stacking
