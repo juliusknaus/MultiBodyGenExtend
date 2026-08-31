@@ -1,8 +1,7 @@
-env_name: dex_gripper_multi_stacking
-benchmark: false
+env_name: dex_gripper
+benchmark: false  
 agent_specs:
   batch_design: true
-num_agents: 2
 # training parameters
 gamma: 0.995
 tau: 0.95
@@ -14,7 +13,7 @@ skel_transform_nsteps: 5
 
 done_condition:
   max_ang: 60
-model_dir: "dex_gripper_long_version/0/results/dex-gripper/models"
+
 
 obs_specs:
   attr: ['depth']
@@ -72,33 +71,35 @@ task_specs:
   #obj_name: 'capsule'
   #obj_name: 'prism'
   #obj_name: 'cup'
-  # Legacy alias kept for compatibility with shared helper code.
   box_pos: [0.5, 0.0, 0.7]
-  box_1_pos: [0.0, 0.0, 0.5]
-  box_2_pos: [1.5, 0.0, 0.5]
-  random_boxes_pos: true
-  box_random_margin: 0.02
-  box_pair_clearance: 0.02
-  box_spawn_max_tries: 200
-  # Optional explicit spawn bounds [x_min, x_max, y_min, y_max].
-  # If omitted, bounds are inferred from wall geoms.
-  # box_spawn_range: [-7.0, 7.0, -4.0, 4.0]
   box_cont_cost: False
+  random_box_pos: true
   reward_type: 'zheight'
+  grasp_cfg: False
+  compactness_cfg: False
+  binary_cfg: True
   weights: 
-    contact: 1.0
-    #distance: 0.1
-    distance: 0.5
-    #grasp: 1.0
-    grasp: 2.0
-    #compactness: 1.0
-    compactness: 2.0
-    #binary: 1.0
-    binary: 2.0
+    #contact: 1.0
+    distance: 0.1
+    #distance: 0.5
+    grasp: 1.0
+    #grasp: 2.0
+    compactness: 1.0
+    #compactness: 2.0
+    binary: 1.0
+    #binary: 2.0
     force_closure: 0.5
     force_magnitude: 0.1
-    #lift: 5.0
-    lift: 1.0
+    lift: 5.0
+    #lift: 1.0
+
+
+
+
+
+
+
+
 
 
 

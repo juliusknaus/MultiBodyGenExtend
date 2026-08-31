@@ -12,19 +12,6 @@ import os
 from scipy.spatial import ConvexHull, Delaunay
 
 
-def rand_coord(np_random, coord_range):
-    coord_range = np.array(coord_range, dtype=np.float64)
-    if coord_range.shape == (2, 2):
-        low = coord_range[:, 0]
-        high = coord_range[:, 1]
-    elif coord_range.shape == (4,):
-        low = np.array([coord_range[0], coord_range[2]], dtype=np.float64)
-        high = np.array([coord_range[1], coord_range[3]], dtype=np.float64)
-    else:
-        raise ValueError(f"Unsupported coord_range shape: {coord_range.shape}")
-    return np_random.uniform(low=low, high=high)
-
-
 class DexGripperEnv_(MujocoEnv, utils.EzPickle):
     def __init__(self, cfg, agent):
         self.cur_t = 0
@@ -60,9 +47,6 @@ class DexGripperEnv_(MujocoEnv, utils.EzPickle):
         self.attr_specs = set(cfg.obs_specs.get('attr', []))
         # task attr
         self.box_pos = np.array(self.task_specs.get('box_pos'))
-        self.random_box_pos = bool(self.task_specs.get('random_box_pos', False))
-        self.box_random_margin = float(self.task_specs.get('box_random_margin', 0.02))
-        self.box_spawn_range = self.task_specs.get('box_spawn_range', None)
         self.rob_box_dist = np.array([0.0, 0.0, 0.0])
         if self.task_specs.get('mov_goal', False):
             self.goal_pos = np.array(self.task_specs.get('goal_pos'))
@@ -851,8 +835,8 @@ class DexGripperEnv_(MujocoEnv, utils.EzPickle):
             box_state_bef = self.data.qpos[self.box_qpos_adr : self.box_qpos_adr + 7].copy()
             rob_box_dist_bef = np.linalg.norm(rob_pos_bef - box_pos_bef)
 
-            #limb_geom_ids = self.get_limb_geom_ids(self.model)
-            #limb_geom_ids = limb_geom_ids[1:]  # exclude root geom if present
+            limb_geom_ids = self.get_limb_geom_ids(self.model)
+            limb_geom_ids = limb_geom_ids[1:]  # exclude root geom if present
             # box info
             box_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "box")
             box_pos = self.data.xpos[box_id]
@@ -863,20 +847,20 @@ class DexGripperEnv_(MujocoEnv, utils.EzPickle):
            
             
 
-            #points = self.gripper_point_cloud(self.model, self.data, limb_geom_ids)
+            points = self.gripper_point_cloud(self.model, self.data, limb_geom_ids)
 
 
-            #_, tri = self.compute_gripper_hull(points)
+            _, tri = self.compute_gripper_hull(points)
 
             # compute overlap
-            #grasp_score_bef = self.gripper_box_overlap(box_pos, box_size, tri)
+            grasp_score_bef = self.gripper_box_overlap(box_pos, box_size, tri)
 
-            #compactness_score_bef = self.gripper_compactness_score(
-            #    points,
-            #    tri,
-            #    box_pos,
-            #    box_size
-            #)
+            compactness_score_bef = self.gripper_compactness_score(
+                points,
+                tri,
+                box_pos,
+                box_size
+            )
             
 
             if self.task_specs.get('mov_goal', False):
@@ -928,7 +912,7 @@ class DexGripperEnv_(MujocoEnv, utils.EzPickle):
                 print("And a last one.")
 
             
-            #reward += (rob_box_dist_bef - rob_box_dist_aft) / self.dt
+            reward += (rob_box_dist_bef - rob_box_dist_aft) / self.dt
             
             rob_pos_aft = self.get_body_com("0")[0:3].copy()
             box_pos_aft = self.get_body_com("box")[0:3].copy()
@@ -953,29 +937,29 @@ class DexGripperEnv_(MujocoEnv, utils.EzPickle):
             # IMPORTANT: geom size (half-extents)
             box_geom_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_GEOM, "box")
             box_size = self.model.geom_size[box_geom_id]
-            #gripper_root_body_id = mujoco.mj_name2id(
-            #    self.model,
-            #    mujoco.mjtObj.mjOBJ_BODY,
-            #    "0"
-            #)
+            gripper_root_body_id = mujoco.mj_name2id(
+                self.model,
+                mujoco.mjtObj.mjOBJ_BODY,
+                "0"
+            )
 
             # Lowest point of box
-            #box_bottom_z = self.compute_box_lowest_point(
-            #    self.model,
-            #    self.data,
-            #    box_geom_id
-            #)
+            box_bottom_z = self.compute_box_lowest_point(
+                self.model,
+                self.data,
+                box_geom_id
+            )
 
             # Distance above floor
-            #clearance = box_bottom_z - self.box_init_height
+            clearance = box_bottom_z - self.box_init_height
 
             # Only reward true lift
-            #if clearance > 0.0:
-            #    lift_reward = clearance / self.dt
-            #else:
-            #    lift_reward = 0.0
+            if clearance > 0.0:
+                lift_reward = clearance / self.dt
+            else:
+                lift_reward = 0.0
             
-            lift_reward = (box_state_aft[2] - self.box_init_height) / self.dt
+            
         
             
 
@@ -987,83 +971,37 @@ class DexGripperEnv_(MujocoEnv, utils.EzPickle):
             # compute overlap
             grasp_score_aft = self.gripper_box_overlap(box_pos, box_size, tri)
 
-            compactness_score_aft = self.gripper_compactness_score(
-                points,
-                tri,
-                box_pos,
-                box_size
-            )
+            grasp_cfg = self.task_specs.get('grasp_cfg', False)
+            compactness_cfg = self.task_specs.get('compactness_cfg', False)
+            binary_cfg = self.task_specs.get('binary_cfg', False)
+
+            if not grasp_cfg:
+
+                compactness_score_aft = self.gripper_compactness_score(
+                    points,
+                    tri,
+                    box_pos,
+                    box_size
+                )
+
+                if not compactness_cfg:
+                    force_mag = self.compute_total_contact_force_magnitude(
+                        self.model,
+                        self.data,
+                        limb_geom_ids,
+                        box_geom_id
+                    )
+                    if not binary_cfg:
+                        lift_reward = (box_state_aft[2] - self.box_init_height) / self.dt
+                    else:
+                        lift_reward = 0.0
+                else:
+                    force_mag = 0.0
+            else:
+                compactness_score_aft = 0.0
+                force_mag = 0.0
 
 
-            #gripper_id = mujoco.mj_name2id(
-            #    self.model,
-            #    mujoco.mjtObj.mjOBJ_BODY,
-            #    "0"
-            #)
-
-
-
-            #grasp_delta = (grasp_score_aft - grasp_score_bef) / self.dt
-
-            #grasp_closure = (compactness_score_aft - compactness_score_bef) / self.dt
-
-            #gripper_volume = hull.volume
-
-            #action_mag = np.sum(np.square(self.data.ctrl))
-
-            #action_penalty = - np.sum(np.square(self.data.ctrl - self.prev_action)) 
-
-            #vel_mag = np.sum(np.square(self.data.qvel))
-
-            #gripper_vel = self.data.cvel[gripper_id][:3]
-            #box_vel = self.data.cvel[box_id][:3]
-
-            #relative_vel = box_vel - gripper_vel
-
-            #slip_reward = - np.linalg.norm(relative_vel)
-
-            #contact_count = self.compute_box_gripper_contacts(
-            #    self.model,
-            #    self.data,
-            #    limb_geom_ids,
-            #    box_geom_id
-            #)
-
-            force_mag = self.compute_total_contact_force_magnitude(
-                self.model,
-                self.data,
-                limb_geom_ids,
-                box_geom_id
-            )
-
-            #fc_score = self.compute_force_closure_reward(
-            #    self.model,
-            #    self.data,
-            #    limb_geom_ids,
-            #    box_geom_id
-            #)
-
-            #holding_reward = self.compute_holding_reward(
-            #    self.model,
-            #    self.data,
-            #    box_geom_id,
-            #    initial_box_height=0.5
-            #)
-            #if contact_count > 0:
-            #    stability_reward = self.compute_stability_reward(
-            #        self.data,
-            #        self.box_body_id,
-            #        gripper_root_body_id
-            #    )
-            #else:
-            #    stability_reward = 0.0
-            
-
-            #floor_contact_penalty = 0.0
-            #for i in range(self.data.ncon):
-            #    c = self.data.contact[i]
-            #    if c.geom1 == 0 or c.geom2 == 0:
-            #        floor_contact_penalty += 1.0
 
             if force_mag >= 5.0:
                 binary_reward = 1.0
@@ -1379,79 +1317,19 @@ class DexGripperEnv_(MujocoEnv, utils.EzPickle):
             all_obs.append(lapPE)
         return all_obs
 
-    def _estimate_box_xy_half_extent(self):
-        geom_type = self.model.geom_type[self.box_geom_id]
-        geom_size = self.model.geom_size[self.box_geom_id]
-
-        if geom_type == mujoco.mjtGeom.mjGEOM_BOX:
-            return float(max(geom_size[0], geom_size[1]))
-        if geom_type == mujoco.mjtGeom.mjGEOM_SPHERE:
-            return float(geom_size[0])
-        if geom_type in (mujoco.mjtGeom.mjGEOM_CYLINDER, mujoco.mjtGeom.mjGEOM_CAPSULE, mujoco.mjtGeom.mjGEOM_ELLIPSOID):
-            return float(geom_size[0])
-
-        return 0.0
-
-    def _get_wall_spawn_bounds(self):
-        if self.box_spawn_range is not None:
-            bounds = np.array(self.box_spawn_range, dtype=np.float64).flatten()
-            if bounds.shape[0] == 4:
-                return bounds[0], bounds[1], bounds[2], bounds[3]
-
-        wall_names = ["wall_left", "wall_right", "wall_back", "wall_front"]
-        wall_ids = {
-            name: mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_GEOM, name)
-            for name in wall_names
-        }
-
-        if any(gid < 0 for gid in wall_ids.values()):
-            return None
-
-        left_inner = self.model.geom_pos[wall_ids["wall_left"]][0] + self.model.geom_size[wall_ids["wall_left"]][0]
-        right_inner = self.model.geom_pos[wall_ids["wall_right"]][0] - self.model.geom_size[wall_ids["wall_right"]][0]
-        back_inner = self.model.geom_pos[wall_ids["wall_back"]][1] + self.model.geom_size[wall_ids["wall_back"]][1]
-        front_inner = self.model.geom_pos[wall_ids["wall_front"]][1] - self.model.geom_size[wall_ids["wall_front"]][1]
-        return left_inner, right_inner, back_inner, front_inner
-
-    def _sample_box_spawn_pos(self):
-        default_box_pos = np.array(self.task_specs.get('box_pos'), dtype=np.float64)
-        if not self.random_box_pos:
-            return default_box_pos
-
-        bounds = self._get_wall_spawn_bounds()
-        if bounds is None:
-            return default_box_pos
-
-        x_min, x_max, y_min, y_max = bounds
-        margin = max(0.0, self.box_random_margin) + self._estimate_box_xy_half_extent()
-
-        low = np.array([x_min + margin, y_min + margin], dtype=np.float64)
-        high = np.array([x_max - margin, y_max - margin], dtype=np.float64)
-
-        if np.any(low >= high):
-            return default_box_pos
-
-        sampled_xy = self.np_random.uniform(low=low, high=high)
-        sampled_box_pos = default_box_pos.copy()
-        sampled_box_pos[0] = sampled_xy[0]
-        sampled_box_pos[1] = sampled_xy[1]
-        return sampled_box_pos
-
     def reset_state(self, add_noise):
         if add_noise:
             qpos = self.init_qpos + self.np_random.uniform(low=-.1, high=.1, size=self.model.nq)
             qvel = self.init_qvel + self.np_random.uniform(low=-.1, high=.1, size=self.model.nv)
         else:
-            qpos = self.init_qpos.copy()
-            qvel = self.init_qvel.copy()
-
-        self.box_pos = self._sample_box_spawn_pos()
-
+            qpos = self.init_qpos
+            qvel = self.init_qvel
         if self.env_specs.get('init_height', True):
             qpos[0] = self.box_pos[0]   # x
             qpos[1] = self.box_pos[1]   # y
             qpos[2] = self.box_pos[2] + 2.0 #before it was 0.4 in total and the other two werent there
-
+        
+        self.box_pos = np.array(self.task_specs.get('box_pos'))
         #qpos[-7:-4] = self.box_pos
         joint_id = mujoco.mj_name2id(
             self.model,
@@ -1466,6 +1344,7 @@ class DexGripperEnv_(MujocoEnv, utils.EzPickle):
         
         
         if self.task_specs.get('mov_goal', False):
+            self.box_pos = np.array(self.task_specs.get('box_pos'))
             if self.task_specs.get('random_goal'):
                 self.goal_pos[:2] = rand_coord(self.np_random, np.array(self.task_specs.get('goal_range')))
             

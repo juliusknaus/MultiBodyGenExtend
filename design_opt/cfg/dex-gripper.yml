@@ -1,5 +1,5 @@
-env_name: dex_gripper
-benchmark: false  # run in control-only benchmark mode
+env_name: dex_gripper_stacking
+benchmark: false
 agent_specs:
   batch_design: true
 # training parameters
@@ -13,7 +13,7 @@ skel_transform_nsteps: 5
 
 done_condition:
   max_ang: 60
-
+model_dir: "dex_gripper_long_version/0/results/dex-gripper/models"
 
 obs_specs:
   attr: ['depth']
@@ -75,6 +75,14 @@ task_specs:
   box_cont_cost: False
   random_box_pos: true
   reward_type: 'zheight'
+  random_boxes_pos: true
+  box_random_margin: 0.02
+  box_pair_clearance: 0.02
+  box_spawn_max_tries: 200
+  # Explicit spawn bounds [x_min, x_max, y_min, y_max].
+  # Keep this when wall geoms are removed from XML.
+  box_spawn_range: [-7.0, 7.0, -4.0, 4.0]
+  target_height: 1.0
   weights: 
     #contact: 1.0
     distance: 0.1
@@ -88,7 +96,10 @@ task_specs:
     force_closure: 0.5
     force_magnitude: 0.1
     lift: 5.0
-    #lift: 1.0
+    #lift: 1.0 
+
+
+
 
 
 
