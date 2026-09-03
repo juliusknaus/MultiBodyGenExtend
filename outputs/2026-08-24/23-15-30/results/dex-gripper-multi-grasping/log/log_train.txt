@@ -1004,3 +1004,6 @@
 [2026-08-31 14:04:36,413] 832	T_sample 158.61	T_update 430.13	T_eval 52.94	ETA 1 day, 5:46:01	train_R 18.57	train_R_eps 18397.24	exec_R 33.87	exec_R_eps 33869.95	dex-gripper-multi-grasping
 [2026-08-31 14:15:47,408] 833	T_sample 156.69	T_update 452.33	T_eval 54.47	ETA 1 day, 6:35:40	train_R 20.35	train_R_eps 20473.44	exec_R 25.45	exec_R_eps 25451.77	dex-gripper-multi-grasping
 [2026-08-31 14:26:28,146] 834	T_sample 161.62	T_update 418.54	T_eval 52.96	ETA 1 day, 5:01:05	train_R 21.28	train_R_eps 21410.66	exec_R 28.46	exec_R_eps 28458.02	dex-gripper-multi-grasping
+[2026-08-31 14:37:35,994] 835	T_sample 163.15	T_update 442.92	T_eval 54.20	ETA 1 day, 6:04:44	train_R 23.18	train_R_eps 23071.16	exec_R 23.09	exec_R_eps 23085.03	dex-gripper-multi-grasping
+[2026-08-31 14:48:17,518] 836	T_sample 161.01	T_update 419.60	T_eval 52.66	ETA 1 day, 4:40:21	train_R 23.10	train_R_eps 23236.65	exec_R 27.88	exec_R_eps 27875.56	dex-gripper-multi-grasping
+[2026-08-31 15:01:30,523] 837	T_sample 155.94	T_update 576.93	T_eval 51.33	ETA 1 day, 11:17:21	train_R 22.25	train_R_eps 22236.06	exec_R 30.92	exec_R_eps 30915.74	dex-gripper-multi-grasping

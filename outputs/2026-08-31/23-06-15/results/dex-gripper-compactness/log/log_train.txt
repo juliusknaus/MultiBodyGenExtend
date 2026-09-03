@@ -1,0 +1,14 @@
+[2026-08-31 23:11:28,014] 0	T_sample 65.80	T_update 217.27	T_eval 20.67	ETA 3 days, 12:17:08	train_R -0.34	train_R_eps -136.61	exec_R -0.29	exec_R_eps -45.32	dex-gripper-compactness
+[2026-08-31 23:11:29,432] save best checkpoint with rewards -45.32!
+[2026-08-31 23:16:53,986] 1	T_sample 93.01	T_update 203.00	T_eval 27.57	ETA 3 days, 17:42:19	train_R -0.22	train_R_eps -29.02	exec_R -0.06	exec_R_eps -30.84	dex-gripper-compactness
+[2026-08-31 23:16:54,188] save best checkpoint with rewards -30.84!
+[2026-08-31 23:22:00,367] 2	T_sample 76.67	T_update 202.34	T_eval 26.17	ETA 3 days, 12:31:05	train_R -0.11	train_R_eps -20.24	exec_R 0.83	exec_R_eps 829.71	dex-gripper-compactness
+[2026-08-31 23:22:00,555] save best checkpoint with rewards 829.71!
+[2026-08-31 23:27:03,743] 3	T_sample 69.71	T_update 206.27	T_eval 26.17	ETA 3 days, 11:35:45	train_R -0.03	train_R_eps -6.65	exec_R 0.99	exec_R_eps 988.95	dex-gripper-compactness
+[2026-08-31 23:27:03,954] save best checkpoint with rewards 988.95!
+[2026-08-31 23:32:09,547] 4	T_sample 66.06	T_update 212.78	T_eval 25.38	ETA 3 days, 12:05:08	train_R 0.02	train_R_eps 5.31	exec_R 1.00	exec_R_eps 997.37	dex-gripper-compactness
+[2026-08-31 23:32:09,753] save best checkpoint with rewards 997.37!
+[2026-08-31 23:37:21,300] 5	T_sample 64.85	T_update 219.96	T_eval 25.64	ETA 3 days, 13:43:10	train_R 0.06	train_R_eps 32.66	exec_R 1.00	exec_R_eps 998.95	dex-gripper-compactness
+[2026-08-31 23:37:21,493] save best checkpoint with rewards 998.95!
+[2026-08-31 23:42:40,223] 6	T_sample 63.86	T_update 228.95	T_eval 24.84	ETA 3 days, 15:37:04	train_R 0.14	train_R_eps 128.85	exec_R 0.99	exec_R_eps 994.32	dex-gripper-compactness
+[2026-08-31 23:48:06,519] 7	T_sample 64.75	T_update 234.79	T_eval 25.67	ETA 3 days, 17:36:51	train_R 0.22	train_R_eps 209.20	exec_R 0.99	exec_R_eps 990.29	dex-gripper-compactness

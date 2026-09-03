@@ -962,3 +962,293 @@
 [2026-08-31 14:09:28,691] 717	T_sample 80.54	T_update 336.52	T_eval 25.67	ETA 1 day, 10:40:50	train_R 53.46	train_R_eps 53780.75	exec_R 50.18	exec_R_eps 50184.82	dex-gripper-multi-grasping-benchmark
 [2026-08-31 14:18:30,688] 718	T_sample 87.25	T_update 416.64	T_eval 30.03	ETA 1 day, 17:40:30	train_R 54.18	train_R_eps 54507.98	exec_R 42.09	exec_R_eps 42092.34	dex-gripper-multi-grasping-benchmark
 [2026-08-31 14:27:49,571] 719	T_sample 78.14	T_update 447.12	T_eval 25.71	ETA 1 day, 18:51:09	train_R 52.39	train_R_eps 52703.23	exec_R 46.18	exec_R_eps 46176.98	dex-gripper-multi-grasping-benchmark
+[2026-08-31 14:37:31,589] 720	T_sample 77.24	T_update 472.03	T_eval 25.93	ETA 1 day, 20:34:40	train_R 54.31	train_R_eps 54638.99	exec_R 49.17	exec_R_eps 49172.65	dex-gripper-multi-grasping-benchmark
+[2026-08-31 14:47:09,216] 721	T_sample 79.50	T_update 456.40	T_eval 33.95	ETA 1 day, 20:00:15	train_R 53.57	train_R_eps 53894.42	exec_R 44.10	exec_R_eps 44103.31	dex-gripper-multi-grasping-benchmark
+[2026-08-31 14:55:39,956] 722	T_sample 80.43	T_update 394.20	T_eval 27.88	ETA 1 day, 14:39:58	train_R 54.01	train_R_eps 54329.55	exec_R 47.42	exec_R_eps 47419.89	dex-gripper-multi-grasping-benchmark
+[2026-08-31 15:03:25,472] 723	T_sample 75.84	T_update 350.32	T_eval 30.94	ETA 1 day, 11:02:38	train_R 52.80	train_R_eps 53115.42	exec_R 42.73	exec_R_eps 42730.07	dex-gripper-multi-grasping-benchmark
+[2026-08-31 15:10:58,595] 724	T_sample 76.65	T_update 337.36	T_eval 30.74	ETA 1 day, 9:58:25	train_R 51.61	train_R_eps 51920.26	exec_R 45.15	exec_R_eps 45149.74	dex-gripper-multi-grasping-benchmark
+[2026-08-31 15:18:41,590] 725	T_sample 80.41	T_update 345.90	T_eval 27.87	ETA 1 day, 10:34:04	train_R 53.06	train_R_eps 53377.00	exec_R 44.96	exec_R_eps 44959.19	dex-gripper-multi-grasping-benchmark
+[2026-08-31 15:26:16,710] 726	T_sample 81.57	T_update 338.00	T_eval 26.35	ETA 1 day, 9:48:57	train_R 52.74	train_R_eps 53059.54	exec_R 47.50	exec_R_eps 47495.92	dex-gripper-multi-grasping-benchmark
+[2026-08-31 15:33:54,552] 727	T_sample 86.11	T_update 337.81	T_eval 25.40	ETA 1 day, 9:56:53	train_R 52.03	train_R_eps 52338.16	exec_R 47.74	exec_R_eps 47744.05	dex-gripper-multi-grasping-benchmark
+[2026-08-31 15:41:28,279] 728	T_sample 80.41	T_update 338.75	T_eval 26.12	ETA 1 day, 9:31:10	train_R 51.91	train_R_eps 52226.29	exec_R 50.29	exec_R_eps 50292.49	dex-gripper-multi-grasping-benchmark
+[2026-08-31 15:51:34,929] 729	T_sample 77.34	T_update 492.84	T_eval 28.32	ETA 1 day, 20:53:15	train_R 52.03	train_R_eps 52346.93	exec_R 45.16	exec_R_eps 45156.23	dex-gripper-multi-grasping-benchmark
+[2026-08-31 16:00:20,149] 730	T_sample 76.40	T_update 414.59	T_eval 25.81	ETA 1 day, 14:37:02	train_R 51.79	train_R_eps 52105.19	exec_R 45.80	exec_R_eps 45804.12	dex-gripper-multi-grasping-benchmark
+[2026-08-31 16:08:32,071] 731	T_sample 77.31	T_update 380.01	T_eval 26.01	ETA 1 day, 11:58:53	train_R 53.48	train_R_eps 53802.74	exec_R 50.32	exec_R_eps 50315.88	dex-gripper-multi-grasping-benchmark
+[2026-08-31 16:16:40,901] 732	T_sample 77.72	T_update 376.57	T_eval 25.94	ETA 1 day, 11:37:02	train_R 53.48	train_R_eps 53798.83	exec_R 51.77	exec_R_eps 51767.66	dex-gripper-multi-grasping-benchmark
+[2026-08-31 16:26:42,964] 733	T_sample 76.97	T_update 487.81	T_eval 28.47	ETA 1 day, 19:50:03	train_R 52.40	train_R_eps 52710.69	exec_R 50.58	exec_R_eps 50583.40	dex-gripper-multi-grasping-benchmark
+[2026-08-31 16:36:19,847] 734	T_sample 81.04	T_update 460.44	T_eval 26.28	ETA 1 day, 17:47:38	train_R 53.31	train_R_eps 53633.39	exec_R 52.16	exec_R_eps 52157.69	dex-gripper-multi-grasping-benchmark
+[2026-08-31 16:43:58,206] 735	T_sample 77.46	T_update 347.01	T_eval 25.59	ETA 1 day, 9:00:17	train_R 53.02	train_R_eps 53342.42	exec_R 50.29	exec_R_eps 50285.93	dex-gripper-multi-grasping-benchmark
+[2026-08-31 16:52:22,939] 736	T_sample 77.34	T_update 393.31	T_eval 26.09	ETA 1 day, 12:17:24	train_R 51.13	train_R_eps 51432.72	exec_R 48.47	exec_R_eps 48470.57	dex-gripper-multi-grasping-benchmark
+[2026-08-31 17:00:03,070] 737	T_sample 76.66	T_update 349.04	T_eval 26.13	ETA 1 day, 8:52:59	train_R 52.93	train_R_eps 53247.77	exec_R 50.11	exec_R_eps 50110.04	dex-gripper-multi-grasping-benchmark
+[2026-08-31 17:08:21,857] 738	T_sample 76.72	T_update 387.12	T_eval 26.57	ETA 1 day, 11:33:19	train_R 53.85	train_R_eps 54171.40	exec_R 51.75	exec_R_eps 51749.29	dex-gripper-multi-grasping-benchmark
+[2026-08-31 17:15:58,242] 739	T_sample 78.35	T_update 343.08	T_eval 27.25	ETA 1 day, 8:24:19	train_R 54.36	train_R_eps 54685.68	exec_R 50.76	exec_R_eps 50757.75	dex-gripper-multi-grasping-benchmark
+[2026-08-31 17:23:36,727] 740	T_sample 76.71	T_update 344.12	T_eval 30.07	ETA 1 day, 8:26:23	train_R 53.02	train_R_eps 53334.56	exec_R 51.44	exec_R_eps 51435.52	dex-gripper-multi-grasping-benchmark
+[2026-08-31 17:31:10,705] 741	T_sample 76.02	T_update 340.79	T_eval 28.18	ETA 1 day, 7:53:27	train_R 52.07	train_R_eps 52381.98	exec_R 53.31	exec_R_eps 53313.72	dex-gripper-multi-grasping-benchmark
+[2026-08-31 17:38:50,402] 742	T_sample 81.64	T_update 340.77	T_eval 27.77	ETA 1 day, 8:08:15	train_R 52.29	train_R_eps 52601.30	exec_R 50.93	exec_R_eps 50934.82	dex-gripper-multi-grasping-benchmark
+[2026-08-31 17:46:30,101] 743	T_sample 82.36	T_update 342.51	T_eval 26.11	ETA 1 day, 8:04:10	train_R 52.61	train_R_eps 52925.10	exec_R 51.87	exec_R_eps 51873.35	dex-gripper-multi-grasping-benchmark
+[2026-08-31 17:54:10,519] 744	T_sample 84.22	T_update 341.12	T_eval 26.13	ETA 1 day, 7:58:45	train_R 53.32	train_R_eps 53638.41	exec_R 49.50	exec_R_eps 49498.39	dex-gripper-multi-grasping-benchmark
+[2026-08-31 18:01:49,944] 745	T_sample 85.71	T_update 337.87	T_eval 26.34	ETA 1 day, 7:44:39	train_R 54.35	train_R_eps 54675.39	exec_R 49.33	exec_R_eps 49330.69	dex-gripper-multi-grasping-benchmark
+[2026-08-31 18:09:30,828] 746	T_sample 80.79	T_update 345.39	T_eval 26.03	ETA 1 day, 7:46:48	train_R 52.97	train_R_eps 53292.28	exec_R 51.38	exec_R_eps 51381.89	dex-gripper-multi-grasping-benchmark
+[2026-08-31 18:17:23,945] 747	T_sample 78.47	T_update 358.48	T_eval 27.11	ETA 1 day, 8:29:03	train_R 53.59	train_R_eps 53908.05	exec_R 48.93	exec_R_eps 48929.19	dex-gripper-multi-grasping-benchmark
+[2026-08-31 18:27:23,229] 748	T_sample 76.30	T_update 484.91	T_eval 28.40	ETA 1 day, 17:06:32	train_R 54.36	train_R_eps 54682.28	exec_R 51.53	exec_R_eps 51530.76	dex-gripper-multi-grasping-benchmark
+[2026-08-31 18:35:33,188] 749	T_sample 78.16	T_update 372.45	T_eval 29.32	ETA 1 day, 9:19:44	train_R 53.49	train_R_eps 53811.26	exec_R 54.75	exec_R_eps 54747.00	dex-gripper-multi-grasping-benchmark
+[2026-08-31 18:35:40,333] save best checkpoint for agent 1 with rewards 27311.99!
+[2026-08-31 18:35:40,903] save best checkpoint with rewards 54779.53!
+[2026-08-31 18:44:25,627] 750	T_sample 78.33	T_update 419.03	T_eval 25.77	ETA 1 day, 12:10:59	train_R 52.75	train_R_eps 53064.10	exec_R 54.76	exec_R_eps 54763.24	dex-gripper-multi-grasping-benchmark
+[2026-08-31 18:52:07,993] 751	T_sample 76.09	T_update 354.64	T_eval 25.71	ETA 1 day, 7:26:36	train_R 52.56	train_R_eps 52879.42	exec_R 51.61	exec_R_eps 51607.56	dex-gripper-multi-grasping-benchmark
+[2026-08-31 19:01:15,158] 752	T_sample 76.30	T_update 441.59	T_eval 26.01	ETA 1 day, 13:19:02	train_R 52.90	train_R_eps 53216.62	exec_R 53.01	exec_R_eps 53010.24	dex-gripper-multi-grasping-benchmark
+[2026-08-31 19:10:56,911] 753	T_sample 76.91	T_update 474.74	T_eval 28.81	ETA 1 day, 15:39:53	train_R 50.44	train_R_eps 50739.52	exec_R 52.39	exec_R_eps 52389.44	dex-gripper-multi-grasping-benchmark
+[2026-08-31 19:18:30,870] 754	T_sample 75.62	T_update 347.52	T_eval 28.54	ETA 1 day, 6:44:23	train_R 52.06	train_R_eps 52368.53	exec_R 53.20	exec_R_eps 53199.09	dex-gripper-multi-grasping-benchmark
+[2026-08-31 19:26:06,454] 755	T_sample 79.54	T_update 347.34	T_eval 27.67	ETA 1 day, 6:48:28	train_R 53.85	train_R_eps 54172.28	exec_R 54.78	exec_R_eps 54782.66	dex-gripper-multi-grasping-benchmark
+[2026-08-31 19:33:50,481] 756	T_sample 81.43	T_update 354.28	T_eval 27.22	ETA 1 day, 7:14:51	train_R 53.73	train_R_eps 54050.09	exec_R 53.79	exec_R_eps 53788.98	dex-gripper-multi-grasping-benchmark
+[2026-08-31 19:41:28,387] 757	T_sample 81.56	T_update 349.99	T_eval 25.44	ETA 1 day, 6:43:13	train_R 53.58	train_R_eps 53904.89	exec_R 54.80	exec_R_eps 54801.68	dex-gripper-multi-grasping-benchmark
+[2026-08-31 19:41:28,579] save best checkpoint for agent 0 with rewards 27492.28!
+[2026-08-31 19:41:28,887] save best checkpoint with rewards 54801.68!
+[2026-08-31 19:50:33,927] 758	T_sample 82.76	T_update 433.53	T_eval 27.53	ETA 1 day, 12:24:20	train_R 53.62	train_R_eps 53937.75	exec_R 54.77	exec_R_eps 54770.05	dex-gripper-multi-grasping-benchmark
+[2026-08-31 19:59:25,660] 759	T_sample 75.74	T_update 429.35	T_eval 25.64	ETA 1 day, 11:22:56	train_R 53.56	train_R_eps 53879.74	exec_R 53.55	exec_R_eps 53548.92	dex-gripper-multi-grasping-benchmark
+[2026-08-31 20:09:32,522] 760	T_sample 76.98	T_update 500.06	T_eval 28.74	ETA 1 day, 16:13:02	train_R 53.62	train_R_eps 53944.90	exec_R 54.80	exec_R_eps 54803.65	dex-gripper-multi-grasping-benchmark
+[2026-08-31 20:09:37,368] save best checkpoint for agent 0 with rewards 27501.87!
+[2026-08-31 20:09:37,932] save best checkpoint with rewards 54803.65!
+[2026-08-31 20:17:54,732] 761	T_sample 78.38	T_update 390.39	T_eval 26.62	ETA 1 day, 8:45:05	train_R 54.28	train_R_eps 54602.72	exec_R 54.81	exec_R_eps 54814.72	dex-gripper-multi-grasping-benchmark
+[2026-08-31 20:17:59,080] save best checkpoint for agent 0 with rewards 27502.43!
+[2026-08-31 20:17:59,572] save best checkpoint for agent 1 with rewards 27312.28!
+[2026-08-31 20:17:59,982] save best checkpoint with rewards 54814.72!
+[2026-08-31 20:25:40,448] 762	T_sample 75.33	T_update 356.59	T_eval 26.80	ETA 1 day, 6:11:58	train_R 54.38	train_R_eps 54705.65	exec_R 51.98	exec_R_eps 51982.25	dex-gripper-multi-grasping-benchmark
+[2026-08-31 20:33:17,754] 763	T_sample 76.10	T_update 346.84	T_eval 29.61	ETA 1 day, 5:40:01	train_R 53.63	train_R_eps 53953.38	exec_R 54.80	exec_R_eps 54797.98	dex-gripper-multi-grasping-benchmark
+[2026-08-31 20:40:50,679] 764	T_sample 76.17	T_update 344.66	T_eval 27.67	ETA 1 day, 5:16:37	train_R 53.63	train_R_eps 53947.58	exec_R 53.13	exec_R_eps 53132.94	dex-gripper-multi-grasping-benchmark
+[2026-08-31 20:48:27,098] 765	T_sample 79.33	T_update 346.22	T_eval 26.66	ETA 1 day, 5:23:37	train_R 53.58	train_R_eps 53896.74	exec_R 50.56	exec_R_eps 50560.77	dex-gripper-multi-grasping-benchmark
+[2026-08-31 20:55:55,825] 766	T_sample 83.19	T_update 335.48	T_eval 25.73	ETA 1 day, 4:45:44	train_R 53.49	train_R_eps 53806.05	exec_R 54.30	exec_R_eps 54302.28	dex-gripper-multi-grasping-benchmark
+[2026-08-31 21:03:28,840] 767	T_sample 83.21	T_update 339.58	T_eval 25.25	ETA 1 day, 4:52:25	train_R 53.65	train_R_eps 53974.94	exec_R 54.81	exec_R_eps 54805.39	dex-gripper-multi-grasping-benchmark
+[2026-08-31 21:11:13,941] 768	T_sample 80.60	T_update 354.15	T_eval 26.09	ETA 1 day, 5:34:16	train_R 53.85	train_R_eps 54172.92	exec_R 53.44	exec_R_eps 53438.39	dex-gripper-multi-grasping-benchmark
+[2026-08-31 21:18:41,693] 769	T_sample 80.85	T_update 336.16	T_eval 26.10	ETA 1 day, 4:18:35	train_R 54.37	train_R_eps 54695.40	exec_R 51.73	exec_R_eps 51728.69	dex-gripper-multi-grasping-benchmark
+[2026-08-31 21:26:17,019] 770	T_sample 79.38	T_update 346.01	T_eval 25.40	ETA 1 day, 4:40:31	train_R 51.72	train_R_eps 52033.16	exec_R 54.81	exec_R_eps 54809.15	dex-gripper-multi-grasping-benchmark
+[2026-08-31 21:33:45,491] 771	T_sample 75.94	T_update 342.83	T_eval 25.61	ETA 1 day, 4:08:38	train_R 54.37	train_R_eps 54697.31	exec_R 53.43	exec_R_eps 53430.45	dex-gripper-multi-grasping-benchmark
+[2026-08-31 21:41:54,460] 772	T_sample 76.42	T_update 381.82	T_eval 26.09	ETA 1 day, 6:32:23	train_R 52.84	train_R_eps 53159.07	exec_R 54.78	exec_R_eps 54782.81	dex-gripper-multi-grasping-benchmark
+[2026-08-31 21:50:38,911] 773	T_sample 76.22	T_update 418.39	T_eval 26.26	ETA 1 day, 8:41:57	train_R 53.54	train_R_eps 53861.27	exec_R 54.81	exec_R_eps 54813.33	dex-gripper-multi-grasping-benchmark
+[2026-08-31 21:58:13,349] 774	T_sample 84.94	T_update 339.82	T_eval 26.09	ETA 1 day, 4:10:41	train_R 52.00	train_R_eps 52310.89	exec_R 51.78	exec_R_eps 51778.41	dex-gripper-multi-grasping-benchmark
+[2026-08-31 22:05:57,174] 775	T_sample 82.79	T_update 352.23	T_eval 26.00	ETA 1 day, 4:41:09	train_R 52.09	train_R_eps 52401.71	exec_R 54.80	exec_R_eps 54799.98	dex-gripper-multi-grasping-benchmark
+[2026-08-31 22:13:20,169] 776	T_sample 80.21	T_update 336.56	T_eval 25.16	ETA 1 day, 3:22:30	train_R 52.84	train_R_eps 53153.39	exec_R 53.51	exec_R_eps 53509.54	dex-gripper-multi-grasping-benchmark
+[2026-08-31 22:20:51,967] 777	T_sample 78.27	T_update 347.12	T_eval 25.30	ETA 1 day, 3:47:31	train_R 52.86	train_R_eps 53178.35	exec_R 45.23	exec_R_eps 45226.94	dex-gripper-multi-grasping-benchmark
+[2026-08-31 22:28:41,181] 778	T_sample 77.52	T_update 365.06	T_eval 25.68	ETA 1 day, 4:44:46	train_R 52.88	train_R_eps 53194.83	exec_R 53.19	exec_R_eps 53188.68	dex-gripper-multi-grasping-benchmark
+[2026-08-31 22:36:18,604] 779	T_sample 79.90	T_update 350.61	T_eval 26.03	ETA 1 day, 3:53:57	train_R 53.42	train_R_eps 53737.22	exec_R 52.50	exec_R_eps 52499.86	dex-gripper-multi-grasping-benchmark
+[2026-08-31 22:43:45,008] 780	T_sample 78.18	T_update 341.46	T_eval 25.89	ETA 1 day, 3:06:11	train_R 53.13	train_R_eps 53443.91	exec_R 54.79	exec_R_eps 54787.63	dex-gripper-multi-grasping-benchmark
+[2026-08-31 22:52:25,569] 781	T_sample 76.25	T_update 417.78	T_eval 25.57	ETA 1 day, 7:27:53	train_R 53.59	train_R_eps 53907.32	exec_R 49.21	exec_R_eps 49205.89	dex-gripper-multi-grasping-benchmark
+[2026-08-31 22:59:48,706] 782	T_sample 82.92	T_update 333.60	T_eval 25.73	ETA 1 day, 2:39:27	train_R 53.11	train_R_eps 53432.89	exec_R 51.73	exec_R_eps 51729.27	dex-gripper-multi-grasping-benchmark
+[2026-08-31 23:07:39,448] 783	T_sample 81.26	T_update 362.77	T_eval 25.79	ETA 1 day, 4:11:19	train_R 53.27	train_R_eps 53585.34	exec_R 47.47	exec_R_eps 47466.80	dex-gripper-multi-grasping-benchmark
+[2026-08-31 23:14:59,861] 784	T_sample 83.80	T_update 330.54	T_eval 25.19	ETA 1 day, 2:14:59	train_R 53.74	train_R_eps 54064.50	exec_R 50.33	exec_R_eps 50333.01	dex-gripper-multi-grasping-benchmark
+[2026-08-31 23:22:35,875] 785	T_sample 78.18	T_update 351.68	T_eval 25.27	ETA 1 day, 3:03:19	train_R 53.61	train_R_eps 53927.37	exec_R 52.23	exec_R_eps 52228.67	dex-gripper-multi-grasping-benchmark
+[2026-08-31 23:30:05,924] 786	T_sample 74.60	T_update 348.75	T_eval 25.56	ETA 1 day, 2:33:38	train_R 52.31	train_R_eps 52626.90	exec_R 44.73	exec_R_eps 44734.89	dex-gripper-multi-grasping-benchmark
+[2026-08-31 23:37:41,963] 787	T_sample 74.68	T_update 354.90	T_eval 25.51	ETA 1 day, 2:48:00	train_R 52.65	train_R_eps 52967.65	exec_R 51.86	exec_R_eps 51861.73	dex-gripper-multi-grasping-benchmark
+[2026-08-31 23:45:15,427] 788	T_sample 74.84	T_update 351.10	T_eval 26.65	ETA 1 day, 2:31:35	train_R 52.28	train_R_eps 52597.83	exec_R 51.05	exec_R_eps 51052.60	dex-gripper-multi-grasping-benchmark
+[2026-08-31 23:52:42,666] 789	T_sample 75.89	T_update 343.80	T_eval 26.60	ETA 1 day, 2:02:02	train_R 52.78	train_R_eps 53098.90	exec_R 43.60	exec_R_eps 43600.41	dex-gripper-multi-grasping-benchmark
+[2026-09-01 00:00:08,578] 790	T_sample 76.48	T_update 339.21	T_eval 29.16	ETA 1 day, 1:49:33	train_R 53.80	train_R_eps 54122.87	exec_R 45.56	exec_R_eps 45557.84	dex-gripper-multi-grasping-benchmark
+[2026-09-01 00:07:30,410] 791	T_sample 76.98	T_update 335.28	T_eval 28.54	ETA 1 day, 1:28:05	train_R 53.54	train_R_eps 53860.69	exec_R 51.13	exec_R_eps 51125.36	dex-gripper-multi-grasping-benchmark
+[2026-09-01 00:14:54,534] 792	T_sample 79.99	T_update 335.58	T_eval 27.56	ETA 1 day, 1:28:47	train_R 51.96	train_R_eps 52276.05	exec_R 53.29	exec_R_eps 53290.84	dex-gripper-multi-grasping-benchmark
+[2026-09-01 00:22:19,727] 793	T_sample 82.44	T_update 334.67	T_eval 26.81	ETA 1 day, 1:24:07	train_R 54.41	train_R_eps 54735.21	exec_R 51.83	exec_R_eps 51834.52	dex-gripper-multi-grasping-benchmark
+[2026-09-01 00:29:46,996] 794	T_sample 84.59	T_update 336.29	T_eval 25.48	ETA 1 day, 1:25:03	train_R 53.13	train_R_eps 53445.76	exec_R 49.83	exec_R_eps 49827.23	dex-gripper-multi-grasping-benchmark
+[2026-09-01 00:37:14,127] 795	T_sample 84.66	T_update 335.96	T_eval 25.60	ETA 1 day, 1:17:08	train_R 53.67	train_R_eps 53993.66	exec_R 51.29	exec_R_eps 51285.38	dex-gripper-multi-grasping-benchmark
+[2026-09-01 00:44:37,851] 796	T_sample 83.67	T_update 333.49	T_eval 25.62	ETA 1 day, 0:58:05	train_R 52.44	train_R_eps 52755.14	exec_R 50.26	exec_R_eps 50258.49	dex-gripper-multi-grasping-benchmark
+[2026-09-01 00:52:00,558] 797	T_sample 81.40	T_update 335.47	T_eval 24.98	ETA 1 day, 0:47:34	train_R 54.04	train_R_eps 54365.93	exec_R 48.50	exec_R_eps 48504.28	dex-gripper-multi-grasping-benchmark
+[2026-09-01 00:59:24,620] 798	T_sample 78.84	T_update 339.10	T_eval 25.10	ETA 1 day, 0:44:11	train_R 53.96	train_R_eps 54287.72	exec_R 50.99	exec_R_eps 50993.22	dex-gripper-multi-grasping-benchmark
+[2026-09-01 01:07:22,883] 799	T_sample 75.47	T_update 376.46	T_eval 25.34	ETA 1 day, 2:30:55	train_R 52.70	train_R_eps 53020.51	exec_R 51.49	exec_R_eps 51487.25	dex-gripper-multi-grasping-benchmark
+[2026-09-01 01:14:59,955] 800	T_sample 76.76	T_update 353.80	T_eval 25.00	ETA 1 day, 1:10:58	train_R 52.82	train_R_eps 53139.64	exec_R 53.25	exec_R_eps 53246.73	dex-gripper-multi-grasping-benchmark
+[2026-09-01 01:22:36,219] 801	T_sample 75.26	T_update 354.49	T_eval 25.63	ETA 1 day, 1:02:45	train_R 54.37	train_R_eps 54699.31	exec_R 53.52	exec_R_eps 53518.98	dex-gripper-multi-grasping-benchmark
+[2026-09-01 01:30:19,148] 802	T_sample 75.62	T_update 361.10	T_eval 25.28	ETA 1 day, 1:16:53	train_R 54.35	train_R_eps 54672.86	exec_R 53.94	exec_R_eps 53943.10	dex-gripper-multi-grasping-benchmark
+[2026-09-01 01:37:58,454] 803	T_sample 75.19	T_update 357.56	T_eval 25.57	ETA 1 day, 0:57:11	train_R 54.13	train_R_eps 54459.80	exec_R 50.35	exec_R_eps 50354.65	dex-gripper-multi-grasping-benchmark
+[2026-09-01 01:45:37,556] 804	T_sample 76.61	T_update 355.68	T_eval 25.81	ETA 1 day, 0:48:50	train_R 54.37	train_R_eps 54697.63	exec_R 51.45	exec_R_eps 51452.59	dex-gripper-multi-grasping-benchmark
+[2026-09-01 01:53:13,265] 805	T_sample 75.59	T_update 351.57	T_eval 27.62	ETA 1 day, 0:30:27	train_R 54.04	train_R_eps 54360.89	exec_R 47.93	exec_R_eps 47929.40	dex-gripper-multi-grasping-benchmark
+[2026-09-01 02:02:22,979] 806	T_sample 75.42	T_update 447.72	T_eval 25.71	ETA 1 day, 5:25:26	train_R 53.95	train_R_eps 54269.23	exec_R 50.90	exec_R_eps 50899.04	dex-gripper-multi-grasping-benchmark
+[2026-09-01 02:10:38,130] 807	T_sample 76.60	T_update 391.96	T_eval 25.54	ETA 1 day, 2:21:08	train_R 53.91	train_R_eps 54229.22	exec_R 44.41	exec_R_eps 44410.97	dex-gripper-multi-grasping-benchmark
+[2026-09-01 02:20:28,607] 808	T_sample 75.96	T_update 483.48	T_eval 29.99	ETA 1 day, 7:16:21	train_R 51.99	train_R_eps 52298.64	exec_R 50.90	exec_R_eps 50895.98	dex-gripper-multi-grasping-benchmark
+[2026-09-01 02:28:55,022] 809	T_sample 79.98	T_update 399.48	T_eval 25.88	ETA 1 day, 2:40:13	train_R 53.65	train_R_eps 53970.05	exec_R 50.55	exec_R_eps 50552.22	dex-gripper-multi-grasping-benchmark
+[2026-09-01 02:38:37,145] 810	T_sample 76.03	T_update 479.95	T_eval 25.21	ETA 1 day, 6:30:46	train_R 54.25	train_R_eps 54573.76	exec_R 53.38	exec_R_eps 53382.58	dex-gripper-multi-grasping-benchmark
+[2026-09-01 02:48:25,513] 811	T_sample 82.58	T_update 479.34	T_eval 25.45	ETA 1 day, 6:40:25	train_R 54.30	train_R_eps 54627.09	exec_R 53.18	exec_R_eps 53184.05	dex-gripper-multi-grasping-benchmark
+[2026-09-01 02:56:25,594] 812	T_sample 76.25	T_update 377.04	T_eval 25.74	ETA 1 day, 0:52:59	train_R 53.63	train_R_eps 53947.58	exec_R 52.94	exec_R_eps 52943.76	dex-gripper-multi-grasping-benchmark
+[2026-09-01 03:03:57,378] 813	T_sample 75.99	T_update 347.86	T_eval 27.06	ETA 23:17:50	train_R 54.41	train_R_eps 54736.39	exec_R 52.80	exec_R_eps 52796.45	dex-gripper-multi-grasping-benchmark
+[2026-09-01 03:12:51,668] 814	T_sample 75.40	T_update 432.72	T_eval 25.23	ETA 1 day, 3:24:29	train_R 52.84	train_R_eps 53153.01	exec_R 54.81	exec_R_eps 54808.61	dex-gripper-multi-grasping-benchmark
+[2026-09-01 03:12:51,857] save best checkpoint for agent 1 with rewards 27316.61!
+[2026-09-01 03:12:52,159] save best checkpoint with rewards 54814.72!
+[2026-09-01 03:20:23,465] 815	T_sample 76.09	T_update 348.98	T_eval 25.05	ETA 23:00:22	train_R 54.39	train_R_eps 54718.46	exec_R 52.35	exec_R_eps 52345.51	dex-gripper-multi-grasping-benchmark
+[2026-09-01 03:29:44,967] 816	T_sample 74.69	T_update 458.60	T_eval 27.15	ETA 1 day, 4:29:22	train_R 52.74	train_R_eps 53051.92	exec_R 54.78	exec_R_eps 54776.13	dex-gripper-multi-grasping-benchmark
+[2026-09-01 03:37:00,190] 817	T_sample 80.61	T_update 328.46	T_eval 25.18	ETA 21:57:13	train_R 53.19	train_R_eps 53508.76	exec_R 54.78	exec_R_eps 54780.90	dex-gripper-multi-grasping-benchmark
+[2026-09-01 03:44:35,467] 818	T_sample 82.81	T_update 346.07	T_eval 25.28	ETA 22:50:04	train_R 54.29	train_R_eps 54613.17	exec_R 53.74	exec_R_eps 53738.74	dex-gripper-multi-grasping-benchmark
+[2026-09-01 03:52:22,112] 819	T_sample 81.32	T_update 356.95	T_eval 27.45	ETA 23:17:10	train_R 54.35	train_R_eps 54677.13	exec_R 50.12	exec_R_eps 50123.50	dex-gripper-multi-grasping-benchmark
+[2026-09-01 04:02:21,548] 820	T_sample 80.60	T_update 492.07	T_eval 25.88	ETA 1 day, 5:45:41	train_R 54.28	train_R_eps 54604.56	exec_R 54.81	exec_R_eps 54807.27	dex-gripper-multi-grasping-benchmark
+[2026-09-01 04:12:23,402] 821	T_sample 77.85	T_update 496.64	T_eval 26.33	ETA 1 day, 5:42:26	train_R 53.90	train_R_eps 54227.63	exec_R 54.80	exec_R_eps 54802.27	dex-gripper-multi-grasping-benchmark
+[2026-09-01 04:19:53,693] 822	T_sample 81.90	T_update 341.74	T_eval 25.69	ETA 22:05:31	train_R 52.81	train_R_eps 53122.77	exec_R 51.90	exec_R_eps 51899.35	dex-gripper-multi-grasping-benchmark
+[2026-09-01 04:27:23,061] 823	T_sample 83.57	T_update 339.58	T_eval 25.33	ETA 21:55:33	train_R 53.45	train_R_eps 53768.72	exec_R 51.86	exec_R_eps 51863.90	dex-gripper-multi-grasping-benchmark
+[2026-09-01 04:34:55,094] 824	T_sample 78.89	T_update 346.41	T_eval 25.74	ETA 21:55:32	train_R 54.41	train_R_eps 54737.63	exec_R 54.50	exec_R_eps 54503.85	dex-gripper-multi-grasping-benchmark
+[2026-09-01 04:42:28,035] 825	T_sample 77.42	T_update 349.06	T_eval 25.58	ETA 21:50:59	train_R 53.40	train_R_eps 53722.75	exec_R 48.72	exec_R_eps 48723.08	dex-gripper-multi-grasping-benchmark
+[2026-09-01 04:49:57,275] 826	T_sample 73.88	T_update 349.25	T_eval 25.10	ETA 21:32:23	train_R 54.41	train_R_eps 54731.70	exec_R 50.89	exec_R_eps 50890.97	dex-gripper-multi-grasping-benchmark
+[2026-09-01 04:57:29,768] 827	T_sample 74.89	T_update 350.51	T_eval 26.22	ETA 21:34:37	train_R 51.71	train_R_eps 52020.43	exec_R 50.63	exec_R_eps 50625.06	dex-gripper-multi-grasping-benchmark
+[2026-09-01 05:04:59,183] 828	T_sample 75.89	T_update 347.34	T_eval 25.29	ETA 21:18:15	train_R 52.78	train_R_eps 53096.74	exec_R 51.93	exec_R_eps 51928.58	dex-gripper-multi-grasping-benchmark
+[2026-09-01 05:12:27,887] 829	T_sample 74.42	T_update 345.34	T_eval 27.93	ETA 21:08:26	train_R 54.26	train_R_eps 54586.54	exec_R 51.23	exec_R_eps 51227.83	dex-gripper-multi-grasping-benchmark
+[2026-09-01 05:19:54,605] 830	T_sample 75.65	T_update 341.93	T_eval 28.09	ETA 20:55:18	train_R 53.14	train_R_eps 53457.26	exec_R 54.81	exec_R_eps 54808.62	dex-gripper-multi-grasping-benchmark
+[2026-09-01 05:27:22,744] 831	T_sample 77.48	T_update 341.54	T_eval 27.91	ETA 20:51:23	train_R 53.75	train_R_eps 54070.65	exec_R 49.44	exec_R_eps 49435.48	dex-gripper-multi-grasping-benchmark
+[2026-09-01 05:35:56,707] 832	T_sample 83.40	T_update 402.52	T_eval 27.15	ETA 23:48:02	train_R 52.83	train_R_eps 53151.91	exec_R 51.97	exec_R_eps 51972.75	dex-gripper-multi-grasping-benchmark
+[2026-09-01 05:43:58,169] 833	T_sample 76.11	T_update 379.28	T_eval 25.19	ETA 22:09:37	train_R 54.35	train_R_eps 54680.55	exec_R 52.26	exec_R_eps 52263.24	dex-gripper-multi-grasping-benchmark
+[2026-09-01 05:52:39,739] 834	T_sample 77.52	T_update 417.40	T_eval 25.71	ETA 23:51:43	train_R 52.70	train_R_eps 53019.55	exec_R 54.81	exec_R_eps 54807.73	dex-gripper-multi-grasping-benchmark
+[2026-09-01 05:52:39,923] save best checkpoint for agent 1 with rewards 27316.66!
+[2026-09-01 05:52:40,216] save best checkpoint with rewards 54814.72!
+[2026-09-01 06:00:11,168] 835	T_sample 75.95	T_update 348.29	T_eval 25.56	ETA 20:29:26	train_R 53.06	train_R_eps 53379.70	exec_R 53.68	exec_R_eps 53682.51	dex-gripper-multi-grasping-benchmark
+[2026-09-01 06:07:45,852] 836	T_sample 76.34	T_update 352.00	T_eval 25.36	ETA 20:32:33	train_R 54.42	train_R_eps 54746.89	exec_R 48.90	exec_R_eps 48904.93	dex-gripper-multi-grasping-benchmark
+[2026-09-01 06:15:19,599] 837	T_sample 74.56	T_update 351.66	T_eval 26.59	ETA 20:22:35	train_R 51.32	train_R_eps 51630.28	exec_R 47.72	exec_R_eps 47720.89	dex-gripper-multi-grasping-benchmark
+[2026-09-01 06:22:56,150] 838	T_sample 75.86	T_update 352.54	T_eval 27.25	ETA 20:22:39	train_R 52.77	train_R_eps 53083.25	exec_R 53.17	exec_R_eps 53172.73	dex-gripper-multi-grasping-benchmark
+[2026-09-01 06:30:28,187] 839	T_sample 76.03	T_update 346.46	T_eval 28.41	ETA 20:02:24	train_R 53.66	train_R_eps 53980.30	exec_R 51.90	exec_R_eps 51896.55	dex-gripper-multi-grasping-benchmark
+[2026-09-01 06:37:58,297] 840	T_sample 76.04	T_update 344.28	T_eval 28.64	ETA 19:49:46	train_R 54.38	train_R_eps 54702.33	exec_R 51.23	exec_R_eps 51232.17	dex-gripper-multi-grasping-benchmark
+[2026-09-01 06:47:08,411] 841	T_sample 80.69	T_update 442.34	T_eval 26.17	ETA 1 day, 0:06:12	train_R 53.22	train_R_eps 53541.16	exec_R 51.21	exec_R_eps 51208.81	dex-gripper-multi-grasping-benchmark
+[2026-09-01 06:55:01,298] 842	T_sample 76.34	T_update 370.02	T_eval 25.52	ETA 20:34:46	train_R 53.61	train_R_eps 53927.01	exec_R 45.79	exec_R_eps 45786.41	dex-gripper-multi-grasping-benchmark
+[2026-09-01 07:03:17,107] 843	T_sample 78.81	T_update 390.31	T_eval 25.78	ETA 21:26:46	train_R 51.63	train_R_eps 51938.51	exec_R 53.31	exec_R_eps 53312.23	dex-gripper-multi-grasping-benchmark
+[2026-09-01 07:11:10,253] 844	T_sample 74.92	T_update 371.57	T_eval 25.70	ETA 20:19:49	train_R 52.77	train_R_eps 53084.10	exec_R 50.47	exec_R_eps 50473.60	dex-gripper-multi-grasping-benchmark
+[2026-09-01 07:18:34,237] 845	T_sample 74.63	T_update 343.09	T_eval 25.26	ETA 18:56:59	train_R 54.18	train_R_eps 54509.28	exec_R 48.36	exec_R_eps 48359.43	dex-gripper-multi-grasping-benchmark
+[2026-09-01 07:25:53,910] 846	T_sample 75.04	T_update 338.42	T_eval 25.30	ETA 18:38:51	train_R 54.06	train_R_eps 54379.93	exec_R 48.66	exec_R_eps 48657.17	dex-gripper-multi-grasping-benchmark
+[2026-09-01 07:33:19,057] 847	T_sample 75.58	T_update 343.23	T_eval 25.20	ETA 18:44:50	train_R 53.24	train_R_eps 53557.32	exec_R 53.41	exec_R_eps 53411.54	dex-gripper-multi-grasping-benchmark
+[2026-09-01 07:40:58,368] 848	T_sample 76.92	T_update 354.15	T_eval 25.57	ETA 19:09:13	train_R 53.07	train_R_eps 53386.23	exec_R 52.03	exec_R_eps 52031.56	dex-gripper-multi-grasping-benchmark
+[2026-09-01 07:48:35,866] 849	T_sample 75.65	T_update 355.44	T_eval 25.54	ETA 19:01:33	train_R 54.32	train_R_eps 54642.30	exec_R 52.12	exec_R_eps 52119.39	dex-gripper-multi-grasping-benchmark
+[2026-09-01 07:55:57,104] 850	T_sample 75.65	T_update 338.03	T_eval 26.65	ETA 18:13:29	train_R 52.00	train_R_eps 52309.52	exec_R 53.63	exec_R_eps 53628.04	dex-gripper-multi-grasping-benchmark
+[2026-09-01 08:03:36,867] 851	T_sample 76.23	T_update 356.00	T_eval 26.56	ETA 18:51:41	train_R 54.17	train_R_eps 54491.67	exec_R 50.91	exec_R_eps 50905.16	dex-gripper-multi-grasping-benchmark
+[2026-09-01 08:12:54,717] 852	T_sample 75.07	T_update 456.22	T_eval 25.66	ETA 22:44:31	train_R 53.49	train_R_eps 53808.48	exec_R 49.69	exec_R_eps 49688.66	dex-gripper-multi-grasping-benchmark
+[2026-09-01 08:21:13,540] 853	T_sample 79.05	T_update 393.57	T_eval 25.30	ETA 20:11:36	train_R 54.14	train_R_eps 54467.93	exec_R 48.91	exec_R_eps 48914.98	dex-gripper-multi-grasping-benchmark
+[2026-09-01 08:28:55,158] 854	T_sample 82.16	T_update 352.65	T_eval 25.90	ETA 18:33:23	train_R 53.08	train_R_eps 53398.56	exec_R 51.61	exec_R_eps 51607.61	dex-gripper-multi-grasping-benchmark
+[2026-09-01 08:37:21,372] 855	T_sample 85.67	T_update 391.74	T_eval 27.80	ETA 20:12:30	train_R 53.66	train_R_eps 53979.50	exec_R 47.65	exec_R_eps 47654.68	dex-gripper-multi-grasping-benchmark
+[2026-09-01 08:44:49,556] 856	T_sample 82.65	T_update 337.82	T_eval 26.71	ETA 17:45:47	train_R 53.66	train_R_eps 53978.67	exec_R 54.67	exec_R_eps 54671.72	dex-gripper-multi-grasping-benchmark
+[2026-09-01 08:52:30,967] 857	T_sample 81.58	T_update 351.63	T_eval 27.17	ETA 18:09:33	train_R 54.27	train_R_eps 54598.88	exec_R 49.70	exec_R_eps 49704.31	dex-gripper-multi-grasping-benchmark
+[2026-09-01 08:59:57,193] 858	T_sample 81.23	T_update 338.65	T_eval 25.43	ETA 17:26:29	train_R 52.65	train_R_eps 52966.96	exec_R 45.07	exec_R_eps 45066.84	dex-gripper-multi-grasping-benchmark
+[2026-09-01 09:07:21,298] 859	T_sample 81.70	T_update 335.40	T_eval 26.13	ETA 17:14:11	train_R 53.18	train_R_eps 53496.56	exec_R 49.36	exec_R_eps 49357.23	dex-gripper-multi-grasping-benchmark
+[2026-09-01 09:14:51,284] 860	T_sample 85.17	T_update 337.72	T_eval 26.20	ETA 17:20:23	train_R 52.74	train_R_eps 53060.66	exec_R 51.02	exec_R_eps 51017.94	dex-gripper-multi-grasping-benchmark
+[2026-09-01 09:22:16,242] 861	T_sample 83.29	T_update 335.32	T_eval 25.24	ETA 17:00:52	train_R 51.86	train_R_eps 52173.69	exec_R 48.37	exec_R_eps 48367.87	dex-gripper-multi-grasping-benchmark
+[2026-09-01 09:29:38,319] 862	T_sample 78.57	T_update 337.15	T_eval 25.46	ETA 16:47:21	train_R 53.71	train_R_eps 54032.56	exec_R 48.68	exec_R_eps 48683.24	dex-gripper-multi-grasping-benchmark
+[2026-09-01 09:36:53,812] 863	T_sample 74.98	T_update 334.10	T_eval 25.41	ETA 16:24:51	train_R 54.39	train_R_eps 54719.44	exec_R 47.72	exec_R_eps 47718.79	dex-gripper-multi-grasping-benchmark
+[2026-09-01 09:44:10,238] 864	T_sample 75.86	T_update 333.52	T_eval 26.15	ETA 16:19:58	train_R 54.33	train_R_eps 54654.18	exec_R 47.25	exec_R_eps 47252.33	dex-gripper-multi-grasping-benchmark
+[2026-09-01 09:51:24,661] 865	T_sample 75.90	T_update 331.64	T_eval 26.01	ETA 16:08:15	train_R 53.63	train_R_eps 53950.35	exec_R 42.85	exec_R_eps 42850.42	dex-gripper-multi-grasping-benchmark
+[2026-09-01 09:58:40,013] 866	T_sample 76.27	T_update 332.43	T_eval 25.68	ETA 16:02:54	train_R 54.29	train_R_eps 54617.09	exec_R 47.32	exec_R_eps 47317.28	dex-gripper-multi-grasping-benchmark
+[2026-09-01 10:05:58,708] 867	T_sample 77.42	T_update 334.67	T_eval 25.68	ETA 16:03:05	train_R 50.46	train_R_eps 50764.36	exec_R 49.83	exec_R_eps 49826.24	dex-gripper-multi-grasping-benchmark
+[2026-09-01 10:13:17,846] 868	T_sample 75.38	T_update 337.07	T_eval 25.70	ETA 15:56:38	train_R 53.61	train_R_eps 53932.47	exec_R 49.41	exec_R_eps 49407.56	dex-gripper-multi-grasping-benchmark
+[2026-09-01 10:21:24,600] 869	T_sample 75.67	T_update 385.06	T_eval 25.13	ETA 17:32:43	train_R 54.19	train_R_eps 54513.65	exec_R 50.38	exec_R_eps 50376.07	dex-gripper-multi-grasping-benchmark
+[2026-09-01 10:30:23,062] 870	T_sample 77.14	T_update 434.44	T_eval 26.03	ETA 19:15:53	train_R 53.09	train_R_eps 53404.05	exec_R 47.58	exec_R_eps 47580.90	dex-gripper-multi-grasping-benchmark
+[2026-09-01 10:39:18,330] 871	T_sample 79.21	T_update 429.30	T_eval 25.90	ETA 19:00:04	train_R 54.13	train_R_eps 54453.64	exec_R 46.05	exec_R_eps 46052.65	dex-gripper-multi-grasping-benchmark
+[2026-09-01 10:46:24,784] 872	T_sample 79.80	T_update 320.01	T_eval 25.68	ETA 15:00:36	train_R 54.16	train_R_eps 54485.56	exec_R 47.90	exec_R_eps 47900.93	dex-gripper-multi-grasping-benchmark
+[2026-09-01 10:53:31,836] 873	T_sample 77.62	T_update 320.90	T_eval 27.64	ETA 14:54:55	train_R 53.91	train_R_eps 54231.35	exec_R 52.08	exec_R_eps 52078.14	dex-gripper-multi-grasping-benchmark
+[2026-09-01 11:00:36,039] 874	T_sample 79.55	T_update 317.89	T_eval 25.76	ETA 14:41:40	train_R 52.69	train_R_eps 53010.95	exec_R 51.06	exec_R_eps 51056.76	dex-gripper-multi-grasping-benchmark
+[2026-09-01 11:07:37,134] 875	T_sample 75.97	T_update 318.19	T_eval 26.09	ETA 14:28:31	train_R 53.50	train_R_eps 53820.23	exec_R 52.59	exec_R_eps 52589.08	dex-gripper-multi-grasping-benchmark
+[2026-09-01 11:14:42,561] 876	T_sample 78.58	T_update 320.36	T_eval 25.52	ETA 14:30:09	train_R 54.34	train_R_eps 54661.05	exec_R 54.79	exec_R_eps 54792.50	dex-gripper-multi-grasping-benchmark
+[2026-09-01 11:21:49,154] 877	T_sample 78.68	T_update 321.51	T_eval 25.50	ETA 14:25:34	train_R 53.71	train_R_eps 54033.79	exec_R 54.62	exec_R_eps 54615.16	dex-gripper-multi-grasping-benchmark
+[2026-09-01 11:28:55,892] 878	T_sample 78.29	T_update 320.78	T_eval 26.80	ETA 14:18:49	train_R 53.64	train_R_eps 53966.42	exec_R 54.78	exec_R_eps 54777.57	dex-gripper-multi-grasping-benchmark
+[2026-09-01 11:36:30,926] 879	T_sample 77.13	T_update 351.13	T_eval 25.93	ETA 15:08:23	train_R 53.92	train_R_eps 54246.04	exec_R 53.13	exec_R_eps 53134.93	dex-gripper-multi-grasping-benchmark
+[2026-09-01 11:43:35,966] 880	T_sample 77.05	T_update 320.80	T_eval 26.32	ETA 14:01:16	train_R 54.28	train_R_eps 54602.92	exec_R 54.80	exec_R_eps 54796.42	dex-gripper-multi-grasping-benchmark
+[2026-09-01 11:43:42,720] save best checkpoint for agent 1 with rewards 27327.93!
+[2026-09-01 11:43:43,501] save best checkpoint with rewards 54814.72!
+[2026-09-01 11:50:48,551] 881	T_sample 77.19	T_update 320.12	T_eval 26.07	ETA 13:52:40	train_R 54.08	train_R_eps 54408.11	exec_R 54.21	exec_R_eps 54211.25	dex-gripper-multi-grasping-benchmark
+[2026-09-01 11:59:40,455] 882	T_sample 75.94	T_update 420.69	T_eval 26.54	ETA 17:00:11	train_R 53.67	train_R_eps 53988.80	exec_R 54.71	exec_R_eps 54713.59	dex-gripper-multi-grasping-benchmark
+[2026-09-01 12:06:53,478] 883	T_sample 78.94	T_update 319.57	T_eval 26.02	ETA 13:40:46	train_R 53.84	train_R_eps 54164.99	exec_R 53.80	exec_R_eps 53799.67	dex-gripper-multi-grasping-benchmark
+[2026-09-01 12:15:42,200] 884	T_sample 78.97	T_update 417.95	T_eval 25.71	ETA 16:41:43	train_R 53.62	train_R_eps 53937.93	exec_R 54.87	exec_R_eps 54873.91	dex-gripper-multi-grasping-benchmark
+[2026-09-01 12:15:48,747] save best checkpoint for agent 0 with rewards 27532.00!
+[2026-09-01 12:15:49,336] save best checkpoint for agent 1 with rewards 27341.91!
+[2026-09-01 12:15:49,860] save best checkpoint with rewards 54873.91!
+[2026-09-01 12:22:59,670] 885	T_sample 77.92	T_update 323.62	T_eval 26.49	ETA 13:33:16	train_R 53.78	train_R_eps 54101.09	exec_R 52.87	exec_R_eps 52865.01	dex-gripper-multi-grasping-benchmark
+[2026-09-01 12:30:07,527] 886	T_sample 74.61	T_update 320.14	T_eval 26.33	ETA 13:13:02	train_R 53.26	train_R_eps 53582.66	exec_R 50.43	exec_R_eps 50426.55	dex-gripper-multi-grasping-benchmark
+[2026-09-01 12:37:20,736] 887	T_sample 75.63	T_update 324.87	T_eval 25.45	ETA 13:15:06	train_R 54.12	train_R_eps 54442.84	exec_R 49.12	exec_R_eps 49123.45	dex-gripper-multi-grasping-benchmark
+[2026-09-01 12:44:32,388] 888	T_sample 77.17	T_update 320.65	T_eval 26.01	ETA 13:04:04	train_R 54.09	train_R_eps 54418.24	exec_R 52.45	exec_R_eps 52450.62	dex-gripper-multi-grasping-benchmark
+[2026-09-01 12:51:40,300] 889	T_sample 76.03	T_update 319.42	T_eval 25.53	ETA 12:51:46	train_R 54.09	train_R_eps 54412.42	exec_R 51.99	exec_R_eps 51986.42	dex-gripper-multi-grasping-benchmark
+[2026-09-01 12:59:48,944] 890	T_sample 77.00	T_update 378.54	T_eval 26.05	ETA 14:34:53	train_R 53.61	train_R_eps 53927.40	exec_R 52.41	exec_R_eps 52408.41	dex-gripper-multi-grasping-benchmark
+[2026-09-01 13:09:50,270] 891	T_sample 78.89	T_update 487.66	T_eval 26.35	ETA 17:47:13	train_R 54.22	train_R_eps 54546.77	exec_R 46.85	exec_R_eps 46853.47	dex-gripper-multi-grasping-benchmark
+[2026-09-01 13:16:57,971] 892	T_sample 76.39	T_update 318.58	T_eval 26.05	ETA 12:30:49	train_R 53.43	train_R_eps 53749.60	exec_R 48.38	exec_R_eps 48383.67	dex-gripper-multi-grasping-benchmark
+[2026-09-01 13:24:07,369] 893	T_sample 76.01	T_update 320.75	T_eval 25.88	ETA 12:26:40	train_R 54.37	train_R_eps 54700.49	exec_R 44.63	exec_R_eps 44630.82	dex-gripper-multi-grasping-benchmark
+[2026-09-01 13:31:17,981] 894	T_sample 77.26	T_update 321.20	T_eval 25.50	ETA 12:21:56	train_R 53.92	train_R_eps 54242.63	exec_R 53.92	exec_R_eps 53916.03	dex-gripper-multi-grasping-benchmark
+[2026-09-01 13:38:33,714] 895	T_sample 77.08	T_update 325.36	T_eval 26.67	ETA 12:23:47	train_R 52.24	train_R_eps 52552.58	exec_R 50.45	exec_R_eps 50452.88	dex-gripper-multi-grasping-benchmark
+[2026-09-01 13:46:04,490] 896	T_sample 76.46	T_update 342.90	T_eval 25.89	ETA 12:44:20	train_R 53.76	train_R_eps 54080.11	exec_R 51.27	exec_R_eps 51268.88	dex-gripper-multi-grasping-benchmark
+[2026-09-01 13:53:09,040] 897	T_sample 76.37	T_update 321.25	T_eval 25.67	ETA 11:59:35	train_R 54.39	train_R_eps 54715.51	exec_R 51.07	exec_R_eps 51073.55	dex-gripper-multi-grasping-benchmark
+[2026-09-01 14:00:14,058] 898	T_sample 76.12	T_update 316.62	T_eval 25.64	ETA 11:44:16	train_R 53.41	train_R_eps 53734.65	exec_R 49.58	exec_R_eps 49583.23	dex-gripper-multi-grasping-benchmark
+[2026-09-01 14:07:43,489] 899	T_sample 76.07	T_update 341.35	T_eval 25.72	ETA 12:18:34	train_R 51.80	train_R_eps 52110.21	exec_R 52.51	exec_R_eps 52514.26	dex-gripper-multi-grasping-benchmark
+[2026-09-01 14:14:56,921] 900	T_sample 75.25	T_update 324.12	T_eval 25.65	ETA 11:41:17	train_R 53.42	train_R_eps 53736.63	exec_R 52.20	exec_R_eps 52201.48	dex-gripper-multi-grasping-benchmark
+[2026-09-01 14:23:43,618] 901	T_sample 76.89	T_update 417.87	T_eval 25.91	ETA 14:10:26	train_R 54.17	train_R_eps 54497.30	exec_R 49.78	exec_R_eps 49780.44	dex-gripper-multi-grasping-benchmark
+[2026-09-01 14:33:20,346] 902	T_sample 78.36	T_update 464.47	T_eval 26.39	ETA 15:20:14	train_R 53.62	train_R_eps 53941.06	exec_R 51.42	exec_R_eps 51415.26	dex-gripper-multi-grasping-benchmark
+[2026-09-01 14:40:58,099] 903	T_sample 76.74	T_update 351.00	T_eval 24.94	ETA 12:04:17	train_R 54.07	train_R_eps 54395.57	exec_R 47.75	exec_R_eps 47747.11	dex-gripper-multi-grasping-benchmark
+[2026-09-01 14:50:25,064] 904	T_sample 74.84	T_update 460.34	T_eval 26.08	ETA 14:48:39	train_R 54.07	train_R_eps 54395.33	exec_R 49.14	exec_R_eps 49142.41	dex-gripper-multi-grasping-benchmark
+[2026-09-01 14:58:34,895] 905	T_sample 75.70	T_update 383.25	T_eval 25.54	ETA 12:39:02	train_R 54.28	train_R_eps 54605.69	exec_R 44.49	exec_R_eps 44490.36	dex-gripper-multi-grasping-benchmark
+[2026-09-01 15:06:03,490] 906	T_sample 76.89	T_update 342.30	T_eval 25.06	ETA 11:28:35	train_R 54.33	train_R_eps 54658.21	exec_R 53.16	exec_R_eps 53164.84	dex-gripper-multi-grasping-benchmark
+[2026-09-01 15:13:12,996] 907	T_sample 76.60	T_update 321.41	T_eval 26.21	ETA 10:50:29	train_R 54.25	train_R_eps 54579.41	exec_R 49.78	exec_R_eps 49784.22	dex-gripper-multi-grasping-benchmark
+[2026-09-01 15:20:16,858] 908	T_sample 75.64	T_update 317.71	T_eval 25.71	ETA 10:35:35	train_R 53.51	train_R_eps 53835.11	exec_R 51.51	exec_R_eps 51513.78	dex-gripper-multi-grasping-benchmark
+[2026-09-01 15:27:53,350] 909	T_sample 78.27	T_update 347.99	T_eval 25.91	ETA 11:18:16	train_R 54.40	train_R_eps 54725.79	exec_R 40.63	exec_R_eps 40626.74	dex-gripper-multi-grasping-benchmark
+[2026-09-01 15:37:41,334] 910	T_sample 76.49	T_update 481.66	T_eval 26.27	ETA 14:26:53	train_R 54.36	train_R_eps 54683.25	exec_R 46.15	exec_R_eps 46153.26	dex-gripper-multi-grasping-benchmark
+[2026-09-01 15:44:48,115] 911	T_sample 75.53	T_update 322.89	T_eval 25.17	ETA 10:21:15	train_R 53.24	train_R_eps 53558.42	exec_R 45.49	exec_R_eps 45489.11	dex-gripper-multi-grasping-benchmark
+[2026-09-01 15:53:40,415] 912	T_sample 76.66	T_update 426.97	T_eval 25.47	ETA 12:47:11	train_R 52.04	train_R_eps 52353.21	exec_R 46.32	exec_R_eps 46318.63	dex-gripper-multi-grasping-benchmark
+[2026-09-01 16:00:43,556] 913	T_sample 77.12	T_update 318.77	T_eval 25.82	ETA 10:04:28	train_R 51.24	train_R_eps 51544.12	exec_R 46.80	exec_R_eps 46799.21	dex-gripper-multi-grasping-benchmark
+[2026-09-01 16:08:33,050] 914	T_sample 75.58	T_update 366.80	T_eval 25.74	ETA 11:03:10	train_R 54.31	train_R_eps 54638.00	exec_R 45.65	exec_R_eps 45651.42	dex-gripper-multi-grasping-benchmark
+[2026-09-01 16:15:39,304] 915	T_sample 77.07	T_update 319.98	T_eval 26.51	ETA 9:52:59	train_R 54.38	train_R_eps 54707.17	exec_R 51.88	exec_R_eps 51881.96	dex-gripper-multi-grasping-benchmark
+[2026-09-01 16:22:47,365] 916	T_sample 77.71	T_update 319.88	T_eval 25.61	ETA 9:45:26	train_R 54.36	train_R_eps 54687.81	exec_R 53.37	exec_R_eps 53368.44	dex-gripper-multi-grasping-benchmark
+[2026-09-01 16:32:07,464] 917	T_sample 78.75	T_update 453.09	T_eval 26.28	ETA 12:42:46	train_R 54.32	train_R_eps 54641.80	exec_R 52.60	exec_R_eps 52600.30	dex-gripper-multi-grasping-benchmark
+[2026-09-01 16:39:26,032] 918	T_sample 77.44	T_update 333.91	T_eval 25.53	ETA 9:49:47	train_R 54.30	train_R_eps 54627.87	exec_R 52.49	exec_R_eps 52490.32	dex-gripper-multi-grasping-benchmark
+[2026-09-01 16:46:56,711] 919	T_sample 77.24	T_update 346.85	T_eval 25.59	ETA 9:59:34	train_R 51.97	train_R_eps 52283.05	exec_R 52.88	exec_R_eps 52877.49	dex-gripper-multi-grasping-benchmark
+[2026-09-01 16:54:02,527] 920	T_sample 75.05	T_update 323.10	T_eval 26.50	ETA 9:19:08	train_R 53.96	train_R_eps 54280.25	exec_R 52.22	exec_R_eps 52219.70	dex-gripper-multi-grasping-benchmark
+[2026-09-01 17:02:23,189] 921	T_sample 78.70	T_update 395.18	T_eval 25.82	ETA 10:49:36	train_R 53.51	train_R_eps 53828.94	exec_R 47.75	exec_R_eps 47748.79	dex-gripper-multi-grasping-benchmark
+[2026-09-01 17:09:31,854] 922	T_sample 78.68	T_update 323.62	T_eval 25.40	ETA 9:08:53	train_R 54.39	train_R_eps 54720.27	exec_R 48.49	exec_R_eps 48489.46	dex-gripper-multi-grasping-benchmark
+[2026-09-01 17:16:44,050] 923	T_sample 78.73	T_update 326.29	T_eval 25.75	ETA 9:05:39	train_R 54.29	train_R_eps 54612.74	exec_R 50.83	exec_R_eps 50826.63	dex-gripper-multi-grasping-benchmark
+[2026-09-01 17:23:56,512] 924	T_sample 78.95	T_update 325.41	T_eval 25.65	ETA 8:57:31	train_R 54.42	train_R_eps 54745.64	exec_R 49.97	exec_R_eps 49971.48	dex-gripper-multi-grasping-benchmark
+[2026-09-01 17:31:51,312] 925	T_sample 76.99	T_update 369.50	T_eval 25.54	ETA 9:42:10	train_R 52.73	train_R_eps 53043.89	exec_R 50.71	exec_R_eps 50706.90	dex-gripper-multi-grasping-benchmark
+[2026-09-01 17:40:41,134] 926	T_sample 75.61	T_update 423.61	T_eval 25.35	ETA 10:38:14	train_R 52.46	train_R_eps 52771.80	exec_R 49.29	exec_R_eps 49287.39	dex-gripper-multi-grasping-benchmark
+[2026-09-01 17:47:49,479] 927	T_sample 75.06	T_update 322.55	T_eval 25.64	ETA 8:27:54	train_R 54.39	train_R_eps 54712.47	exec_R 48.35	exec_R_eps 48346.19	dex-gripper-multi-grasping-benchmark
+[2026-09-01 17:54:59,853] 928	T_sample 78.12	T_update 319.71	T_eval 25.48	ETA 8:20:54	train_R 54.44	train_R_eps 54770.03	exec_R 50.72	exec_R_eps 50718.55	dex-gripper-multi-grasping-benchmark
+[2026-09-01 18:02:14,919] 929	T_sample 77.59	T_update 325.90	T_eval 25.42	ETA 8:20:23	train_R 53.11	train_R_eps 53429.09	exec_R 47.40	exec_R_eps 47395.54	dex-gripper-multi-grasping-benchmark
+[2026-09-01 18:09:25,707] 930	T_sample 76.07	T_update 322.89	T_eval 26.09	ETA 8:08:48	train_R 53.01	train_R_eps 53332.31	exec_R 51.84	exec_R_eps 51843.51	dex-gripper-multi-grasping-benchmark
+[2026-09-01 18:18:24,270] 931	T_sample 76.72	T_update 429.91	T_eval 25.77	ETA 10:03:24	train_R 52.42	train_R_eps 52738.59	exec_R 51.53	exec_R_eps 51528.87	dex-gripper-multi-grasping-benchmark
+[2026-09-01 18:25:59,810] 932	T_sample 76.57	T_update 348.82	T_eval 25.69	ETA 8:23:43	train_R 54.40	train_R_eps 54729.72	exec_R 52.32	exec_R_eps 52321.11	dex-gripper-multi-grasping-benchmark
+[2026-09-01 18:34:24,441] 933	T_sample 76.29	T_update 396.22	T_eval 26.65	ETA 9:09:05	train_R 54.43	train_R_eps 54759.19	exec_R 54.30	exec_R_eps 54299.01	dex-gripper-multi-grasping-benchmark
+[2026-09-01 18:42:03,699] 934	T_sample 76.47	T_update 352.51	T_eval 25.71	ETA 8:12:35	train_R 54.10	train_R_eps 54422.88	exec_R 51.26	exec_R_eps 51259.46	dex-gripper-multi-grasping-benchmark
+[2026-09-01 18:49:16,849] 935	T_sample 77.42	T_update 323.48	T_eval 26.89	ETA 7:36:19	train_R 54.02	train_R_eps 54345.32	exec_R 54.12	exec_R_eps 54117.38	dex-gripper-multi-grasping-benchmark
+[2026-09-01 18:56:30,875] 936	T_sample 78.30	T_update 324.29	T_eval 25.24	ETA 7:29:13	train_R 54.41	train_R_eps 54739.09	exec_R 50.55	exec_R_eps 50548.29	dex-gripper-multi-grasping-benchmark
+[2026-09-01 19:03:43,884] 937	T_sample 76.53	T_update 324.92	T_eval 25.90	ETA 7:21:36	train_R 53.79	train_R_eps 54114.52	exec_R 53.25	exec_R_eps 53253.69	dex-gripper-multi-grasping-benchmark
+[2026-09-01 19:10:53,408] 938	T_sample 75.23	T_update 323.55	T_eval 25.38	ETA 7:11:14	train_R 53.78	train_R_eps 54099.71	exec_R 52.22	exec_R_eps 52216.94	dex-gripper-multi-grasping-benchmark
+[2026-09-01 19:19:38,159] 939	T_sample 76.70	T_update 416.19	T_eval 25.55	ETA 8:38:27	train_R 53.96	train_R_eps 54279.31	exec_R 51.90	exec_R_eps 51903.98	dex-gripper-multi-grasping-benchmark
+[2026-09-01 19:26:51,245] 940	T_sample 77.03	T_update 324.25	T_eval 26.32	ETA 7:00:28	train_R 54.28	train_R_eps 54601.16	exec_R 52.14	exec_R_eps 52138.87	dex-gripper-multi-grasping-benchmark
+[2026-09-01 19:34:00,044] 941	T_sample 76.09	T_update 321.92	T_eval 25.54	ETA 6:49:26	train_R 53.08	train_R_eps 53394.77	exec_R 51.87	exec_R_eps 51871.75	dex-gripper-multi-grasping-benchmark
+[2026-09-01 19:41:04,782] 942	T_sample 76.40	T_update 319.93	T_eval 25.07	ETA 6:40:20	train_R 53.53	train_R_eps 53846.88	exec_R 52.95	exec_R_eps 52949.29	dex-gripper-multi-grasping-benchmark
+[2026-09-01 19:48:11,239] 943	T_sample 75.81	T_update 321.57	T_eval 25.18	ETA 6:34:23	train_R 53.97	train_R_eps 54291.92	exec_R 54.27	exec_R_eps 54266.21	dex-gripper-multi-grasping-benchmark
+[2026-09-01 19:55:23,237] 944	T_sample 76.78	T_update 323.80	T_eval 25.71	ETA 6:30:46	train_R 53.37	train_R_eps 53689.57	exec_R 53.99	exec_R_eps 53991.63	dex-gripper-multi-grasping-benchmark
+[2026-09-01 20:02:34,317] 945	T_sample 77.60	T_update 323.71	T_eval 25.45	ETA 6:24:05	train_R 51.76	train_R_eps 52074.50	exec_R 54.69	exec_R_eps 54689.43	dex-gripper-multi-grasping-benchmark
+[2026-09-01 20:09:40,292] 946	T_sample 75.78	T_update 319.61	T_eval 25.46	ETA 6:11:45	train_R 53.87	train_R_eps 54190.08	exec_R 54.43	exec_R_eps 54430.37	dex-gripper-multi-grasping-benchmark
+[2026-09-01 20:17:45,020] 947	T_sample 77.12	T_update 376.90	T_eval 25.77	ETA 6:55:49	train_R 52.91	train_R_eps 53228.69	exec_R 54.32	exec_R_eps 54318.29	dex-gripper-multi-grasping-benchmark
+[2026-09-01 20:24:51,767] 948	T_sample 77.11	T_update 319.60	T_eval 25.28	ETA 5:58:42	train_R 53.01	train_R_eps 53332.97	exec_R 54.53	exec_R_eps 54525.99	dex-gripper-multi-grasping-benchmark
+[2026-09-01 20:31:55,518] 949	T_sample 77.85	T_update 316.23	T_eval 25.27	ETA 5:49:28	train_R 53.89	train_R_eps 54215.70	exec_R 54.13	exec_R_eps 54127.60	dex-gripper-multi-grasping-benchmark
+[2026-09-01 20:41:39,215] 950	T_sample 75.61	T_update 478.98	T_eval 25.71	ETA 7:53:55	train_R 53.59	train_R_eps 53913.80	exec_R 53.80	exec_R_eps 53796.34	dex-gripper-multi-grasping-benchmark
+[2026-09-01 20:48:42,962] 951	T_sample 75.59	T_update 319.10	T_eval 25.19	ETA 5:35:54	train_R 53.53	train_R_eps 53854.11	exec_R 54.68	exec_R_eps 54675.84	dex-gripper-multi-grasping-benchmark
+[2026-09-01 20:57:54,773] 952	T_sample 75.50	T_update 446.54	T_eval 25.56	ETA 7:08:57	train_R 54.35	train_R_eps 54680.74	exec_R 52.90	exec_R_eps 52904.71	dex-gripper-multi-grasping-benchmark
+[2026-09-01 21:06:40,601] 953	T_sample 77.10	T_update 417.49	T_eval 25.97	ETA 6:39:06	train_R 54.43	train_R_eps 54757.72	exec_R 51.88	exec_R_eps 51878.00	dex-gripper-multi-grasping-benchmark
+[2026-09-01 21:14:11,160] 954	T_sample 78.70	T_update 341.41	T_eval 25.66	ETA 5:34:20	train_R 53.92	train_R_eps 54240.55	exec_R 52.79	exec_R_eps 52786.13	dex-gripper-multi-grasping-benchmark
+[2026-09-01 21:21:31,380] 955	T_sample 75.33	T_update 337.73	T_eval 25.53	ETA 5:21:38	train_R 54.05	train_R_eps 54377.13	exec_R 44.78	exec_R_eps 44783.68	dex-gripper-multi-grasping-benchmark
+[2026-09-01 21:28:53,905] 956	T_sample 76.00	T_update 337.10	T_eval 25.66	ETA 5:14:26	train_R 53.48	train_R_eps 53798.49	exec_R 47.36	exec_R_eps 47357.27	dex-gripper-multi-grasping-benchmark
+[2026-09-01 21:36:17,302] 957	T_sample 76.03	T_update 337.79	T_eval 25.93	ETA 5:07:50	train_R 54.41	train_R_eps 54732.72	exec_R 41.66	exec_R_eps 41655.84	dex-gripper-multi-grasping-benchmark
+[2026-09-01 21:43:39,182] 958	T_sample 76.01	T_update 337.96	T_eval 25.57	ETA 5:00:21	train_R 53.57	train_R_eps 53892.65	exec_R 47.64	exec_R_eps 47643.77	dex-gripper-multi-grasping-benchmark
+[2026-09-01 21:51:03,999] 959	T_sample 76.75	T_update 337.56	T_eval 25.26	ETA 4:53:03	train_R 54.39	train_R_eps 54715.70	exec_R 43.69	exec_R_eps 43685.71	dex-gripper-multi-grasping-benchmark
+[2026-09-01 21:58:28,732] 960	T_sample 76.79	T_update 337.95	T_eval 25.43	ETA 4:46:07	train_R 54.37	train_R_eps 54700.46	exec_R 43.48	exec_R_eps 43484.83	dex-gripper-multi-grasping-benchmark
+[2026-09-01 22:05:52,721] 961	T_sample 76.55	T_update 338.15	T_eval 25.53	ETA 4:38:49	train_R 54.44	train_R_eps 54766.95	exec_R 49.38	exec_R_eps 49384.79	dex-gripper-multi-grasping-benchmark
+[2026-09-01 22:13:14,628] 962	T_sample 75.69	T_update 336.74	T_eval 25.69	ETA 4:30:11	train_R 53.54	train_R_eps 53859.20	exec_R 49.43	exec_R_eps 49429.53	dex-gripper-multi-grasping-benchmark
+[2026-09-01 22:20:39,216] 963	T_sample 75.90	T_update 339.39	T_eval 25.75	ETA 4:24:38	train_R 54.44	train_R_eps 54770.72	exec_R 45.48	exec_R_eps 45475.24	dex-gripper-multi-grasping-benchmark
+[2026-09-01 22:28:02,218] 964	T_sample 76.25	T_update 337.18	T_eval 25.53	ETA 4:16:04	train_R 53.57	train_R_eps 53887.22	exec_R 51.83	exec_R_eps 51830.25	dex-gripper-multi-grasping-benchmark
+[2026-09-01 22:35:20,803] 965	T_sample 75.05	T_update 332.99	T_eval 25.85	ETA 4:05:52	train_R 53.30	train_R_eps 53622.63	exec_R 46.50	exec_R_eps 46497.82	dex-gripper-multi-grasping-benchmark
+[2026-09-01 22:42:43,061] 966	T_sample 76.07	T_update 333.28	T_eval 25.55	ETA 3:59:12	train_R 53.66	train_R_eps 53984.56	exec_R 54.38	exec_R_eps 54381.52	dex-gripper-multi-grasping-benchmark
+[2026-09-01 22:50:05,726] 967	T_sample 76.30	T_update 336.75	T_eval 25.95	ETA 3:54:08	train_R 54.33	train_R_eps 54659.52	exec_R 54.41	exec_R_eps 54412.59	dex-gripper-multi-grasping-benchmark
+[2026-09-01 22:57:33,896] 968	T_sample 76.03	T_update 339.69	T_eval 25.31	ETA 3:47:52	train_R 54.39	train_R_eps 54711.97	exec_R 54.44	exec_R_eps 54440.65	dex-gripper-multi-grasping-benchmark
+[2026-09-01 23:05:05,644] 969	T_sample 77.05	T_update 340.94	T_eval 25.76	ETA 3:41:52	train_R 54.30	train_R_eps 54628.99	exec_R 54.45	exec_R_eps 54454.68	dex-gripper-multi-grasping-benchmark
+[2026-09-01 23:12:43,994] 970	T_sample 77.01	T_update 348.04	T_eval 25.38	ETA 3:37:43	train_R 54.18	train_R_eps 54505.98	exec_R 54.52	exec_R_eps 54518.00	dex-gripper-multi-grasping-benchmark
+[2026-09-01 23:19:57,790] 971	T_sample 75.18	T_update 325.14	T_eval 25.44	ETA 3:18:41	train_R 54.42	train_R_eps 54746.31	exec_R 54.51	exec_R_eps 54508.34	dex-gripper-multi-grasping-benchmark
+[2026-09-01 23:27:17,339] 972	T_sample 76.46	T_update 328.16	T_eval 26.76	ETA 3:14:07	train_R 53.86	train_R_eps 54182.05	exec_R 54.47	exec_R_eps 54467.24	dex-gripper-multi-grasping-benchmark
+[2026-09-01 23:34:35,063] 973	T_sample 78.09	T_update 327.34	T_eval 25.61	ETA 3:06:47	train_R 54.07	train_R_eps 54397.69	exec_R 52.87	exec_R_eps 52873.74	dex-gripper-multi-grasping-benchmark
+[2026-09-01 23:41:48,829] 974	T_sample 77.88	T_update 324.67	T_eval 26.60	ETA 2:58:49	train_R 54.06	train_R_eps 54385.01	exec_R 50.21	exec_R_eps 50209.65	dex-gripper-multi-grasping-benchmark
+[2026-09-01 23:49:03,235] 975	T_sample 77.37	T_update 325.04	T_eval 25.25	ETA 2:51:04	train_R 54.41	train_R_eps 54741.01	exec_R 49.47	exec_R_eps 49467.67	dex-gripper-multi-grasping-benchmark
+[2026-09-01 23:56:14,149] 976	T_sample 77.66	T_update 321.93	T_eval 25.98	ETA 2:43:08	train_R 51.97	train_R_eps 52281.07	exec_R 53.70	exec_R_eps 53701.96	dex-gripper-multi-grasping-benchmark
+[2026-09-02 00:03:24,939] 977	T_sample 77.38	T_update 322.26	T_eval 25.17	ETA 2:35:46	train_R 54.43	train_R_eps 54755.28	exec_R 51.63	exec_R_eps 51631.19	dex-gripper-multi-grasping-benchmark
+[2026-09-02 00:10:31,518] 978	T_sample 75.61	T_update 318.94	T_eval 26.12	ETA 2:27:14	train_R 54.41	train_R_eps 54736.81	exec_R 53.06	exec_R_eps 53057.03	dex-gripper-multi-grasping-benchmark
+[2026-09-02 00:17:38,956] 979	T_sample 76.65	T_update 319.30	T_eval 25.21	ETA 2:20:23	train_R 53.56	train_R_eps 53878.03	exec_R 54.63	exec_R_eps 54628.59	dex-gripper-multi-grasping-benchmark
+[2026-09-02 00:25:21,836] 980	T_sample 74.75	T_update 357.21	T_eval 25.32	ETA 2:24:48	train_R 53.60	train_R_eps 53922.17	exec_R 54.73	exec_R_eps 54731.19	dex-gripper-multi-grasping-benchmark
+[2026-09-02 00:32:25,160] 981	T_sample 76.55	T_update 314.61	T_eval 25.77	ETA 2:05:05	train_R 52.78	train_R_eps 53099.96	exec_R 54.65	exec_R_eps 54645.73	dex-gripper-multi-grasping-benchmark
+[2026-09-02 00:42:13,439] 982	T_sample 75.32	T_update 480.67	T_eval 25.91	ETA 2:44:52	train_R 53.95	train_R_eps 54269.69	exec_R 54.59	exec_R_eps 54586.97	dex-gripper-multi-grasping-benchmark
+[2026-09-02 00:51:25,775] 983	T_sample 76.02	T_update 445.07	T_eval 25.54	ETA 2:25:46	train_R 54.43	train_R_eps 54761.53	exec_R 54.41	exec_R_eps 54410.87	dex-gripper-multi-grasping-benchmark
+[2026-09-02 00:58:31,995] 984	T_sample 75.12	T_update 319.88	T_eval 26.10	ETA 1:45:16	train_R 53.94	train_R_eps 54265.84	exec_R 54.37	exec_R_eps 54365.69	dex-gripper-multi-grasping-benchmark
+[2026-09-02 01:06:45,712] 985	T_sample 74.79	T_update 390.86	T_eval 26.25	ETA 1:54:47	train_R 54.46	train_R_eps 54781.89	exec_R 54.43	exec_R_eps 54431.88	dex-gripper-multi-grasping-benchmark
+[2026-09-02 01:16:35,363] 986	T_sample 76.00	T_update 482.63	T_eval 27.32	ETA 2:06:57	train_R 53.48	train_R_eps 53796.55	exec_R 54.05	exec_R_eps 54048.91	dex-gripper-multi-grasping-benchmark
+[2026-09-02 01:23:56,544] 987	T_sample 76.41	T_update 334.81	T_eval 26.29	ETA 1:27:30	train_R 54.17	train_R_eps 54498.56	exec_R 54.40	exec_R_eps 54403.52	dex-gripper-multi-grasping-benchmark
+[2026-09-02 01:33:02,431] 988	T_sample 77.69	T_update 433.60	T_eval 25.72	ETA 1:38:27	train_R 54.25	train_R_eps 54577.42	exec_R 54.52	exec_R_eps 54520.81	dex-gripper-multi-grasping-benchmark
+[2026-09-02 01:42:59,321] 989	T_sample 75.25	T_update 488.50	T_eval 25.50	ETA 1:38:12	train_R 54.24	train_R_eps 54566.11	exec_R 54.24	exec_R_eps 54237.59	dex-gripper-multi-grasping-benchmark
+[2026-09-02 01:51:13,226] 990	T_sample 77.20	T_update 384.79	T_eval 25.43	ETA 1:13:07	train_R 54.30	train_R_eps 54627.75	exec_R 54.10	exec_R_eps 54102.85	dex-gripper-multi-grasping-benchmark
+[2026-09-02 01:58:21,115] 991	T_sample 76.52	T_update 319.95	T_eval 25.68	ETA 0:56:17	train_R 53.64	train_R_eps 53964.25	exec_R 54.37	exec_R_eps 54371.94	dex-gripper-multi-grasping-benchmark
