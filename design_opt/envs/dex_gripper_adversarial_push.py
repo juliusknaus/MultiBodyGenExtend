@@ -1428,7 +1428,7 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
                 idle_penalty_component = 0.0
                 if box_progress < idle_box_progress_thresh and approach_progress < idle_approach_progress_thresh:
                     idle_penalty_component = -idle_penalty_coeff
-                    reward += idle_penalty_component
+                    reward = idle_penalty_component
                 reward_components['idle'] = float(idle_penalty_component)
 
                 if self._has_goal_lines:
