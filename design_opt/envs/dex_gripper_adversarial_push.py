@@ -1353,7 +1353,7 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
             self.control_nsteps = base_control_nsteps + 1
 
             box_pos_aft = self.get_body_com("box")[0:3].copy()
-            box_state_aft = self.data.qpos[self.box_qpos_adr:self.box_qpos_adr + 7].copy()
+            #box_state_aft = self.data.qpos[self.box_qpos_adr:self.box_qpos_adr + 7].copy()
             self.box_pos = box_pos_aft.copy()
             if self._has_goal_lines:
                 self._update_goal_line_distances()
@@ -1367,9 +1367,9 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
             max_ang = 90
             max_nsteps = done_condition.get('max_nsteps', 1000)
 
-            box_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "box")
-            box_geom_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_GEOM, "box")
-            box_size = self.model.geom_size[box_geom_id]
+            #box_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "box")
+            #box_geom_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_GEOM, "box")
+            #box_size = self.model.geom_size[box_geom_id]
 
             for idx in range(self.num_agents):
                 self.active_agent_id = idx
@@ -1379,46 +1379,46 @@ class DexGripperAdversarialPushEnv(MujocoEnv, utils.EzPickle):
                 rob_box_dist_aft = np.linalg.norm(rob_pos_aft - box_pos_aft)
                 self.rob_box_dist = rob_pos_aft - box_pos_aft
 
-                limb_geom_ids = self.get_limb_geom_ids(self.model, root_body_name=agent_body_name)
-                box_pos = self.data.xpos[box_id]
-                points = self.gripper_point_cloud(self.model, self.data, limb_geom_ids)
-                _, tri = self.compute_gripper_hull(points)
-                grasp_score_aft = self.gripper_box_overlap(box_pos, box_size, tri)
-                compactness_score_aft = self.gripper_compactness_score(points, tri, box_pos, box_size)
+                #limb_geom_ids = self.get_limb_geom_ids(self.model, root_body_name=agent_body_name)
+                #box_pos = self.data.xpos[box_id]
+                #points = self.gripper_point_cloud(self.model, self.data, limb_geom_ids)
+                #_, tri = self.compute_gripper_hull(points)
+                #grasp_score_aft = self.gripper_box_overlap(box_pos, box_size, tri)
+                #compactness_score_aft = self.gripper_compactness_score(points, tri, box_pos, box_size)
 
-                force_mag = self.compute_total_contact_force_magnitude(
-                    self.model,
-                    self.data,
-                    limb_geom_ids,
-                    box_geom_id
-                )
-                binary_reward = 1.0 if force_mag >= 5.0 else 0.0
-                lift_reward = (box_state_aft[2] - self.box_init_height)
+                #force_mag = self.compute_total_contact_force_magnitude(
+                #    self.model,
+                #    self.data,
+                #    limb_geom_ids,
+                #    box_geom_id
+                #)
+                #binary_reward = 1.0 if force_mag >= 5.0 else 0.0
+                #lift_reward = (box_state_aft[2] - self.box_init_height)
 
-                distance_component = 0.1 * ((pre_rob_box_dists[idx] - rob_box_dist_aft) / self.dt)
-                grasp_component = 1.0 * grasp_score_aft
-                compactness_component = 1.0 * compactness_score_aft
-                binary_component = 1.0 * binary_reward
-                lift_component = 5.0 * lift_reward
+                #distance_component = 0.1 * ((pre_rob_box_dists[idx] - rob_box_dist_aft) / self.dt)
+                #grasp_component = 1.0 * grasp_score_aft
+                #compactness_component = 1.0 * compactness_score_aft
+                #binary_component = 1.0 * binary_reward
+                #lift_component = 5.0 * lift_reward
                 reward_components = {
-                    'distance': float(distance_component),
-                    'grasp': float(grasp_component),
-                    'compactness': float(compactness_component),
-                    'lift': float(lift_component),
-                    'orientation': 0.0,
-                    'binary': float(binary_component),
+                #    'distance': float(distance_component),
+                #    'grasp': float(grasp_component),
+                #    'compactness': float(compactness_component),
+                #    'lift': float(lift_component),
+                #    'orientation': 0.0,
+                #    'binary': float(binary_component),
                     'idle': 0.0,
                     'opponent_goal_line': 0.0,
                 }
 
                 reward_weights = self.task_specs.get('weights', {})
-                reward = (
-                    float(reward_weights.get('distance', 0.1)) * distance_component
-                    + float(reward_weights.get('grasp', 1.0)) * grasp_component
-                    + float(reward_weights.get('compactness', 1.0)) * compactness_component
-                    + float(reward_weights.get('binary', 1.0)) * binary_component
-                    + float(reward_weights.get('lift', 5.0)) * lift_component
-                )
+                #reward = (
+                #    float(reward_weights.get('distance', 0.1)) * distance_component
+                #    + float(reward_weights.get('grasp', 1.0)) * grasp_component
+                #    + float(reward_weights.get('compactness', 1.0)) * compactness_component
+                #    + float(reward_weights.get('binary', 1.0)) * binary_component
+                #    + float(reward_weights.get('lift', 5.0)) * lift_component
+                #)
 
                 box_progress = abs(float(box_pos_aft[0]) - float(box_pos_bef[0]))
                 approach_progress = abs(float(pre_rob_box_dists[idx] - rob_box_dist_aft))
