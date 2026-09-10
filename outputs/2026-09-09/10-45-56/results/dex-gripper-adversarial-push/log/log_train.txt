@@ -212,3 +212,22 @@
 [2026-09-10 14:39:14,280] 178	T_sample 76.55	T_update 394.23	T_eval 28.41	ETA 4 days, 17:50:42	train_R 0.00	train_R_eps 0.86	exec_R -0.01	exec_R_eps -10.47	adv_min_exec_R_eps -69.31	dex-gripper-adversarial-push
 [2026-09-10 14:47:53,953] 179	T_sample 75.99	T_update 395.30	T_eval 27.70	ETA 4 days, 17:39:29	train_R 0.00	train_R_eps 0.88	exec_R -0.01	exec_R_eps -7.78	adv_min_exec_R_eps -66.08	dex-gripper-adversarial-push
 [2026-09-10 14:57:23,069] 180	T_sample 76.68	T_update 444.38	T_eval 27.02	ETA 5 days, 4:41:16	train_R 0.00	train_R_eps 0.94	exec_R -0.01	exec_R_eps -7.60	adv_min_exec_R_eps -69.27	dex-gripper-adversarial-push
+[2026-09-10 15:06:11,299] 181	T_sample 77.88	T_update 403.33	T_eval 26.80	ETA 4 days, 19:25:50	train_R 0.00	train_R_eps 0.86	exec_R -0.01	exec_R_eps -7.09	adv_min_exec_R_eps -68.24	dex-gripper-adversarial-push
+[2026-09-10 15:14:50,890] 182	T_sample 76.54	T_update 395.05	T_eval 27.38	ETA 4 days, 17:14:21	train_R 0.00	train_R_eps 0.89	exec_R -0.01	exec_R_eps -8.73	adv_min_exec_R_eps -71.19	dex-gripper-adversarial-push
+[2026-09-10 15:25:29,561] 183	T_sample 77.31	T_update 513.49	T_eval 26.22	ETA 5 days, 19:51:26	train_R 0.00	train_R_eps 0.81	exec_R -0.01	exec_R_eps -7.02	adv_min_exec_R_eps -67.58	dex-gripper-adversarial-push
+[2026-09-10 15:35:05,097] 184	T_sample 74.79	T_update 452.57	T_eval 27.26	ETA 5 days, 5:33:34	train_R 0.00	train_R_eps 0.85	exec_R -0.01	exec_R_eps -7.74	adv_min_exec_R_eps -71.00	dex-gripper-adversarial-push
+[2026-09-10 15:43:43,678] 185	T_sample 73.09	T_update 398.99	T_eval 25.96	ETA 4 days, 16:36:43	train_R 0.00	train_R_eps 0.97	exec_R -0.01	exec_R_eps -6.53	adv_min_exec_R_eps -70.71	dex-gripper-adversarial-push
+[2026-09-10 15:44:06,220] save best checkpoint for agent 0 with rewards 57.66!
+[2026-09-10 15:44:07,617] save best checkpoint with rewards -13.81!
+[2026-09-10 15:55:22,633] 186	T_sample 75.74	T_update 569.07	T_eval 27.19	ETA 6 days, 7:45:34	train_R 0.00	train_R_eps 0.85	exec_R -0.01	exec_R_eps -6.42	adv_min_exec_R_eps -71.16	dex-gripper-adversarial-push
+[2026-09-10 15:55:45,540] save best checkpoint for agent 0 with rewards 58.32!
+[2026-09-10 15:55:47,224] save best checkpoint with rewards -13.81!
+[2026-09-10 16:04:23,812] 187	T_sample 75.60	T_update 411.45	T_eval 26.68	ETA 4 days, 19:52:27	train_R 0.00	train_R_eps 0.95	exec_R -0.01	exec_R_eps -8.19	adv_min_exec_R_eps -68.29	dex-gripper-adversarial-push
+[2026-09-10 16:15:55,065] 188	T_sample 73.86	T_update 569.45	T_eval 27.32	ETA 6 days, 7:04:39	train_R 0.00	train_R_eps 0.81	exec_R -0.01	exec_R_eps -6.98	adv_min_exec_R_eps -70.17	dex-gripper-adversarial-push
+[2026-09-10 16:24:36,163] 189	T_sample 75.57	T_update 397.42	T_eval 27.79	ETA 4 days, 16:40:28	train_R 0.00	train_R_eps 0.81	exec_R -0.01	exec_R_eps -7.32	adv_min_exec_R_eps -71.55	dex-gripper-adversarial-push
+[2026-09-10 16:33:15,366] 190	T_sample 77.41	T_update 394.12	T_eval 28.44	ETA 4 days, 16:21:21	train_R 0.00	train_R_eps 0.81	exec_R -0.01	exec_R_eps -7.12	adv_min_exec_R_eps -69.83	dex-gripper-adversarial-push
+[2026-09-10 16:41:56,714] 191	T_sample 77.02	T_update 394.29	T_eval 28.43	ETA 4 days, 16:09:50	train_R 0.00	train_R_eps 0.89	exec_R -0.01	exec_R_eps -6.34	adv_min_exec_R_eps -68.82	dex-gripper-adversarial-push
+[2026-09-10 16:50:37,180] 192	T_sample 74.99	T_update 396.28	T_eval 29.12	ETA 4 days, 16:10:14	train_R 0.00	train_R_eps 0.88	exec_R -0.01	exec_R_eps -7.06	adv_min_exec_R_eps -69.21	dex-gripper-adversarial-push
+[2026-09-10 16:59:18,132] 193	T_sample 76.14	T_update 395.39	T_eval 29.28	ETA 4 days, 16:07:36	train_R 0.00	train_R_eps 0.85	exec_R -0.01	exec_R_eps -6.68	adv_min_exec_R_eps -68.90	dex-gripper-adversarial-push
+[2026-09-10 17:07:56,385] 194	T_sample 77.26	T_update 394.21	T_eval 26.53	ETA 4 days, 15:21:28	train_R 0.00	train_R_eps 0.82	exec_R -0.01	exec_R_eps -6.82	adv_min_exec_R_eps -62.46	dex-gripper-adversarial-push
+[2026-09-10 17:16:32,515] 195	T_sample 75.89	T_update 393.92	T_eval 27.06	ETA 4 days, 14:57:59	train_R 0.00	train_R_eps 0.84	exec_R -0.01	exec_R_eps -6.37	adv_min_exec_R_eps -69.71	dex-gripper-adversarial-push
