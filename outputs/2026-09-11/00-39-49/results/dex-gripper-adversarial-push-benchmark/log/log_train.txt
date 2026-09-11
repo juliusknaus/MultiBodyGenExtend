@@ -1,0 +1,134 @@
+[2026-09-11 00:55:02,186] 0	T_sample 53.75	T_update 451.91	T_eval 19.05	ETA 6 days, 1:36:24	train_R 0.00	train_R_eps 1.38	exec_R -0.02	exec_R_eps -17.09	adv_min_exec_R_eps -19.67	dex-gripper-adversarial-push-benchmark
+[2026-09-11 00:56:49,579] save best checkpoint for agent 0 with rewards -19.67!
+[2026-09-11 00:56:51,469] save best checkpoint for agent 1 with rewards -14.48!
+[2026-09-11 00:56:53,140] save best checkpoint with rewards -19.67!
+[2026-09-11 01:05:40,533] 1	T_sample 53.05	T_update 447.38	T_eval 24.39	ETA 6 days, 1:29:27	train_R 0.00	train_R_eps 1.43	exec_R -0.02	exec_R_eps -16.94	adv_min_exec_R_eps -19.21	dex-gripper-adversarial-push-benchmark
+[2026-09-11 01:06:01,719] save best checkpoint for agent 0 with rewards -19.21!
+[2026-09-11 01:06:03,455] save best checkpoint with rewards -19.21!
+[2026-09-11 01:13:32,062] 2	T_sample 58.64	T_update 368.02	T_eval 19.60	ETA 5 days, 3:35:22	train_R 0.00	train_R_eps 1.47	exec_R -0.02	exec_R_eps -16.47	adv_min_exec_R_eps -19.28	dex-gripper-adversarial-push-benchmark
+[2026-09-11 01:13:55,188] save best checkpoint for agent 1 with rewards -13.64!
+[2026-09-11 01:13:56,447] save best checkpoint with rewards -19.21!
+[2026-09-11 01:22:53,096] 3	T_sample 51.53	T_update 463.48	T_eval 19.26	ETA 6 days, 3:48:58	train_R 0.00	train_R_eps 1.46	exec_R -0.02	exec_R_eps -16.03	adv_min_exec_R_eps -18.78	dex-gripper-adversarial-push-benchmark
+[2026-09-11 01:23:16,153] save best checkpoint for agent 0 with rewards -18.78!
+[2026-09-11 01:23:17,391] save best checkpoint for agent 1 with rewards -13.26!
+[2026-09-11 01:23:19,051] save best checkpoint with rewards -18.78!
+[2026-09-11 01:31:40,942] 4	T_sample 51.12	T_update 423.64	T_eval 24.90	ETA 5 days, 18:05:59	train_R 0.00	train_R_eps 1.52	exec_R -0.01	exec_R_eps -14.97	adv_min_exec_R_eps -17.90	dex-gripper-adversarial-push-benchmark
+[2026-09-11 01:32:02,503] save best checkpoint for agent 0 with rewards -16.85!
+[2026-09-11 01:32:03,885] save best checkpoint for agent 1 with rewards -13.07!
+[2026-09-11 01:32:04,880] save best checkpoint with rewards -17.90!
+[2026-09-11 01:39:40,004] 5	T_sample 53.26	T_update 380.28	T_eval 19.49	ETA 5 days, 5:05:21	train_R 0.00	train_R_eps 1.53	exec_R -0.01	exec_R_eps -8.04	adv_min_exec_R_eps -14.03	dex-gripper-adversarial-push-benchmark
+[2026-09-11 01:40:03,331] save best checkpoint for agent 0 with rewards -2.96!
+[2026-09-11 01:40:04,841] save best checkpoint with rewards -14.03!
+[2026-09-11 01:48:23,938] 6	T_sample 54.19	T_update 421.83	T_eval 20.51	ETA 5 days, 16:57:39	train_R 0.00	train_R_eps 1.55	exec_R -0.01	exec_R_eps -6.61	adv_min_exec_R_eps -12.94	dex-gripper-adversarial-push-benchmark
+[2026-09-11 01:48:46,004] save best checkpoint for agent 0 with rewards -0.27!
+[2026-09-11 01:48:47,320] save best checkpoint for agent 1 with rewards -12.94!
+[2026-09-11 01:48:48,394] save best checkpoint with rewards -12.94!
+[2026-09-11 01:57:19,516] 7	T_sample 52.00	T_update 434.31	T_eval 22.48	ETA 5 days, 20:11:55	train_R 0.00	train_R_eps 1.59	exec_R -0.01	exec_R_eps -6.83	adv_min_exec_R_eps -13.15	dex-gripper-adversarial-push-benchmark
+[2026-09-11 02:04:48,111] 8	T_sample 52.03	T_update 355.61	T_eval 20.23	ETA 4 days, 21:46:53	train_R 0.00	train_R_eps 1.59	exec_R -0.01	exec_R_eps -6.17	adv_min_exec_R_eps -12.22	dex-gripper-adversarial-push-benchmark
+[2026-09-11 02:05:10,579] save best checkpoint for agent 0 with rewards -0.12!
+[2026-09-11 02:05:11,561] save best checkpoint for agent 1 with rewards -12.22!
+[2026-09-11 02:05:13,241] save best checkpoint with rewards -12.22!
+[2026-09-11 02:12:34,728] 9	T_sample 56.07	T_update 363.61	T_eval 19.65	ETA 5 days, 0:48:54	train_R 0.00	train_R_eps 1.62	exec_R -0.01	exec_R_eps -6.53	adv_min_exec_R_eps -12.72	dex-gripper-adversarial-push-benchmark
+[2026-09-11 02:20:07,688] 10	T_sample 52.61	T_update 357.93	T_eval 21.29	ETA 4 days, 22:37:59	train_R 0.00	train_R_eps 1.62	exec_R -0.01	exec_R_eps -6.94	adv_min_exec_R_eps -13.38	dex-gripper-adversarial-push-benchmark
+[2026-09-11 02:27:45,088] 11	T_sample 59.25	T_update 359.32	T_eval 20.00	ETA 5 days, 0:21:46	train_R 0.00	train_R_eps 1.63	exec_R -0.01	exec_R_eps -6.76	adv_min_exec_R_eps -13.05	dex-gripper-adversarial-push-benchmark
+[2026-09-11 02:35:21,353] 12	T_sample 52.44	T_update 362.25	T_eval 22.15	ETA 4 days, 23:46:10	train_R 0.00	train_R_eps 1.63	exec_R -0.01	exec_R_eps -6.02	adv_min_exec_R_eps -11.46	dex-gripper-adversarial-push-benchmark
+[2026-09-11 02:35:44,958] save best checkpoint for agent 1 with rewards -11.46!
+[2026-09-11 02:35:46,352] save best checkpoint with rewards -11.46!
+[2026-09-11 02:43:11,633] 13	T_sample 60.49	T_update 362.65	T_eval 19.65	ETA 5 days, 1:16:44	train_R 0.00	train_R_eps 1.65	exec_R -0.01	exec_R_eps -6.21	adv_min_exec_R_eps -12.08	dex-gripper-adversarial-push-benchmark
+[2026-09-11 02:50:41,983] 14	T_sample 51.61	T_update 358.64	T_eval 20.19	ETA 4 days, 21:46:21	train_R 0.00	train_R_eps 1.66	exec_R -0.01	exec_R_eps -6.64	adv_min_exec_R_eps -12.91	dex-gripper-adversarial-push-benchmark
+[2026-09-11 02:58:21,746] 15	T_sample 58.16	T_update 362.82	T_eval 20.44	ETA 5 days, 0:39:24	train_R 0.00	train_R_eps 1.66	exec_R -0.01	exec_R_eps -6.56	adv_min_exec_R_eps -12.40	dex-gripper-adversarial-push-benchmark
+[2026-09-11 03:05:57,367] 16	T_sample 52.85	T_update 362.41	T_eval 19.22	ETA 4 days, 22:38:16	train_R 0.00	train_R_eps 1.67	exec_R -0.01	exec_R_eps -6.47	adv_min_exec_R_eps -12.37	dex-gripper-adversarial-push-benchmark
+[2026-09-11 03:13:31,875] 17	T_sample 57.83	T_update 357.53	T_eval 19.64	ETA 4 days, 22:39:32	train_R 0.00	train_R_eps 1.69	exec_R -0.00	exec_R_eps -3.63	adv_min_exec_R_eps -8.78	dex-gripper-adversarial-push-benchmark
+[2026-09-11 03:13:54,798] save best checkpoint for agent 1 with rewards -6.75!
+[2026-09-11 03:13:56,206] save best checkpoint with rewards -8.78!
+[2026-09-11 03:21:11,330] 18	T_sample 51.55	T_update 359.87	T_eval 21.16	ETA 4 days, 21:52:41	train_R 0.00	train_R_eps 1.67	exec_R -0.01	exec_R_eps -5.13	adv_min_exec_R_eps -9.71	dex-gripper-adversarial-push-benchmark
+[2026-09-11 03:28:42,600] 19	T_sample 55.96	T_update 355.22	T_eval 19.11	ETA 4 days, 21:07:56	train_R 0.00	train_R_eps 1.71	exec_R -0.01	exec_R_eps -6.34	adv_min_exec_R_eps -12.04	dex-gripper-adversarial-push-benchmark
+[2026-09-11 03:36:27,751] 20	T_sample 56.48	T_update 365.97	T_eval 23.13	ETA 5 days, 1:10:17	train_R 0.00	train_R_eps 1.66	exec_R 0.00	exec_R_eps 0.32	adv_min_exec_R_eps -1.84	dex-gripper-adversarial-push-benchmark
+[2026-09-11 03:36:52,414] save best checkpoint for agent 1 with rewards 0.98!
+[2026-09-11 03:36:53,717] save best checkpoint with rewards -1.84!
+[2026-09-11 03:44:09,844] 21	T_sample 57.90	T_update 355.11	T_eval 20.47	ETA 4 days, 21:45:47	train_R 0.00	train_R_eps 1.68	exec_R -0.00	exec_R_eps -0.12	adv_min_exec_R_eps -2.10	dex-gripper-adversarial-push-benchmark
+[2026-09-11 03:51:51,091] 22	T_sample 53.14	T_update 367.83	T_eval 19.79	ETA 4 days, 23:37:02	train_R 0.00	train_R_eps 1.71	exec_R -0.00	exec_R_eps -0.22	adv_min_exec_R_eps -1.52	dex-gripper-adversarial-push-benchmark
+[2026-09-11 03:59:16,285] 23	T_sample 52.18	T_update 351.94	T_eval 19.60	ETA 4 days, 18:52:32	train_R 0.00	train_R_eps 1.71	exec_R 0.00	exec_R_eps 1.49	adv_min_exec_R_eps -0.49	dex-gripper-adversarial-push-benchmark
+[2026-09-11 03:59:38,555] save best checkpoint for agent 1 with rewards 3.47!
+[2026-09-11 03:59:40,464] save best checkpoint with rewards -0.49!
+[2026-09-11 04:07:03,048] 24	T_sample 58.86	T_update 360.42	T_eval 20.84	ETA 4 days, 23:11:49	train_R 0.00	train_R_eps 1.75	exec_R 0.00	exec_R_eps 1.90	adv_min_exec_R_eps -0.64	dex-gripper-adversarial-push-benchmark
+[2026-09-11 04:07:26,835] save best checkpoint for agent 1 with rewards 4.44!
+[2026-09-11 04:07:28,506] save best checkpoint with rewards -0.49!
+[2026-09-11 04:14:53,846] 25	T_sample 54.06	T_update 365.27	T_eval 23.51	ETA 4 days, 23:48:45	train_R 0.00	train_R_eps 1.75	exec_R 0.00	exec_R_eps 1.88	adv_min_exec_R_eps -0.62	dex-gripper-adversarial-push-benchmark
+[2026-09-11 04:22:28,145] 26	T_sample 53.15	T_update 361.00	T_eval 19.66	ETA 4 days, 21:15:01	train_R 0.00	train_R_eps 1.73	exec_R 0.00	exec_R_eps 1.77	adv_min_exec_R_eps -0.72	dex-gripper-adversarial-push-benchmark
+[2026-09-11 04:30:26,394] 27	T_sample 53.92	T_update 383.96	T_eval 20.48	ETA 5 days, 3:45:31	train_R 0.00	train_R_eps 1.77	exec_R 0.00	exec_R_eps 1.76	adv_min_exec_R_eps -0.84	dex-gripper-adversarial-push-benchmark
+[2026-09-11 04:39:19,840] 28	T_sample 51.41	T_update 439.39	T_eval 22.68	ETA 5 days, 18:29:47	train_R 0.00	train_R_eps 1.71	exec_R 0.00	exec_R_eps 1.75	adv_min_exec_R_eps -0.67	dex-gripper-adversarial-push-benchmark
+[2026-09-11 04:49:16,115] 29	T_sample 54.45	T_update 498.69	T_eval 22.86	ETA 6 days, 11:11:58	train_R 0.00	train_R_eps 1.73	exec_R 0.00	exec_R_eps 1.87	adv_min_exec_R_eps -0.83	dex-gripper-adversarial-push-benchmark
+[2026-09-11 04:49:38,581] save best checkpoint for agent 1 with rewards 4.57!
+[2026-09-11 04:49:39,789] save best checkpoint with rewards -0.49!
+[2026-09-11 04:56:53,537] 30	T_sample 54.16	T_update 357.61	T_eval 19.24	ETA 4 days, 20:00:52	train_R 0.00	train_R_eps 1.78	exec_R 0.00	exec_R_eps 1.92	adv_min_exec_R_eps -0.73	dex-gripper-adversarial-push-benchmark
+[2026-09-11 05:04:32,549] 31	T_sample 52.80	T_update 360.80	T_eval 23.29	ETA 4 days, 21:28:31	train_R 0.00	train_R_eps 1.81	exec_R 0.00	exec_R_eps 1.91	adv_min_exec_R_eps -0.51	dex-gripper-adversarial-push-benchmark
+[2026-09-11 05:12:05,764] 32	T_sample 52.33	T_update 361.81	T_eval 19.44	ETA 4 days, 20:27:58	train_R 0.00	train_R_eps 1.78	exec_R 0.00	exec_R_eps 1.81	adv_min_exec_R_eps -0.48	dex-gripper-adversarial-push-benchmark
+[2026-09-11 05:19:48,568] 33	T_sample 58.44	T_update 364.44	T_eval 19.99	ETA 4 days, 22:50:11	train_R 0.00	train_R_eps 1.77	exec_R 0.00	exec_R_eps 1.98	adv_min_exec_R_eps -0.47	dex-gripper-adversarial-push-benchmark
+[2026-09-11 05:27:27,833] 34	T_sample 52.70	T_update 363.06	T_eval 22.94	ETA 4 days, 21:35:52	train_R 0.00	train_R_eps 1.79	exec_R 0.00	exec_R_eps 1.82	adv_min_exec_R_eps -0.67	dex-gripper-adversarial-push-benchmark
+[2026-09-11 05:35:29,346] 35	T_sample 58.24	T_update 383.87	T_eval 20.06	ETA 5 days, 3:45:28	train_R 0.00	train_R_eps 1.78	exec_R 0.00	exec_R_eps 1.87	adv_min_exec_R_eps -0.72	dex-gripper-adversarial-push-benchmark
+[2026-09-11 05:44:33,682] 36	T_sample 52.11	T_update 453.21	T_eval 19.27	ETA 5 days, 20:19:40	train_R 0.00	train_R_eps 1.80	exec_R 0.00	exec_R_eps 1.86	adv_min_exec_R_eps -0.42	dex-gripper-adversarial-push-benchmark
+[2026-09-11 05:52:07,735] 37	T_sample 52.23	T_update 357.92	T_eval 24.12	ETA 4 days, 20:02:55	train_R 0.00	train_R_eps 1.84	exec_R 0.00	exec_R_eps 2.03	adv_min_exec_R_eps -0.53	dex-gripper-adversarial-push-benchmark
+[2026-09-11 05:52:30,436] save best checkpoint for agent 1 with rewards 4.58!
+[2026-09-11 05:52:31,797] save best checkpoint with rewards -0.42!
+[2026-09-11 05:59:47,892] 38	T_sample 53.87	T_update 360.97	T_eval 19.04	ETA 4 days, 19:49:19	train_R 0.00	train_R_eps 1.81	exec_R 0.00	exec_R_eps 2.02	adv_min_exec_R_eps -0.53	dex-gripper-adversarial-push-benchmark
+[2026-09-11 06:07:34,392] 39	T_sample 59.23	T_update 366.87	T_eval 19.59	ETA 4 days, 22:51:07	train_R 0.00	train_R_eps 1.85	exec_R 0.00	exec_R_eps 2.02	adv_min_exec_R_eps -0.40	dex-gripper-adversarial-push-benchmark
+[2026-09-11 06:15:00,746] 40	T_sample 52.04	T_update 355.87	T_eval 19.61	ETA 4 days, 17:53:05	train_R 0.00	train_R_eps 1.80	exec_R 0.00	exec_R_eps 2.02	adv_min_exec_R_eps -0.50	dex-gripper-adversarial-push-benchmark
+[2026-09-11 06:22:35,703] 41	T_sample 57.14	T_update 359.86	T_eval 19.04	ETA 4 days, 20:02:02	train_R 0.00	train_R_eps 1.84	exec_R 0.00	exec_R_eps 2.03	adv_min_exec_R_eps -0.41	dex-gripper-adversarial-push-benchmark
+[2026-09-11 06:30:10,842] 42	T_sample 53.61	T_update 362.33	T_eval 20.72	ETA 4 days, 20:04:49	train_R 0.00	train_R_eps 1.84	exec_R 0.00	exec_R_eps 1.96	adv_min_exec_R_eps -0.33	dex-gripper-adversarial-push-benchmark
+[2026-09-11 06:37:51,958] 43	T_sample 57.08	T_update 363.67	T_eval 19.36	ETA 4 days, 20:52:20	train_R 0.00	train_R_eps 1.87	exec_R 0.00	exec_R_eps 1.99	adv_min_exec_R_eps -0.51	dex-gripper-adversarial-push-benchmark
+[2026-09-11 06:45:27,557] 44	T_sample 51.07	T_update 361.80	T_eval 23.76	ETA 4 days, 19:49:50	train_R 0.00	train_R_eps 1.83	exec_R 0.00	exec_R_eps 2.02	adv_min_exec_R_eps -0.52	dex-gripper-adversarial-push-benchmark
+[2026-09-11 06:52:54,769] 45	T_sample 52.16	T_update 356.10	T_eval 19.40	ETA 4 days, 17:19:51	train_R 0.00	train_R_eps 1.88	exec_R 0.00	exec_R_eps 1.99	adv_min_exec_R_eps -0.79	dex-gripper-adversarial-push-benchmark
+[2026-09-11 06:53:20,197] save best checkpoint for agent 1 with rewards 4.77!
+[2026-09-11 06:53:21,403] save best checkpoint with rewards -0.33!
+[2026-09-11 07:00:40,961] 46	T_sample 53.72	T_update 363.87	T_eval 19.49	ETA 4 days, 19:42:23	train_R 0.00	train_R_eps 1.87	exec_R 0.00	exec_R_eps 1.99	adv_min_exec_R_eps -0.42	dex-gripper-adversarial-push-benchmark
+[2026-09-11 07:10:31,133] 47	T_sample 50.55	T_update 499.92	T_eval 19.69	ETA 6 days, 6:46:23	train_R 0.00	train_R_eps 1.86	exec_R 0.00	exec_R_eps 1.99	adv_min_exec_R_eps -0.44	dex-gripper-adversarial-push-benchmark
+[2026-09-11 07:20:31,379] 48	T_sample 56.76	T_update 503.14	T_eval 20.42	ETA 6 days, 9:18:03	train_R 0.00	train_R_eps 1.86	exec_R 0.00	exec_R_eps 2.04	adv_min_exec_R_eps -2.40	dex-gripper-adversarial-push-benchmark
+[2026-09-11 07:20:51,161] save best checkpoint for agent 1 with rewards 6.48!
+[2026-09-11 07:20:52,421] save best checkpoint with rewards -0.33!
+[2026-09-11 07:28:34,730] 49	T_sample 51.97	T_update 387.61	T_eval 20.23	ETA 5 days, 1:20:24	train_R 0.00	train_R_eps 1.88	exec_R 0.00	exec_R_eps 2.04	adv_min_exec_R_eps -1.10	dex-gripper-adversarial-push-benchmark
+[2026-09-11 07:36:02,962] 50	T_sample 55.49	T_update 354.15	T_eval 20.64	ETA 4 days, 17:25:35	train_R 0.00	train_R_eps 1.88	exec_R 0.00	exec_R_eps 2.06	adv_min_exec_R_eps -0.17	dex-gripper-adversarial-push-benchmark
+[2026-09-11 07:43:51,384] 51	T_sample 52.31	T_update 375.28	T_eval 21.95	ETA 4 days, 22:22:51	train_R 0.00	train_R_eps 1.89	exec_R 0.00	exec_R_eps 2.05	adv_min_exec_R_eps -0.50	dex-gripper-adversarial-push-benchmark
+[2026-09-11 07:51:28,877] 52	T_sample 52.41	T_update 366.92	T_eval 19.75	ETA 4 days, 19:30:06	train_R 0.00	train_R_eps 1.89	exec_R 0.00	exec_R_eps 2.09	adv_min_exec_R_eps -0.60	dex-gripper-adversarial-push-benchmark
+[2026-09-11 07:59:04,497] 53	T_sample 56.60	T_update 361.66	T_eval 19.50	ETA 4 days, 19:01:54	train_R 0.00	train_R_eps 1.91	exec_R 0.00	exec_R_eps 2.06	adv_min_exec_R_eps -0.34	dex-gripper-adversarial-push-benchmark
+[2026-09-11 08:06:40,838] 54	T_sample 52.78	T_update 364.35	T_eval 19.97	ETA 4 days, 18:44:25	train_R 0.00	train_R_eps 1.91	exec_R 0.00	exec_R_eps 2.07	adv_min_exec_R_eps -0.24	dex-gripper-adversarial-push-benchmark
+[2026-09-11 08:14:15,142] 55	T_sample 57.16	T_update 358.20	T_eval 20.66	ETA 4 days, 18:20:02	train_R 0.00	train_R_eps 1.93	exec_R 0.00	exec_R_eps 2.05	adv_min_exec_R_eps -0.63	dex-gripper-adversarial-push-benchmark
+[2026-09-11 08:21:53,538] 56	T_sample 53.95	T_update 363.17	T_eval 22.71	ETA 4 days, 19:12:41	train_R 0.00	train_R_eps 1.92	exec_R 0.00	exec_R_eps 2.07	adv_min_exec_R_eps -0.35	dex-gripper-adversarial-push-benchmark
+[2026-09-11 08:29:29,538] 57	T_sample 55.53	T_update 361.10	T_eval 19.67	ETA 4 days, 18:09:52	train_R 0.00	train_R_eps 1.94	exec_R 0.00	exec_R_eps 2.10	adv_min_exec_R_eps -0.35	dex-gripper-adversarial-push-benchmark
+[2026-09-11 08:37:22,114] 58	T_sample 55.57	T_update 378.74	T_eval 19.28	ETA 4 days, 22:33:55	train_R 0.00	train_R_eps 1.94	exec_R 0.00	exec_R_eps 2.06	adv_min_exec_R_eps -0.71	dex-gripper-adversarial-push-benchmark
+[2026-09-11 08:44:56,272] 59	T_sample 55.28	T_update 356.68	T_eval 24.34	ETA 4 days, 17:55:13	train_R 0.00	train_R_eps 1.92	exec_R 0.00	exec_R_eps 2.09	adv_min_exec_R_eps -1.10	dex-gripper-adversarial-push-benchmark
+[2026-09-11 08:52:39,581] 60	T_sample 58.22	T_update 367.72	T_eval 19.33	ETA 4 days, 20:08:20	train_R 0.00	train_R_eps 1.94	exec_R 0.00	exec_R_eps 2.10	adv_min_exec_R_eps -0.32	dex-gripper-adversarial-push-benchmark
+[2026-09-11 09:00:24,251] 61	T_sample 52.24	T_update 368.44	T_eval 23.48	ETA 4 days, 19:43:43	train_R 0.00	train_R_eps 1.95	exec_R 0.00	exec_R_eps 2.08	adv_min_exec_R_eps -0.31	dex-gripper-adversarial-push-benchmark
+[2026-09-11 09:07:45,617] 62	T_sample 52.24	T_update 348.78	T_eval 20.19	ETA 4 days, 13:37:59	train_R 0.00	train_R_eps 1.97	exec_R 0.00	exec_R_eps 2.08	adv_min_exec_R_eps -0.33	dex-gripper-adversarial-push-benchmark
+[2026-09-11 09:15:24,526] 63	T_sample 58.30	T_update 363.92	T_eval 20.13	ETA 4 days, 19:00:37	train_R 0.00	train_R_eps 1.96	exec_R 0.00	exec_R_eps 2.09	adv_min_exec_R_eps -0.50	dex-gripper-adversarial-push-benchmark
+[2026-09-11 09:22:57,060] 64	T_sample 55.95	T_update 358.47	T_eval 19.86	ETA 4 days, 16:47:34	train_R 0.00	train_R_eps 1.97	exec_R 0.00	exec_R_eps 2.08	adv_min_exec_R_eps -0.39	dex-gripper-adversarial-push-benchmark
+[2026-09-11 09:30:32,210] 65	T_sample 57.76	T_update 362.99	T_eval 19.65	ETA 4 days, 18:15:29	train_R 0.00	train_R_eps 1.99	exec_R 0.00	exec_R_eps 2.09	adv_min_exec_R_eps -0.44	dex-gripper-adversarial-push-benchmark
+[2026-09-11 09:38:10,728] 66	T_sample 52.78	T_update 366.94	T_eval 19.28	ETA 4 days, 17:46:31	train_R 0.00	train_R_eps 1.98	exec_R 0.00	exec_R_eps 2.10	adv_min_exec_R_eps -0.23	dex-gripper-adversarial-push-benchmark
+[2026-09-11 09:45:33,661] 67	T_sample 56.74	T_update 359.09	T_eval 19.63	ETA 4 days, 16:44:12	train_R 0.00	train_R_eps 1.99	exec_R 0.00	exec_R_eps 2.10	adv_min_exec_R_eps -0.30	dex-gripper-adversarial-push-benchmark
+[2026-09-11 09:53:05,658] 68	T_sample 56.69	T_update 367.99	T_eval 18.30	ETA 4 days, 18:33:31	train_R 0.00	train_R_eps 1.95	exec_R 0.00	exec_R_eps 2.11	adv_min_exec_R_eps -0.33	dex-gripper-adversarial-push-benchmark
+[2026-09-11 10:00:23,083] 69	T_sample 56.80	T_update 353.92	T_eval 17.96	ETA 4 days, 14:44:27	train_R 0.00	train_R_eps 1.99	exec_R 0.00	exec_R_eps 2.09	adv_min_exec_R_eps -0.19	dex-gripper-adversarial-push-benchmark
+[2026-09-11 10:07:45,248] 70	T_sample 55.90	T_update 359.53	T_eval 18.46	ETA 4 days, 15:58:06	train_R 0.00	train_R_eps 1.98	exec_R 0.00	exec_R_eps 2.10	adv_min_exec_R_eps -0.01	dex-gripper-adversarial-push-benchmark
+[2026-09-11 10:07:53,672] save best checkpoint for agent 0 with rewards -0.01!
+[2026-09-11 10:07:54,352] save best checkpoint with rewards -0.01!
+[2026-09-11 10:15:09,647] 71	T_sample 50.99	T_update 362.21	T_eval 19.86	ETA 4 days, 15:37:51	train_R 0.00	train_R_eps 2.01	exec_R 0.00	exec_R_eps 2.11	adv_min_exec_R_eps -0.21	dex-gripper-adversarial-push-benchmark
+[2026-09-11 10:22:25,610] 72	T_sample 54.95	T_update 360.10	T_eval 17.83	ETA 4 days, 15:28:04	train_R 0.00	train_R_eps 2.00	exec_R 0.00	exec_R_eps 2.10	adv_min_exec_R_eps -0.32	dex-gripper-adversarial-push-benchmark
+[2026-09-11 10:29:52,262] 73	T_sample 52.68	T_update 373.63	T_eval 17.04	ETA 4 days, 18:02:23	train_R 0.00	train_R_eps 1.97	exec_R 0.00	exec_R_eps 2.13	adv_min_exec_R_eps -0.47	dex-gripper-adversarial-push-benchmark
+[2026-09-11 10:37:05,742] 74	T_sample 50.49	T_update 361.68	T_eval 17.63	ETA 4 days, 14:26:07	train_R 0.00	train_R_eps 1.98	exec_R 0.00	exec_R_eps 2.09	adv_min_exec_R_eps -0.36	dex-gripper-adversarial-push-benchmark
+[2026-09-11 10:44:26,899] 75	T_sample 53.57	T_update 367.48	T_eval 17.29	ETA 4 days, 16:30:28	train_R 0.00	train_R_eps 2.00	exec_R 0.00	exec_R_eps 2.11	adv_min_exec_R_eps -0.22	dex-gripper-adversarial-push-benchmark
+[2026-09-11 10:51:44,648] 76	T_sample 49.77	T_update 364.46	T_eval 20.14	ETA 4 days, 15:22:07	train_R 0.00	train_R_eps 1.99	exec_R 0.00	exec_R_eps 2.07	adv_min_exec_R_eps -0.31	dex-gripper-adversarial-push-benchmark
+[2026-09-11 10:58:58,724] 77	T_sample 54.97	T_update 358.42	T_eval 17.06	ETA 4 days, 14:14:35	train_R 0.00	train_R_eps 2.00	exec_R 0.00	exec_R_eps 2.08	adv_min_exec_R_eps -0.20	dex-gripper-adversarial-push-benchmark
+[2026-09-11 11:06:21,649] 78	T_sample 50.41	T_update 370.33	T_eval 18.17	ETA 4 days, 16:17:22	train_R 0.00	train_R_eps 2.00	exec_R 0.00	exec_R_eps 2.10	adv_min_exec_R_eps -0.35	dex-gripper-adversarial-push-benchmark
+[2026-09-11 11:13:42,898] 79	T_sample 50.42	T_update 369.59	T_eval 17.44	ETA 4 days, 15:47:31	train_R 0.00	train_R_eps 2.01	exec_R 0.00	exec_R_eps 2.07	adv_min_exec_R_eps -0.14	dex-gripper-adversarial-push-benchmark
+[2026-09-11 11:21:08,804] 80	T_sample 55.82	T_update 370.45	T_eval 17.25	ETA 4 days, 17:13:19	train_R 0.00	train_R_eps 1.99	exec_R 0.00	exec_R_eps 2.13	adv_min_exec_R_eps -0.21	dex-gripper-adversarial-push-benchmark
+[2026-09-11 11:28:27,034] 81	T_sample 50.92	T_update 363.19	T_eval 21.05	ETA 4 days, 14:57:51	train_R 0.00	train_R_eps 2.00	exec_R 0.00	exec_R_eps 2.07	adv_min_exec_R_eps -0.20	dex-gripper-adversarial-push-benchmark
+[2026-09-11 11:35:35,572] 82	T_sample 54.35	T_update 353.68	T_eval 17.30	ETA 4 days, 12:20:28	train_R 0.00	train_R_eps 2.02	exec_R 0.00	exec_R_eps 2.11	adv_min_exec_R_eps -0.40	dex-gripper-adversarial-push-benchmark
+[2026-09-11 11:43:17,232] 83	T_sample 50.66	T_update 390.41	T_eval 18.26	ETA 4 days, 20:52:24	train_R 0.00	train_R_eps 2.00	exec_R 0.00	exec_R_eps 2.10	adv_min_exec_R_eps -0.25	dex-gripper-adversarial-push-benchmark
+[2026-09-11 11:50:36,503] 84	T_sample 53.03	T_update 363.85	T_eval 19.46	ETA 4 days, 14:54:17	train_R 0.00	train_R_eps 2.00	exec_R 0.00	exec_R_eps 2.12	adv_min_exec_R_eps -0.45	dex-gripper-adversarial-push-benchmark
+[2026-09-11 11:58:24,282] 85	T_sample 57.56	T_update 388.71	T_eval 17.77	ETA 4 days, 21:48:43	train_R 0.00	train_R_eps 2.00	exec_R 0.00	exec_R_eps 2.11	adv_min_exec_R_eps -0.45	dex-gripper-adversarial-push-benchmark
+[2026-09-11 12:07:00,291] 86	T_sample 53.20	T_update 442.42	T_eval 17.85	ETA 5 days, 10:13:11	train_R 0.00	train_R_eps 2.01	exec_R 0.00	exec_R_eps 2.10	adv_min_exec_R_eps -0.28	dex-gripper-adversarial-push-benchmark
+[2026-09-11 12:14:23,595] 87	T_sample 53.79	T_update 366.16	T_eval 19.09	ETA 4 days, 15:13:15	train_R 0.00	train_R_eps 2.02	exec_R 0.00	exec_R_eps 2.13	adv_min_exec_R_eps -0.14	dex-gripper-adversarial-push-benchmark
+[2026-09-11 12:21:31,815] 88	T_sample 52.01	T_update 354.94	T_eval 17.07	ETA 4 days, 11:18:11	train_R 0.00	train_R_eps 2.03	exec_R 0.00	exec_R_eps 2.12	adv_min_exec_R_eps -0.24	dex-gripper-adversarial-push-benchmark
+[2026-09-11 12:28:49,012] 89	T_sample 57.24	T_update 358.66	T_eval 18.80	ETA 4 days, 13:52:55	train_R 0.00	train_R_eps 2.02	exec_R 0.00	exec_R_eps 2.11	adv_min_exec_R_eps -0.19	dex-gripper-adversarial-push-benchmark
+[2026-09-11 12:36:11,486] 90	T_sample 57.58	T_update 361.56	T_eval 19.32	ETA 4 days, 14:42:43	train_R 0.00	train_R_eps 1.99	exec_R 0.00	exec_R_eps 2.12	adv_min_exec_R_eps -0.24	dex-gripper-adversarial-push-benchmark
+[2026-09-11 12:43:24,400] 91	T_sample 53.15	T_update 356.05	T_eval 19.84	ETA 4 days, 12:12:46	train_R 0.00	train_R_eps 2.02	exec_R 0.00	exec_R_eps 2.13	adv_min_exec_R_eps -0.41	dex-gripper-adversarial-push-benchmark
+[2026-09-11 12:50:41,116] 92	T_sample 57.39	T_update 359.85	T_eval 17.39	ETA 4 days, 13:30:03	train_R 0.00	train_R_eps 2.00	exec_R 0.00	exec_R_eps 2.13	adv_min_exec_R_eps -0.17	dex-gripper-adversarial-push-benchmark
