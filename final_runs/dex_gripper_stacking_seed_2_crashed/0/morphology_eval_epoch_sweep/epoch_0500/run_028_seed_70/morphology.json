@@ -1,0 +1,2452 @@
+{
+  "seed": 70,
+  "design_steps": 6,
+  "final_stage": "execution",
+  "environment": "dex_gripper_stacking",
+  "checkpoint": "500",
+  "body_count": 11,
+  "agents": [
+    {
+      "agent_id": 0,
+      "body_count": 11,
+      "root_names": [
+        "0"
+      ]
+    }
+  ],
+  "limbs": [
+    {
+      "agent_id": 0,
+      "body_index": 0,
+      "name": "0",
+      "parent": null,
+      "children": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "depth": 0,
+      "height": 3,
+      "subtree_body_count": 11,
+      "subtree_edge_count": 10,
+      "subtree_max_depth": 3,
+      "subtree_total_bone_length": 8.805262804133905,
+      "subtree_longest_path_length": 2.506119747594918,
+      "bone_length": 0.3994240894998334,
+      "xml_attributes": {
+        "name": "0",
+        "pos": "0 0 0",
+        "gravcomp": "1"
+      },
+      "attributes": {
+        "depth": 0,
+        "local_coord": false,
+        "name": "0",
+        "cind": 4,
+        "pos": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bone_start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "param_inited": true,
+        "bone_end": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bone_offset": [
+          -0.39085049439708747,
+          -0.08231339078377964,
+          0.0
+        ],
+        "height": 3
+      },
+      "parameter_specs": {
+        "offset": {
+          "type": "xy",
+          "lb": [
+            -0.5,
+            -0.5
+          ],
+          "ub": [
+            0.5,
+            0.5
+          ]
+        }
+      },
+      "joints": [],
+      "geoms": [
+        {
+          "name": "",
+          "type": "ellipsoid",
+          "xml_attributes": {
+            "pos": "0 0 0",
+            "size": "0.291303 0.206657 0.204222",
+            "type": "ellipsoid"
+          },
+          "attributes": {
+            "local_coord": false,
+            "name": "",
+            "type": "ellipsoid",
+            "param_inited": true,
+            "size": [
+              0.2913028114834447,
+              0.20665694783144106,
+              0.20422204740274225
+            ],
+            "center": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "ellipsoid_radius": [
+              0.2913028114834447,
+              0.20665694783144106,
+              0.20422204740274225
+            ],
+            "bone_start": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "end": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "parameter_specs": {
+            "ellipsoid_radius": {
+              "lb": [
+                0.2,
+                0.2,
+                0.15
+              ],
+              "ub": [
+                0.35,
+                0.35,
+                0.25
+              ]
+            }
+          }
+        }
+      ],
+      "simulation": {
+        "model_name": "0",
+        "model_body_id": 1,
+        "world_position": [
+          0.5,
+          0.0,
+          2.7
+        ],
+        "world_rotation_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "spatial_velocity": [
+          0.0,
+          0.0,
+          0.0,
+          -0.06121401405514113,
+          -0.07112929337936291,
+          -0.03408477944335718
+        ],
+        "mass": 0.25748753904319915,
+        "inertia": [
+          0.004347097282853667,
+          0.00651773382742495,
+          0.006569256587809008
+        ]
+      }
+    },
+    {
+      "agent_id": 0,
+      "body_index": 1,
+      "name": "1",
+      "parent": "0",
+      "children": [
+        "11",
+        "21"
+      ],
+      "depth": 1,
+      "height": 2,
+      "subtree_body_count": 4,
+      "subtree_edge_count": 3,
+      "subtree_max_depth": 3,
+      "subtree_total_bone_length": 3.3635496674620398,
+      "subtree_longest_path_length": 1.7034919759700626,
+      "bone_length": 0.8026277716248553,
+      "xml_attributes": {
+        "name": "1",
+        "pos": "0 0 0",
+        "gravcomp": "1"
+      },
+      "attributes": {
+        "depth": 1,
+        "local_coord": false,
+        "name": "1",
+        "cind": 2,
+        "pos": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bone_start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "param_inited": true,
+        "bone_end": [
+          0.3879588623939909,
+          0.4936590532679832,
+          -0.5
+        ],
+        "bone_offset": [
+          0.3879588623939909,
+          0.4936590532679832,
+          -0.5
+        ],
+        "height": 2
+      },
+      "parameter_specs": {
+        "offset": {
+          "type": "xy",
+          "lb": [
+            -0.5,
+            -0.5
+          ],
+          "ub": [
+            0.5,
+            0.5
+          ]
+        }
+      },
+      "joints": [
+        {
+          "name": "1_joint",
+          "type": "hinge",
+          "xml_attributes": {
+            "axis": "-0.707107 0.707107 0",
+            "name": "1_joint",
+            "pos": "0 0 0",
+            "range": "-30 30",
+            "type": "hinge",
+            "damping": "0"
+          },
+          "attributes": {
+            "local_coord": false,
+            "name": "1_joint",
+            "type": "hinge",
+            "range": [
+              -0.5235987755982988,
+              0.5235987755982988
+            ],
+            "param_inited": true,
+            "pos": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "axis": [
+              1.5707963267948966,
+              2.356194490192345
+            ]
+          },
+          "parameter_specs": {},
+          "actuator": {
+            "xml_attributes": {
+              "ctrllimited": "true",
+              "ctrlrange": "-1.0 1.0",
+              "joint": "1_joint",
+              "gear": "20.353766",
+              "name": "1_joint"
+            },
+            "attributes": {
+              "joint_name": "1_joint",
+              "name": "1_joint",
+              "param_inited": true,
+              "gear": 20.353765983028197
+            },
+            "parameter_specs": {
+              "gear": {
+                "lb": 20,
+                "ub": 400
+              }
+            }
+          }
+        }
+      ],
+      "geoms": [
+        {
+          "name": "",
+          "type": "capsule",
+          "xml_attributes": {
+            "fromto": "-0.036388 -0.046301 0.046896 0.387959 0.493659 -0.5",
+            "size": "0.068328 0.068328 0.068328",
+            "type": "capsule"
+          },
+          "attributes": {
+            "local_coord": false,
+            "name": "",
+            "type": "capsule",
+            "param_inited": true,
+            "size": [
+              0.06832828050949782,
+              0.06832828050949782,
+              0.06832828050949782
+            ],
+            "start": [
+              -0.03638757064891633,
+              -0.04630143919492047,
+              0.04689617144505775
+            ],
+            "end": [
+              0.3879588623939909,
+              0.4936590532679832,
+              -0.5
+            ],
+            "bone_start": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "ext_start": [
+              0.07528033916936774
+            ]
+          },
+          "parameter_specs": {
+            "size": {
+              "lb": [
+                0.03,
+                0.03,
+                0.03
+              ],
+              "ub": [
+                0.1,
+                0.1,
+                0.1
+              ]
+            },
+            "ellipsoid_radius": {
+              "lb": [
+                0.2,
+                0.2,
+                0.15
+              ],
+              "ub": [
+                0.35,
+                0.35,
+                0.25
+              ]
+            },
+            "ext_start": {
+              "lb": 0.0,
+              "ub": 0.2
+            }
+          }
+        }
+      ],
+      "simulation": {
+        "model_name": "1",
+        "model_body_id": 2,
+        "world_position": [
+          0.5,
+          0.0,
+          2.7
+        ],
+        "world_rotation_matrix": [
+          [
+            0.9978853454594167,
+            -0.0021146545405837693,
+            0.06496434063019126
+          ],
+          [
+            -0.0021146545405837693,
+            0.9978853454594167,
+            0.06496434063019126
+          ],
+          [
+            -0.06496434063019126,
+            -0.06496434063019126,
+            0.995770690918833
+          ]
+        ],
+        "spatial_velocity": [
+          0.039885603275616764,
+          -0.039885603275616764,
+          0.0,
+          -0.04152922206667351,
+          -0.05144450139089529,
+          -0.03054082882366377
+        ],
+        "mass": 0.07106347471147538,
+        "inertia": [
+          0.005660323956947558,
+          0.005660323956947558,
+          0.00016276831174010474
+        ]
+      }
+    },
+    {
+      "agent_id": 0,
+      "body_index": 2,
+      "name": "2",
+      "parent": "0",
+      "children": [
+        "12"
+      ],
+      "depth": 1,
+      "height": 1,
+      "subtree_body_count": 2,
+      "subtree_edge_count": 1,
+      "subtree_max_depth": 2,
+      "subtree_total_bone_length": 1.6878710458504897,
+      "subtree_longest_path_length": 0.8353362211686315,
+      "bone_length": 0.8525348246818583,
+      "xml_attributes": {
+        "name": "2",
+        "pos": "0 0 0",
+        "gravcomp": "1"
+      },
+      "attributes": {
+        "depth": 1,
+        "local_coord": false,
+        "name": "2",
+        "cind": 3,
+        "pos": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bone_start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "param_inited": true,
+        "bone_end": [
+          -0.49681407249237003,
+          0.4795741909953797,
+          -0.5
+        ],
+        "bone_offset": [
+          -0.49681407249237003,
+          0.4795741909953797,
+          -0.5
+        ],
+        "height": 1
+      },
+      "parameter_specs": {
+        "offset": {
+          "type": "xy",
+          "lb": [
+            -0.5,
+            -0.5
+          ],
+          "ub": [
+            0.5,
+            0.5
+          ]
+        }
+      },
+      "joints": [
+        {
+          "name": "2_joint",
+          "type": "hinge",
+          "xml_attributes": {
+            "axis": "-0.707107 -0.707107 0",
+            "name": "2_joint",
+            "pos": "0 0 0",
+            "range": "-30 30",
+            "type": "hinge",
+            "damping": "0"
+          },
+          "attributes": {
+            "local_coord": false,
+            "name": "2_joint",
+            "type": "hinge",
+            "range": [
+              -0.5235987755982988,
+              0.5235987755982988
+            ],
+            "param_inited": true,
+            "pos": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "axis": [
+              1.5707963267948966,
+              -2.356194490192345
+            ]
+          },
+          "parameter_specs": {},
+          "actuator": {
+            "xml_attributes": {
+              "ctrllimited": "true",
+              "ctrlrange": "-1.0 1.0",
+              "joint": "2_joint",
+              "gear": "25.157406",
+              "name": "2_joint"
+            },
+            "attributes": {
+              "joint_name": "2_joint",
+              "name": "2_joint",
+              "param_inited": true,
+              "gear": 25.157406059319392
+            },
+            "parameter_specs": {
+              "gear": {
+                "lb": 20,
+                "ub": 400
+              }
+            }
+          }
+        }
+      ],
+      "geoms": [
+        {
+          "name": "",
+          "type": "capsule",
+          "xml_attributes": {
+            "fromto": "0.042049 -0.04059 0.042319 -0.496814 0.479574 -0.5",
+            "size": "0.062413 0.062413 0.062413",
+            "type": "capsule"
+          },
+          "attributes": {
+            "local_coord": false,
+            "name": "",
+            "type": "capsule",
+            "param_inited": true,
+            "size": [
+              0.06241342231845095,
+              0.06241342231845095,
+              0.06241342231845095
+            ],
+            "start": [
+              0.042049237144270474,
+              -0.040590091951846,
+              0.0423188869563636
+            ],
+            "end": [
+              -0.49681407249237003,
+              0.4795741909953797,
+              -0.5
+            ],
+            "bone_start": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "ext_start": [
+              0.07215664974414963
+            ]
+          },
+          "parameter_specs": {
+            "size": {
+              "lb": [
+                0.03,
+                0.03,
+                0.03
+              ],
+              "ub": [
+                0.1,
+                0.1,
+                0.1
+              ]
+            },
+            "ellipsoid_radius": {
+              "lb": [
+                0.2,
+                0.2,
+                0.15
+              ],
+              "ub": [
+                0.35,
+                0.35,
+                0.25
+              ]
+            },
+            "ext_start": {
+              "lb": 0.0,
+              "ub": 0.2
+            }
+          }
+        }
+      ],
+      "simulation": {
+        "model_name": "2",
+        "model_body_id": 6,
+        "world_position": [
+          0.5,
+          0.0,
+          2.7
+        ],
+        "world_rotation_matrix": [
+          [
+            0.9993864819107958,
+            0.0006135180892042246,
+            -0.03501832905089687
+          ],
+          [
+            0.0006135180892042246,
+            0.9993864819107958,
+            0.03501832905089687
+          ],
+          [
+            0.03501832905089687,
+            -0.03501832905089687,
+            0.9987729638215916
+          ]
+        ],
+        "spatial_velocity": [
+          -0.06785802259264367,
+          -0.06785802259264367,
+          0.0,
+          -0.02772395875236669,
+          -0.10461934868213735,
+          -0.04279138000952485
+        ],
+        "mass": 0.0616724378768289,
+        "inertia": [
+          0.005293321789965137,
+          0.005293321789965137,
+          0.00011813536198139902
+        ]
+      }
+    },
+    {
+      "agent_id": 0,
+      "body_index": 3,
+      "name": "3",
+      "parent": "0",
+      "children": [
+        "13",
+        "23"
+      ],
+      "depth": 1,
+      "height": 1,
+      "subtree_body_count": 3,
+      "subtree_edge_count": 2,
+      "subtree_max_depth": 2,
+      "subtree_total_bone_length": 2.5029782755419654,
+      "subtree_longest_path_length": 0.8637709111734919,
+      "bone_length": 0.7842789079356125,
+      "xml_attributes": {
+        "name": "3",
+        "pos": "0 0 0",
+        "gravcomp": "1"
+      },
+      "attributes": {
+        "depth": 1,
+        "local_coord": false,
+        "name": "3",
+        "cind": 2,
+        "pos": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bone_start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "param_inited": true,
+        "bone_end": [
+          -0.34811480367712866,
+          -0.49387193572171223,
+          -0.5
+        ],
+        "bone_offset": [
+          -0.34811480367712866,
+          -0.49387193572171223,
+          -0.5
+        ],
+        "height": 1
+      },
+      "parameter_specs": {
+        "offset": {
+          "type": "xy",
+          "lb": [
+            -0.5,
+            -0.5
+          ],
+          "ub": [
+            0.5,
+            0.5
+          ]
+        }
+      },
+      "joints": [
+        {
+          "name": "3_joint",
+          "type": "hinge",
+          "xml_attributes": {
+            "axis": "0.707107 -0.707107 0",
+            "name": "3_joint",
+            "pos": "0 0 0",
+            "range": "-30 30",
+            "type": "hinge",
+            "damping": "0"
+          },
+          "attributes": {
+            "local_coord": false,
+            "name": "3_joint",
+            "type": "hinge",
+            "range": [
+              -0.5235987755982988,
+              0.5235987755982988
+            ],
+            "param_inited": true,
+            "pos": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "axis": [
+              1.5707963267948966,
+              -0.7853981633974483
+            ]
+          },
+          "parameter_specs": {},
+          "actuator": {
+            "xml_attributes": {
+              "ctrllimited": "true",
+              "ctrlrange": "-1.0 1.0",
+              "joint": "3_joint",
+              "gear": "20.32206",
+              "name": "3_joint"
+            },
+            "attributes": {
+              "joint_name": "3_joint",
+              "name": "3_joint",
+              "param_inited": true,
+              "gear": 20.32205963852797
+            },
+            "parameter_specs": {
+              "gear": {
+                "lb": 20,
+                "ub": 400
+              }
+            }
+          }
+        }
+      ],
+      "geoms": [
+        {
+          "name": "",
+          "type": "capsule",
+          "xml_attributes": {
+            "fromto": "0.030375 0.043093 0.043628 -0.348115 -0.493872 -0.5",
+            "size": "0.077157 0.077157 0.077157",
+            "type": "capsule"
+          },
+          "attributes": {
+            "local_coord": false,
+            "name": "",
+            "type": "capsule",
+            "param_inited": true,
+            "size": [
+              0.07715721738553222,
+              0.07715721738553222,
+              0.07715721738553222
+            ],
+            "start": [
+              0.03037520813168367,
+              0.04309343549738305,
+              0.043628147684084455
+            ],
+            "end": [
+              -0.34811480367712866,
+              -0.49387193572171223,
+              -0.5
+            ],
+            "bone_start": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "ext_start": [
+              0.06843327204185476
+            ]
+          },
+          "parameter_specs": {
+            "size": {
+              "lb": [
+                0.03,
+                0.03,
+                0.03
+              ],
+              "ub": [
+                0.1,
+                0.1,
+                0.1
+              ]
+            },
+            "ellipsoid_radius": {
+              "lb": [
+                0.2,
+                0.2,
+                0.15
+              ],
+              "ub": [
+                0.35,
+                0.35,
+                0.25
+              ]
+            },
+            "ext_start": {
+              "lb": 0.0,
+              "ub": 0.2
+            }
+          }
+        }
+      ],
+      "simulation": {
+        "model_name": "3",
+        "model_body_id": 8,
+        "world_position": [
+          0.5,
+          0.0,
+          2.7
+        ],
+        "world_rotation_matrix": [
+          [
+            0.9980487738212536,
+            -0.0019512261787464917,
+            -0.062408635542621285
+          ],
+          [
+            -0.0019512261787464917,
+            0.9980487738212536,
+            -0.062408635542621285
+          ],
+          [
+            0.062408635542621285,
+            0.062408635542621285,
+            0.9960975476425071
+          ]
+        ],
+        "spatial_velocity": [
+          -0.005414282942965579,
+          0.005414282942965579,
+          0.0,
+          -0.06388613193091965,
+          -0.07380141125514143,
+          -0.03456585406214447
+        ],
+        "mass": 0.0893595886896631,
+        "inertia": [
+          0.0069593509391022565,
+          0.0069593509391022565,
+          0.0002602607632835628
+        ]
+      }
+    },
+    {
+      "agent_id": 0,
+      "body_index": 4,
+      "name": "4",
+      "parent": "0",
+      "children": [],
+      "depth": 1,
+      "height": 0,
+      "subtree_body_count": 1,
+      "subtree_edge_count": 0,
+      "subtree_max_depth": 1,
+      "subtree_total_bone_length": 0.8514397257795773,
+      "subtree_longest_path_length": 0.0,
+      "bone_length": 0.8514397257795773,
+      "xml_attributes": {
+        "name": "4",
+        "pos": "0 0 0",
+        "gravcomp": "1"
+      },
+      "attributes": {
+        "depth": 1,
+        "local_coord": false,
+        "name": "4",
+        "cind": 0,
+        "pos": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bone_start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "param_inited": true,
+        "bone_end": [
+          0.47512492181995836,
+          -0.4992052837272261,
+          -0.5
+        ],
+        "bone_offset": [
+          0.47512492181995836,
+          -0.4992052837272261,
+          -0.5
+        ],
+        "height": 0
+      },
+      "parameter_specs": {
+        "offset": {
+          "type": "xy",
+          "lb": [
+            -0.5,
+            -0.5
+          ],
+          "ub": [
+            0.5,
+            0.5
+          ]
+        }
+      },
+      "joints": [
+        {
+          "name": "4_joint",
+          "type": "hinge",
+          "xml_attributes": {
+            "axis": "0.707107 0.707107 0",
+            "name": "4_joint",
+            "pos": "0 0 0",
+            "range": "-30 30",
+            "type": "hinge",
+            "damping": "0"
+          },
+          "attributes": {
+            "local_coord": false,
+            "name": "4_joint",
+            "type": "hinge",
+            "range": [
+              -0.5235987755982988,
+              0.5235987755982988
+            ],
+            "param_inited": true,
+            "pos": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "axis": [
+              1.5707963267948966,
+              0.7853981633974483
+            ]
+          },
+          "parameter_specs": {},
+          "actuator": {
+            "xml_attributes": {
+              "ctrllimited": "true",
+              "ctrlrange": "-1.0 1.0",
+              "joint": "4_joint",
+              "gear": "49.743126",
+              "name": "4_joint"
+            },
+            "attributes": {
+              "joint_name": "4_joint",
+              "name": "4_joint",
+              "param_inited": true,
+              "gear": 49.743125809710065
+            },
+            "parameter_specs": {
+              "gear": {
+                "lb": 20,
+                "ub": 400
+              }
+            }
+          }
+        }
+      ],
+      "geoms": [
+        {
+          "name": "",
+          "type": "capsule",
+          "xml_attributes": {
+            "fromto": "-0.067004 0.070399 0.070511 0.475125 -0.499205 -0.5",
+            "size": "0.073343 0.073343 0.073343",
+            "type": "capsule"
+          },
+          "attributes": {
+            "local_coord": false,
+            "name": "",
+            "type": "capsule",
+            "param_inited": true,
+            "size": [
+              0.07334265412535525,
+              0.07334265412535525,
+              0.07334265412535525
+            ],
+            "start": [
+              -0.06700351558306952,
+              0.07039939912906244,
+              0.07051147235806283
+            ],
+            "end": [
+              0.47512492181995836,
+              -0.4992052837272261,
+              -0.5
+            ],
+            "bone_start": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "ext_start": [
+              0.12007253737772652
+            ]
+          },
+          "parameter_specs": {
+            "size": {
+              "lb": [
+                0.03,
+                0.03,
+                0.03
+              ],
+              "ub": [
+                0.1,
+                0.1,
+                0.1
+              ]
+            },
+            "ellipsoid_radius": {
+              "lb": [
+                0.2,
+                0.2,
+                0.15
+              ],
+              "ub": [
+                0.35,
+                0.35,
+                0.25
+              ]
+            },
+            "ext_start": {
+              "lb": 0.0,
+              "ub": 0.2
+            }
+          }
+        }
+      ],
+      "simulation": {
+        "model_name": "4",
+        "model_body_id": 11,
+        "world_position": [
+          0.5,
+          0.0,
+          2.7
+        ],
+        "world_rotation_matrix": [
+          [
+            0.9999529975949453,
+            4.7002405054828215e-05,
+            -0.009695379913004676
+          ],
+          [
+            4.7002405054828215e-05,
+            0.9999529975949453,
+            0.009695379913004676
+          ],
+          [
+            0.009695379913004676,
+            -0.009695379913004676,
+            0.9999059951898905
+          ]
+        ],
+        "spatial_velocity": [
+          -0.028078932309617815,
+          -0.028078932309617815,
+          0.0,
+          -0.04735618324953343,
+          -0.0849871241849706,
+          -0.03768747870578462
+        ],
+        "mass": 0.09035201167547831,
+        "inertia": [
+          0.008755220353617043,
+          0.008755220353617043,
+          0.0002385657766946164
+        ]
+      }
+    },
+    {
+      "agent_id": 0,
+      "body_index": 5,
+      "name": "11",
+      "parent": "1",
+      "children": [
+        "111"
+      ],
+      "depth": 2,
+      "height": 1,
+      "subtree_body_count": 2,
+      "subtree_edge_count": 1,
+      "subtree_max_depth": 3,
+      "subtree_total_bone_length": 1.7034919759700626,
+      "subtree_longest_path_length": 0.8595661376884581,
+      "bone_length": 0.8439258382816044,
+      "xml_attributes": {
+        "name": "11",
+        "pos": "0.387959 0.493659 -0.5",
+        "gravcomp": "1"
+      },
+      "attributes": {
+        "depth": 2,
+        "local_coord": false,
+        "name": "11",
+        "cind": 4,
+        "pos": [
+          0.3879588623939909,
+          0.4936590532679832,
+          -0.5
+        ],
+        "bone_start": [
+          0.3879588623939909,
+          0.4936590532679832,
+          -0.5
+        ],
+        "param_inited": true,
+        "bone_end": [
+          0.8528588552053123,
+          0.9897223730199499,
+          -1.0
+        ],
+        "bone_offset": [
+          0.46489999281132144,
+          0.4960633197519667,
+          -0.5
+        ],
+        "height": 1
+      },
+      "parameter_specs": {
+        "offset": {
+          "type": "xy",
+          "lb": [
+            -0.5,
+            -0.5
+          ],
+          "ub": [
+            0.5,
+            0.5
+          ]
+        }
+      },
+      "joints": [
+        {
+          "name": "11_joint",
+          "type": "hinge",
+          "xml_attributes": {
+            "axis": "-0.707107 0.707107 0",
+            "name": "11_joint",
+            "pos": "0.387959 0.493659 -0.5",
+            "range": "-30 30",
+            "type": "hinge",
+            "damping": "0"
+          },
+          "attributes": {
+            "local_coord": false,
+            "name": "11_joint",
+            "type": "hinge",
+            "range": [
+              -0.5235987755982988,
+              0.5235987755982988
+            ],
+            "param_inited": true,
+            "pos": [
+              0.3879588623939909,
+              0.4936590532679832,
+              -0.5
+            ],
+            "axis": [
+              1.5707963267948966,
+              2.356194490192345
+            ]
+          },
+          "parameter_specs": {},
+          "actuator": {
+            "xml_attributes": {
+              "ctrllimited": "true",
+              "ctrlrange": "-1.0 1.0",
+              "joint": "11_joint",
+              "gear": "38.567847",
+              "name": "11_joint"
+            },
+            "attributes": {
+              "joint_name": "1_joint",
+              "name": "11_joint",
+              "param_inited": true,
+              "gear": 38.567847357437586
+            },
+            "parameter_specs": {
+              "gear": {
+                "lb": 20,
+                "ub": 400
+              }
+            }
+          }
+        }
+      ],
+      "geoms": [
+        {
+          "name": "",
+          "type": "capsule",
+          "xml_attributes": {
+            "fromto": "0.337435 0.439748 -0.445661 0.852859 0.989722 -1",
+            "size": "0.07998 0.07998 0.07998",
+            "type": "capsule"
+          },
+          "attributes": {
+            "local_coord": false,
+            "name": "",
+            "type": "capsule",
+            "param_inited": true,
+            "size": [
+              0.07997953788514056,
+              0.07997953788514056,
+              0.07997953788514056
+            ],
+            "start": [
+              0.33743458055635056,
+              0.439748011400887,
+              -0.44566112860949697
+            ],
+            "end": [
+              0.8528588552053123,
+              0.9897223730199499,
+              -1.0
+            ],
+            "bone_start": [
+              0.3879588623939909,
+              0.4936590532679832,
+              -0.5
+            ],
+            "ext_start": [
+              0.09171595517901315
+            ]
+          },
+          "parameter_specs": {
+            "size": {
+              "lb": [
+                0.03,
+                0.03,
+                0.03
+              ],
+              "ub": [
+                0.1,
+                0.1,
+                0.1
+              ]
+            },
+            "ellipsoid_radius": {
+              "lb": [
+                0.2,
+                0.2,
+                0.15
+              ],
+              "ub": [
+                0.35,
+                0.35,
+                0.25
+              ]
+            },
+            "ext_start": {
+              "lb": 0.0,
+              "ub": 0.2
+            }
+          }
+        }
+      ],
+      "simulation": {
+        "model_name": "11",
+        "model_body_id": 3,
+        "world_position": [
+          0.8536125121781442,
+          0.4593125121781442,
+          2.1448409224828757
+        ],
+        "world_rotation_matrix": [
+          [
+            0.9952356319350745,
+            -0.004764368064925847,
+            0.09738243026201146
+          ],
+          [
+            -0.004764368064925847,
+            0.9952356319350745,
+            0.09738243026201146
+          ],
+          [
+            -0.09738243026201146,
+            -0.09738243026201146,
+            0.9904712638701486
+          ]
+        ],
+        "spatial_velocity": [
+          0.00776303928213256,
+          -0.00776303928213256,
+          0.0,
+          -0.039549578512815646,
+          -0.049464857837037426,
+          -0.007281774948626665
+        ],
+        "mass": 0.10472918125695903,
+        "inertia": [
+          0.00968207224885425,
+          0.00968207224885425,
+          0.0003281114947606624
+        ]
+      }
+    },
+    {
+      "agent_id": 0,
+      "body_index": 6,
+      "name": "12",
+      "parent": "2",
+      "children": [],
+      "depth": 2,
+      "height": 0,
+      "subtree_body_count": 1,
+      "subtree_edge_count": 0,
+      "subtree_max_depth": 2,
+      "subtree_total_bone_length": 0.8353362211686315,
+      "subtree_longest_path_length": 0.0,
+      "bone_length": 0.8353362211686315,
+      "xml_attributes": {
+        "name": "12",
+        "pos": "-0.496814 0.479574 -0.5",
+        "gravcomp": "1"
+      },
+      "attributes": {
+        "depth": 2,
+        "local_coord": false,
+        "name": "12",
+        "cind": 0,
+        "pos": [
+          -0.49681407249237003,
+          0.4795741909953797,
+          -0.5
+        ],
+        "bone_start": [
+          -0.49681407249237003,
+          0.4795741909953797,
+          -0.5
+        ],
+        "param_inited": true,
+        "bone_end": [
+          -0.942280061239951,
+          0.9789204188427811,
+          -1.0
+        ],
+        "bone_offset": [
+          -0.445465988747581,
+          0.49934622784740146,
+          -0.5
+        ],
+        "height": 0
+      },
+      "parameter_specs": {
+        "offset": {
+          "type": "xy",
+          "lb": [
+            -0.5,
+            -0.5
+          ],
+          "ub": [
+            0.5,
+            0.5
+          ]
+        }
+      },
+      "joints": [
+        {
+          "name": "12_joint",
+          "type": "hinge",
+          "xml_attributes": {
+            "axis": "-0.707107 -0.707107 0",
+            "name": "12_joint",
+            "pos": "-0.496814 0.479574 -0.5",
+            "range": "-30 30",
+            "type": "hinge",
+            "damping": "0"
+          },
+          "attributes": {
+            "local_coord": false,
+            "name": "12_joint",
+            "type": "hinge",
+            "range": [
+              -0.5235987755982988,
+              0.5235987755982988
+            ],
+            "param_inited": true,
+            "pos": [
+              -0.49681407249237003,
+              0.4795741909953797,
+              -0.5
+            ],
+            "axis": [
+              1.5707963267948966,
+              -2.356194490192345
+            ]
+          },
+          "parameter_specs": {},
+          "actuator": {
+            "xml_attributes": {
+              "ctrllimited": "true",
+              "ctrlrange": "-1.0 1.0",
+              "joint": "12_joint",
+              "gear": "59.438981",
+              "name": "12_joint"
+            },
+            "attributes": {
+              "joint_name": "2_joint",
+              "name": "12_joint",
+              "param_inited": true,
+              "gear": 59.438980765740936
+            },
+            "parameter_specs": {
+              "gear": {
+                "lb": 20,
+                "ub": 400
+              }
+            }
+          }
+        }
+      ],
+      "geoms": [
+        {
+          "name": "",
+          "type": "capsule",
+          "xml_attributes": {
+            "fromto": "-0.437346 0.412914 -0.433252 -0.94228 0.97892 -1",
+            "size": "0.085187 0.085187 0.085187",
+            "type": "capsule"
+          },
+          "attributes": {
+            "local_coord": false,
+            "name": "",
+            "type": "capsule",
+            "param_inited": true,
+            "size": [
+              0.08518693468981686,
+              0.08518693468981686,
+              0.08518693468981686
+            ],
+            "start": [
+              -0.4373462124008253,
+              0.41291354267437774,
+              -0.4332520758108408
+            ],
+            "end": [
+              -0.942280061239951,
+              0.9789204188427811,
+              -1.0
+            ],
+            "bone_start": [
+              -0.49681407249237003,
+              0.4795741909953797,
+              -0.5
+            ],
+            "ext_start": [
+              0.11151391752604506
+            ]
+          },
+          "parameter_specs": {
+            "size": {
+              "lb": [
+                0.03,
+                0.03,
+                0.03
+              ],
+              "ub": [
+                0.1,
+                0.1,
+                0.1
+              ]
+            },
+            "ellipsoid_radius": {
+              "lb": [
+                0.2,
+                0.2,
+                0.15
+              ],
+              "ub": [
+                0.35,
+                0.35,
+                0.25
+              ]
+            },
+            "ext_start": {
+              "lb": 0.0,
+              "ub": 0.2
+            }
+          }
+        }
+      ],
+      "simulation": {
+        "model_name": "12",
+        "model_body_id": 7,
+        "world_position": [
+          0.02129419622553036,
+          0.46146580377446966,
+          2.166422041823857
+        ],
+        "world_rotation_matrix": [
+          [
+            0.9992546197609268,
+            0.0007453802390734764,
+            -0.03859597511069452
+          ],
+          [
+            0.0007453802390734764,
+            0.9992546197609268,
+            0.03859597511069452
+          ],
+          [
+            0.03859597511069452,
+            -0.03859597511069452,
+            0.9985092395218532
+          ]
+        ],
+        "spatial_velocity": [
+          -0.023846030557975517,
+          -0.023846030557975517,
+          0.0,
+          -0.02596142373383539,
+          -0.10638188370066864,
+          -0.07852319674744654
+        ],
+        "mass": 0.12087862657411633,
+        "inertia": [
+          0.011590490802328303,
+          0.011590490802328303,
+          0.00042920190230199363
+        ]
+      }
+    },
+    {
+      "agent_id": 0,
+      "body_index": 7,
+      "name": "13",
+      "parent": "3",
+      "children": [],
+      "depth": 2,
+      "height": 0,
+      "subtree_body_count": 1,
+      "subtree_edge_count": 0,
+      "subtree_max_depth": 2,
+      "subtree_total_bone_length": 0.854928456432861,
+      "subtree_longest_path_length": 0.0,
+      "bone_length": 0.854928456432861,
+      "xml_attributes": {
+        "name": "13",
+        "pos": "-0.348115 -0.493872 -0.5",
+        "gravcomp": "1"
+      },
+      "attributes": {
+        "depth": 2,
+        "local_coord": false,
+        "name": "13",
+        "cind": 0,
+        "pos": [
+          -0.34811480367712866,
+          -0.49387193572171223,
+          -0.5
+        ],
+        "bone_start": [
+          -0.34811480367712866,
+          -0.49387193572171223,
+          -0.5
+        ],
+        "param_inited": true,
+        "bone_end": [
+          -0.8344623322128482,
+          -0.9882086095644201,
+          -1.0
+        ],
+        "bone_offset": [
+          -0.4863475285357195,
+          -0.4943366738427079,
+          -0.5
+        ],
+        "height": 0
+      },
+      "parameter_specs": {
+        "offset": {
+          "type": "xy",
+          "lb": [
+            -0.5,
+            -0.5
+          ],
+          "ub": [
+            0.5,
+            0.5
+          ]
+        }
+      },
+      "joints": [
+        {
+          "name": "13_joint",
+          "type": "hinge",
+          "xml_attributes": {
+            "axis": "0.707107 -0.707107 0",
+            "name": "13_joint",
+            "pos": "-0.348115 -0.493872 -0.5",
+            "range": "-30 30",
+            "type": "hinge",
+            "damping": "0"
+          },
+          "attributes": {
+            "local_coord": false,
+            "name": "13_joint",
+            "type": "hinge",
+            "range": [
+              -0.5235987755982988,
+              0.5235987755982988
+            ],
+            "param_inited": true,
+            "pos": [
+              -0.34811480367712866,
+              -0.49387193572171223,
+              -0.5
+            ],
+            "axis": [
+              1.5707963267948966,
+              -0.7853981633974483
+            ]
+          },
+          "parameter_specs": {},
+          "actuator": {
+            "xml_attributes": {
+              "ctrllimited": "true",
+              "ctrlrange": "-1.0 1.0",
+              "joint": "13_joint",
+              "gear": "29.56272",
+              "name": "13_joint"
+            },
+            "attributes": {
+              "joint_name": "3_joint",
+              "name": "13_joint",
+              "param_inited": true,
+              "gear": 29.562719873758446
+            },
+            "parameter_specs": {
+              "gear": {
+                "lb": 20,
+                "ub": 400
+              }
+            }
+          }
+        }
+      ],
+      "geoms": [
+        {
+          "name": "",
+          "type": "capsule",
+          "xml_attributes": {
+            "fromto": "-0.283689 -0.428388 -0.433766 -0.834462 -0.988209 -1",
+            "size": "0.087336 0.087336 0.087336",
+            "type": "capsule"
+          },
+          "attributes": {
+            "local_coord": false,
+            "name": "",
+            "type": "capsule",
+            "param_inited": true,
+            "size": [
+              0.0873358838792366,
+              0.0873358838792366,
+              0.0873358838792366
+            ],
+            "start": [
+              -0.2836894092072931,
+              -0.4283882366287829,
+              -0.43376609246498526
+            ],
+            "end": [
+              -0.8344623322128482,
+              -0.9882086095644201,
+              -1.0
+            ],
+            "bone_start": [
+              -0.34811480367712866,
+              -0.49387193572171223,
+              -0.5
+            ],
+            "ext_start": [
+              0.11325050466485398
+            ]
+          },
+          "parameter_specs": {
+            "size": {
+              "lb": [
+                0.03,
+                0.03,
+                0.03
+              ],
+              "ub": [
+                0.1,
+                0.1,
+                0.1
+              ]
+            },
+            "ellipsoid_radius": {
+              "lb": [
+                0.2,
+                0.2,
+                0.15
+              ],
+              "ub": [
+                0.35,
+                0.35,
+                0.25
+              ]
+            },
+            "ext_start": {
+              "lb": 0.0,
+              "ub": 0.2
+            }
+          }
+        }
+      ],
+      "simulation": {
+        "model_name": "13",
+        "model_body_id": 9,
+        "world_position": [
+          0.18473222484787483,
+          -0.4610247751521251,
+          2.1494039663641216
+        ],
+        "world_rotation_matrix": [
+          [
+            0.9997643059294761,
+            -0.00023569407052404445,
+            -0.021708916086675738
+          ],
+          [
+            -0.00023569407052404445,
+            0.9997643059294761,
+            -0.021708916086675738
+          ],
+          [
+            0.021708916086675738,
+            0.021708916086675738,
+            0.9995286118589519
+          ]
+        ],
+        "spatial_velocity": [
+          0.019430929826418718,
+          -0.019430929826418718,
+          0.0,
+          -0.06530391840593598,
+          -0.07521919773015777,
+          -0.0130711318332387
+        ],
+        "mass": 0.12995322200985027,
+        "inertia": [
+          0.013037087880735258,
+          0.013037087880735258,
+          0.0004849720516581595
+        ]
+      }
+    },
+    {
+      "agent_id": 0,
+      "body_index": 8,
+      "name": "21",
+      "parent": "1",
+      "children": [],
+      "depth": 2,
+      "height": 0,
+      "subtree_body_count": 1,
+      "subtree_edge_count": 0,
+      "subtree_max_depth": 2,
+      "subtree_total_bone_length": 0.8574299198671221,
+      "subtree_longest_path_length": 0.0,
+      "bone_length": 0.8574299198671221,
+      "xml_attributes": {
+        "name": "21",
+        "pos": "0.387959 0.493659 -0.5",
+        "gravcomp": "1"
+      },
+      "attributes": {
+        "depth": 2,
+        "local_coord": false,
+        "name": "21",
+        "cind": 0,
+        "pos": [
+          0.3879588623939909,
+          0.4936590532679832,
+          -0.5
+        ],
+        "bone_start": [
+          0.3879588623939909,
+          0.4936590532679832,
+          -0.5
+        ],
+        "param_inited": true,
+        "bone_end": [
+          0.8860520843753186,
+          0.9805771261504748,
+          -1.0
+        ],
+        "bone_offset": [
+          0.49809322198132766,
+          0.48691807288249156,
+          -0.5
+        ],
+        "height": 0
+      },
+      "parameter_specs": {
+        "offset": {
+          "type": "xy",
+          "lb": [
+            -0.5,
+            -0.5
+          ],
+          "ub": [
+            0.5,
+            0.5
+          ]
+        }
+      },
+      "joints": [
+        {
+          "name": "21_joint",
+          "type": "hinge",
+          "xml_attributes": {
+            "axis": "-0.707107 0.707107 0",
+            "name": "21_joint",
+            "pos": "0.387959 0.493659 -0.5",
+            "range": "-30 30",
+            "type": "hinge",
+            "damping": "0"
+          },
+          "attributes": {
+            "local_coord": false,
+            "name": "21_joint",
+            "type": "hinge",
+            "range": [
+              -0.5235987755982988,
+              0.5235987755982988
+            ],
+            "param_inited": true,
+            "pos": [
+              0.3879588623939909,
+              0.4936590532679832,
+              -0.5
+            ],
+            "axis": [
+              1.5707963267948966,
+              2.356194490192345
+            ]
+          },
+          "parameter_specs": {},
+          "actuator": {
+            "xml_attributes": {
+              "ctrllimited": "true",
+              "ctrlrange": "-1.0 1.0",
+              "joint": "21_joint",
+              "gear": "48.833263",
+              "name": "21_joint"
+            },
+            "attributes": {
+              "joint_name": "1_joint",
+              "name": "21_joint",
+              "param_inited": true,
+              "gear": 48.83326327205168
+            },
+            "parameter_specs": {
+              "gear": {
+                "lb": 20,
+                "ub": 400
+              }
+            }
+          }
+        }
+      ],
+      "geoms": [
+        {
+          "name": "",
+          "type": "capsule",
+          "xml_attributes": {
+            "fromto": "0.310733 0.418166 -0.422479 0.886052 0.980577 -1",
+            "size": "0.061576 0.061576 0.061576",
+            "type": "capsule"
+          },
+          "attributes": {
+            "local_coord": false,
+            "name": "",
+            "type": "capsule",
+            "param_inited": true,
+            "size": [
+              0.061575794248353403,
+              0.061575794248353403,
+              0.061575794248353403
+            ],
+            "start": [
+              0.3107332796148773,
+              0.4181660927445353,
+              -0.4224787857261701
+            ],
+            "end": [
+              0.8860520843753186,
+              0.9805771261504748,
+              -1.0
+            ],
+            "bone_start": [
+              0.3879588623939909,
+              0.4936590532679832,
+              -0.5
+            ],
+            "ext_start": [
+              0.13293801708562394
+            ]
+          },
+          "parameter_specs": {
+            "size": {
+              "lb": [
+                0.03,
+                0.03,
+                0.03
+              ],
+              "ub": [
+                0.1,
+                0.1,
+                0.1
+              ]
+            },
+            "ellipsoid_radius": {
+              "lb": [
+                0.2,
+                0.2,
+                0.15
+              ],
+              "ub": [
+                0.35,
+                0.35,
+                0.25
+              ]
+            },
+            "ext_start": {
+              "lb": 0.0,
+              "ub": 0.2
+            }
+          }
+        }
+      ],
+      "simulation": {
+        "model_name": "21",
+        "model_body_id": 5,
+        "world_position": [
+          0.8536125121781442,
+          0.4593125121781442,
+          2.1448409224828757
+        ],
+        "world_rotation_matrix": [
+          [
+            0.9969932360248793,
+            -0.0030067639751206188,
+            0.07743026986287127
+          ],
+          [
+            -0.0030067639751206188,
+            0.9969932360248793,
+            0.07743026986287127
+          ],
+          [
+            -0.07743026986287127,
+            -0.07743026986287127,
+            0.9939864720497588
+          ]
+        ],
+        "spatial_velocity": [
+          0.06079176372340042,
+          -0.06079176372340042,
+          0.0,
+          -0.04281762313499322,
+          -0.052732902459215,
+          -0.04567839730274917
+        ],
+        "mass": 0.0638745228423786,
+        "inertia": [
+          0.006195327090607979,
+          0.006195327090607979,
+          0.00011923941431150833
+        ]
+      }
+    },
+    {
+      "agent_id": 0,
+      "body_index": 9,
+      "name": "23",
+      "parent": "3",
+      "children": [],
+      "depth": 2,
+      "height": 0,
+      "subtree_body_count": 1,
+      "subtree_edge_count": 0,
+      "subtree_max_depth": 2,
+      "subtree_total_bone_length": 0.8637709111734919,
+      "subtree_longest_path_length": 0.0,
+      "bone_length": 0.8637709111734919,
+      "xml_attributes": {
+        "name": "23",
+        "pos": "-0.348115 -0.493872 -0.5",
+        "gravcomp": "1"
+      },
+      "attributes": {
+        "depth": 2,
+        "local_coord": false,
+        "name": "23",
+        "cind": 0,
+        "pos": [
+          -0.34811480367712866,
+          -0.49387193572171223,
+          -0.5
+        ],
+        "bone_start": [
+          -0.34811480367712866,
+          -0.49387193572171223,
+          -0.5
+        ],
+        "param_inited": true,
+        "bone_end": [
+          -0.8449792365269377,
+          -0.993097257954391,
+          -1.0
+        ],
+        "bone_offset": [
+          -0.49686443284980913,
+          -0.49922532223267874,
+          -0.5
+        ],
+        "height": 0
+      },
+      "parameter_specs": {
+        "offset": {
+          "type": "xy",
+          "lb": [
+            -0.5,
+            -0.5
+          ],
+          "ub": [
+            0.5,
+            0.5
+          ]
+        }
+      },
+      "joints": [
+        {
+          "name": "23_joint",
+          "type": "hinge",
+          "xml_attributes": {
+            "axis": "0.707107 -0.707107 0",
+            "name": "23_joint",
+            "pos": "-0.348115 -0.493872 -0.5",
+            "range": "-30 30",
+            "type": "hinge",
+            "damping": "0"
+          },
+          "attributes": {
+            "local_coord": false,
+            "name": "23_joint",
+            "type": "hinge",
+            "range": [
+              -0.5235987755982988,
+              0.5235987755982988
+            ],
+            "param_inited": true,
+            "pos": [
+              -0.34811480367712866,
+              -0.49387193572171223,
+              -0.5
+            ],
+            "axis": [
+              1.5707963267948966,
+              -0.7853981633974483
+            ]
+          },
+          "parameter_specs": {},
+          "actuator": {
+            "xml_attributes": {
+              "ctrllimited": "true",
+              "ctrlrange": "-1.0 1.0",
+              "joint": "23_joint",
+              "gear": "29.838446",
+              "name": "23_joint"
+            },
+            "attributes": {
+              "joint_name": "3_joint",
+              "name": "23_joint",
+              "param_inited": true,
+              "gear": 29.83844596900143
+            },
+            "parameter_specs": {
+              "gear": {
+                "lb": 20,
+                "ub": 400
+              }
+            }
+          }
+        }
+      ],
+      "geoms": [
+        {
+          "name": "",
+          "type": "capsule",
+          "xml_attributes": {
+            "fromto": "-0.273936 -0.419341 -0.425353 -0.844979 -0.993097 -1",
+            "size": "0.065426 0.065426 0.065426",
+            "type": "capsule"
+          },
+          "attributes": {
+            "local_coord": false,
+            "name": "",
+            "type": "capsule",
+            "param_inited": true,
+            "size": [
+              0.06542631584429173,
+              0.06542631584429173,
+              0.06542631584429173
+            ],
+            "start": [
+              -0.273935919410309,
+              -0.4193405848086201,
+              -0.4253529943355371
+            ],
+            "end": [
+              -0.8449792365269377,
+              -0.993097257954391,
+              -1.0
+            ],
+            "bone_start": [
+              -0.34811480367712866,
+              -0.49387193572171223,
+              -0.5
+            ],
+            "ext_start": [
+              0.12895582419833182
+            ]
+          },
+          "parameter_specs": {
+            "size": {
+              "lb": [
+                0.03,
+                0.03,
+                0.03
+              ],
+              "ub": [
+                0.1,
+                0.1,
+                0.1
+              ]
+            },
+            "ellipsoid_radius": {
+              "lb": [
+                0.2,
+                0.2,
+                0.15
+              ],
+              "ub": [
+                0.35,
+                0.35,
+                0.25
+              ]
+            },
+            "ext_start": {
+              "lb": 0.0,
+              "ub": 0.2
+            }
+          }
+        }
+      ],
+      "simulation": {
+        "model_name": "23",
+        "model_body_id": 10,
+        "world_position": [
+          0.18473222484787483,
+          -0.4610247751521251,
+          2.1494039663641216
+        ],
+        "world_rotation_matrix": [
+          [
+            0.9985867589889172,
+            -0.0014132410110828562,
+            -0.05312708839993869
+          ],
+          [
+            -0.0014132410110828562,
+            0.9985867589889172,
+            -0.05312708839993869
+          ],
+          [
+            0.05312708839993869,
+            0.05312708839993869,
+            0.9971735179778345
+          ]
+        ],
+        "spatial_velocity": [
+          0.0387463877880794,
+          -0.0387463877880794,
+          0.0,
+          -0.06640615066737729,
+          -0.07632142999159908,
+          0.003639548307187067
+        ],
+        "mass": 0.07261538069594899,
+        "inertia": [
+          0.007151331847367763,
+          0.007151331847367763,
+          0.00015290651018179323
+        ]
+      }
+    },
+    {
+      "agent_id": 0,
+      "body_index": 10,
+      "name": "111",
+      "parent": "11",
+      "children": [],
+      "depth": 3,
+      "height": 0,
+      "subtree_body_count": 1,
+      "subtree_edge_count": 0,
+      "subtree_max_depth": 3,
+      "subtree_total_bone_length": 0.8595661376884581,
+      "subtree_longest_path_length": 0.0,
+      "bone_length": 0.8595661376884581,
+      "xml_attributes": {
+        "name": "111",
+        "pos": "0.852859 0.989722 -1",
+        "gravcomp": "1"
+      },
+      "attributes": {
+        "depth": 3,
+        "local_coord": false,
+        "name": "111",
+        "cind": 0,
+        "pos": [
+          0.8528588552053123,
+          0.9897223730199499,
+          -1.0
+        ],
+        "bone_start": [
+          0.8528588552053123,
+          0.9897223730199499,
+          -1.0
+        ],
+        "param_inited": true,
+        "bone_end": [
+          1.3490504661049152,
+          1.4823153392035024,
+          -1.5
+        ],
+        "bone_offset": [
+          0.49619161089960273,
+          0.49259296618355264,
+          -0.5
+        ],
+        "height": 0
+      },
+      "parameter_specs": {
+        "offset": {
+          "type": "xy",
+          "lb": [
+            -0.5,
+            -0.5
+          ],
+          "ub": [
+            0.5,
+            0.5
+          ]
+        }
+      },
+      "joints": [
+        {
+          "name": "111_joint",
+          "type": "hinge",
+          "xml_attributes": {
+            "axis": "-0.707107 0.707107 0",
+            "name": "111_joint",
+            "pos": "0.852859 0.989722 -1",
+            "range": "-30 30",
+            "type": "hinge",
+            "damping": "0"
+          },
+          "attributes": {
+            "local_coord": false,
+            "name": "111_joint",
+            "type": "hinge",
+            "range": [
+              -0.5235987755982988,
+              0.5235987755982988
+            ],
+            "param_inited": true,
+            "pos": [
+              0.8528588552053123,
+              0.9897223730199499,
+              -1.0
+            ],
+            "axis": [
+              1.5707963267948966,
+              2.356194490192345
+            ]
+          },
+          "parameter_specs": {},
+          "actuator": {
+            "xml_attributes": {
+              "ctrllimited": "true",
+              "ctrlrange": "-1.0 1.0",
+              "joint": "111_joint",
+              "gear": "51.469294",
+              "name": "111_joint"
+            },
+            "attributes": {
+              "joint_name": "11_joint",
+              "name": "111_joint",
+              "param_inited": true,
+              "gear": 51.46929353236983
+            },
+            "parameter_specs": {
+              "gear": {
+                "lb": 20,
+                "ub": 400
+              }
+            }
+          }
+        }
+      ],
+      "geoms": [
+        {
+          "name": "",
+          "type": "capsule",
+          "xml_attributes": {
+            "fromto": "0.798635 0.935891 -0.94536 1.34905 1.482315 -1.5",
+            "size": "0.065425 0.065425 0.065425",
+            "type": "capsule"
+          },
+          "attributes": {
+            "local_coord": false,
+            "name": "",
+            "type": "capsule",
+            "param_inited": true,
+            "size": [
+              0.06542547009797742,
+              0.06542547009797742,
+              0.06542547009797742
+            ],
+            "start": [
+              0.7986346008191485,
+              0.9358913816842733,
+              -0.9453595615130872
+            ],
+            "end": [
+              1.3490504661049152,
+              1.4823153392035024,
+              -1.5
+            ],
+            "bone_start": [
+              0.8528588552053123,
+              0.9897223730199499,
+              -1.0
+            ],
+            "ext_start": [
+              0.09393414134359884
+            ]
+          },
+          "parameter_specs": {
+            "size": {
+              "lb": [
+                0.03,
+                0.03,
+                0.03
+              ],
+              "ub": [
+                0.1,
+                0.1,
+                0.1
+              ]
+            },
+            "ellipsoid_radius": {
+              "lb": [
+                0.2,
+                0.2,
+                0.15
+              ],
+              "ub": [
+                0.35,
+                0.35,
+                0.25
+              ]
+            },
+            "ext_start": {
+              "lb": 0.0,
+              "ub": 0.2
+            }
+          }
+        }
+      ],
+      "simulation": {
+        "model_name": "111",
+        "model_body_id": 4,
+        "world_position": [
+          1.2652429156183633,
+          0.9021059156183633,
+          1.5560243782159282
+        ],
+        "world_rotation_matrix": [
+          [
+            0.998658221180879,
+            -0.0013417788191211074,
+            0.05176830012124535
+          ],
+          [
+            -0.0013417788191211074,
+            0.998658221180879,
+            0.05176830012124535
+          ],
+          [
+            -0.05176830012124535,
+            -0.05176830012124535,
+            0.997316442361758
+          ]
+        ],
+        "spatial_velocity": [
+          -0.019983743589600297,
+          0.019983743589600297,
+          0.0,
+          -0.021501840000070552,
+          -0.031417119324292336,
+          0.03651640954512375
+        ],
+        "mass": 0.06997559759491484,
+        "inertia": [
+          0.0064061996533713,
+          0.0064061996533713,
+          0.00014725224694399626
+        ]
+      }
+    }
+  ]
+}
