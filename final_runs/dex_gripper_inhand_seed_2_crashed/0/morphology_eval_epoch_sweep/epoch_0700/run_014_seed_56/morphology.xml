@@ -1,0 +1,97 @@
+<mujoco model="dex-gripper">
+  <asset>
+    <texture name="skybox" type="skybox" builtin="gradient" rgb1=".2 .3 .4" rgb2="0 0 0" width="800" height="800" mark="random" markrgb="1 1 1"/>
+    <texture name="grid" type="2d" builtin="checker" rgb1=".2 .1 .2" rgb2=".3 .2 .3" width="300" height="300" mark="edge" markrgb=".3 .2 .3"/>
+    <material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance=".2"/>
+    <material name="self" rgba=".7 .5 .3 1"/>
+  </asset>
+  <visual>
+    <headlight ambient=".4 .4 .4" diffuse=".8 .8 .8" specular="0.1 0.1 0.1"/>
+    <map znear=".001"/>
+    <quality shadowsize="16384"/>
+  </visual>
+  <compiler coordinate="local" angle="degree" inertiafromgeom="true"/>
+  <option integrator="RK4" timestep="0.01"/>
+  <default>
+    <joint armature="1" damping="1" limited="true"/>
+    <geom conaffinity="0" condim="3" density="5.0" friction="1 0.5 0.5" margin="0.01" rgba=".7 .5 .3 1"/>
+  </default>
+  <worldbody>
+    <light cutoff="100" diffuse="1 1 1" dir="0.3 0 -1.3" directional="true" exponent="1" pos="-30 0 130" specular=".1 .1 .1"/>
+    <geom conaffinity="1" condim="3" name="floor" pos="0 0 0" rgba="1 1 1 1" size="200 200 .125" type="plane" material="grid"/>
+    <!-- Fixed gripper base: no root slide joints anymore -->
+    <body name="0" pos="0 0 0.3" gravcomp="1">
+      <camera name="track" mode="fixed" pos="0 10 5" quat="0 0 0.547 0.892"/>
+      <geom pos="0 0 0" size="0.298502 0.286162 0.182535" type="ellipsoid"/>
+      <!-- Arm 1: flipped upward -->
+      <body name="1" pos="0 0 0" gravcomp="1">
+        <joint axis="-0.707107 0.707107 0" name="1_joint" pos="0 0 0" range="-45 45" type="hinge" damping="0"/>
+        <geom fromto="-0.056978 -0.035299 -0.105554 0.269897 0.167208 0.5" size="0.098375 0.098375 0.098375" type="capsule"/>
+      </body>
+      <!-- Arm 2: flipped upward -->
+      <body name="2" pos="0 0 0" gravcomp="1">
+        <joint axis="-0.707107 -0.707107 0" name="2_joint" pos="0 0 0" range="-45 45" type="hinge" damping="0"/>
+        <geom fromto="0.059321 -0.056047 -0.0846 -0.350596 0.33125 0.5" size="0.093374 0.093374 0.093374" type="capsule"/>
+      </body>
+      <!-- Arm 3: flipped upward -->
+      <body name="3" pos="0 0 0" gravcomp="1">
+        <joint axis="0.707107 -0.707107 0" name="3_joint" pos="0 0 0" range="-45 45" type="hinge" damping="0"/>
+        <geom fromto="-0.004685 0.008304 -0.02224 0.105334 -0.186687 0.5" size="0.070149 0.070149 0.070149" type="capsule"/>
+        <body name="13" pos="0.105334 -0.186687 0.5" gravcomp="1">
+          <joint axis="0.707107 -0.707107 0" name="13_joint" pos="0 0 0" range="-45 45" type="hinge" damping="0"/>
+          <geom fromto="0.052775 0.055074 -0.055141 -0.478548 -0.499392 0.5" size="0.093357 0.093357 0.093357" type="capsule"/>
+        </body>
+      </body>
+      <!-- Arm 4: flipped upward -->
+      <body name="4" pos="0 0 0" gravcomp="1">
+        <joint axis="0.707107 0.707107 0" name="4_joint" pos="0 0 0" range="-45 45" type="hinge" damping="0"/>
+        <geom fromto="0.000351 0.02191 -0.02895 -0.00607 -0.37842 0.5" size="0.075657 0.075657 0.075657" type="capsule"/>
+      </body>
+    </body>
+    <!-- Box starts above the gripper -->
+    <body name="box" pos="0 0 0">
+      <freejoint name="box_joint"/>
+      <!-- Top (Yellow) -->
+      <geom name="box_top" type="box" pos="0 0 0.295" size="0.3 0.3 0.005" rgba="1 1 0 1" density="10" friction="2.5 0.1 0.05" contype="1" conaffinity="1"/>
+      <!-- Bottom (White) -->
+      <geom name="box_bottom" type="box" pos="0 0 -0.295" size="0.3 0.3 0.005" rgba="1 1 1 1" density="10" friction="2.5 0.1 0.05" contype="1" conaffinity="1"/>
+      <!-- Front (Red) -->
+      <geom name="box_front" type="box" pos="0 0.295 0" size="0.3 0.005 0.3" rgba="1 0 0 1" density="10" friction="2.5 0.1 0.05" contype="1" conaffinity="1"/>
+      <!-- Back (Blue) -->
+      <geom name="box_back" type="box" pos="0 -0.295 0" size="0.3 0.005 0.3" rgba="0 0 1 1" density="10" friction="2.5 0.1 0.05" contype="1" conaffinity="1"/>
+      <!-- Left (Green) -->
+      <geom name="box_left" type="box" pos="-0.295 0 0" size="0.005 0.3 0.3" rgba="0 1 0 1" density="10" friction="2.5 0.1 0.05" contype="1" conaffinity="1"/>
+      <!-- Right (Magenta) -->
+      <geom name="box_right" type="box" pos="0.295 0 0" size="0.005 0.3 0.3" rgba="1 0 1 1" density="10" friction="2.5 0.1 0.05" contype="1" conaffinity="1"/>
+    </body>
+    <!-- RGB arrows visualize the target orientation and never participate in collisions. -->
+    <body name="goal_orientation_frame" pos="0 0 0">
+      <!-- Goal X axis (red). -->
+      <geom name="goal_axis_x_shaft" type="capsule" fromto="0 0 0 0.7 0 0" size="0.018" rgba="1 0.1 0.1 0.9" contype="0" conaffinity="0"/>
+      <geom name="goal_axis_x_head_pos" type="capsule" fromto="0.7 0 0 0.54 0.1 0" size="0.025" rgba="1 0.1 0.1 0.9" contype="0" conaffinity="0"/>
+      <geom name="goal_axis_x_head_neg" type="capsule" fromto="0.7 0 0 0.54 -0.1 0" size="0.025" rgba="1 0.1 0.1 0.9" contype="0" conaffinity="0"/>
+      <!-- Goal Y axis (green). -->
+      <geom name="goal_axis_y_shaft" type="capsule" fromto="0 0 0 0 0.7 0" size="0.018" rgba="0.1 1 0.1 0.9" contype="0" conaffinity="0"/>
+      <geom name="goal_axis_y_head_pos" type="capsule" fromto="0 0.7 0 0.1 0.54 0" size="0.025" rgba="0.1 1 0.1 0.9" contype="0" conaffinity="0"/>
+      <geom name="goal_axis_y_head_neg" type="capsule" fromto="0 0.7 0 -0.1 0.54 0" size="0.025" rgba="0.1 1 0.1 0.9" contype="0" conaffinity="0"/>
+      <!-- Goal Z axis (blue). -->
+      <geom name="goal_axis_z_shaft" type="capsule" fromto="0 0 0 0 0 0.7" size="0.018" rgba="0.1 0.3 1 0.9" contype="0" conaffinity="0"/>
+      <geom name="goal_axis_z_head_pos" type="capsule" fromto="0 0 0.7 0.1 0 0.54" size="0.025" rgba="0.1 0.3 1 0.9" contype="0" conaffinity="0"/>
+      <geom name="goal_axis_z_head_neg" type="capsule" fromto="0 0 0.7 -0.1 0 0.54" size="0.025" rgba="0.1 0.3 1 0.9" contype="0" conaffinity="0"/>
+    </body>
+    <body name="box_walls" pos="0 0 0">
+      <geom name="wall_left" type="box" pos="-4.0 0 0.5" size="0.05 2.05 0.5" rgba="0.8 0.2 0.2 1" contype="1" conaffinity="1"/>
+      <geom name="wall_right" type="box" pos="4.0 0 0.5" size="0.05 2.05 0.5" rgba="0.8 0.2 0.2 1" contype="1" conaffinity="1"/>
+      <geom name="wall_front" type="box" pos="0 2.0 0.5" size="4.05 0.05 0.5" rgba="0.2 0.2 0.8 1" contype="1" conaffinity="1"/>
+      <geom name="wall_back" type="box" pos="0 -2.0 0.5" size="4.05 0.05 0.5" rgba="0.2 0.2 0.8 1" contype="1" conaffinity="1"/>
+    </body>
+  </worldbody>
+  <actuator>
+    <!-- Only the finger joints remain actuated -->
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="1_joint" gear="41.082439" name="1_joint"/>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="2_joint" gear="82.346834" name="2_joint"/>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="3_joint" gear="75.706557" name="3_joint"/>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="4_joint" gear="116.79866" name="4_joint"/>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="13_joint" gear="110.614802" name="13_joint"/>
+  </actuator>
+</mujoco>
